@@ -1,0 +1,24 @@
+
+State Machine - |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|m1_state
+Name m1_state.m1_tx_rising_edge_marker m1_state.m1_tx_error_no_keyboard_ack m1_state.m1_tx_done_recovery m1_state.m1_tx_wait_keyboard_ack m1_state.m1_tx_clk_l m1_state.m1_tx_clk_h m1_state.m1_tx_wait_clk_h m1_state.m1_tx_reset_timer m1_state.m1_tx_first_wait_clk_l m1_state.m1_tx_first_wait_clk_h m1_state.m1_tx_force_clk_l m1_state.m1_rx_rising_edge_marker m1_state.m1_rx_falling_edge_marker m1_state.m1_rx_clk_l m1_state.m1_rx_clk_h 
+m1_state.m1_rx_clk_h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+m1_state.m1_rx_clk_l 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+m1_state.m1_rx_falling_edge_marker 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+m1_state.m1_rx_rising_edge_marker 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+m1_state.m1_tx_force_clk_l 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+m1_state.m1_tx_first_wait_clk_h 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+m1_state.m1_tx_first_wait_clk_l 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+m1_state.m1_tx_reset_timer 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+m1_state.m1_tx_wait_clk_h 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_clk_h 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_clk_l 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_wait_keyboard_ack 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_done_recovery 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_error_no_keyboard_ack 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_rising_edge_marker 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |sisa|proc:pro0|unidad_control:c0|multi:m0|estado
+Name estado.SYS estado.DEMW estado.FETCH 
+estado.FETCH 0 0 0 
+estado.DEMW 0 1 1 
+estado.SYS 1 0 1 
