@@ -36,7 +36,8 @@ port(clk       : IN  STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
 			 rds_bit  : OUT STD_LOGIC;
 			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC
+			 getiid_bit  : OUT STD_LOGIC;
+			 load_pc_sys : OUT STD_LOGIC
 			 ---------------------------------------------		
 			 );
 end entity;
@@ -55,6 +56,9 @@ begin
 	with estado select
 		di <= di_l when SYS,
 				  '0' when others;
+	with estado select
+		load_pc_sys <= reti_l when SYS,
+					'0' when others;
 				  
 	with estado select
 		reti <= reti_l when SYS,

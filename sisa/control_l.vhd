@@ -102,6 +102,7 @@ BEGIN
 				
 	 tknbr <= "01" when opcode = opcode_br and (not ir(8)) = z else
 				 "10" when opcode = opcode_jx and (ir(2 downto 0) = f_jal or ir(2 downto 0) = f_jmp or (ir(2 downto 0) = f_jz and z = '1') or (ir(2 downto 0) = f_jnz and z = '0')) else
+				 "11" when opcode = opcode_sys and ir(4 downto 0) = f_reti else
 				 "00";
 				  
 	 -- Control escriptura i memoria

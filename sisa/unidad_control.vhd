@@ -19,6 +19,7 @@ ENTITY unidad_control IS
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 reti_pc	  : IN StD_LOGIC_VECTOR(15 downto 0);
           ins_dad   : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
@@ -114,7 +115,8 @@ END COMPONENT;
 			 a_sys	 : OUT STD_LOGIC;
 			 rds_bit  : OUT STD_LOGIC;
 			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC
+			 getiid_bit  : OUT STD_LOGIC;
+			 load_pc_sys : OUT STD_LOGIC
 			 ---------------------------------------------		
 			 );
 	end COMPONENT;
@@ -127,7 +129,7 @@ END COMPONENT;
 	 signal load_pc, load_ir, rds_bit_t, wrs_bit_t, getiid_bit_t : std_logic;
 	 signal ir, new_pc, pc_calc, t_immed : std_logic_vector(15 downto 0);
 	 signal tknbr : std_logic_vector(1 downto 0);
-	 signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys : STD_LOGIC;
+	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys, load_pc_sys : STD_LOGIC;
 
 BEGIN
 
@@ -151,14 +153,15 @@ BEGIN
 								system => t_system, ins_dad => ins_dad, word_byte => word_byte,
 								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys,
 								rds_bit_l => rds_bit_t, wrs_bit_l => wrs_bit_t, getiid_bit_l => getiid_bit_t,
-								rds_bit => rds_bit, wrs_bit => wrs_bit, getiid_bit => getiid_bit);
+								rds_bit => rds_bit, wrs_bit => wrs_bit, getiid_bit => getiid_bit,
+								load_pc_sys => load_pc_sys);
 	 
 	 process(clk, boot, load_pc)
 		begin
 		if(boot = '1') then
 			new_pc <= pc_inicial;
 		elsif(rising_edge(clk)) then
-			if(load_pc = '1') then
+			if(load_pc = '1' or load_pc_sys = '1') then
 				new_pc <= pc_calc;
 			end if;
 			if(load_ir = '1') then
@@ -169,10 +172,18 @@ BEGIN
 	
 	immed <= t_immed;
 	
+	
+--	--Si es RETI voldrem que el PC sigui el que surt de REGS que es REG_S_A_>
+--	-- HAY CHAPUZA PQ SE tiENE QUE HACR SOLO EN ESTADO SYS, POR LO QUE ESTE MUX HACE DE DELAYER
+--	with reti_multi select
+--		reti_pc_final <= reti_pc when '1',
+--					new_pc + x"0002" when others;
+	
 	with tknbr select
 		pc_calc <= new_pc + x"0002" when "00",
 					  new_pc + (x"0002") + (t_immed(14 downto 0) & '0') when "01",
 					  aluout when "10",
+					  reti_pc when "11",
 					  new_pc when others;
 	
 	pc <= new_pc;

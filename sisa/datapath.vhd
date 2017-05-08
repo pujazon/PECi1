@@ -17,6 +17,7 @@ ENTITY datapath IS
 			 rds_bit : IN STD_LOGIC;
 			 wrs_bit : IN STD_LOGIC;
 			 getiid_bit : IN STD_LOGIC;
+			 reti_pc	  : OUT StD_LOGIC_VECTOR(15 downto 0);
 			 ---------------------------------------------
 			 in_op_mux  : IN  STD_LOGIC;
           addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -88,7 +89,7 @@ BEGIN
 	--
 	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => d_in_S, addr_a => addr_a, 
 												addr_d => addr_d, a => reg_a_sys,
-												ei => ei, di => di, reti => reti); --REG_IN NO TIENE BUENA PINTA
+												ei => ei, di => di, reti => reti); 
 												
 	-- Ahora con REG_SYS hay que elegir en reg_a que va si el de general o el de systema.
 	
@@ -136,6 +137,11 @@ BEGIN
 	 with ins_dad select
 		addr_m <= pc when '0',
 					alu_out when others;
+					
+	--Si es RETI voldrem que el PC sigui el que surt de REGS que es REG_S_A_>
+	-- HAY CHAPUZA PQ SE tiENE QUE HACR SOLO EN ESTADO SYS, POR LO QUE ESTE MUX HACE DE DELAYER
+
+	reti_pc <= reg_a_sys;
 	
 	data_wr <= reg_b;
 	

@@ -1,4 +1,4 @@
-C:/Users/Manolo/Desktop/interrupcions/vga_controller.vhd {1 {vcom -work work -2002 -explicit {C:\Users\Manolo\Desktop\interrupcions\vga_controller.vhd}
+C:/Users/Manolo/Desktop/interrupcions/vga_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/vga_controller.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
@@ -51,7 +51,7 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity cmp_alu
 -- Compiling architecture structure of cmp_alu
 
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit {C:\Users\Manolo\Desktop\interrupcions\vga_ram_dual.vhd}
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
@@ -106,11 +106,11 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package const_logic
 -- Compiling entity control_l
 -- Compiling architecture structure of control_l
-** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(101): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
-** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(101): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
-** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(101): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
-** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(101): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
-** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(106): (vcom-1083) Implicit array operator "/=" always returns TRUE (left length 3 is not equal to right length 5).
+** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(104): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
+** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(104): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
+** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(104): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
+** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(104): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
+** Warning: C:/Users/Manolo/Desktop/interrupcions/control_l.vhd(111): (vcom-1083) Implicit array operator "/=" always returns TRUE (left length 3 is not equal to right length 5).
 
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/keyboard_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/keyboard_controller.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -160,15 +160,15 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity controlador_io
 -- Compiling architecture structure of controlador_io
 
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/test_sisa.vhd {2 {vcom -work work -2002 -explicit {C:\Users\Manolo\Desktop\interrupcions\test_sisa.vhd}
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/test_sisa.vhd {2 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/test_sisa.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
 -- Compiling entity test_sisa
 -- Compiling architecture comportament of test_sisa
-** Warning: [4] C:\Users\Manolo\Desktop\interrupcions\test_sisa.vhd(66): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/Users/Manolo/Desktop/interrupcions/test_sisa.vhd(66): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/sisa.vhd {1 {vcom -work work -2002 -explicit {C:\Users\Manolo\Desktop\interrupcions\sisa.vhd}
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/sisa.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/sisa.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164

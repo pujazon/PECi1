@@ -1,0 +1,51 @@
+# Current time Mon May 08 15:07:01 2017
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.6d"
+# Version = "2010.11"
+# Date = "Nov  2 2010"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 10054c21. Traceback:
+# 0    0x10054c21: 'Tcl_SetObjResult + 0x91'
+# 1    0x00429674: '<unknown (@0x429674)>'
+# 2    0x00522131: 'Mtirpc_Init + 0x97df1'
+# 3    0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 4    0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 5    0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 6    0x1005391f: 'TclObjInterpProc + 0x23f'
+# 7    0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 8    0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 9    0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 10   0x1005391f: 'TclObjInterpProc + 0x23f'
+# 11   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 12   0x1000dd77: 'Tcl_EvalEx + 0x167'
+# 13   0x10057ee5: 'TclSignalExitThread + 0x255'
+# 14   0x1005848e: 'TclServiceIdle + 0x7e'
+# 15   0x1004b131: 'Tcl_DoOneEvent + 0x121'
+# 16   0x1025980f: 'Tk_UpdateObjCmd + 0x6f'
+# 17   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 18   0x1000dd77: 'Tcl_EvalEx + 0x167'
+# 19   0x1000f1a5: 'Tcl_EvalObjEx + 0x235'
+# 20   0x10011bf5: 'Tcl_EvalObjCmd + 0x75'
+# 21   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 22   0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 23   0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 24   0x1005391f: 'TclObjInterpProc + 0x23f'
+# 25   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 26   0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 27   0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 28   0x1005391f: 'TclObjInterpProc + 0x23f'
+# 29   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 30   0x1000dd77: 'Tcl_EvalEx + 0x167'
+# 31   0x1001b2c6: 'Tcl_UntraceCommand + 0x956'
+# 32   0x1005cb76: 'TclLookupArrayElement + 0x3c6'
+# 33   0x1005d790: 'TclPtrSetVar + 0x2c0'
+# 34   0x1002e07f: 'TclExprFloatError + 0x19af'
+# 35   0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 36   0x1000efc6: 'Tcl_EvalObjEx + 0x56'
+# 37   0x024faa8d: 'Itcl_EvalMemberCode + 0x22d'
+# 38   0x05f0b9c0: '<unknown (@0x5f0b9c0)>'
+StackWalk failed 126
+# End of Stack Trace
+
