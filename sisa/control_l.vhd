@@ -30,7 +30,10 @@ ENTITY control_l IS
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
 			 system 	 : OUT STD_LOGIC; 
-			 a_sys	 : OUT STD_LOGIC
+			 a_sys	 : OUT STD_LOGIC;
+			 rds_bit  : OUT STD_LOGIC;
+			 wrs_bit  : OUT STD_LOGIC;
+			 getiid_bit  : OUT STD_LOGIC
 			 ---------------------------------------------				 
 			 );
 END control_l;
@@ -102,8 +105,9 @@ BEGIN
 				 "00";
 				  
 	 -- Control escriptura i memoria
+	 -- Ojo que ara es 0 PER A TOTA INSTR. SYSTEMA - {RDS}
 	 
-	 wrd <= '0' when opcode = opcode_st or opcode = opcode_stb or opcode = opcode_br or (opcode = opcode_jx and ir(2 downto 0) /= f_jal)
+	 wrd <= '0' when opcode = opcode_st or opcode = opcode_stb or opcode = opcode_br or (opcode = opcode_jx and ir(2 downto 0) /= f_jal) or  (opcode = opcode_sys and (ir(4 downto 0) /= f_rds))
 					or (opcode = opcode_in_out and ir(8) = '1') --Si es IN de E/S escriura en BR. Si es out no -> '1'
 					else '1';
 					
@@ -114,7 +118,8 @@ BEGIN
 						else '0';
 						
 	 in_d <= "01" when opcode = opcode_ld or opcode = opcode_ldb else
-				"10" when opcode = opcode_jx
+				"10" when opcode = opcode_jx else
+				"11" when (opcode = opcode_sys and ir(4 downto 0) = f_rds)
 						else "00";
 						
 	 immed_x2 <= '1' when opcode = opcode_ld or opcode = opcode_st
@@ -143,12 +148,18 @@ BEGIN
 	di <= '1' when opcode = opcode_sys and ir(4 downto 0) = f_di else '0';	 
 	reti <= '1' when opcode = opcode_sys and ir(4 downto 0) = f_reti else '0';	 
 	
+	--Tambien haremos un par de signals para poder saber en el Datapath que instruccion de systema es
+	
+	rds_bit <= '1' when opcode = opcode_sys and ir(4 downto 0) = f_rds else '0';
+	wrs_bit <= '1' when  opcode = opcode_sys and ir(4 downto 0) = f_wrs else '0';
+	getiid_bit <=  '1' when opcode = opcode_sys and ir(4 downto 0) = f_getiid else '0';
+	
 	--Ha de escribir en S(i) si es un WRS pero tmb en EI, DI (S7) i RETI (S7 <- S0)
 	wrd_rsys <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_wrs or ir(4 downto 0) = f_ei or ir(4 downto 0) = f_di or ir(4 downto 0) = f_reti)					
 					else '0';
 					
 	--Lee de REG_SYS en un RDS pero tmb en un RETI (PC <- S1)	
-	a_sys <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_wrs or ir(4 downto 0) = f_reti)
+	a_sys <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_rds or ir(4 downto 0) = f_reti)
 				else '0';
 
 	--------------------------------------------------------------------

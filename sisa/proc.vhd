@@ -47,9 +47,11 @@ COMPONENT unidad_control IS
 			 di 	  : OUT  STD_LOGIC;
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
-			 system 	 : OUT STD_LOGIC;  
-			 a_sys	 : OUT STD_LOGIC
-			 ---------------------------------------------			 
+			 a_sys	 : OUT STD_LOGIC;
+			 rds_bit  : OUT STD_LOGIC;
+			 wrs_bit  : OUT STD_LOGIC;
+			 getiid_bit  : OUT STD_LOGIC
+			 ---------------------------------------------		 
 			 );
 END COMPONENT;
 
@@ -64,6 +66,9 @@ COMPONENT datapath IS
 			 reti	  : IN  STD_LOGIC;
 			 wrd_rsys : IN STD_LOGIC; 
 			 a_sys	 : IN STD_LOGIC;
+			 rds_bit : IN STD_LOGIC;
+			 wrs_bit : IN STD_LOGIC;
+			 getiid_bit : IN STD_LOGIC;
 			 ---------------------------------------------
 			 in_op_mux  : IN  STD_LOGIC;
           addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -92,7 +97,7 @@ END COMPONENT;
 		signal t_f : STD_LOGIC_VECTOR(4 downto 0);
 		signal t_in_d : STD_LOGIC_VECTOR(1 DOWNTO 0);
 		signal t_addr_io : STD_LOGIC_VECTOR(7 downto 0);
-		signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys : STD_LOGIC;
+		signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys, rds_bit_t, wrs_bit_t, getiid_bit_t : STD_LOGIC;
 
 	 
 BEGIN
@@ -103,14 +108,16 @@ BEGIN
 											in_d => t_in_d, immed_x2 =>t_immed_x2, z => t_z, aluout => t_aluout,
 											wr_m => t_wr_m, br_n => t_br_n, word_byte => t_word_byte,
 											rd_in => rd_in, wr_out => wr_out, in_op_mux => t_in_op_mux, addr_io => addr_io,
-											ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys);
+											ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
+											rds_bit => rds_bit_t, wrs_bit => wrs_bit_t, getiid_bit => getiid_bit_t);
 											
 	e0: datapath port map(	clk => clk, op => t_op, f => t_f, wrd => t_wrd, in_op_mux => t_in_op_mux, addr_a => t_addr_a, 
 									addr_b => t_addr_b, addr_d => t_addr_d, immed => t_immed, aluout => t_aluout, rd_io => rd_io,
 									immed_x2 => t_immed_x2, datard_m => datard_m, ins_dad => t_ins_dad,
 									pc => t_pc, in_d => t_in_d, br_n => t_br_n, addr_m => addr_m, data_wr => data_wr, z => t_z,
 									wr_io => wr_io,
-									ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys);
+									ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
+									rds_bit => rds_bit_t, wrs_bit => wrs_bit_t, getiid_bit => getiid_bit_t);
 											
 	wr_m <= t_wr_m;
 		

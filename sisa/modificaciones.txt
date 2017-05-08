@@ -1,0 +1,13 @@
+:: Control_l
+Fallaba el f_rds de a_sys 
+Fallaba el permis wrd que s'habia de cancelar
+
+::Datapath
+
+Fallaba la dada que entraba a REG_S 
+Tanto para WRS como RDS
+
+::MULTI
+
+Las señales que faltaban (++ rds, wrs, getiid:tbits)
+i aguantar wrd para SYS tmb

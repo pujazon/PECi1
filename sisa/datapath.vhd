@@ -14,6 +14,9 @@ ENTITY datapath IS
 			 reti	  : IN  STD_LOGIC;
 			 wrd_rsys : IN STD_LOGIC; 
 			 a_sys	 : IN STD_LOGIC;
+			 rds_bit : IN STD_LOGIC;
+			 wrs_bit : IN STD_LOGIC;
+			 getiid_bit : IN STD_LOGIC;
 			 ---------------------------------------------
 			 in_op_mux  : IN  STD_LOGIC;
           addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -70,8 +73,9 @@ ARCHITECTURE Structure OF datapath IS
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 	END COMPONENT;
 	
-	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b : STD_LOGIC_VECTOR (15 downto 0);
+	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S : STD_LOGIC_VECTOR (15 downto 0);
 	signal reg_in, reg_in_t, immed_out, y_alu : STD_LOGIC_VECTOR (15 downto 0);
+	signal bit_d_in_S : STD_LOGIC;
 	 
 BEGIN
 
@@ -81,7 +85,8 @@ BEGIN
 	 reg0: regfile port map (clk => clk, wrd => wrd, d => reg_in, addr_a => addr_a, addr_b => addr_b, 
 									 addr_d => addr_d, a => reg_a_gen, b => reg_b);
 	
-	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => reg_in, addr_a => addr_a, 
+	--
+	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => d_in_S, addr_a => addr_a, 
 												addr_d => addr_d, a => reg_a_sys,
 												ei => ei, di => di, reti => reti); --REG_IN NO TIENE BUENA PINTA
 												
@@ -97,7 +102,17 @@ BEGIN
 	 with in_d select
 		reg_in_t <= alu_out when "00",
 					 datard_m when "01",
+					 reg_a_sys when "11",--Si es RDS en REG0 ira lo que lea de REGS
 					 pc + x"0002" when others;
+					 
+	--Mirem si la intruccio de sistema es WRS per tant la dada input REGS ha de ser registre de REG0 o no
+	
+	bit_d_in_S <= '1' when (ei = '0' and di = '0' and reti = '0' and wrd_rsys = '1') else
+				  '0';
+	
+	with bit_d_in_S select
+		d_in_S <= reg_a_gen when '1',
+				   datard_m when others;
 					 
 	--Entrara a REGFILE PARA ESCRIBIR O lo controlado antes o rd_io si es IN
 	with in_op_mux select

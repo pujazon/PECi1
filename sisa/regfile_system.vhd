@@ -29,8 +29,9 @@ BEGIN
 	begin
 	--Mira primero las 3 instrucciones implicitas, si ninguna de las 3 es verdad,
 	--Como wrd esta a 1 pues es un wrs per tant lo escribe en el S(addt_d) <= d
+	-- Ojo para WRS Primero ha de leer de REG_0 i entonces ponerlo en DATA i Si <= d
 	
-		if (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura està activa.
+		if (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura estÃ  activa.
 			if (ei = '1') then
 				bs(7)(0) <= '0';
 			elsif (di = '1') then

@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.all;
 USE work.const_control.all;
 
 entity multi is
-    port(clk       : IN  STD_LOGIC;
+port(clk       : IN  STD_LOGIC;
 	 	   system 	 : in STD_LOGIC; 
          boot      : IN  STD_LOGIC;
 			wrout_l  : IN STD_LOGIC;
@@ -17,6 +17,9 @@ entity multi is
 			reti_l	  : IN  STD_LOGIC;
 			wrd_rsys_l : IN STD_LOGIC; 
 			a_sys_l	 : IN STD_LOGIC;
+			rds_bit_l : IN STD_LOGIC;
+			wrs_bit_l : IN STD_LOGIC;
+			getiid_bit_l : IN STD_LOGIC;
 			 ---------------------------------------------	
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
@@ -25,12 +28,15 @@ entity multi is
          ins_dad   : OUT STD_LOGIC;
 			wr_out	 : OUT STD_LOGIC;
          word_byte : OUT STD_LOGIC;
-			--Signals para instrucciones de sistema-----
-			ei 	  : OUT  STD_LOGIC;
-			di 	  : OUT  STD_LOGIC;
-			reti	  : OUT  STD_LOGIC;
-			wrd_rsys : OUT STD_LOGIC; 
-			a_sys	 : OUT STD_LOGIC
+			 --Signals para instrucciones de sistema-----
+			 ei 	  : OUT  STD_LOGIC;
+			 di 	  : OUT  STD_LOGIC;
+			 reti	  : OUT  STD_LOGIC;
+			 wrd_rsys : OUT STD_LOGIC;
+			 a_sys	 : OUT STD_LOGIC;
+			 rds_bit  : OUT STD_LOGIC;
+			 wrs_bit  : OUT STD_LOGIC;
+			 getiid_bit  : OUT STD_LOGIC
 			 ---------------------------------------------		
 			 );
 end entity;
@@ -61,7 +67,15 @@ begin
 	with estado select
 		a_sys <= a_sys_l when SYS,
 				  '0' when others;
-
+	with estado select
+		rds_bit <= rds_bit_l when SYS,
+				  '0' when others;
+	with estado select
+		wrs_bit <= wrs_bit_l when SYS,
+				  '0' when others;
+	with estado select
+		getiid_bit <= getiid_bit_l when SYS,
+				  '0' when others;
 	with estado select
 		wr_out <= wrout_l when DEMW,
 				  '0' when others;
@@ -69,9 +83,10 @@ begin
 	with estado select
 		ldpc <= ldpc_l when DEMW,
 				  '0' when others;
-	
+	--OJO! TMB EN SYSTEM ESTADO PQ PUEDE SER RDS
 	with estado select
 		wrd <= wrd_l when DEMW,
+				 wrd_l when SYS,
 				  '0' when others;
 				  
 	with estado select

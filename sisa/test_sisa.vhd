@@ -28,31 +28,17 @@ architecture comportament of test_sisa is
    end component;
    
    component sisa IS 
-    PORT (CLOCK_50  : IN    STD_LOGIC;
-          SRAM_ADDR : out   std_logic_vector(17 downto 0);
-          SRAM_DQ   : inout std_logic_vector(15 downto 0);
-          SRAM_UB_N : out   std_logic;
-          SRAM_LB_N : out   std_logic;
-          SRAM_CE_N : out   std_logic := '1';
-          SRAM_OE_N : out   std_logic := '1';
-          SRAM_WE_N : out   std_logic := '1';
-			 LEDG		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		    LEDR		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); 
-          SW        : in std_logic_vector(9 downto 9);
-			 --PINS de KEYBOARD
-			 PS2_CLK : inout std_logic;
-			 PS2_DAT : inout std_logic;
-			 -- PINS de VGA
-			 VGA_R : OUT STD_LOGIC_VECTOR (3 downto 0);
-			 VGA_G : OUT STD_LOGIC_VECTOR (3 downto 0);			 
-			 VGA_B : OUT STD_LOGIC_VECTOR (3 downto 0);
-			 VGA_HS : OUT STD_LOGIC;
-			 VGA_VS : OUT STD_LOGIC
-			 );
+	PORT (	CLOCK_50		: IN	STD_LOGIC;
+				SRAM_ADDR 	: out std_logic_vector(17 downto 0);
+				SRAM_DQ 		: inout std_logic_vector(15 downto 0);
+				SRAM_UB_N 	: out std_logic;
+				SRAM_LB_N 	: out std_logic;
+				SRAM_CE_N 	: out std_logic := '1';
+				SRAM_OE_N 	: out std_logic := '1';
+				SRAM_WE_N 	: out std_logic := '1';
+								
+				SW : in std_logic_vector(9 downto 9)
+				);
    end component;
 
    
