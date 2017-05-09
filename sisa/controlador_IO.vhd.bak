@@ -15,15 +15,13 @@ ENTITY controlador_IO IS
           led_rojos      : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 ps2_clk : inout std_logic;
 			 ps2_data : inout std_logic;
-			 --Signals per al cursor, VGA
-			 vga_cursor : out std_logic_vector(15 downto 0);
-			 vga_cursor_enable : out std_logic; 
+			--Signals per al cursor, VGA
+			vga_cursor : out std_logic_vector(15 downto 0);
+			vga_cursor_enable : out std_logic; 
 			 HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-			 inta : IN  STD_LOGIC;
-			 intr : OUT STD_LOGIC
+			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 			 );
 END controlador_IO;
 
@@ -43,63 +41,12 @@ ARCHITECTURE Structure OF controlador_IO IS
 	component keyboard_controller is
     Port (clk        : in    STD_LOGIC;
           reset      : in    STD_LOGIC;
-			 inta			: in	  STD_LOGIC;
           ps2_clk    : inout STD_LOGIC;
           ps2_data   : inout STD_LOGIC;
-			 intr			: out   STD_LOGIC;
           read_char  : out   STD_LOGIC_VECTOR (7 downto 0);
           clear_char : in    STD_LOGIC;
           data_ready : out   STD_LOGIC);
 	end component;
-	
-	component pulsadores IS
-	PORT(
-		boot: 	IN STD_LOGIC;
-		clk:  	IN STD_LOGIC;
-		inta:		IN STD_LOGIC;
-		keys:		IN STD_LOGIC_VECTOR(3 downto 0);
-		intr:		OUT STD_LOGIC;
-		rd_keys: OUT STD_LOGIC_VECTOR(3 downto 0)
-	);
-	END component;
-	
-	component interruptores IS
-	PORT(
-		boot: 	IN STD_LOGIC;
-		clk:  	IN STD_LOGIC;
-		inta:		IN STD_LOGIC;
-		switch:		IN STD_LOGIC_VECTOR(7 downto 0);
-		intr:		OUT STD_LOGIC;
-		rd_switch: OUT STD_LOGIC_VECTOR(7 downto 0)
-	);
-	END component;
-	
-	component timer IS
-	PORT(
-		boot: 	IN STD_LOGIC;
-		CLOCK_50:  	IN STD_LOGIC;
-		inta:		IN STD_LOGIC;
-		intr:		OUT STD_LOGIC
-	);
-	END component;
-	
-	component interrupt_controller IS
-	PORT(
-		boot: 	IN STD_LOGIC;
-		clk:  	IN STD_LOGIC;
-		inta:		IN STD_LOGIC;
-		key_intr:	IN STD_LOGIC;
-		timer_intr: IN STD_LOGIC;
-		switch_intr: IN STD_LOGIC;
-		ps2_intr:	IN STD_LOGIC;
-		key_inta:	OUT STD_LOGIC;
-		timer_inta: OUT STD_LOGIC;
-		switch_inta: OUT STD_LOGIC;
-		ps2_inta:	OUT STD_LOGIC;
-		intr:		OUT STD_LOGIC;
-		iid:		OUT STD_LOGIC_VECTOR(7 downto 0)
-	);
-	END component;
 
 	COMPONENT driver7segmentos IS
 	PORT( 	codigoCaracter : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -109,20 +56,13 @@ ARCHITECTURE Structure OF controlador_IO IS
 	signal hex0_out, hex1_out, hex2_out, hex3_out : STD_LOGIC_VECTOR(6 DOWNTO 0);	
 	signal contador_ciclos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
 	signal contador_milisegundos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
-	signal ps2_inta_t, ps2_intr_t : STD_LOGIC;
-	signal timer_inta_t, timer_intr_t : STD_LOGIC;
-	signal switch_inta_t, switch_intr_t : STD_LOGIC;
-	signal key_inta_t, key_intr_t : STD_LOGIC;
 	
 BEGIN
 
 	keyboard: keyboard_controller port map(clk => CLOCK_50, reset => boot, ps2_clk => ps2_clk,
 														ps2_data => ps2_data, 
 														read_char => read_char , clear_char => bit_clear_char,
-														data_ready => data_ready, inta => ps2_inta_t, intr => ps2_intr_t);
-														
-	key0: interruptores port map(clk => CLOCK_50, boot => boot, inta => key_inta_t, intr => key_intr_t,
-											);
+														data_ready => data_ready );
 	
 	driverHEX0: driver7segmentos port map(codigoCaracter => br_io(10)(3 downto 0), bitsCaracter => hex0_out);
 	driverHEX1: driver7segmentos port map(codigoCaracter => br_io(10)(7 downto 4), bitsCaracter => hex1_out);

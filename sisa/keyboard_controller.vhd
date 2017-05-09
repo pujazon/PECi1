@@ -3,12 +3,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
-
 entity keyboard_controller is
     Port (clk        : in    STD_LOGIC;
           reset      : in    STD_LOGIC;
+			 inta			: in	  STD_LOGIC;
           ps2_clk    : inout STD_LOGIC;
           ps2_data   : inout STD_LOGIC;
+			 intr			: out   STD_LOGIC;
           read_char  : out   STD_LOGIC_VECTOR (7 downto 0);
           clear_char : in    STD_LOGIC;
           data_ready : out   STD_LOGIC);
@@ -48,7 +49,8 @@ end component;
     signal rx_ascii : STD_LOGIC_VECTOR (7 downto 0);
     signal data_ready_we : STD_LOGIC;
     signal data_available : STD_LOGIC;
-
+	 signal current_interrupt : STD_LOGIC;
+	 
     type state_type is (idle, clearing);
     signal state   : state_type;
 
@@ -100,6 +102,7 @@ begin
                 if (rx_data_ready = '1' and rx_released = '0') then
                     if (rx_shift_key_on /= '1' or rx_ascii /= "00000000") then
                         data_available <= '1';
+								current_interrupt <= '1';
                         data_ready_we <= '1';
                     end if;
                 end if;
@@ -122,6 +125,13 @@ begin
         end if;
     end process;
 
+	 intr <= current_interrupt;
 
+	 process (clk) begin
+		if (rising_edge(clk) and inta = '1') then
+			current_interrupt <= '0';
+		end if;
+	end process;
+	 
 end Behavioral;
 
