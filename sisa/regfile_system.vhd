@@ -14,6 +14,7 @@ ENTITY regfile_system IS
           addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);			
 			 code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
 			 intr_sys	: IN STD_LOGIC;
+			 int_enable : OUT STD_LOGIC;
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
 END regfile_system;
@@ -34,29 +35,30 @@ BEGIN
 	--Como wrd esta a 1 pues es un wrs per tant lo escribe en el S(addt_d) <= d
 	-- Ojo para WRS Primero ha de leer de REG_0 i entonces ponerlo en DATA i Si <= d
 	
-		if (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura estÃ  activa.
+		if (rising_edge(clk) and intr_sys = '1') then
+			--Si hay exce/interr se guarda en S2 el code
+			bs(2) <= x"000F";
+			bs(0) <= bs(7);
+			bs(1) <= d;
+			a <= bs(5);
+			bs(7)(1) <= '0';
+			--Si excepcion de mem_align (code = 3), guarda en S3 la @--
+			-- No se si cal el intr_sys
+			--if (code_excep = excepcio_1) then
+			--	bs(3) <= addr_m;
+			--end if;
+		elsif (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura estÃ  activa.
 			if (ei = '1') then
-				bs(7)(0) <= '0';
+				bs(7)(1) <= '0';
 			elsif (di = '1') then
-				bs(7)(0) <= '1';
+				bs(7)(1) <= '1';
 			elsif (reti = '1') then
 				bs(7) <= bs(0);
-				
 			else bs(conv_integer(addr_d)) <= d;
 			end if;
 		end if;
-		
-
-		if (rising_edge(clk) and intr_sys = '1') then
-			--Si hay exce/interr se guarda en S2 el code
-			bs(2) <= code_excep; 
-			--Si excepcion de mem_align (code = 3), guarda en S3 la @--
-			-- No se si cal el intr_sys
-			if (code_excep = excepcio_1) then
-				bs(3) <= addr_m;
-			end if;
-		end if;
-		
 	end process;
 
+	int_enable <= bs(7)(1);
+	
 END Structure;

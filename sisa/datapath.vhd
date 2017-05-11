@@ -15,9 +15,7 @@ ENTITY datapath IS
 			 reti	  : IN  STD_LOGIC;
 			 wrd_rsys : IN STD_LOGIC; 
 			 a_sys	 : IN STD_LOGIC;
-			 rds_bit : IN STD_LOGIC;
-			 wrs_bit : IN STD_LOGIC;
-			 getiid_bit : IN STD_LOGIC;
+			 intr		 : IN STD_LOGIC;
 			 reti_pc	  : OUT StD_LOGIC_VECTOR(15 downto 0);
 			 ---------------------------------------------
 			--Excepcion direccion mal alineada
@@ -40,9 +38,9 @@ ENTITY datapath IS
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			 : OUT STD_LOGIC;
 			 aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-	         wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+	       wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
-			dir_mem : OUT STD_LOGIC_VECTOR(15 downto 0));
+			dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
 END datapath;
 
 
@@ -90,8 +88,9 @@ ARCHITECTURE Structure OF datapath IS
           d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);			
-			 code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
-			 intr_sys	: IN STD_LOGIC;
+			 --code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
+			 interrupt	: IN STD_LOGIC;
+			 int_enable : OUT STD_LOGIC;
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
 	END COMPONENT;
@@ -100,17 +99,17 @@ ARCHITECTURE Structure OF datapath IS
 	
 	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S : STD_LOGIC_VECTOR (15 downto 0);
 	signal reg_in, reg_in_t, immed_out, y_alu : STD_LOGIC_VECTOR (15 downto 0);
-	signal bit_d_in_S, t_div_zero, t_intr_sys : STD_LOGIC;
-	signal t_code_excep : STD_LOGIC_VECTOR (3 downto 0);
+	signal t_div_zero, t_intr_sys : STD_LOGIC;
+	--signal t_code_excep : STD_LOGIC_VECTOR (3 downto 0);
 	 
 BEGIN
 
 
 	----CONTROLADOR EXCEPCIONES: SACA SI HAY UNA EXCEP/INTERR para que regS actue si hay o si no I CODE EXCEP---
 	
-	excepciones: excepcions_controller port map(instr_il => instr_il, mem_align => mem_align
-															  div_zero => t_div_zero, intr => intr --Que vendra de interr_controller
-																code_excep => t_code_excep, intr_sys => t_intr_sys);	
+	--excepciones: excepcions_controller port map(instr_il => instr_il, mem_align => mem_align,
+	--														  div_zero => t_div_zero, intr => intr, --Que vendra de interr_controller
+	--															code_excep => t_code_excep, intr_sys => t_intr_sys);	
 																
 
 
@@ -118,8 +117,7 @@ BEGIN
     -- En los esquemas de la documentacion a la instancia del banco de registros le hemos llamado reg0 y a la de la alu le hemos llamado alu0
 
 	 reg0: regfile port map (clk => clk, wrd => wrd, d => reg_in, addr_a => addr_a, addr_b => addr_b, 
-									 addr_d => addr_d, a => reg_a_gen, b => reg_b,
-									 code_excep => t_code_excep, intr_sys => t_intr_sys);
+									 addr_d => addr_d, a => reg_a_gen, b => reg_b);
 	
 	
 	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => d_in_S, addr_a => addr_a, 
@@ -146,13 +144,8 @@ BEGIN
 					 
 	--Mirem si la intruccio de sistema es WRS per tant la dada input REGS ha de ser registre de REG0 o no
 	
-	bit_d_in_S <= '1' when (ei = '0' and di = '0' and reti = '0' and wrd_rsys = '1') else
-				  '0';
-	
-	with bit_d_in_S select
-		d_in_S <= reg_a_gen when '1',
-				   datard_m when others;
-					 
+	d_in_S <= reg_a_gen;
+						 
 	--Entrara a REGFILE PARA ESCRIBIR O lo controlado antes o rd_io si es IN
 	with in_op_mux select
 		reg_in <= 	rd_io when '1',

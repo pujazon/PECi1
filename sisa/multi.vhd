@@ -34,9 +34,6 @@ port(clk       : IN  STD_LOGIC;
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
-			 rds_bit  : OUT STD_LOGIC;
-			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC;
 			 load_pc_sys : OUT STD_LOGIC
 			 ---------------------------------------------		
 			 );
@@ -51,35 +48,27 @@ begin
 --FALTAN LOS SIGNALS DE SYSTEM I TMB LOS QEU YA ESTAN EN ESE ESTADO----
 
 	with estado select
-		ei <= ei_l when SYS,
+		ei <= ei_l when DEMW,
 				  '0' when others;
 	with estado select
-		di <= di_l when SYS,
+		di <= di_l when DEMW,
 				  '0' when others;
 	with estado select
-		load_pc_sys <= reti_l when SYS,
+		load_pc_sys <= reti_l when DEMW,
 					'0' when others;
 				  
 	with estado select
-		reti <= reti_l when SYS,
+		reti <= reti_l when DEMW,
 				  '0' when others;
 				  
 	with estado select
-		wrd_rsys <= wrd_rsys_l when SYS,
+		wrd_rsys <= wrd_rsys_l when DEMW,
 				  '0' when others;
 				  
 	with estado select
-		a_sys <= a_sys_l when SYS,
+		a_sys <= a_sys_l when DEMW,
 				  '0' when others;
-	with estado select
-		rds_bit <= rds_bit_l when SYS,
-				  '0' when others;
-	with estado select
-		wrs_bit <= wrs_bit_l when SYS,
-				  '0' when others;
-	with estado select
-		getiid_bit <= getiid_bit_l when SYS,
-				  '0' when others;
+
 	with estado select
 		wr_out <= wrout_l when DEMW,
 				  '0' when others;
@@ -90,7 +79,6 @@ begin
 	--OJO! TMB EN SYSTEM ESTADO PQ PUEDE SER RDS
 	with estado select
 		wrd <= wrd_l when DEMW,
-				 wrd_l when SYS,
 				  '0' when others;
 				  
 	with estado select

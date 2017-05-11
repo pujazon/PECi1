@@ -6,6 +6,8 @@ USE work.const_logic.all;
 ENTITY control_l IS
     PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
+			 intr		  : IN  STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
           ldpc      : OUT STD_LOGIC;
@@ -31,9 +33,6 @@ ENTITY control_l IS
 			 wrd_rsys : OUT STD_LOGIC;
 			 system 	 : OUT STD_LOGIC; 
 			 a_sys	 : OUT STD_LOGIC;
-			 rds_bit  : OUT STD_LOGIC;
-			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC;
 			 ---------------------------------------------	
 			 ---Excepcion instruccion ilegal--------------
 			 instr_il : OUT STD_LOGIC
@@ -150,17 +149,11 @@ BEGIN
 	ei <= '1' when opcode = opcode_sys and ir(4 downto 0) = f_ei else '0';
 	di <= '1' when opcode = opcode_sys and ir(4 downto 0) = f_di else '0';	 
 	reti <= '1' when opcode = opcode_sys and ir(4 downto 0) = f_reti else '0';	 
-	
-	--Tambien haremos un par de signals para poder saber en el Datapath que instruccion de systema es
-	
-	rds_bit <= '1' when opcode = opcode_sys and ir(4 downto 0) = f_rds else '0';
-	wrs_bit <= '1' when  opcode = opcode_sys and ir(4 downto 0) = f_wrs else '0';
-	getiid_bit <=  '1' when opcode = opcode_sys and ir(4 downto 0) = f_getiid else '0';
-	
+			
 	--Ha de escribir en S(i) si es un WRS pero tmb en EI, DI (S7) i RETI (S7 <- S0)
 	wrd_rsys <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_wrs or ir(4 downto 0) = f_ei or ir(4 downto 0) = f_di or ir(4 downto 0) = f_reti)					
 					else '0';
-					
+
 	--Lee de REG_SYS en un RDS pero tmb en un RETI (PC <- S1)	
 	a_sys <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_rds or ir(4 downto 0) = f_reti)
 				else '0';

@@ -11,6 +11,8 @@ ENTITY unidad_control IS
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
 			 aluout	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 intr		  : IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT  STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd       : OUT STD_LOGIC;
@@ -19,7 +21,7 @@ ENTITY unidad_control IS
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 reti_pc	  : IN StD_LOGIC_VECTOR(15 downto 0);
+			 reti_pc	  : IN STD_LOGIC_VECTOR(15 downto 0);
           ins_dad   : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
@@ -28,7 +30,7 @@ ENTITY unidad_control IS
 			 br_n		  : OUT STD_LOGIC;
 			 in_op_mux     : OUT  STD_LOGIC;
 			 addr_io      : OUT  STD_LOGIC_VECTOR(7 DOWNTO 0);
-             rd_in : OUT  STD_LOGIC;
+          rd_in : OUT  STD_LOGIC;
           word_byte : OUT STD_LOGIC;
 			 --Signals para instrucciones de sistema-----
 			 ei 	  : OUT  STD_LOGIC;
@@ -36,9 +38,6 @@ ENTITY unidad_control IS
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;  
 			 a_sys	 : OUT STD_LOGIC;
-			 rds_bit  : OUT STD_LOGIC;
-			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC;
 			 ---Excepcion instruccion ilegal--------------
 			 instr_il : OUT STD_LOGIC;
 			 ---------------------------------------------
@@ -53,6 +52,8 @@ ARCHITECTURE Structure OF unidad_control IS
 COMPONENT control_l IS
     PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
+			 intr		  : IN  STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
           ldpc      : OUT STD_LOGIC;
@@ -78,9 +79,6 @@ COMPONENT control_l IS
 			 wrd_rsys : OUT STD_LOGIC;
 			 system 	 : OUT STD_LOGIC; 
 			 a_sys	 : OUT STD_LOGIC;
-			 rds_bit  : OUT STD_LOGIC;
-			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC;
 			 ---------------------------------------------	
 			 ---Excepcion instruccion ilegal--------------
 			 instr_il : OUT STD_LOGIC
@@ -102,9 +100,6 @@ END COMPONENT;
 			reti_l	  : IN  STD_LOGIC;
 			wrd_rsys_l : IN STD_LOGIC; 
 			a_sys_l	 : IN STD_LOGIC;
-			rds_bit_l : IN STD_LOGIC;
-			wrs_bit_l : IN STD_LOGIC;
-			getiid_bit_l : IN STD_LOGIC;
 			 ---------------------------------------------	
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
@@ -119,9 +114,6 @@ END COMPONENT;
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
-			 rds_bit  : OUT STD_LOGIC;
-			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC;
 			 load_pc_sys : OUT STD_LOGIC
 			 ---------------------------------------------		
 			 );
@@ -132,7 +124,7 @@ END COMPONENT;
     -- Aqui iria la definicion del program counter y del registro IR
 	 
 	 signal wrout_t,ldpc_c, wrd_c, wr_m_c, w_b_c,t_system : std_logic;
-	 signal load_pc, load_ir, rds_bit_t, wrs_bit_t, getiid_bit_t : std_logic;
+	 signal load_pc, load_ir : std_logic;
 	 signal ir, new_pc, pc_calc, t_immed : std_logic_vector(15 downto 0);
 	 signal tknbr : std_logic_vector(1 downto 0);
 	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys, load_pc_sys : STD_LOGIC;
@@ -147,9 +139,8 @@ BEGIN
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
 									 br_n => br_n, word_byte => w_b_c, z => z, tknbr => tknbr, in_op_mux => in_op_mux,
 									 rd_in => rd_in, addr_io => addr_io, wr_out => wrout_t,
-									 system => t_system,
+									 system => t_system, intr => intr, inta => inta,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-									 rds_bit => rds_bit_t, wrs_bit => wrs_bit_t, getiid_bit => getiid_bit_t,
 									 instr_il => instr_il);
 									 
 									 
@@ -159,8 +150,6 @@ BEGIN
 								ldpc => load_pc, wrd => wrd, wr_m => wr_m, ldir => load_ir, 
 								system => t_system, ins_dad => ins_dad, word_byte => word_byte,
 								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys,
-								rds_bit_l => rds_bit_t, wrs_bit_l => wrs_bit_t, getiid_bit_l => getiid_bit_t,
-								rds_bit => rds_bit, wrs_bit => wrs_bit, getiid_bit => getiid_bit,
 								load_pc_sys => load_pc_sys);
 	 
 	 process(clk, boot, load_pc)

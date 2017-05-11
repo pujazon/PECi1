@@ -24,7 +24,7 @@ entity MemoryController is
 			 vga_we : out std_logic;
 			 vga_wr_data : out std_logic_vector(15 downto 0);
 			 vga_rd_data : in std_logic_vector(15 downto 0);
-          vga_byte_m : out std_logic:
+          vga_byte_m : out std_logic;
 			 --Excepcion direccion mal alineada
 			 mem_align :	out STD_logic
 			 );
@@ -65,7 +65,7 @@ begin
 	rd_data <= vga_rd_data when(addr >= x"A000" and addr <= x"BFFF") else
 					 t_rd_data;
 					 
-   mem_align <= '1' when (byte_m = '0' and byte_m(0) = '1') else
+   mem_align <= '1' when (byte_m = '0' and addr(0) = '1') else
 					 '0';
 
 	sram: SRAMController port map(SRAM_ADDR => SRAM_ADDR, SRAM_DQ => SRAM_DQ, SRAM_UB_N => SRAM_UB_N,

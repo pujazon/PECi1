@@ -22,6 +22,8 @@ ENTITY controlador_IO IS
 			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+          SW        : in std_logic_vector(9 downto 0);
+			 KEY : IN STD_LOGIC_VECTOR(3 downto 0);
 			 inta : IN  STD_LOGIC;
 			 intr : OUT STD_LOGIC
 			 );
@@ -68,9 +70,9 @@ ARCHITECTURE Structure OF controlador_IO IS
 		boot: 	IN STD_LOGIC;
 		clk:  	IN STD_LOGIC;
 		inta:		IN STD_LOGIC;
-		switch:		IN STD_LOGIC_VECTOR(7 downto 0);
+		switch:		IN STD_LOGIC_VECTOR(9 downto 0);
 		intr:		OUT STD_LOGIC;
-		rd_switch: OUT STD_LOGIC_VECTOR(7 downto 0)
+		rd_switch: OUT STD_LOGIC_VECTOR(9 downto 0)
 	);
 	END component;
 	
@@ -113,7 +115,9 @@ ARCHITECTURE Structure OF controlador_IO IS
 	signal timer_inta_t, timer_intr_t : STD_LOGIC;
 	signal switch_inta_t, switch_intr_t : STD_LOGIC;
 	signal key_inta_t, key_intr_t : STD_LOGIC;
-	
+	signal rd_switch_t : STD_LOGIC_VECTOR(9 DOWNTO 0);
+	signal rd_keys_t : STD_LOGIC_VECTOR(3 downto 0);
+	signal iid_t : STD_LOGIC_VECTOR(7 downto 0);
 BEGIN
 
 	keyboard: keyboard_controller port map(clk => CLOCK_50, reset => boot, ps2_clk => ps2_clk,
@@ -121,9 +125,18 @@ BEGIN
 														read_char => read_char , clear_char => bit_clear_char,
 														data_ready => data_ready, inta => ps2_inta_t, intr => ps2_intr_t);
 														
-	key0: interruptores port map(clk => CLOCK_50, boot => boot, inta => key_inta_t, intr => key_intr_t,
-											
-											);
+	sw0: interruptores port map(clk => CLOCK_50, boot => boot, inta => switch_inta_t, intr => switch_intr_t,
+											switch => SW, rd_switch => rd_switch_t);
+	
+	tmr0: timer port map(CLOCK_50 => CLOCK_50, boot => boot, inta => timer_inta_t, intr => timer_intr_t);
+	
+	key0: pulsadores port map(clk => CLOCK_50, boot => boot, inta => key_inta_t, intr => key_intr_t, keys => KEY, 
+										rd_keys => rd_keys_t);
+										
+	int0: interrupt_controller port map(clk => CLOCK_50, boot => boot, inta => inta, intr => intr,
+										key_intr => key_intr_t, timer_intr => timer_intr_t, switch_intr => switch_intr_t,
+										ps2_intr => ps2_intr_t, key_inta => key_inta_t, timer_inta => timer_inta_t, 
+										switch_inta => switch_inta_t, ps2_inta => ps2_inta_t, iid => iid_t);
 	
 	driverHEX0: driver7segmentos port map(codigoCaracter => br_io(10)(3 downto 0), bitsCaracter => hex0_out);
 	driverHEX1: driver7segmentos port map(codigoCaracter => br_io(10)(7 downto 4), bitsCaracter => hex1_out);
@@ -177,7 +190,9 @@ BEGIN
 			end if;
 		end if;
 		
-		if (rd_in = '1' and rising_edge(CLOCK_50)) then -- Si la senyal d'escriptura esta activa.
+		if (inta = '1') then
+			rd_io <= iid_t;
+		elsif (rd_in = '1' and rising_edge(CLOCK_50)) then -- Si la senyal de lectura esta activa.
 
 			if (puerto = 15) then br_io(puerto) (7 downto 0) <= read_char; end if;
 			if (puerto = 21) then br_io(21) <= contador_milisegundos; end if;

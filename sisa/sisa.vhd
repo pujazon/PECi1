@@ -18,7 +18,8 @@ ENTITY sisa IS
 			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); 
-          SW        : in std_logic_vector(9 downto 9);
+          SW        : in std_logic_vector(9 downto 0);
+			 KEY : IN STD_LOGIC_VECTOR(3 downto 0);
 			 --PINS de KEYBOARD
 			 PS2_CLK : inout std_logic;
 			 PS2_DAT : inout std_logic;
@@ -53,7 +54,7 @@ COMPONENT MemoryController is
 			 vga_we : out std_logic;
 			 vga_wr_data : out std_logic_vector(15 downto 0);
 			 vga_rd_data : in std_logic_vector(15 downto 0);
-          vga_byte_m : out std_logic 
+          vga_byte_m : out std_logic;
 			 --Excepcion direccion mal alineada
 			 mem_align :	out STD_logic
 			 );
@@ -76,6 +77,8 @@ COMPONENT controlador_IO IS
 			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+          SW        : in std_logic_vector(9 downto 0);
+			 KEY : IN STD_LOGIC_VECTOR(3 downto 0);
 			 ps2_clk : inout std_logic;
 			 ps2_data : inout std_logic;
 		 	 --Signals per al cursor, VGA
@@ -110,7 +113,7 @@ COMPONENT proc IS
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  rd_io		: IN  STD_LOGIC_vector(15 DOWNTO 0);
 		  --Excepcion direccion mal alineada
-			 mem_align :	IN STD_logic
+			 mem_align :	IN STD_logic;
          addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
@@ -125,7 +128,7 @@ END COMPONENT;
 
 	signal t_rd_in, t_wr_out,t_byte_m, t_wr_m, t_vga_we,
 			 t_vga_cursor_enable,t_vga_byte_m,
-			 t_horiz_sync_out, t_vert_sync_out,t_mem_align : std_logic;
+			 t_mem_align : std_logic;
 	signal t_rd_io, t_wr_io,t_addr_m, t_data_wr, t_datard_m,
 			 t_vga_wr_data,t_vga_rd_data,t_vga_cursor : std_logic_vector(15 downto 0);
 	signal counter_div_clk : std_logic_vector(2 downto 0) := "000";
@@ -155,11 +158,11 @@ BEGIN
 											rd_io => t_rd_io, led_verdes => LEDG, led_rojos => LEDR,
 											ps2_clk => PS2_CLK, ps2_data => 	PS2_DAT,
 											vga_cursor => t_vga_cursor, vga_cursor_enable => t_vga_cursor_enable,
-											HEX0 => HEX0, HEX1 => HEX1, HEX2 => HEX2, HEX3 => HEX3);
+											HEX0 => HEX0, HEX1 => HEX1, HEX2 => HEX2, HEX3 => HEX3, SW => SW, KEY => KEY);
 										
 	vga: vga_controller port map(clk_50mhz => CLOCK_50, reset => SW(9),
 											red_out => t_red, green_out => t_green, blue_out => t_blue,
-											horiz_sync_out => t_horiz_sync_out, vert_sync_out => t_vert_sync_out,
+											horiz_sync_out => VGA_HS, vert_sync_out => VGA_VS,
 											addr_vga => t_vga_addr, we => t_vga_we, wr_data => t_vga_wr_data,
 											rd_data => t_vga_rd_data, byte_m => t_vga_byte_m,
 											vga_cursor => t_vga_cursor, vga_cursor_enable => t_vga_cursor_enable);	
@@ -168,8 +171,6 @@ BEGIN
 	VGA_R <= t_red(3 downto 0);
 	VGA_G <= t_green(3 downto 0);	
 	VGA_B <= t_blue(3 downto 0);
-	VGA_HS <= t_horiz_sync_out;
-	VGA_VS <= t_vert_sync_out;
 	
 
 	process(CLOCK_50, counter_div_clk)

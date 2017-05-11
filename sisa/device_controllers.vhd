@@ -45,14 +45,14 @@ ENTITY interruptores IS
 		boot: 	IN STD_LOGIC;
 		clk:  	IN STD_LOGIC;
 		inta:		IN STD_LOGIC;
-		switch:		IN STD_LOGIC_VECTOR(7 downto 0);
+		switch:		IN STD_LOGIC_VECTOR(9 downto 0);
 		intr:		OUT STD_LOGIC;
-		rd_switch: OUT STD_LOGIC_VECTOR(7 downto 0)
+		rd_switch: OUT STD_LOGIC_VECTOR(9 downto 0)
 	);
 END interruptores;
 
 ARCHITECTURE Structure OF interruptores IS
-	signal state: STD_LOGIC_VECTOR(7 downto 0) := x"00";
+	signal state: STD_LOGIC_VECTOR(9 downto 0) := x"00";
 	signal current_interrupt: STD_LOGIC := '0';
 BEGIN
 	process(clk)

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sisa
-Thu May 11 10:43:17 2017
+Thu May 11 23:02:16 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,10 +36,10 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Thu May 11 10:43:17 2017               ;
+; Analysis & Synthesis Status        ; Failed - Thu May 11 23:02:16 2017               ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; sisa                                            ;
-; Top-level Entity Name              ; test_sisa                                       ;
+; Top-level Entity Name              ; sisa                                            ;
 ; Family                             ; Cyclone II                                      ;
 ; Total logic elements               ; N/A until Partition Merge                       ;
 ;     Total combinational functions  ; N/A until Partition Merge                       ;
@@ -59,7 +59,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C20F484C7       ;                    ;
-; Top-level entity name                                                      ; test_sisa          ; sisa               ;
+; Top-level entity name                                                      ; sisa               ; sisa               ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -155,7 +155,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu May 11 10:43:13 2017
+    Info: Processing started: Thu May 11 23:02:15 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sisa -c sisa
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file regfile_system.vhd
@@ -253,12 +253,17 @@ Info (12021): Found 6 design units, including 3 entities, in source file device_
 Info (12021): Found 2 design units, including 1 entities, in source file interrupt_controller.vhd
     Info (12022): Found design unit 1: interrupt_controller-Structure
     Info (12023): Found entity 1: interrupt_controller
-Error (10346): VHDL error at controlador_IO.vhd(124): formal port or parameter "switch" must have actual or default value File: C:/Users/Manolo/Desktop/PECi1-master/sisa/controlador_IO.vhd Line: 124
-Error (10784): HDL error at controlador_IO.vhd(71): see declaration for object "switch" File: C:/Users/Manolo/Desktop/PECi1-master/sisa/controlador_IO.vhd Line: 71
-Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
-    Error: Peak virtual memory: 485 megabytes
-    Error: Processing ended: Thu May 11 10:43:18 2017
-    Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:05
+Info (12021): Found 2 design units, including 1 entities, in source file excepcions_controller.vhd
+    Info (12022): Found design unit 1: excepcions_controller-Structure
+    Info (12023): Found entity 1: excepcions_controller
+Error (10346): VHDL error at datapath.vhd(122): formal port or parameter "code_excep" must have actual or default value File: C:/Users/David/PECi1/sisa/datapath.vhd Line: 122
+Error (10784): HDL error at datapath.vhd(90): see declaration for object "code_excep" File: C:/Users/David/PECi1/sisa/datapath.vhd Line: 90
+Error (10346): VHDL error at datapath.vhd(122): formal port or parameter "intr_sys" must have actual or default value File: C:/Users/David/PECi1/sisa/datapath.vhd Line: 122
+Error (10784): HDL error at datapath.vhd(91): see declaration for object "intr_sys" File: C:/Users/David/PECi1/sisa/datapath.vhd Line: 91
+Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 4 errors, 1 warning
+    Error: Peak virtual memory: 499 megabytes
+    Error: Processing ended: Thu May 11 23:02:16 2017
+    Error: Elapsed time: 00:00:01
+    Error: Total CPU time (on all processors): 00:00:02
 
 
