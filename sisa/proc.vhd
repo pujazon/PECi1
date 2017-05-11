@@ -6,6 +6,8 @@ ENTITY proc IS
           boot      : IN  STD_LOGIC;
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  rd_io		: IN  STD_LOGIC_vector(15 DOWNTO 0);
+			--Excepcion direccion mal alineada
+			 mem_align :	IN STD_logic
           addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
@@ -32,6 +34,7 @@ COMPONENT unidad_control IS
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 reti_pc	  : IN StD_LOGIC_VECTOR(15 downto 0);
           ins_dad   : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
@@ -46,13 +49,16 @@ COMPONENT unidad_control IS
 			 ei 	  : OUT  STD_LOGIC;
 			 di 	  : OUT  STD_LOGIC;
 			 reti	  : OUT  STD_LOGIC;
-			 wrd_rsys : OUT STD_LOGIC;
+			 wrd_rsys : OUT STD_LOGIC;  
 			 a_sys	 : OUT STD_LOGIC;
 			 rds_bit  : OUT STD_LOGIC;
 			 wrs_bit  : OUT STD_LOGIC;
 			 getiid_bit  : OUT STD_LOGIC;
-			 reti_pc	  : in StD_LOGIC_VECTOR(15 downto 0)
-			 ---------------------------------------------		 
+			 ---Excepcion instruccion ilegal--------------
+			 instr_il : OUT STD_LOGIC;
+			 ---------------------------------------------
+			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
+			dir_mem : OUT STD_LOGIC_VECTOR(15 downto 0)
 			 );
 END COMPONENT;
 
@@ -72,6 +78,10 @@ COMPONENT datapath IS
 			 getiid_bit : IN STD_LOGIC;
 			 reti_pc	  : OUT StD_LOGIC_VECTOR(15 downto 0);
 			 ---------------------------------------------
+			--Excepcion direccion mal alineada
+			 mem_align :	IN STD_logic;
+			 ---Excepcion instruccion ilegal--------------
+			 instr_il : IN STD_LOGIC;
 			 in_op_mux  : IN  STD_LOGIC;
           addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -88,18 +98,20 @@ COMPONENT datapath IS
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			 : OUT STD_LOGIC;
 			 aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-	         wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0));
+	         wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
+			dir_mem : OUT STD_LOGIC_VECTOR(15 downto 0));
 END COMPONENT;
 
 	 
 	 
 		signal t_rd_in, t_in_op_mux, t_wrd, t_ins_dad, t_immed_x2, t_wr_m, t_word_byte, t_br_n, t_z : STD_LOGIC;
 		signal t_addr_a,  t_addr_b, t_addr_d, t_op: STD_LOGIC_VECTOR(2 DOWNTO 0);
-		signal t_immed, t_pc, t_aluout, t_reti_pc : STD_LOGIC_VECTOR(15 DOWNTO 0);
+		signal t_immed, t_pc, t_aluout, t_reti_pc, t_dir_mem : STD_LOGIC_VECTOR(15 DOWNTO 0);
 		signal t_f : STD_LOGIC_VECTOR(4 downto 0);
 		signal t_in_d : STD_LOGIC_VECTOR(1 DOWNTO 0);
 		signal t_addr_io : STD_LOGIC_VECTOR(7 downto 0);
-		signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys, rds_bit_t, wrs_bit_t, getiid_bit_t : STD_LOGIC;
+		signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys, rds_bit_t, wrs_bit_t, getiid_bit_t, t_instr_il : STD_LOGIC;
 
 	 
 BEGIN
@@ -112,7 +124,7 @@ BEGIN
 											rd_in => rd_in, wr_out => wr_out, in_op_mux => t_in_op_mux, addr_io => addr_io,
 											ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 											rds_bit => rds_bit_t, wrs_bit => wrs_bit_t, getiid_bit => getiid_bit_t,
-											reti_pc => t_reti_pc);
+											reti_pc => t_reti_pc, dir_mem => t_dir_mem, instr_il => t_instr_il);
 											
 	e0: datapath port map(	clk => clk, op => t_op, f => t_f, wrd => t_wrd, in_op_mux => t_in_op_mux, addr_a => t_addr_a, 
 									addr_b => t_addr_b, addr_d => t_addr_d, immed => t_immed, aluout => t_aluout, rd_io => rd_io,
@@ -121,7 +133,8 @@ BEGIN
 									wr_io => wr_io,
 									ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 									rds_bit => rds_bit_t, wrs_bit => wrs_bit_t, getiid_bit => getiid_bit_t,
-									reti_pc => t_reti_pc);
+									reti_pc => t_reti_pc, mem_align => mem_align, dir_mem => t_dir_mem,
+									instr_il => t_instr_il);
 											
 	wr_m <= t_wr_m;
 		

@@ -27,4 +27,11 @@ package const_control is
 	type ESTADO is (FETCH, DEMW, SYS);
 	
 	constant halt : std_logic_vector := x"FFFF";	
+	
+	constant interrupcio_code : std_logic_vector := "1111";
+	constant excepcio_0 : std_logic_vector := "0000";
+	constant excepcio_1 : std_logic_vector := "0001";
+	constant excepcio_4 : std_logic_vector := "0100";
+	constant NO_HAY_EXCEPCION : std_logic_vector := "0011"; --EN REALIDAD DA IGUAL EL CODIGO DE ESSTE
+	
 end const_control;

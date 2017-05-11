@@ -1,0 +1,22 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+USE ieee.std_logic_unsigned.all;
+USE work.const_control.all;
+
+ENTITY excepcions_controller IS
+	PORT(
+			instr_il : IN STD_LOGIC;
+			mem_align :	IN STD_LOGIC;
+			div_zero : IN STD_LOGIC;
+			intr:	IN STD_LOGIC;
+			code_excep : OUT STD_LOGIC_VECTOR(3 downto 0)	
+	);
+END ENTITY;
+
+ARCHITECTURE Structure OF excepcions_controller IS
+
+BEGIN
+
+
+END Structure;

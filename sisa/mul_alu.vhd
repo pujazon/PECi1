@@ -8,6 +8,7 @@ ENTITY mul_alu IS
 	PORT(x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 f  : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
+			 div_zero	: OUT STD_LOGIC;
           w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 END mul_alu;
 
@@ -35,5 +36,7 @@ BEGIN
 			  std_logic_vector(signed(x)/signed(y)) when f = f_mul_div else
 			  std_logic_vector(unsigned(x)/unsigned(y)) when f = f_mul_divu else
 			  invalid;
+	div_zero <= '1' when ((f = f_mul_div or f_mul_divu) and y = 0) else
+					'0';
 		  
 END Structure;

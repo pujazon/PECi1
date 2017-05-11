@@ -33,8 +33,10 @@ ENTITY control_l IS
 			 a_sys	 : OUT STD_LOGIC;
 			 rds_bit  : OUT STD_LOGIC;
 			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC
-			 ---------------------------------------------				 
+			 getiid_bit  : OUT STD_LOGIC;
+			 ---------------------------------------------	
+			 ---Excepcion instruccion ilegal--------------
+			 instr_il : OUT STD_LOGIC
 			 );
 END control_l;
 
@@ -64,7 +66,7 @@ BEGIN
 			 op_cmp when opcode = opcode_cmp else
 			 op_mul when opcode = opcode_mul else
 			 op_arith when opcode = opcode_in_out else
-			 op_sys when opcode = opcode_sys; --Para E/S no nos importa. 
+			 op_sys when opcode = opcode_sys; --NO FALTA UN ULTIMO ELSE?, QUE SI NO PILLA NADA HAGA HALT O ALGO
 			 
 	-- Seleccionem funcio
 	 f <= f_arith_add when opcode = opcode_st or opcode = opcode_stb 
@@ -164,5 +166,22 @@ BEGIN
 				else '0';
 
 	--------------------------------------------------------------------
+	
+	--Excepcion de instruccion ilegal: Si op no es ninguno de los conocidos, instr_il := '1'--
+	--Me da que si hacemos primero el '0' i luego el and es mas eficiente
+	instr_il <= '0' when(
+	 opcode = opcode_mov or 
+	 opcode = opcode_st or
+	 opcode = opcode_ld or 
+	 opcode = opcode_stb or 
+	 opcode = opcode_ldb or 
+	 opcode = opcode_arith or 
+	 opcode = opcode_cmp or 
+	 opcode = opcode_mul or 
+	 opcode = opcode_addi or
+	 opcode = opcode_br or 
+	 opcode = opcode_jx or 
+	 opcode = opcode_sys or 
+	 opcode = opcode_in_out) else '1';
 
 END Structure;

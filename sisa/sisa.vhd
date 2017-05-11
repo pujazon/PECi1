@@ -54,6 +54,8 @@ COMPONENT MemoryController is
 			 vga_wr_data : out std_logic_vector(15 downto 0);
 			 vga_rd_data : in std_logic_vector(15 downto 0);
           vga_byte_m : out std_logic 
+			 --Excepcion direccion mal alineada
+			 mem_align :	out STD_logic
 			 );
 end COMPONENT;
 
@@ -107,6 +109,8 @@ COMPONENT proc IS
           boot      : IN  STD_LOGIC;
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  rd_io		: IN  STD_LOGIC_vector(15 DOWNTO 0);
+		  --Excepcion direccion mal alineada
+			 mem_align :	IN STD_logic
          addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
@@ -121,7 +125,7 @@ END COMPONENT;
 
 	signal t_rd_in, t_wr_out,t_byte_m, t_wr_m, t_vga_we,
 			 t_vga_cursor_enable,t_vga_byte_m,
-			 t_horiz_sync_out, t_vert_sync_out : std_logic;
+			 t_horiz_sync_out, t_vert_sync_out,t_mem_align : std_logic;
 	signal t_rd_io, t_wr_io,t_addr_m, t_data_wr, t_datard_m,
 			 t_vga_wr_data,t_vga_rd_data,t_vga_cursor : std_logic_vector(15 downto 0);
 	signal counter_div_clk : std_logic_vector(2 downto 0) := "000";
@@ -137,11 +141,13 @@ BEGIN
 								SRAM_LB_N => SRAM_LB_N, SRAM_CE_N => SRAM_CE_N, SRAM_OE_N => SRAM_OE_N, 
 								SRAM_WE_N => SRAM_WE_N, rd_data => t_datard_m, 
 								vga_addr => t_vga_addr, vga_we => t_vga_we, 
-								vga_wr_data => t_vga_wr_data, vga_rd_data =>t_vga_rd_data , vga_byte_m => t_vga_byte_m);
+								vga_wr_data => t_vga_wr_data, vga_rd_data =>t_vga_rd_data , vga_byte_m => t_vga_byte_m,
+								mem_align => t_mem_align);
 								
 	pro0: proc port map (boot => SW(9), clk => counter_div_clk(2), datard_m => t_datard_m, 
 						word_byte => t_byte_m, wr_m => t_wr_m, addr_m => t_addr_m, data_wr => t_data_wr,
-						rd_io => t_rd_io, addr_io => t_addr_io, rd_in => t_rd_in, wr_out => t_wr_out, wr_io => t_wr_io);
+						rd_io => t_rd_io, addr_io => t_addr_io, rd_in => t_rd_in, wr_out => t_wr_out, wr_io => t_wr_io,
+						mem_align => t_mem_align);
 						
 						
 	io: controlador_IO port map(boot => SW(9), CLOCK_50 => CLOCK_50, addr_io => t_addr_io,

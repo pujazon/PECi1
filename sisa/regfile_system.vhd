@@ -11,8 +11,11 @@ ENTITY regfile_system IS
 			 reti	  : IN  STD_LOGIC;
           d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-          a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+          addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);			
+			 code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
+			 intr_sys	: IN STD_LOGIC;
+          a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
 END regfile_system;
 
 ARCHITECTURE Structure OF regfile_system IS
@@ -42,6 +45,18 @@ BEGIN
 			else bs(conv_integer(addr_d)) <= d;
 			end if;
 		end if;
+		
+
+		if (rising_edge(clk) and intr_sys = '1') then
+			--Si hay exce/interr se guarda en S2 el code
+			bs(2) <= code_excep; 
+			--Si excepcion de mem_align (code = 3), guarda en S3 la @--
+			-- No se si cal el intr_sys
+			if (code_excep = excepcio_1) then
+				bs(3) <= addr_m;
+			end if;
+		end if;
+		
 	end process;
 
 END Structure;

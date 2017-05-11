@@ -38,8 +38,12 @@ ENTITY unidad_control IS
 			 a_sys	 : OUT STD_LOGIC;
 			 rds_bit  : OUT STD_LOGIC;
 			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC
-			 ---------------------------------------------			 
+			 getiid_bit  : OUT STD_LOGIC;
+			 ---Excepcion instruccion ilegal--------------
+			 instr_il : OUT STD_LOGIC;
+			 ---------------------------------------------
+			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
+			dir_mem : OUT STD_LOGIC_VECTOR(15 downto 0)
 			 );
 END unidad_control;
 
@@ -63,10 +67,10 @@ COMPONENT control_l IS
 			 br_n		  : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
 			 tknbr	  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-			 addr_io	:	OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
-			 rd_in	:	OUT STD_LOGIC;
-			 wr_out	:	OUT STD_LOGIC;
-			 in_op_mux	:	OUT STD_LOGIC;
+			 addr_io   :	OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+			 rd_in	  :	OUT STD_LOGIC;
+			 wr_out	  :	OUT STD_LOGIC;
+			 in_op_mux :	OUT STD_LOGIC;
 			 --Signals para instrucciones de sistema-----
 			 ei 	  : OUT  STD_LOGIC;
 			 di 	  : OUT  STD_LOGIC;
@@ -76,8 +80,10 @@ COMPONENT control_l IS
 			 a_sys	 : OUT STD_LOGIC;
 			 rds_bit  : OUT STD_LOGIC;
 			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC
-			 ---------------------------------------------				 
+			 getiid_bit  : OUT STD_LOGIC;
+			 ---------------------------------------------	
+			 ---Excepcion instruccion ilegal--------------
+			 instr_il : OUT STD_LOGIC
 			 );
 END COMPONENT;
 	
@@ -143,7 +149,8 @@ BEGIN
 									 rd_in => rd_in, addr_io => addr_io, wr_out => wrout_t,
 									 system => t_system,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-									 rds_bit => rds_bit_t, wrs_bit => wrs_bit_t, getiid_bit => getiid_bit_t);
+									 rds_bit => rds_bit_t, wrs_bit => wrs_bit_t, getiid_bit => getiid_bit_t,
+									 instr_il => instr_il);
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
@@ -171,6 +178,7 @@ BEGIN
 	end process;
 	
 	immed <= t_immed;
+	dir_mem <= ir;
 	
 	
 --	--Si es RETI voldrem que el PC sigui el que surt de REGS que es REG_S_A_>

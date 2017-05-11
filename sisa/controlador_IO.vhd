@@ -122,6 +122,7 @@ BEGIN
 														data_ready => data_ready, inta => ps2_inta_t, intr => ps2_intr_t);
 														
 	key0: interruptores port map(clk => CLOCK_50, boot => boot, inta => key_inta_t, intr => key_intr_t,
+											
 											);
 	
 	driverHEX0: driver7segmentos port map(codigoCaracter => br_io(10)(3 downto 0), bitsCaracter => hex0_out);
