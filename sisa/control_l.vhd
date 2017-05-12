@@ -78,6 +78,9 @@ BEGIN
 			 
 	-- Seleccionem adreces registres
 	 
+	 inta <= '1' when opcode = opcode_sys and ir(4 downto 0) = f_getiid else
+			'0';
+	 
 	 with opcode select
 		addr_a <= ir(11 downto 9) when opcode_mov,
 					ir(8 downto 6) when others;

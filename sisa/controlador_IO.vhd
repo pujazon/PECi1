@@ -6,6 +6,7 @@ USE ieee.numeric_std.all;        --Esta libreria sera necesaria si usais convers
 ENTITY controlador_IO IS
     PORT (boot    : IN  STD_LOGIC;
           CLOCK_50    : IN  STD_LOGIC;
+		  clk		  : IN STD_LOGIC;
           addr_io      : IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 wr_out	:	IN STD_LOGIC;
           wr_io : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -121,20 +122,20 @@ ARCHITECTURE Structure OF controlador_IO IS
 	signal rd_io_t : STD_LOGIC_VECTOR(15 DOWNTO 0);
 BEGIN
 
-	keyboard: keyboard_controller port map(clk => CLOCK_50, reset => boot, ps2_clk => ps2_clk,
+	keyboard: keyboard_controller port map(clk => clk, reset => boot, ps2_clk => ps2_clk,
 														ps2_data => ps2_data, 
 														read_char => read_char , clear_char => bit_clear_char,
 														data_ready => data_ready, inta => ps2_inta_t, intr => ps2_intr_t);
 														
-	sw0: interruptores port map(clk => CLOCK_50, boot => boot, inta => switch_inta_t, intr => switch_intr_t,
+	sw0: interruptores port map(clk => clk, boot => boot, inta => switch_inta_t, intr => switch_intr_t,
 											switch => SW, rd_switch => rd_switch_t);
 	
 	tmr0: timer port map(CLOCK_50 => CLOCK_50, boot => boot, inta => timer_inta_t, intr => timer_intr_t);
 	
-	key0: pulsadores port map(clk => CLOCK_50, boot => boot, inta => key_inta_t, intr => key_intr_t, keys => KEY, 
+	key0: pulsadores port map(clk => clk, boot => boot, inta => key_inta_t, intr => key_intr_t, keys => KEY, 
 										rd_keys => rd_keys_t);
 										
-	int0: interrupt_controller port map(clk => CLOCK_50, boot => boot, inta => inta, intr => intr,
+	int0: interrupt_controller port map(clk => clk, boot => boot, inta => inta, intr => intr,
 										key_intr => key_intr_t, timer_intr => timer_intr_t, switch_intr => switch_intr_t,
 										ps2_intr => ps2_intr_t, key_inta => key_inta_t, timer_inta => timer_inta_t, 
 										switch_inta => switch_inta_t, ps2_inta => ps2_inta_t, iid => iid_t);

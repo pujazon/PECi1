@@ -31,7 +31,9 @@ port(clk       : IN  STD_LOGIC;
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
-			 intr_sys : OUT STD_LOGIC
+			 intr_sys : OUT STD_LOGIC;
+			 inta : OUT STD_LOGIC;
+			 inta_l : IN STD_LOGIC
 			 ---------------------------------------------		
 			 );
 end entity;
@@ -91,7 +93,12 @@ begin
 	with estado select
 		intr_sys <= '1' when SYS,
 						'0' when others;
-
+	
+	with estado select
+		inta <= inta_l when DEMW,
+					'0' when others;
+	
+	
 	-- Graf d'estats
    process(clk, boot)
 	begin

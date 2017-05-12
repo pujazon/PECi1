@@ -66,6 +66,7 @@ end COMPONENT;
 COMPONENT controlador_IO IS
     PORT (boot    : IN  STD_LOGIC;
           CLOCK_50    : IN  STD_LOGIC;
+		  clk		  : IN STD_LOGIC;
           addr_io      : IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 wr_out	:	IN STD_LOGIC;
           wr_io : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -157,7 +158,7 @@ BEGIN
 						mem_align => t_mem_align);
 						
 						
-	io: controlador_IO port map(boot => SW(9), CLOCK_50 => CLOCK_50, addr_io => t_addr_io,
+	io: controlador_IO port map(boot => SW(9), CLOCK_50 => CLOCK_50, addr_io => t_addr_io, clk => counter_div_clk(2),
 											wr_out => t_wr_out, wr_io => t_wr_io, rd_in => t_rd_in, 
 											rd_io => t_rd_io, led_verdes => LEDG, led_rojos => LEDR,
 											ps2_clk => PS2_CLK, ps2_data => 	PS2_DAT, inta => t_inta, intr => t_intr,

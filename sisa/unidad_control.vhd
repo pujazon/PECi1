@@ -114,7 +114,9 @@ END COMPONENT;
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
-			 intr_sys : OUT STD_LOGIC
+			 intr_sys : OUT STD_LOGIC;
+			 inta : OUT STD_LOGIC;
+			 inta_l : IN STD_LOGIC
 			 ---------------------------------------------		
 			 );
 	end COMPONENT;
@@ -128,7 +130,7 @@ END COMPONENT;
 	 signal ir, new_pc, pc_calc_t, pc_calc, t_immed : std_logic_vector(15 downto 0);
 	 signal tknbr : std_logic_vector(1 downto 0);
 	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys : STD_LOGIC;
-	 signal intr_sys_t : STD_LOGIC;
+	 signal intr_sys_t, inta_t : STD_LOGIC;
 	 
 BEGIN
 
@@ -140,7 +142,7 @@ BEGIN
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
 									 br_n => br_n, word_byte => w_b_c, z => z, tknbr => tknbr, in_op_mux => in_op_mux,
 									 rd_in => rd_in, addr_io => addr_io, wr_out => wrout_t,
-									 system => t_system, intr => intr, inta => inta,
+									 system => t_system, intr => intr, inta => inta_t,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 									 instr_il => instr_il);
 									 
@@ -148,7 +150,7 @@ BEGIN
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
 								wrout_l => wrout_t, wr_out => wr_out, intr_sys => intr_sys_t,
 								ei_l => t_ei, di_l => t_di, reti_l => t_reti, a_sys_l => t_a_sys, wrd_rsys_l => t_wrd_rsys,
-								ldpc => load_pc, wrd => wrd, wr_m => wr_m, ldir => load_ir, 
+								ldpc => load_pc, wrd => wrd, wr_m => wr_m, ldir => load_ir, inta_l => inta_t, inta => inta,
 								system => t_system, ins_dad => ins_dad, word_byte => word_byte,
 								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys);
 	 
