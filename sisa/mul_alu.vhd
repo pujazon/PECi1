@@ -36,7 +36,7 @@ BEGIN
 			  std_logic_vector(signed(x)/signed(y)) when f = f_mul_div else
 			  std_logic_vector(unsigned(x)/unsigned(y)) when f = f_mul_divu else
 			  invalid;
-	div_zero <= '1' when ((f = f_mul_div or f_mul_divu) and y = 0) else
+	div_zero <= '1' when ((f = f_mul_div or f = f_mul_divu) and y = 0) else
 					'0';
 		  
 END Structure;

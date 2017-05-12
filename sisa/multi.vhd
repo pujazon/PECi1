@@ -17,9 +17,6 @@ port(clk       : IN  STD_LOGIC;
 			reti_l	  : IN  STD_LOGIC;
 			wrd_rsys_l : IN STD_LOGIC; 
 			a_sys_l	 : IN STD_LOGIC;
-			rds_bit_l : IN STD_LOGIC;
-			wrs_bit_l : IN STD_LOGIC;
-			getiid_bit_l : IN STD_LOGIC;
 			 ---------------------------------------------	
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
@@ -34,7 +31,7 @@ port(clk       : IN  STD_LOGIC;
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
-			 load_pc_sys : OUT STD_LOGIC
+			 intr_sys : OUT STD_LOGIC
 			 ---------------------------------------------		
 			 );
 end entity;
@@ -45,18 +42,12 @@ architecture Structure of multi is
 
 begin
 
---FALTAN LOS SIGNALS DE SYSTEM I TMB LOS QEU YA ESTAN EN ESE ESTADO----
-
 	with estado select
 		ei <= ei_l when DEMW,
 				  '0' when others;
 	with estado select
 		di <= di_l when DEMW,
-				  '0' when others;
-	with estado select
-		load_pc_sys <= reti_l when DEMW,
-					'0' when others;
-				  
+				  '0' when others;				  
 	with estado select
 		reti <= reti_l when DEMW,
 				  '0' when others;
@@ -74,8 +65,8 @@ begin
 				  '0' when others;
 
 	with estado select
-		ldpc <= ldpc_l when DEMW,
-				  '0' when others;
+		ldpc <= '0' when FETCH,
+				ldpc_l when others;
 	--OJO! TMB EN SYSTEM ESTADO PQ PUEDE SER RDS
 	with estado select
 		wrd <= wrd_l when DEMW,
@@ -96,6 +87,10 @@ begin
 	with estado select
 		ldir <= '1' when FETCH,
 				  '0' when others;
+				  
+	with estado select
+		intr_sys <= '1' when SYS,
+						'0' when others;
 
 	-- Graf d'estats
    process(clk, boot)
@@ -109,8 +104,9 @@ begin
 					estado <= DEMW;
 					
 				when DEMW =>
-					estado <= FETCH;
-					if (system = '1') then
+					if (system = '0') then 
+						estado <= FETCH;
+					else
 						estado <= SYS;
 					end if;
 					

@@ -118,6 +118,7 @@ ARCHITECTURE Structure OF controlador_IO IS
 	signal rd_switch_t : STD_LOGIC_VECTOR(9 DOWNTO 0);
 	signal rd_keys_t : STD_LOGIC_VECTOR(3 downto 0);
 	signal iid_t : STD_LOGIC_VECTOR(7 downto 0);
+	signal rd_io_t : STD_LOGIC_VECTOR(15 DOWNTO 0);
 BEGIN
 
 	keyboard: keyboard_controller port map(clk => CLOCK_50, reset => boot, ps2_clk => ps2_clk,
@@ -190,20 +191,19 @@ BEGIN
 			end if;
 		end if;
 		
-		if (inta = '1') then
-			rd_io <= iid_t;
-		elsif (rd_in = '1' and rising_edge(CLOCK_50)) then -- Si la senyal de lectura esta activa.
-
-			if (puerto = 15) then br_io(puerto) (7 downto 0) <= read_char; end if;
-			if (puerto = 21) then br_io(21) <= contador_milisegundos; end if;
-			if (puerto = 20) then br_io(puerto) <= contador_ciclos; end if;
-			if (puerto = 16) then br_io(puerto)(0) <= data_ready; end if;
-			
-			rd_io <= br_io(puerto); --HAY QUE USAR RD_IN PARA EFECTOS COLATERALES
-										--PERO AUN NO
+		if (rising_edge(CLOCK_50)) then
+			if (inta = '1') then
+				rd_io <= "00000000" & iid_t;
+			elsif (rd_in = '1' and rising_edge(CLOCK_50)) then -- Si la senyal de lectura esta activa.
+				if (puerto = 15) then br_io(puerto) (7 downto 0) <= read_char; end if;
+				if (puerto = 21) then br_io(21) <= contador_milisegundos; end if;
+				if (puerto = 20) then br_io(puerto) <= contador_ciclos; end if;
+				if (puerto = 16) then br_io(puerto)(0) <= data_ready; end if;
+				rd_io <= br_io(puerto); --HAY QUE USAR RD_IN PARA EFECTOS COLATERALES
+											--PERO AUN NO
+			end if;
 		end if;
-		
-		
+
 	end process;
 
 

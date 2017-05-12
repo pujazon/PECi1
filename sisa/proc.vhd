@@ -8,6 +8,8 @@ ENTITY proc IS
 		  rd_io		: IN  STD_LOGIC_vector(15 DOWNTO 0);
 			--Excepcion direccion mal alineada
 			 mem_align :	IN STD_logic;
+			intr		  : IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
           addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
@@ -26,6 +28,8 @@ COMPONENT unidad_control IS
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
 			 aluout	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 intr		  : IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT  STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd       : OUT STD_LOGIC;
@@ -34,7 +38,6 @@ COMPONENT unidad_control IS
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 reti_pc	  : IN StD_LOGIC_VECTOR(15 downto 0);
           ins_dad   : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
@@ -51,6 +54,7 @@ COMPONENT unidad_control IS
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;  
 			 a_sys	 : OUT STD_LOGIC;
+			 intr_sys : OUT STD_LOGIC;
 			 ---Excepcion instruccion ilegal--------------
 			 instr_il : OUT STD_LOGIC;
 			 ---------------------------------------------
@@ -70,7 +74,7 @@ COMPONENT datapath IS
 			 reti	  : IN  STD_LOGIC;
 			 wrd_rsys : IN STD_LOGIC; 
 			 a_sys	 : IN STD_LOGIC;
-			 reti_pc	  : OUT StD_LOGIC_VECTOR(15 downto 0);
+			 intr_sys : IN STD_LOGIC;
 			 ---------------------------------------------
 			--Excepcion direccion mal alineada
 			 mem_align :	IN STD_logic;
@@ -92,40 +96,37 @@ COMPONENT datapath IS
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			 : OUT STD_LOGIC;
 			 aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-	         wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+	       wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
-			dir_mem : OUT STD_LOGIC_VECTOR(15 downto 0));
+			dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
 END COMPONENT;
-
-	 
-	 
 		signal t_rd_in, t_in_op_mux, t_wrd, t_ins_dad, t_immed_x2, t_wr_m, t_word_byte, t_br_n, t_z : STD_LOGIC;
 		signal t_addr_a,  t_addr_b, t_addr_d, t_op: STD_LOGIC_VECTOR(2 DOWNTO 0);
-		signal t_immed, t_pc, t_aluout, t_reti_pc, t_dir_mem : STD_LOGIC_VECTOR(15 DOWNTO 0);
+		signal t_immed, t_pc, t_aluout, t_dir_mem : STD_LOGIC_VECTOR(15 DOWNTO 0);
 		signal t_f : STD_LOGIC_VECTOR(4 downto 0);
 		signal t_in_d : STD_LOGIC_VECTOR(1 DOWNTO 0);
 		signal t_addr_io : STD_LOGIC_VECTOR(7 downto 0);
 		signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys, t_instr_il : STD_LOGIC;
-
+		signal intr_sys_t : STD_LOGIC;
 	 
 BEGIN
 
 	c0: unidad_control port map(	boot => boot, clk => clk, datard_m => datard_m, op => t_op, f => t_f,
-											addr_a => t_addr_a, addr_b => t_addr_b, addr_d =>t_addr_d, 
+											addr_a => t_addr_a, addr_b => t_addr_b, addr_d =>t_addr_d, intr => intr, inta => inta,
 											immed => t_immed, pc => t_pc,	wrd=> t_wrd, ins_dad => t_ins_dad,
 											in_d => t_in_d, immed_x2 =>t_immed_x2, z => t_z, aluout => t_aluout,
-											wr_m => t_wr_m, br_n => t_br_n, word_byte => t_word_byte,
+											wr_m => t_wr_m, br_n => t_br_n, word_byte => t_word_byte, intr_sys => intr_sys_t,
 											rd_in => rd_in, wr_out => wr_out, in_op_mux => t_in_op_mux, addr_io => addr_io,
 											ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-											reti_pc => t_reti_pc, dir_mem => t_dir_mem, instr_il => t_instr_il);
+											 dir_mem => t_dir_mem, instr_il => t_instr_il);
 
 	e0: datapath port map(	clk => clk, op => t_op, f => t_f, wrd => t_wrd, in_op_mux => t_in_op_mux, addr_a => t_addr_a, 
 									addr_b => t_addr_b, addr_d => t_addr_d, immed => t_immed, aluout => t_aluout, rd_io => rd_io,
 									immed_x2 => t_immed_x2, datard_m => datard_m, ins_dad => t_ins_dad,
 									pc => t_pc, in_d => t_in_d, br_n => t_br_n, addr_m => addr_m, data_wr => data_wr, z => t_z,
-									wr_io => wr_io,
+									wr_io => wr_io, intr_sys => intr_sys_t,
 									ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-									reti_pc => t_reti_pc, mem_align => mem_align, dir_mem => t_dir_mem,
+									mem_align => mem_align, dir_mem => t_dir_mem,
 									instr_il => t_instr_il);
 											
 	wr_m <= t_wr_m;

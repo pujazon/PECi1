@@ -12,7 +12,7 @@ ENTITY regfile_system IS
           d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);			
-			 code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
+			 --code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
 			 intr_sys	: IN STD_LOGIC;
 			 int_enable : OUT STD_LOGIC;
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -27,6 +27,7 @@ ARCHITECTURE Structure OF regfile_system IS
 BEGIN
 
    a <= bs(1) when reti = '1' else
+		  bs(5) when intr_sys = '1' else
 		  bs(conv_integer(addr_a));
 
 	process (clk)
@@ -40,7 +41,7 @@ BEGIN
 			bs(2) <= x"000F";
 			bs(0) <= bs(7);
 			bs(1) <= d;
-			a <= bs(5);
+			--a <= bs(5);
 			bs(7)(1) <= '0';
 			--Si excepcion de mem_align (code = 3), guarda en S3 la @--
 			-- No se si cal el intr_sys

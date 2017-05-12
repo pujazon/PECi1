@@ -21,7 +21,6 @@ ENTITY unidad_control IS
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 reti_pc	  : IN STD_LOGIC_VECTOR(15 downto 0);
           ins_dad   : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
@@ -38,6 +37,7 @@ ENTITY unidad_control IS
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;  
 			 a_sys	 : OUT STD_LOGIC;
+			 intr_sys : OUT STD_LOGIC;
 			 ---Excepcion instruccion ilegal--------------
 			 instr_il : OUT STD_LOGIC;
 			 ---------------------------------------------
@@ -114,7 +114,7 @@ END COMPONENT;
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
-			 load_pc_sys : OUT STD_LOGIC
+			 intr_sys : OUT STD_LOGIC
 			 ---------------------------------------------		
 			 );
 	end COMPONENT;
@@ -125,10 +125,11 @@ END COMPONENT;
 	 
 	 signal wrout_t,ldpc_c, wrd_c, wr_m_c, w_b_c,t_system : std_logic;
 	 signal load_pc, load_ir : std_logic;
-	 signal ir, new_pc, pc_calc, t_immed : std_logic_vector(15 downto 0);
+	 signal ir, new_pc, pc_calc_t, pc_calc, t_immed : std_logic_vector(15 downto 0);
 	 signal tknbr : std_logic_vector(1 downto 0);
-	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys, load_pc_sys : STD_LOGIC;
-
+	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys : STD_LOGIC;
+	 signal intr_sys_t : STD_LOGIC;
+	 
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -145,19 +146,18 @@ BEGIN
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
-								wrout_l => wrout_t, wr_out => wr_out,
+								wrout_l => wrout_t, wr_out => wr_out, intr_sys => intr_sys_t,
 								ei_l => t_ei, di_l => t_di, reti_l => t_reti, a_sys_l => t_a_sys, wrd_rsys_l => t_wrd_rsys,
 								ldpc => load_pc, wrd => wrd, wr_m => wr_m, ldir => load_ir, 
 								system => t_system, ins_dad => ins_dad, word_byte => word_byte,
-								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys,
-								load_pc_sys => load_pc_sys);
+								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys);
 	 
 	 process(clk, boot, load_pc)
 		begin
 		if(boot = '1') then
 			new_pc <= pc_inicial;
 		elsif(rising_edge(clk)) then
-			if(load_pc = '1' or load_pc_sys = '1') then
+			if(load_pc = '1') then
 				new_pc <= pc_calc;
 			end if;
 			if(load_ir = '1') then
@@ -168,19 +168,16 @@ BEGIN
 	
 	immed <= t_immed;
 	dir_mem <= ir;
+	intr_sys <= intr_sys_t;
 	
-	
---	--Si es RETI voldrem que el PC sigui el que surt de REGS que es REG_S_A_>
---	-- HAY CHAPUZA PQ SE tiENE QUE HACR SOLO EN ESTADO SYS, POR LO QUE ESTE MUX HACE DE DELAYER
---	with reti_multi select
---		reti_pc_final <= reti_pc when '1',
---					new_pc + x"0002" when others;
+	with intr_sys_t select
+		pc_calc <= pc_calc_t when '0',
+						aluout when others;
 	
 	with tknbr select
-		pc_calc <= new_pc + x"0002" when "00",
+		pc_calc_t <= new_pc + x"0002" when "00",
 					  new_pc + (x"0002") + (t_immed(14 downto 0) & '0') when "01",
 					  aluout when "10",
-					  reti_pc when "11",
 					  new_pc when others;
 	
 	pc <= new_pc;

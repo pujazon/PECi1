@@ -3,27 +3,59 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'counter_div_clk[2]'
-Slack : -66.930
-TNS   : -18110.574
+Slack : -70.598
+TNS   : -12147.879
 
 Type  : Slow Model Setup 'vga_controller:vga|clk_25mhz'
-Slack : -66.390
-TNS   : -14388.840
+Slack : -69.783
+TNS   : -14961.544
 
 Type  : Slow Model Setup 'CLOCK_50'
-Slack : -62.514
-TNS   : -7017.927
+Slack : -65.599
+TNS   : -572.193
+
+Type  : Slow Model Setup 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
+Slack : -0.302
+TNS   : -0.302
 
 Type  : Slow Model Hold 'CLOCK_50'
-Slack : -2.690
-TNS   : -5.380
+Slack : -2.695
+TNS   : -10.070
+
+Type  : Slow Model Hold 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
+Slack : -0.183
+TNS   : -0.183
+
+Type  : Slow Model Hold 'counter_div_clk[2]'
+Slack : 0.445
+TNS   : 0.000
 
 Type  : Slow Model Hold 'vga_controller:vga|clk_25mhz'
 Slack : 0.445
 TNS   : 0.000
 
-Type  : Slow Model Hold 'counter_div_clk[2]'
-Slack : 1.016
+Type  : Slow Model Recovery 'vga_controller:vga|clk_25mhz'
+Slack : -0.140
+TNS   : -2.793
+
+Type  : Slow Model Recovery 'counter_div_clk[2]'
+Slack : -0.134
+TNS   : -2.546
+
+Type  : Slow Model Recovery 'CLOCK_50'
+Slack : -0.120
+TNS   : -1.577
+
+Type  : Slow Model Removal 'CLOCK_50'
+Slack : -0.039
+TNS   : -0.039
+
+Type  : Slow Model Removal 'counter_div_clk[2]'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow Model Removal 'vga_controller:vga|clk_25mhz'
+Slack : 0.391
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'vga_controller:vga|clk_25mhz'
@@ -32,34 +64,74 @@ TNS   : -1807.736
 
 Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.631
-TNS   : -1151.533
+TNS   : -186.153
+
+Type  : Slow Model Minimum Pulse Width 'SW[9]'
+Slack : -1.631
+TNS   : -1.631
 
 Type  : Slow Model Minimum Pulse Width 'counter_div_clk[2]'
 Slack : -0.611
-TNS   : -354.380
+TNS   : -355.602
+
+Type  : Slow Model Minimum Pulse Width 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
+Slack : 0.500
+TNS   : 0.000
 
 Type  : Fast Model Setup 'counter_div_clk[2]'
-Slack : -24.525
-TNS   : -6623.462
+Slack : -25.893
+TNS   : -4395.650
 
 Type  : Fast Model Setup 'vga_controller:vga|clk_25mhz'
-Slack : -24.268
-TNS   : -5142.043
+Slack : -25.522
+TNS   : -5342.495
 
 Type  : Fast Model Setup 'CLOCK_50'
-Slack : -22.698
-TNS   : -2070.061
+Slack : -23.834
+TNS   : -139.454
+
+Type  : Fast Model Setup 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
+Slack : 0.085
+TNS   : 0.000
 
 Type  : Fast Model Hold 'CLOCK_50'
-Slack : -1.720
-TNS   : -3.440
+Slack : -1.725
+TNS   : -14.667
+
+Type  : Fast Model Hold 'counter_div_clk[2]'
+Slack : 0.151
+TNS   : 0.000
 
 Type  : Fast Model Hold 'vga_controller:vga|clk_25mhz'
 Slack : 0.215
 TNS   : 0.000
 
-Type  : Fast Model Hold 'counter_div_clk[2]'
-Slack : 0.374
+Type  : Fast Model Hold 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
+Slack : 0.385
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'vga_controller:vga|clk_25mhz'
+Slack : 0.112
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'counter_div_clk[2]'
+Slack : 0.118
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'CLOCK_50'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Removal 'CLOCK_50'
+Slack : -0.028
+TNS   : -0.028
+
+Type  : Fast Model Removal 'counter_div_clk[2]'
+Slack : 0.262
+TNS   : 0.000
+
+Type  : Fast Model Removal 'vga_controller:vga|clk_25mhz'
+Slack : 0.267
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'vga_controller:vga|clk_25mhz'
@@ -68,10 +140,18 @@ TNS   : -1425.728
 
 Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.380
-TNS   : -942.380
+TNS   : -152.380
+
+Type  : Fast Model Minimum Pulse Width 'SW[9]'
+Slack : -1.380
+TNS   : -1.380
 
 Type  : Fast Model Minimum Pulse Width 'counter_div_clk[2]'
 Slack : -0.500
-TNS   : -290.000
+TNS   : -291.000
+
+Type  : Fast Model Minimum Pulse Width 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
+Slack : 0.500
+TNS   : 0.000
 
 ------------------------------------------------------------

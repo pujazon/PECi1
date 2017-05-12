@@ -54,7 +54,7 @@ BEGIN
 				'1' when others;
 				
 	--BIT PARA SABER SI ES SYSTEM O NO PARA MULTI
-	system <= '1' when opcode = opcode_sys else '0';
+	system <= intr;
 				
 	-- Seleccionem operacio
 	 
@@ -70,18 +70,10 @@ BEGIN
 	-- Seleccionem funcio
 	 f <= f_arith_add when opcode = opcode_st or opcode = opcode_stb 
 								or opcode = opcode_ld or opcode = opcode_ldb
-								or opcode = opcode_addi or opcode = opcode_in_out else
+								or opcode = opcode_addi or opcode = opcode_in_out or opcode = opcode_sys else
 			f_mem_movi when opcode = opcode_mov and ir(8) = '0' else
 			f_mem_movhi when opcode = opcode_mov and ir(8) = '1' else
 			f_mem_jump when opcode = opcode_jx else		
-			-----Ara mirem f para SYSTEM---------------
-			f_ei when opcode = opcode_sys and f_sys = f_ei else
-			f_di when opcode = opcode_sys and f_sys = f_di else
-			f_reti when opcode = opcode_sys and f_sys = f_reti else
-			f_rds when opcode = opcode_sys and f_sys = f_rds else
-			f_wrs when opcode = opcode_sys and f_sys = f_wrs else
-			--f_sys_NOT_IMPLEMENTATED when opcode = op_sys else
-			--------------------------------------------
 			"00" & ir(5 downto 3);
 			 
 	-- Seleccionem adreces registres
@@ -109,7 +101,8 @@ BEGIN
 	 -- Control escriptura i memoria
 	 -- Ojo que ara es 0 PER A TOTA INSTR. SYSTEMA - {RDS}
 	 
-	 wrd <= '0' when opcode = opcode_st or opcode = opcode_stb or opcode = opcode_br or (opcode = opcode_jx and ir(2 downto 0) /= f_jal) or  (opcode = opcode_sys and (ir(4 downto 0) /= f_rds))
+	 wrd <= '0' when opcode = opcode_st or opcode = opcode_stb or opcode = opcode_br or (opcode = opcode_jx and ir(2 downto 0) /= f_jal) or 
+					(opcode = opcode_sys and ((ir(4 downto 0) /= f_rds) or (ir(4 downto 0) /= f_getiid)))
 					or (opcode = opcode_in_out and ir(8) = '1') --Si es IN de E/S escriura en BR. Si es out no -> '1'
 					else '1';
 					
@@ -120,8 +113,7 @@ BEGIN
 						else '0';
 						
 	 in_d <= "01" when opcode = opcode_ld or opcode = opcode_ldb else
-				"10" when opcode = opcode_jx else
-				"11" when (opcode = opcode_sys and ir(4 downto 0) = f_rds)
+				"10" when (opcode = opcode_jx) or (opcode = opcode_sys and ir(4 downto 0) = f_rds)
 						else "00";
 						
 	 immed_x2 <= '1' when opcode = opcode_ld or opcode = opcode_st
@@ -140,7 +132,7 @@ BEGIN
 	wr_out <= '1' when opcode = opcode_in_out and ir(8) = '1'
 						else '0';
 						
-	in_op_mux <= '1' when opcode = opcode_in_out and ir(8) = '0'
+	in_op_mux <= '1' when (opcode = opcode_in_out and ir(8) = '0') or (opcode = opcode_sys and ir(4 downto 0) = f_getiid)
 						else '0';
 			
 	-----SIGNALS DE SYSTEM----------------------------------------------

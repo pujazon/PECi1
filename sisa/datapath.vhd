@@ -15,8 +15,7 @@ ENTITY datapath IS
 			 reti	  : IN  STD_LOGIC;
 			 wrd_rsys : IN STD_LOGIC; 
 			 a_sys	 : IN STD_LOGIC;
-			 intr		 : IN STD_LOGIC;
-			 reti_pc	  : OUT StD_LOGIC_VECTOR(15 downto 0);
+			 intr_sys : IN STD_LOGIC;
 			 ---------------------------------------------
 			--Excepcion direccion mal alineada
 			 mem_align :	IN STD_logic;
@@ -89,7 +88,7 @@ ARCHITECTURE Structure OF datapath IS
           addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);			
 			 --code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
-			 interrupt	: IN STD_LOGIC;
+			 intr_sys	: IN STD_LOGIC;
 			 int_enable : OUT STD_LOGIC;
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
@@ -122,7 +121,8 @@ BEGIN
 	
 	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => d_in_S, addr_a => addr_a, 
 												addr_d => addr_d, a => reg_a_sys,
-												ei => ei, di => di, reti => reti, dir_mem => dir_mem
+												ei => ei, di => di, reti => reti, dir_mem => dir_mem,
+												intr_sys => intr_sys
 												--!!! CODE EXCEP
 												); 
 												
@@ -144,14 +144,18 @@ BEGIN
 					 
 	--Mirem si la intruccio de sistema es WRS per tant la dada input REGS ha de ser registre de REG0 o no
 	
-	d_in_S <= reg_a_gen;
+	with intr_sys select
+		d_in_S <= reg_a_gen when '0',
+					pc when others;
 						 
 	--Entrara a REGFILE PARA ESCRIBIR O lo controlado antes o rd_io si es IN
 	with in_op_mux select
 		reg_in <= 	rd_io when '1',
 					reg_in_t when others;
-					 
-	 aluout <= alu_out;
+	
+	with intr_sys select
+		aluout <= alu_out when '0',
+					reg_a_sys when others;
 					 
 	 -- Decidim multiplicar o no en funcio de immed_x2
 	 with immed_x2 select
@@ -172,7 +176,6 @@ BEGIN
 	--Si es RETI voldrem que el PC sigui el que surt de REGS que es REG_S_A_>
 	-- HAY CHAPUZA PQ SE tiENE QUE HACR SOLO EN ESTADO SYS, POR LO QUE ESTE MUX HACE DE DELAYER
 
-	reti_pc <= reg_a_sys;
 	
 	data_wr <= reg_b;
 	

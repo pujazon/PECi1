@@ -83,7 +83,9 @@ COMPONENT controlador_IO IS
 			 ps2_data : inout std_logic;
 		 	 --Signals per al cursor, VGA
 			 vga_cursor : out std_logic_vector(15 downto 0);
-			 vga_cursor_enable : out std_logic
+			 vga_cursor_enable : out std_logic;
+			 inta : IN  STD_LOGIC;
+			 intr : OUT STD_LOGIC
 			 );
 END COMPONENT;
 
@@ -114,6 +116,8 @@ COMPONENT proc IS
 		  rd_io		: IN  STD_LOGIC_vector(15 DOWNTO 0);
 		  --Excepcion direccion mal alineada
 			 mem_align :	IN STD_logic;
+			 intr		  : IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
          addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
@@ -134,7 +138,7 @@ END COMPONENT;
 	signal counter_div_clk : std_logic_vector(2 downto 0) := "000";
 	signal t_red, t_blue, t_green ,t_addr_io : STD_LOGIC_VECTOR(7 downto 0);
 	signal t_vga_addr :  std_logic_vector(12 downto 0);
-
+	signal t_inta, t_intr : STD_LOGIC;
 
 BEGIN
 
@@ -147,7 +151,7 @@ BEGIN
 								vga_wr_data => t_vga_wr_data, vga_rd_data =>t_vga_rd_data , vga_byte_m => t_vga_byte_m,
 								mem_align => t_mem_align);
 								
-	pro0: proc port map (boot => SW(9), clk => counter_div_clk(2), datard_m => t_datard_m, 
+	pro0: proc port map (boot => SW(9), clk => counter_div_clk(2), datard_m => t_datard_m, inta => t_inta, intr => t_intr,
 						word_byte => t_byte_m, wr_m => t_wr_m, addr_m => t_addr_m, data_wr => t_data_wr,
 						rd_io => t_rd_io, addr_io => t_addr_io, rd_in => t_rd_in, wr_out => t_wr_out, wr_io => t_wr_io,
 						mem_align => t_mem_align);
@@ -156,7 +160,7 @@ BEGIN
 	io: controlador_IO port map(boot => SW(9), CLOCK_50 => CLOCK_50, addr_io => t_addr_io,
 											wr_out => t_wr_out, wr_io => t_wr_io, rd_in => t_rd_in, 
 											rd_io => t_rd_io, led_verdes => LEDG, led_rojos => LEDR,
-											ps2_clk => PS2_CLK, ps2_data => 	PS2_DAT,
+											ps2_clk => PS2_CLK, ps2_data => 	PS2_DAT, inta => t_inta, intr => t_intr,
 											vga_cursor => t_vga_cursor, vga_cursor_enable => t_vga_cursor_enable,
 											HEX0 => HEX0, HEX1 => HEX1, HEX2 => HEX2, HEX3 => HEX3, SW => SW, KEY => KEY);
 										

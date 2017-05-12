@@ -105,7 +105,9 @@ begin
 								current_interrupt <= '1';
                         data_ready_we <= '1';
                     end if;
-                end if;
+                elsif (inta = '1') then
+						current_interrupt <= '0';
+					 end if;
                 rx_read <= '0';
             when clearing =>
                 rx_read <= '1';
@@ -125,13 +127,6 @@ begin
         end if;
     end process;
 
-	 intr <= current_interrupt;
-
-	 process (clk) begin
-		if (rising_edge(clk) and inta = '1') then
-			current_interrupt <= '0';
-		end if;
-	end process;
-	 
+	 intr <= current_interrupt;	 
 end Behavioral;
 
