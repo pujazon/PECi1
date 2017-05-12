@@ -17,10 +17,10 @@ package const_control is
 	constant opcode_sys : std_logic_vector := "1111";	
 	constant opcode_in_out : std_logic_vector := "0111";
 	
-	constant f_jal : std_logic_vector := "00100";
-	constant f_jz : std_logic_vector := "00000";
-	constant f_jnz : std_logic_vector := "00001";
-	constant f_jmp : std_logic_vector := "00011";
+	constant f_jal : std_logic_vector := "100";
+	constant f_jz : std_logic_vector := "000";
+	constant f_jnz : std_logic_vector := "001";
+	constant f_jmp : std_logic_vector := "011";
 	
 	constant pc_inicial : std_logic_vector := x"C000";
 	

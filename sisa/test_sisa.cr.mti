@@ -179,6 +179,17 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity vga_font_rom
 -- Compiling architecture vga_font_rom_arch of vga_font_rom
 
+} {} {}} C:/Users/pec05/PECi1/sisa/interrupt_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/interrupt_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity interrupt_controller
+-- Compiling architecture Structure of interrupt_controller
+
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/alu.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
@@ -506,6 +517,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity timer
 -- Compiling architecture Structure_t of timer
 
+} {} {}} C:/Users/pec05/PECi1/sisa/const_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/const_control.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling package const_control
+
 } {} {}} C:/Users/pec05/PECi1/sisa/package_utility.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/package_utility.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -516,15 +536,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package package_utility
 -- Compiling package body package_utility
 -- Loading package package_utility
-
-} {} {}} C:/Users/pec05/PECi1/sisa/const_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/const_control.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling package const_control
 
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/memory_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/memory_alu.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -556,7 +567,7 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package std_logic_unsigned
 -- Compiling package const_logic
 
-} {} {}} C:/Users/pec05/PECi1/sisa/control_l.vhd {2 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/control_l.vhd
+} {} {}} C:/Users/pec05/PECi1/sisa/control_l.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/control_l.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -567,16 +578,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package const_logic
 -- Compiling entity control_l
 -- Compiling architecture Structure of control_l
-** Warning: C:/Users/pec05/PECi1/sisa/control_l.vhd(102): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
-
-** Warning: C:/Users/pec05/PECi1/sisa/control_l.vhd(102): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
-
-** Warning: C:/Users/pec05/PECi1/sisa/control_l.vhd(102): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
-
-** Warning: C:/Users/pec05/PECi1/sisa/control_l.vhd(102): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 3 is not equal to right length 5).
-
-** Warning: C:/Users/pec05/PECi1/sisa/control_l.vhd(109): (vcom-1083) Implicit array operator "/=" always returns TRUE (left length 3 is not equal to right length 5).
-
 
 } {} {}} C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

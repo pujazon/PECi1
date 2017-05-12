@@ -50,9 +50,9 @@ BEGIN
 			--end if;
 		elsif (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura estÃ  activa.
 			if (ei = '1') then
-				bs(7)(1) <= '0';
-			elsif (di = '1') then
 				bs(7)(1) <= '1';
+			elsif (di = '1') then
+				bs(7)(1) <= '0';
 			elsif (reti = '1') then
 				bs(7) <= bs(0);
 			else bs(conv_integer(addr_d)) <= d;
