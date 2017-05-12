@@ -24,7 +24,7 @@ END interrupt_controller;
 ARCHITECTURE Structure OF interrupt_controller IS
 	signal curr_iid: STD_LOGIC_VECTOR(7 downto 0);
 BEGIN
-	intr <= key_intr or ps2_intr or switch_intr or timer_intr;
+	intr <= '1' when (key_intr = '1' or ps2_intr = '1' or switch_intr = '1' or timer_intr = '1') else '0';
 	
 	curr_iid <= x"00" when timer_intr = '1' else
 					x"01" when key_intr = '1' else
@@ -32,10 +32,10 @@ BEGIN
 					x"03" when ps2_intr = '1' else
 					x"FF";
 	
-	timer_inta <= inta and timer_intr;
-	key_inta <= inta and key_intr and (not timer_intr);
-	switch_inta <= inta and switch_intr and (not key_intr) and (not timer_intr);
-	ps2_inta <= inta and ps2_intr and (not switch_intr) and (not key_intr) and (not timer_intr);
+	timer_inta <= '1' when (inta = '1' and timer_intr = '1') else '0';
+	key_inta <= '1' when (inta = '1' and key_intr = '1' and (not timer_intr = '1')) else '0';
+	switch_inta <= '1' when (inta = '1' and switch_intr = '1' and (not key_intr = '1') and (not timer_intr = '1')) else '0';
+	ps2_inta <= '1' when (inta = '1' and ps2_intr = '1' and (not switch_intr = '1') and (not key_intr = '1') and (not timer_intr = '1')) else '0';
 	
 	process(clk) begin
 		if (rising_edge(clk)) then

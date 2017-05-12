@@ -104,8 +104,8 @@ ARCHITECTURE Structure_t OF timer IS
 BEGIN
 	process(CLOCK_50) begin
 		if (rising_edge(CLOCK_50)) then
-			if (count >= max_val) then
-				current_interrupt <= '1';
+			if (count >= max_val or boot = '1') then
+				--current_interrupt <= '1';
 				count <= x"000000";
 			else
 				count <= count + 1;

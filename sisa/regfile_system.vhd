@@ -22,7 +22,7 @@ END regfile_system;
 ARCHITECTURE Structure OF regfile_system IS
 
    type BANCO_REGISTROS is array(7 downto 0) of std_logic_vector(15 downto 0);
-	signal bs: BANCO_REGISTROS;
+	signal bs: BANCO_REGISTROS := (others => (others => '0'));
 
 BEGIN
 

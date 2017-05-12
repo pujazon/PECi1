@@ -38,6 +38,7 @@ ENTITY datapath IS
 			 z			 : OUT STD_LOGIC;
 			 aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 	       wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 int_enable : OUT STD_LOGIC;
 			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
 			dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
 END datapath;
@@ -122,8 +123,7 @@ BEGIN
 	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => d_in_S, addr_a => addr_a, 
 												addr_d => addr_d, a => reg_a_sys,
 												ei => ei, di => di, reti => reti, dir_mem => dir_mem,
-												intr_sys => intr_sys
-												--!!! CODE EXCEP
+												intr_sys => intr_sys, int_enable => int_enable
 												); 
 												
 	-- Ahora con REG_SYS hay que elegir en reg_a que va si el de general o el de systema.

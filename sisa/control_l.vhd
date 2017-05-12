@@ -7,6 +7,7 @@ ENTITY control_l IS
     PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
 			 intr		  : IN  STD_LOGIC;
+			 int_enable : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -54,7 +55,8 @@ BEGIN
 				'1' when others;
 				
 	--BIT PARA SABER SI ES SYSTEM O NO PARA MULTI
-	system <= intr;
+	system <= '1' when (intr = '1' and int_enable = '1')
+				else '0';
 				
 	-- Seleccionem operacio
 	 

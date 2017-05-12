@@ -3,56 +3,56 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'counter_div_clk[2]'
-Slack : -70.598
-TNS   : -12147.879
+Slack : -70.718
+TNS   : -12310.524
 
 Type  : Slow Model Setup 'vga_controller:vga|clk_25mhz'
-Slack : -69.783
-TNS   : -14961.544
+Slack : -69.346
+TNS   : -14997.341
 
 Type  : Slow Model Setup 'CLOCK_50'
-Slack : -65.599
-TNS   : -572.193
+Slack : -66.505
+TNS   : -6229.343
 
-Type  : Slow Model Setup 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
-Slack : -0.302
-TNS   : -0.302
-
-Type  : Slow Model Hold 'CLOCK_50'
-Slack : -2.695
-TNS   : -10.070
-
-Type  : Slow Model Hold 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
-Slack : -0.183
-TNS   : -0.183
+Type  : Slow Model Setup 'controlador_IO:io|interruptores:sw0|current_interrupt'
+Slack : -0.097
+TNS   : -0.097
 
 Type  : Slow Model Hold 'counter_div_clk[2]'
-Slack : 0.445
-TNS   : 0.000
+Slack : -3.000
+TNS   : -30.232
+
+Type  : Slow Model Hold 'CLOCK_50'
+Slack : -2.690
+TNS   : -5.372
+
+Type  : Slow Model Hold 'controlador_IO:io|interruptores:sw0|current_interrupt'
+Slack : -0.197
+TNS   : -0.197
 
 Type  : Slow Model Hold 'vga_controller:vga|clk_25mhz'
 Slack : 0.445
 TNS   : 0.000
 
+Type  : Slow Model Recovery 'counter_div_clk[2]'
+Slack : -0.758
+TNS   : -1.023
+
 Type  : Slow Model Recovery 'vga_controller:vga|clk_25mhz'
 Slack : -0.140
-TNS   : -2.793
-
-Type  : Slow Model Recovery 'counter_div_clk[2]'
-Slack : -0.134
-TNS   : -2.546
+TNS   : -2.794
 
 Type  : Slow Model Recovery 'CLOCK_50'
-Slack : -0.120
-TNS   : -1.577
+Slack : 0.291
+TNS   : 0.000
+
+Type  : Slow Model Removal 'counter_div_clk[2]'
+Slack : -0.357
+TNS   : -8.131
 
 Type  : Slow Model Removal 'CLOCK_50'
 Slack : -0.039
 TNS   : -0.039
-
-Type  : Slow Model Removal 'counter_div_clk[2]'
-Slack : 0.386
-TNS   : 0.000
 
 Type  : Slow Model Removal 'vga_controller:vga|clk_25mhz'
 Slack : 0.391
@@ -64,7 +64,7 @@ TNS   : -1807.736
 
 Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.631
-TNS   : -186.153
+TNS   : -1064.771
 
 Type  : Slow Model Minimum Pulse Width 'SW[9]'
 Slack : -1.631
@@ -72,66 +72,66 @@ TNS   : -1.631
 
 Type  : Slow Model Minimum Pulse Width 'counter_div_clk[2]'
 Slack : -0.611
-TNS   : -355.602
+TNS   : -465.582
 
-Type  : Slow Model Minimum Pulse Width 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
+Type  : Slow Model Minimum Pulse Width 'controlador_IO:io|interruptores:sw0|current_interrupt'
 Slack : 0.500
 TNS   : 0.000
 
 Type  : Fast Model Setup 'counter_div_clk[2]'
-Slack : -25.893
-TNS   : -4395.650
+Slack : -25.547
+TNS   : -4339.564
 
 Type  : Fast Model Setup 'vga_controller:vga|clk_25mhz'
-Slack : -25.522
-TNS   : -5342.495
+Slack : -25.159
+TNS   : -5305.179
 
 Type  : Fast Model Setup 'CLOCK_50'
-Slack : -23.834
-TNS   : -139.454
+Slack : -23.929
+TNS   : -1685.181
 
-Type  : Fast Model Setup 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
-Slack : 0.085
+Type  : Fast Model Setup 'controlador_IO:io|interruptores:sw0|current_interrupt'
+Slack : 0.469
 TNS   : 0.000
 
-Type  : Fast Model Hold 'CLOCK_50'
-Slack : -1.725
-TNS   : -14.667
-
 Type  : Fast Model Hold 'counter_div_clk[2]'
-Slack : 0.151
+Slack : -1.738
+TNS   : -26.252
+
+Type  : Fast Model Hold 'CLOCK_50'
+Slack : -1.720
+TNS   : -3.433
+
+Type  : Fast Model Hold 'controlador_IO:io|interruptores:sw0|current_interrupt'
+Slack : 0.069
 TNS   : 0.000
 
 Type  : Fast Model Hold 'vga_controller:vga|clk_25mhz'
 Slack : 0.215
 TNS   : 0.000
 
-Type  : Fast Model Hold 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
-Slack : 0.385
-TNS   : 0.000
+Type  : Fast Model Recovery 'counter_div_clk[2]'
+Slack : -0.578
+TNS   : -0.928
 
 Type  : Fast Model Recovery 'vga_controller:vga|clk_25mhz'
-Slack : 0.112
-TNS   : 0.000
-
-Type  : Fast Model Recovery 'counter_div_clk[2]'
-Slack : 0.118
+Slack : 0.111
 TNS   : 0.000
 
 Type  : Fast Model Recovery 'CLOCK_50'
-Slack : 0.215
+Slack : 0.408
 TNS   : 0.000
+
+Type  : Fast Model Removal 'counter_div_clk[2]'
+Slack : -0.053
+TNS   : -1.179
 
 Type  : Fast Model Removal 'CLOCK_50'
 Slack : -0.028
 TNS   : -0.028
 
-Type  : Fast Model Removal 'counter_div_clk[2]'
-Slack : 0.262
-TNS   : 0.000
-
 Type  : Fast Model Removal 'vga_controller:vga|clk_25mhz'
-Slack : 0.267
+Slack : 0.268
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'vga_controller:vga|clk_25mhz'
@@ -140,7 +140,7 @@ TNS   : -1425.728
 
 Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.380
-TNS   : -152.380
+TNS   : -871.380
 
 Type  : Fast Model Minimum Pulse Width 'SW[9]'
 Slack : -1.380
@@ -148,9 +148,9 @@ TNS   : -1.380
 
 Type  : Fast Model Minimum Pulse Width 'counter_div_clk[2]'
 Slack : -0.500
-TNS   : -291.000
+TNS   : -381.000
 
-Type  : Fast Model Minimum Pulse Width 'controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|left_shift_key'
+Type  : Fast Model Minimum Pulse Width 'controlador_IO:io|interruptores:sw0|current_interrupt'
 Slack : 0.500
 TNS   : 0.000
 

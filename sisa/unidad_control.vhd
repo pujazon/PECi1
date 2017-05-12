@@ -12,6 +12,7 @@ ENTITY unidad_control IS
 			 z			  : IN  STD_LOGIC;
 			 aluout	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 intr		  : IN STD_LOGIC;
+			 int_enable : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT  STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -53,6 +54,7 @@ COMPONENT control_l IS
     PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
 			 intr		  : IN  STD_LOGIC;
+			 int_enable : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -142,7 +144,7 @@ BEGIN
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
 									 br_n => br_n, word_byte => w_b_c, z => z, tknbr => tknbr, in_op_mux => in_op_mux,
 									 rd_in => rd_in, addr_io => addr_io, wr_out => wrout_t,
-									 system => t_system, intr => intr, inta => inta_t,
+									 system => t_system, intr => intr, inta => inta_t, int_enable => int_enable,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 									 instr_il => instr_il);
 									 

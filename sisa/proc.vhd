@@ -29,6 +29,7 @@ COMPONENT unidad_control IS
 			 z			  : IN  STD_LOGIC;
 			 aluout	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 intr		  : IN STD_LOGIC;
+			 int_enable : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT  STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -97,6 +98,7 @@ COMPONENT datapath IS
 			 z			 : OUT STD_LOGIC;
 			 aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 	       wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 int_enable : OUT STD_LOGIC;
 			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
 			dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
 END COMPONENT;
@@ -107,13 +109,13 @@ END COMPONENT;
 		signal t_in_d : STD_LOGIC_VECTOR(1 DOWNTO 0);
 		signal t_addr_io : STD_LOGIC_VECTOR(7 downto 0);
 		signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys, t_instr_il : STD_LOGIC;
-		signal intr_sys_t : STD_LOGIC;
+		signal intr_sys_t, int_enable_t : STD_LOGIC;
 	 
 BEGIN
 
 	c0: unidad_control port map(	boot => boot, clk => clk, datard_m => datard_m, op => t_op, f => t_f,
 											addr_a => t_addr_a, addr_b => t_addr_b, addr_d =>t_addr_d, intr => intr, inta => inta,
-											immed => t_immed, pc => t_pc,	wrd=> t_wrd, ins_dad => t_ins_dad,
+											immed => t_immed, pc => t_pc,	wrd=> t_wrd, ins_dad => t_ins_dad, int_enable => int_enable_t,
 											in_d => t_in_d, immed_x2 =>t_immed_x2, z => t_z, aluout => t_aluout,
 											wr_m => t_wr_m, br_n => t_br_n, word_byte => t_word_byte, intr_sys => intr_sys_t,
 											rd_in => rd_in, wr_out => wr_out, in_op_mux => t_in_op_mux, addr_io => addr_io,
@@ -126,7 +128,7 @@ BEGIN
 									pc => t_pc, in_d => t_in_d, br_n => t_br_n, addr_m => addr_m, data_wr => data_wr, z => t_z,
 									wr_io => wr_io, intr_sys => intr_sys_t,
 									ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-									mem_align => mem_align, dir_mem => t_dir_mem,
+									mem_align => mem_align, dir_mem => t_dir_mem, int_enable => int_enable_t,
 									instr_il => t_instr_il);
 											
 	wr_m <= t_wr_m;
