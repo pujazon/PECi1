@@ -26,8 +26,8 @@ ARCHITECTURE Structure OF regfile_system IS
 
 BEGIN
 
-   a <= bs(1) when reti = '1' else
-		  bs(5) when intr_sys = '1' else
+   a <= bs(5) when intr_sys = '1' else
+		  bs(1) when reti = '1' else
 		  bs(conv_integer(addr_a));
 
 	process (clk)

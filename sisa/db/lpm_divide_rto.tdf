@@ -20,7 +20,7 @@
 FUNCTION abs_divider_8dg (denominator[15..0], numerator[15..0])
 RETURNS ( quotient[15..0], remainder[15..0]);
 
---synthesis_resources = lut 211 
+--synthesis_resources = lut 64 
 SUBDESIGN lpm_divide_rto
 ( 
 	denom[15..0]	:	input;

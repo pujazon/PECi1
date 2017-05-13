@@ -67,7 +67,7 @@ BEGIN
 			 op_cmp when opcode = opcode_cmp else
 			 op_mul when opcode = opcode_mul else
 			 op_arith when opcode = opcode_in_out else
-			 op_sys when opcode = opcode_sys; --NO FALTA UN ULTIMO ELSE?, QUE SI NO PILLA NADA HAGA HALT O ALGO
+			 op_arith; 
 			 
 	-- Seleccionem funcio
 	 f <= f_arith_add when opcode = opcode_st or opcode = opcode_stb 
@@ -99,15 +99,15 @@ BEGIN
 				else '0';
 				
 	 tknbr <= "01" when opcode = opcode_br and (not ir(8)) = z else
-				 "10" when opcode = opcode_jx and (ir(2 downto 0) = f_jal or ir(2 downto 0) = f_jmp or (ir(2 downto 0) = f_jz and z = '1') or (ir(2 downto 0) = f_jnz and z = '0')) else
-				 "11" when opcode = opcode_sys and ir(4 downto 0) = f_reti else
+				 "10" when (opcode = opcode_jx and (ir(2 downto 0) = f_jal or ir(2 downto 0) = f_jmp or (ir(2 downto 0) = f_jz and z = '1') or (ir(2 downto 0) = f_jnz and z = '0')))
+								or (opcode = opcode_sys and ir(4 downto 0) = f_reti) else
 				 "00";
 				  
 	 -- Control escriptura i memoria
 	 -- Ojo que ara es 0 PER A TOTA INSTR. SYSTEMA - {RDS}
 	 
 	 wrd <= '0' when opcode = opcode_st or opcode = opcode_stb or opcode = opcode_br or (opcode = opcode_jx and ir(2 downto 0) /= f_jal) or 
-					(opcode = opcode_sys and ((ir(4 downto 0) /= f_rds) or (ir(4 downto 0) /= f_getiid)))
+					(opcode = opcode_sys and (ir(4 downto 0) /= f_rds) and (ir(4 downto 0) /= f_getiid))
 					or (opcode = opcode_in_out and ir(8) = '1') --Si es IN de E/S escriura en BR. Si es out no -> '1'
 					else '1';
 					
@@ -118,7 +118,8 @@ BEGIN
 						else '0';
 						
 	 in_d <= "01" when opcode = opcode_ld or opcode = opcode_ldb else
-				"10" when (opcode = opcode_jx) or (opcode = opcode_sys and ir(4 downto 0) = f_rds)
+				"10" when (opcode = opcode_jx) else
+				"11" when (opcode = opcode_sys and ir(4 downto 0) = f_rds)
 						else "00";
 						
 	 immed_x2 <= '1' when opcode = opcode_ld or opcode = opcode_st

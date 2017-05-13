@@ -8,15 +8,14 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity vga_controller
 -- Compiling architecture vga_controller_rtl of vga_controller
 
-} {} {}} C:/Users/pec05/PECi1/sisa/sisa.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/sisa.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd
+Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
+-- Loading package standard
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity sisa
--- Compiling architecture Structure of sisa
+-- Loading package std_logic_unsigned
+-- Compiling entity vga_ram_dual
+-- Compiling architecture vga_ram_dual_arch of vga_ram_dual
 
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/vga_sync.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/vga_sync.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -27,14 +26,36 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity vga_sync
 -- Compiling architecture vga_sync_arch of vga_sync
 
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd
+} {} {}} C:/Users/pec05/PECi1/sisa/sisa.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/sisa.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity sisa
+-- Compiling architecture Structure of sisa
+
+} {} {}} C:/Users/David/PECi1/sisa/package_utility.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/package_utility.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_textio
+-- Compiling package package_utility
+-- Compiling package body package_utility
+-- Loading package package_utility
+
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/keyboard_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/keyboard_controller.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
+-- Loading package numeric_std
 -- Loading package std_logic_arith
 -- Loading package std_logic_unsigned
--- Compiling entity vga_ram_dual
--- Compiling architecture vga_ram_dual_arch of vga_ram_dual
+-- Compiling entity keyboard_controller
+-- Compiling architecture behavioral of keyboard_controller
 
 } {} {}} C:/Users/pec05/PECi1/sisa/regfile_system.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/regfile_system.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -47,33 +68,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity regfile_system
 -- Compiling architecture Structure of regfile_system
 
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/keyboard_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/keyboard_controller.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
--- Loading package std_logic_1164
--- Loading package numeric_std
--- Loading package std_logic_arith
--- Loading package std_logic_unsigned
--- Compiling entity keyboard_controller
--- Compiling architecture behavioral of keyboard_controller
-
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/ps2_keyboard.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/ps2_keyboard.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
+} {} {}} C:/Users/David/PECi1/sisa/sisa.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/sisa.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
--- Loading package std_logic_unsigned
--- Compiling entity ps2_keyboard_interface
--- Compiling architecture trans of ps2_keyboard_interface
-
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/MemoryController.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/MemoryController.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package std_logic_unsigned
--- Compiling entity memorycontroller
--- Compiling architecture comportament of memorycontroller
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity sisa
+-- Compiling architecture Structure of sisa
 
 } {} {}} C:/Users/pec05/PECi1/sisa/package_timing.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/package_timing.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -87,25 +90,54 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package body package_timing
 -- Loading package package_timing
 
-} {} {}} C:/Users/pec05/PECi1/sisa/vga_sync.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/vga_sync.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/MemoryController.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/MemoryController.vhd
+Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
+-- Loading package standard
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity vga_sync
--- Compiling architecture vga_sync_arch of vga_sync
+-- Loading package std_logic_unsigned
+-- Compiling entity memorycontroller
+-- Compiling architecture comportament of memorycontroller
 
-} {} {}} C:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/ps2_keyboard.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/ps2_keyboard.vhd
+Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_unsigned
+-- Compiling entity ps2_keyboard_interface
+-- Compiling architecture trans of ps2_keyboard_interface
+
+} {} {}} C:/Users/David/PECi1/sisa/multi.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/multi.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity vga_ram_dual
--- Compiling architecture vga_ram_dual_arch of vga_ram_dual
+-- Loading package const_control
+-- Compiling entity multi
+-- Compiling architecture Structure of multi
+
+} {} {}} C:/Users/David/PECi1/sisa/datapath.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/datapath.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity datapath
+-- Compiling architecture Structure of datapath
+
+} {} {}} C:/Users/David/PECi1/sisa/test_sisa.vhd {2 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/test_sisa.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity test_sisa
+-- Compiling architecture comportament of test_sisa
+** Warning: [4] C:/Users/David/PECi1/sisa/test_sisa.vhd(81): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 
 } {} {}} C:/Users/pec05/PECi1/sisa/alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/alu.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -118,6 +150,36 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity alu
 -- Compiling architecture Structure of alu
 
+} {} {}} C:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_ram_dual
+-- Compiling architecture vga_ram_dual_arch of vga_ram_dual
+
+} {} {}} C:/Users/pec05/PECi1/sisa/vga_sync.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/vga_sync.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_sync
+-- Compiling architecture vga_sync_arch of vga_sync
+
+} {} {}} C:/Users/David/PECi1/sisa/driver7segmentos.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/driver7segmentos.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity driver7segmentos
+-- Compiling architecture Structure of driver7segmentos
+
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/unidad_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/unidad_control.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
@@ -128,6 +190,16 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package const_control
 -- Compiling entity unidad_control
 -- Compiling architecture structure of unidad_control
+
+} {} {}} C:/Users/David/PECi1/sisa/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/vga_ram_dual.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_ram_dual
+-- Compiling architecture vga_ram_dual_arch of vga_ram_dual
 
 } {} {}} C:/Users/pec05/PECi1/sisa/ps2_keyboard.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/ps2_keyboard.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -179,6 +251,16 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity vga_font_rom
 -- Compiling architecture vga_font_rom_arch of vga_font_rom
 
+} {} {}} C:/Users/David/PECi1/sisa/ps2_keyboard.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/ps2_keyboard.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ps2_keyboard_interface
+-- Compiling architecture trans of ps2_keyboard_interface
+
 } {} {}} C:/Users/pec05/PECi1/sisa/interrupt_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/interrupt_controller.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -210,6 +292,26 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity multi
 -- Compiling architecture structure of multi
 
+} {} {}} C:/Users/David/PECi1/sisa/const_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/const_control.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling package const_control
+
+} {} {}} C:/Users/David/PECi1/sisa/interrupt_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/interrupt_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity interrupt_controller
+-- Compiling architecture Structure of interrupt_controller
+
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/controlador_IO.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/controlador_IO.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
@@ -219,6 +321,18 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package numeric_std
 -- Compiling entity controlador_io
 -- Compiling architecture structure of controlador_io
+
+} {} {}} C:/Users/David/PECi1/sisa/excepcions_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/excepcions_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package const_control
+-- Compiling entity excepcions_controller
+-- Compiling architecture Structure of excepcions_controller
 
 } {} {}} C:/Users/pec05/PECi1/sisa/mul_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/mul_alu.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -264,6 +378,49 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package package_timing
 
 } {} {}} C:/Users/pec05/PECi1/sisa/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/async_64Kx16.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Loading package package_timing
+-- Loading package package_utility
+-- Compiling entity async_64Kx16
+-- Compiling architecture behave_arch of async_64Kx16
+
+} {} {}} C:/Users/David/PECi1/sisa/SRAMController.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/SRAMController.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SRAMController
+-- Compiling architecture comportament of SRAMController
+
+} {} {}} C:/Users/David/PECi1/sisa/vga_font_rom.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/vga_font_rom.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity vga_font_rom
+-- Compiling architecture vga_font_rom_arch of vga_font_rom
+
+} {} {}} C:/Users/David/PECi1/sisa/vga_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/vga_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity vga_controller
+-- Compiling architecture vga_controller_rtl of vga_controller
+
+} {} {}} C:/Users/David/PECi1/sisa/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/async_64Kx16.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -325,6 +482,15 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity driver7segmentos
 -- Compiling architecture structure of driver7segmentos
 
+} {} {}} C:/Users/David/PECi1/sisa/const_logic.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/const_logic.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling package const_logic
+
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/arith_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/arith_alu.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
@@ -335,6 +501,18 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package const_logic
 -- Compiling entity arith_alu
 -- Compiling architecture structure of arith_alu
+
+} {} {}} C:/Users/David/PECi1/sisa/mul_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/mul_alu.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package const_logic
+-- Compiling entity mul_alu
+-- Compiling architecture Structure of mul_alu
 
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/control_l.vhd {2 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/control_l.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -401,6 +579,18 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity datapath
 -- Compiling architecture Structure of datapath
 
+} {} {}} C:/Users/David/PECi1/sisa/unidad_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/unidad_control.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package const_control
+-- Compiling entity unidad_control
+-- Compiling architecture Structure of unidad_control
+
 } {} {}} C:/Users/pec05/PECi1/sisa/driver7segmentos.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/driver7segmentos.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -410,6 +600,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity driver7segmentos
 -- Compiling architecture Structure of driver7segmentos
+
+} {} {}} C:/Users/David/PECi1/sisa/regfile.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/regfile.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity regfile
+-- Compiling architecture Structure of regfile
 
 } {} {}} C:/Users/pec05/PECi1/sisa/vga_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/vga_controller.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -453,6 +654,24 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity proc
 -- Compiling architecture Structure of proc
 
+} {} {}} C:/Users/David/PECi1/sisa/vga_sync.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/vga_sync.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_sync
+-- Compiling architecture vga_sync_arch of vga_sync
+
+} {} {}} C:/Users/David/PECi1/sisa/proc.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/proc.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity proc
+-- Compiling architecture Structure of proc
+
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/cmp_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/cmp_alu.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
@@ -464,6 +683,51 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity cmp_alu
 -- Compiling architecture structure of cmp_alu
 
+} {} {}} C:/Users/David/PECi1/sisa/MemoryController.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/MemoryController.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MemoryController
+-- Compiling architecture comportament of MemoryController
+
+} {} {}} C:/Users/David/PECi1/sisa/controlador_IO.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/controlador_IO.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity controlador_IO
+-- Compiling architecture Structure of controlador_IO
+
+} {} {}} C:/Users/David/PECi1/sisa/cmp_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/cmp_alu.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package const_logic
+-- Compiling entity cmp_alu
+-- Compiling architecture Structure of cmp_alu
+
+} {} {}} C:/Users/David/PECi1/sisa/arith_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/arith_alu.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package const_logic
+-- Compiling entity arith_alu
+-- Compiling architecture Structure of arith_alu
+
 } {} {}} C:/Users/pec05/PECi1/sisa/const_logic.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/const_logic.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -472,6 +736,39 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling package const_logic
+
+} {} {}} C:/Users/David/PECi1/sisa/regfile_system.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/regfile_system.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity regfile_system
+-- Compiling architecture Structure of regfile_system
+
+} {} {}} C:/Users/David/PECi1/sisa/memory_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/memory_alu.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package const_logic
+-- Compiling entity memory_alu
+-- Compiling architecture Structure of memory_alu
+
+} {} {}} C:/Users/David/PECi1/sisa/alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/alu.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package const_logic
+-- Compiling entity alu
+-- Compiling architecture Structure of alu
 
 } {} {}} C:/Users/pec05/PECi1/sisa/unidad_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/unidad_control.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -493,14 +790,17 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling architecture comportament of test_sisa
 ** Warning: [4] C:/Users/Manolo/Desktop/interrupcions/test_sisa.vhd(66): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/sisa.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/sisa.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
+} {} {}} C:/Users/David/PECi1/sisa/package_timing.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/package_timing.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
--- Loading package std_logic_unsigned
--- Compiling entity sisa
--- Compiling architecture structure of sisa
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling package package_timing
+-- Compiling package body package_timing
+-- Loading package package_timing
 
 } {} {}} C:/Users/pec05/PECi1/sisa/device_controllers.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/device_controllers.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -517,14 +817,26 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity timer
 -- Compiling architecture Structure_t of timer
 
-} {} {}} C:/Users/pec05/PECi1/sisa/const_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/const_control.vhd
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/sisa.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/sisa.vhd
+Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_unsigned
+-- Compiling entity sisa
+-- Compiling architecture structure of sisa
+
+} {} {}} C:/Users/David/PECi1/sisa/control_l.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/control_l.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling package const_control
+-- Loading package const_control
+-- Loading package const_logic
+-- Compiling entity control_l
+-- Compiling architecture Structure of control_l
 
 } {} {}} C:/Users/pec05/PECi1/sisa/package_utility.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/package_utility.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -536,6 +848,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package package_utility
 -- Compiling package body package_utility
 -- Loading package package_utility
+
+} {} {}} C:/Users/pec05/PECi1/sisa/const_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/const_control.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling package const_control
 
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/memory_alu.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/memory_alu.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -567,17 +888,16 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package std_logic_unsigned
 -- Compiling package const_logic
 
-} {} {}} C:/Users/pec05/PECi1/sisa/control_l.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/control_l.vhd
+} {} {}} C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Loading package const_control
--- Loading package const_logic
--- Compiling entity control_l
--- Compiling architecture Structure of control_l
+-- Compiling entity keyboard_controller
+-- Compiling architecture Behavioral of keyboard_controller
 
 } {} {}} C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -591,25 +911,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity excepcions_controller
 -- Compiling architecture Structure of excepcions_controller
 
-} {} {}} C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd
+} {} {}} C:/Users/pec05/PECi1/sisa/control_l.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/control_l.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity keyboard_controller
--- Compiling architecture Behavioral of keyboard_controller
-
-} {} {}} C:/Users/Manolo/Desktop/interrupcions/SRAMController.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/SRAMController.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package std_logic_unsigned
--- Compiling entity sramcontroller
--- Compiling architecture comportament of sramcontroller
+-- Loading package const_control
+-- Loading package const_logic
+-- Compiling entity control_l
+-- Compiling architecture Structure of control_l
 
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/package_utility.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/package_utility.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -621,6 +933,15 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling package package_utility
 -- Compiling package body package_utility
 -- Loading package package_utility
+
+} {} {}} C:/Users/Manolo/Desktop/interrupcions/SRAMController.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/SRAMController.vhd
+Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_unsigned
+-- Compiling entity sramcontroller
+-- Compiling architecture comportament of sramcontroller
 
 } {} {}} C:/Users/pec05/PECi1/sisa/controlador_IO.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/controlador_IO.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

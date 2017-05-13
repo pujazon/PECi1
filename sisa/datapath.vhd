@@ -153,9 +153,9 @@ BEGIN
 		reg_in <= 	rd_io when '1',
 					reg_in_t when others;
 	
-	with intr_sys select
-		aluout <= alu_out when '0',
-					reg_a_sys when others;
+	
+		aluout <= alu_out when intr_sys = '0' and reti = '0' else
+					reg_a_sys;
 					 
 	 -- Decidim multiplicar o no en funcio de immed_x2
 	 with immed_x2 select

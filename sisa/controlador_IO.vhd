@@ -166,8 +166,7 @@ BEGIN
 		with br_io(9)(3) select
 			HEX3 <= HEX_OFF when '0',
 					  hex3_out when others;
-		
-					
+
 	process (CLOCK_50)
 	begin
 	
@@ -188,18 +187,17 @@ BEGIN
 			else
 				bit_clear_char <= '0';
 				br_io(puerto) <= wr_io;
-				
 			end if;
-		end if;
-		
-		if (rising_edge(CLOCK_50)) then
+		elsif (rising_edge(CLOCK_50)) then
 			if (inta = '1') then
 				rd_io <= "00000000" & iid_t;
-			elsif (rd_in = '1' and rising_edge(CLOCK_50)) then -- Si la senyal de lectura esta activa.
-				if (puerto = 15) then br_io(puerto) (7 downto 0) <= read_char; end if;
-				if (puerto = 21) then br_io(21) <= contador_milisegundos; end if;
-				if (puerto = 20) then br_io(puerto) <= contador_ciclos; end if;
-				if (puerto = 16) then br_io(puerto)(0) <= data_ready; end if;
+			elsif (rd_in = '1') then -- Si la senyal de lectura esta activa.
+				br_io(15) (7 downto 0) <= read_char;
+				br_io(21) <= contador_milisegundos;
+				br_io(20) <= contador_ciclos;
+				br_io(16)(0) <= data_ready;
+				br_io(7) <= "000000000000" & rd_keys_t;
+				br_io(8) <= "000000" & rd_switch_t;
 				rd_io <= br_io(puerto); --HAY QUE USAR RD_IN PARA EFECTOS COLATERALES
 											--PERO AUN NO
 			end if;

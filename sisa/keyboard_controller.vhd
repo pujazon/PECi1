@@ -49,7 +49,7 @@ end component;
     signal rx_ascii : STD_LOGIC_VECTOR (7 downto 0);
     signal data_ready_we : STD_LOGIC;
     signal data_available : STD_LOGIC;
-	 signal current_interrupt : STD_LOGIC;
+	 signal current_interrupt : STD_LOGIC := '0';
 	 
     type state_type is (idle, clearing);
     signal state   : state_type;
@@ -82,7 +82,7 @@ begin
             else
                 case state is
                     when idle =>
-                        if (clear_char = '1') then
+                        if (clear_char = '1' or inta = '1') then
                             state <= clearing;
                         end if;
                     when clearing =>
@@ -102,17 +102,16 @@ begin
                 if (rx_data_ready = '1' and rx_released = '0') then
                     if (rx_shift_key_on /= '1' or rx_ascii /= "00000000") then
                         data_available <= '1';
-								current_interrupt <= '1';
                         data_ready_we <= '1';
+								current_interrupt <= '1';
                     end if;
-                elsif (inta = '1') then
-						current_interrupt <= '0';
 					 end if;
                 rx_read <= '0';
             when clearing =>
                 rx_read <= '1';
                 data_available <= '0';
                 data_ready_we <= '1';
+					 current_interrupt <= '0';
         end case;
     end process;
 
