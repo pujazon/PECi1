@@ -27,7 +27,7 @@ ARCHITECTURE Structure OF interrupt_controller IS
 BEGIN
 	intr_t <= '1' when (key_intr = '1' or ps2_intr = '1' or switch_intr = '1' or timer_intr = '1') else '0';
 	
-	intr <= '1';
+	intr <= intr_t;
 	
 	curr_iid <= x"00" when timer_intr = '1' else
 					x"01" when key_intr = '1' else

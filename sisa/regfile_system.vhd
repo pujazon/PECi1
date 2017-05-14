@@ -12,11 +12,11 @@ ENTITY regfile_system IS
           d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);			
-			 --code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
+			 exc_code : IN STD_LOGIC_VECTOR(3 downto 0);
 			 intr_sys	: IN STD_LOGIC;
 			 int_enable : OUT STD_LOGIC;
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
+			 addr_m : IN STD_LOGIC_VECTOR(15 downto 0));
 END regfile_system;
 
 ARCHITECTURE Structure OF regfile_system IS
@@ -38,12 +38,15 @@ BEGIN
 	
 		if (rising_edge(clk) and intr_sys = '1') then
 			--Si hay exce/interr se guarda en S2 el code
-			bs(2) <= x"000F";
+			bs(2) <= x"000" & exc_code;
 			bs(0) <= bs(7);
 			bs(1) <= d;
 			--a <= bs(5);
 			bs(7)(1) <= '0';
-		elsif (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura estÃ  activa.
+			if (exc_code = "0001") then -- evitamos señal extra para alineamiento incorrecto
+				bs(3) <= addr_m;
+			end if;
+		elsif (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura esta  activa.
 			if (ei = '1') then
 				bs(7)(1) <= '1';
 			elsif (di = '1') then

@@ -117,7 +117,7 @@ begin
 	clk <= not clk after 10 ns;
 	reset_ram <= '1' after 15 ns, '0' after 50 ns;    -- reseteamos la RAm en el primer ciclo
 	reset_proc <= '1' after 25 ns, '0' after 320 ns;  -- reseteamos el procesador en el segundo ciclo
-	keys <= "0101" after 4000 ns;
+	keys <= "0101" after 10000 ns;
 	
 end comportament;
 

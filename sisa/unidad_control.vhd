@@ -13,6 +13,8 @@ ENTITY unidad_control IS
 			 aluout	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 intr		  : IN STD_LOGIC;
 			 int_enable : IN STD_LOGIC;
+			 mem_align :	IN STD_logic;
+			 div_zero  : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT  STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -39,11 +41,7 @@ ENTITY unidad_control IS
 			 wrd_rsys : OUT STD_LOGIC;  
 			 a_sys	 : OUT STD_LOGIC;
 			 intr_sys : OUT STD_LOGIC;
-			 ---Excepcion instruccion ilegal--------------
-			 instr_il : OUT STD_LOGIC;
-			 ---------------------------------------------
-			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
-			dir_mem : OUT STD_LOGIC_VECTOR(15 downto 0)
+			 exc_code : OUT STD_LOGIC_VECTOR(3 downto 0)
 			 );
 END unidad_control;
 
@@ -86,6 +84,18 @@ COMPONENT control_l IS
 			 instr_il : OUT STD_LOGIC
 			 );
 END COMPONENT;
+		
+	COMPONENT excepcions_controller IS
+	PORT(
+			clk: IN STD_LOGIC;
+			instr_il : IN STD_LOGIC;
+			mem_align :	IN STD_LOGIC;
+			div_zero : IN STD_LOGIC;
+			system_l:	IN STD_LOGIC;
+			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
+			system	: OUT STD_LOGIC
+	);
+	END COMPONENT;	
 	
 	COMPONENT multi is
     port(clk       : IN  STD_LOGIC;
@@ -127,12 +137,12 @@ END COMPONENT;
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
     -- Aqui iria la definicion del program counter y del registro IR
 	 
-	 signal wrout_t,ldpc_c, wrd_c, wr_m_c, w_b_c,t_system : std_logic;
+	 signal wrout_t,ldpc_c, wrd_c, wr_m_c, w_b_c,t_system, t_system_l : std_logic;
 	 signal load_pc, load_ir : std_logic;
 	 signal ir, new_pc, pc_calc_t, pc_calc, t_immed : std_logic_vector(15 downto 0);
 	 signal tknbr : std_logic_vector(1 downto 0);
 	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys : STD_LOGIC;
-	 signal intr_sys_t, inta_t : STD_LOGIC;
+	 signal intr_sys_t, inta_t, instr_il_t : STD_LOGIC;
 	 
 BEGIN
 
@@ -140,13 +150,16 @@ BEGIN
     -- En los esquemas de la documentacion a la instancia de la logica de control le hemos llamado c0
     -- Aqui iria la definicion del comportamiento de la unidad de control y la gestion del PC y del IR
 	 
+	 e0: excepcions_controller port map(clk => clk, instr_il => instr_il_t, mem_align => mem_align, div_zero => div_zero, system_l => t_system_l,
+													system => t_system, exc_code => exc_code);
+	 
 	 c0: control_l port map (ir => ir, op => op, f => f, ldpc => ldpc_c, wrd => wrd_c, addr_a => addr_a, addr_b => addr_b,
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
 									 br_n => br_n, word_byte => w_b_c, z => z, tknbr => tknbr, in_op_mux => in_op_mux,
 									 rd_in => rd_in, addr_io => addr_io, wr_out => wrout_t,
-									 system => t_system, intr => intr, inta => inta_t, int_enable => int_enable,
+									 system => t_system_l, intr => intr, inta => inta_t, int_enable => int_enable,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-									 instr_il => instr_il);
+									 instr_il => instr_il_t);
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
@@ -171,7 +184,6 @@ BEGIN
 	end process;
 	
 	immed <= t_immed;
-	dir_mem <= ir;
 	intr_sys <= intr_sys_t;
 	
 	with intr_sys_t select

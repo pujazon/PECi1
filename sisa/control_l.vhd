@@ -125,8 +125,8 @@ BEGIN
 	 immed_x2 <= '1' when opcode = opcode_ld or opcode = opcode_st
 						else '0';
 						
-	 word_byte <= '1' when opcode = opcode_ldb or opcode = opcode_stb
-						else '0';
+	 word_byte <= '0' when opcode = opcode_ld or opcode = opcode_st
+						else '1';
 						
 	-- Control del CONTROLADOR E/S
 	

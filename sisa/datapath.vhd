@@ -16,11 +16,6 @@ ENTITY datapath IS
 			 wrd_rsys : IN STD_LOGIC; 
 			 a_sys	 : IN STD_LOGIC;
 			 intr_sys : IN STD_LOGIC;
-			 ---------------------------------------------
-			--Excepcion direccion mal alineada
-			 mem_align :	IN STD_logic;
-			 ---Excepcion instruccion ilegal--------------
-			 instr_il : IN STD_LOGIC;
 			 in_op_mux  : IN  STD_LOGIC;
           addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -33,14 +28,14 @@ ENTITY datapath IS
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
 			 br_n		 : IN  STD_LOGIC;
+			 exc_code : IN STD_LOGIC_VECTOR(3 downto 0);
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			 : OUT STD_LOGIC;
 			 aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 	       wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 int_enable : OUT STD_LOGIC;
-			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
-			dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
+			 div_zero : OUT STD_LOGIC;
+			 int_enable : OUT STD_LOGIC);
 END datapath;
 
 
@@ -67,18 +62,6 @@ ARCHITECTURE Structure OF datapath IS
           b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 	END COMPONENT;
 	
-	COMPONENT excepcions_controller IS
-	PORT(
-			instr_il : IN STD_LOGIC;
-			mem_align :	IN STD_LOGIC;
-			div_zero : IN STD_LOGIC;
-			intr:	IN STD_LOGIC;
-			code_excep : OUT STD_LOGIC_VECTOR(3 downto 0);
-			intr_sys	: OUT STD_LOGIC
-	);
-	END COMPONENT;	
-	
-	
 	COMPONENT regfile_system IS
     PORT (clk    : IN  STD_LOGIC;
           wrd    : IN  STD_LOGIC;
@@ -88,30 +71,21 @@ ARCHITECTURE Structure OF datapath IS
           d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);			
-			 --code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
+			 exc_code : IN STD_LOGIC_VECTOR(3 downto 0);
 			 intr_sys	: IN STD_LOGIC;
 			 int_enable : OUT STD_LOGIC;
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
+			 addr_m : IN STD_LOGIC_VECTOR(15 downto 0));
 	END COMPONENT;
 	
 	
 	
-	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S : STD_LOGIC_VECTOR (15 downto 0);
+	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S, addr_m_t : STD_LOGIC_VECTOR (15 downto 0);
 	signal reg_in, reg_in_t, immed_out, y_alu : STD_LOGIC_VECTOR (15 downto 0);
-	signal t_div_zero, t_intr_sys : STD_LOGIC;
+	signal t_intr_sys : STD_LOGIC;
 	--signal t_code_excep : STD_LOGIC_VECTOR (3 downto 0);
 	 
 BEGIN
-
-
-	----CONTROLADOR EXCEPCIONES: SACA SI HAY UNA EXCEP/INTERR para que regS actue si hay o si no I CODE EXCEP---
-	
-	--excepciones: excepcions_controller port map(instr_il => instr_il, mem_align => mem_align,
-	--														  div_zero => t_div_zero, intr => intr, --Que vendra de interr_controller
-	--															code_excep => t_code_excep, intr_sys => t_intr_sys);	
-																
-
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
     -- En los esquemas de la documentacion a la instancia del banco de registros le hemos llamado reg0 y a la de la alu le hemos llamado alu0
@@ -121,8 +95,8 @@ BEGIN
 	
 	
 	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => d_in_S, addr_a => addr_a, 
-												addr_d => addr_d, a => reg_a_sys,
-												ei => ei, di => di, reti => reti, dir_mem => dir_mem,
+												addr_d => addr_d, a => reg_a_sys, exc_code => exc_code,
+												ei => ei, di => di, reti => reti, addr_m => addr_m_t,
 												intr_sys => intr_sys, int_enable => int_enable
 												); 
 												
@@ -132,7 +106,7 @@ BEGIN
 		reg_a <= reg_a_sys when '1',
 					reg_a_gen when others;
 	
-	 alu0: alu port map (x => reg_a, y => y_alu, op => op, w => alu_out, f => f, z => z, div_zero => t_div_zero);
+	 alu0: alu port map (x => reg_a, y => y_alu, op => op, w => alu_out, f => f, z => z, div_zero => div_zero);
 
 	 
 	 -- Seleccionem que entra pel port D del banc de registres (alu/memoria) TODO
@@ -170,9 +144,10 @@ BEGIN
 	
 	-- Seleccionem entrada de adreces memoria en funcio de ins_dad (1 ALU/ 0 PC)
 	 with ins_dad select
-		addr_m <= pc when '0',
+		addr_m_t <= pc when '0',
 					alu_out when others;
-					
+	
+	addr_m <= addr_m_t;
 	
 	data_wr <= reg_b;
 	

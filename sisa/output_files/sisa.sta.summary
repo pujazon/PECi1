@@ -3,20 +3,20 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'counter_div_clk[2]'
-Slack : -69.342
-TNS   : -12209.574
+Slack : -70.884
+TNS   : -13880.819
 
 Type  : Slow Model Setup 'vga_controller:vga|clk_25mhz'
-Slack : -68.351
-TNS   : -14716.320
+Slack : -69.221
+TNS   : -14941.321
 
 Type  : Slow Model Setup 'CLOCK_50'
-Slack : -64.980
-TNS   : -7679.893
+Slack : -64.426
+TNS   : -7947.102
 
 Type  : Slow Model Hold 'CLOCK_50'
-Slack : -2.695
-TNS   : -5.390
+Slack : -2.703
+TNS   : -5.393
 
 Type  : Slow Model Hold 'counter_div_clk[2]'
 Slack : 0.445
@@ -27,12 +27,12 @@ Slack : 0.445
 TNS   : 0.000
 
 Type  : Slow Model Recovery 'counter_div_clk[2]'
-Slack : -0.527
-TNS   : -8.224
+Slack : -0.518
+TNS   : -6.758
 
 Type  : Slow Model Recovery 'vga_controller:vga|clk_25mhz'
-Slack : -0.131
-TNS   : -2.620
+Slack : -0.328
+TNS   : -6.560
 
 Type  : Slow Model Recovery 'CLOCK_50'
 Slack : 0.291
@@ -42,12 +42,12 @@ Type  : Slow Model Removal 'CLOCK_50'
 Slack : -0.039
 TNS   : -0.039
 
-Type  : Slow Model Removal 'vga_controller:vga|clk_25mhz'
-Slack : 0.383
+Type  : Slow Model Removal 'counter_div_clk[2]'
+Slack : 0.360
 TNS   : 0.000
 
-Type  : Slow Model Removal 'counter_div_clk[2]'
-Slack : 0.386
+Type  : Slow Model Removal 'vga_controller:vga|clk_25mhz'
+Slack : 0.580
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'vga_controller:vga|clk_25mhz'
@@ -64,23 +64,23 @@ TNS   : -1.631
 
 Type  : Slow Model Minimum Pulse Width 'counter_div_clk[2]'
 Slack : -0.611
-TNS   : -377.598
+TNS   : -382.486
 
 Type  : Fast Model Setup 'counter_div_clk[2]'
-Slack : -25.422
-TNS   : -4430.159
+Slack : -26.035
+TNS   : -5051.596
 
 Type  : Fast Model Setup 'vga_controller:vga|clk_25mhz'
-Slack : -24.997
-TNS   : -5271.386
+Slack : -25.365
+TNS   : -5336.094
 
 Type  : Fast Model Setup 'CLOCK_50'
-Slack : -23.677
-TNS   : -2490.664
+Slack : -23.371
+TNS   : -2568.010
 
 Type  : Fast Model Hold 'CLOCK_50'
-Slack : -1.725
-TNS   : -10.829
+Slack : -1.730
+TNS   : -16.526
 
 Type  : Fast Model Hold 'counter_div_clk[2]'
 Slack : 0.215
@@ -92,10 +92,10 @@ TNS   : 0.000
 
 Type  : Fast Model Recovery 'counter_div_clk[2]'
 Slack : -0.065
-TNS   : -0.476
+TNS   : -0.380
 
 Type  : Fast Model Recovery 'vga_controller:vga|clk_25mhz'
-Slack : 0.121
+Slack : 0.059
 TNS   : 0.000
 
 Type  : Fast Model Recovery 'CLOCK_50'
@@ -106,12 +106,12 @@ Type  : Fast Model Removal 'CLOCK_50'
 Slack : -0.028
 TNS   : -0.028
 
-Type  : Fast Model Removal 'vga_controller:vga|clk_25mhz'
-Slack : 0.259
+Type  : Fast Model Removal 'counter_div_clk[2]'
+Slack : 0.246
 TNS   : 0.000
 
-Type  : Fast Model Removal 'counter_div_clk[2]'
-Slack : 0.262
+Type  : Fast Model Removal 'vga_controller:vga|clk_25mhz'
+Slack : 0.320
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'vga_controller:vga|clk_25mhz'
@@ -128,6 +128,6 @@ TNS   : -1.380
 
 Type  : Fast Model Minimum Pulse Width 'counter_div_clk[2]'
 Slack : -0.500
-TNS   : -309.000
+TNS   : -313.000
 
 ------------------------------------------------------------
