@@ -122,7 +122,7 @@ ARCHITECTURE Structure OF controlador_IO IS
 	signal rd_io_t : STD_LOGIC_VECTOR(15 DOWNTO 0);
 BEGIN
 
-	keyboard: keyboard_controller port map(clk => clk, reset => boot, ps2_clk => ps2_clk,
+	keyboard: keyboard_controller port map(clk => CLOCK_50, reset => boot, ps2_clk => ps2_clk,
 														ps2_data => ps2_data, 
 														read_char => read_char , clear_char => bit_clear_char,
 														data_ready => data_ready, inta => ps2_inta_t, intr => ps2_intr_t);

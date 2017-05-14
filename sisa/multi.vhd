@@ -69,7 +69,7 @@ begin
 	with estado select
 		ldpc <= '0' when FETCH,
 				ldpc_l when others;
-	--OJO! TMB EN SYSTEM ESTADO PQ PUEDE SER RDS
+	
 	with estado select
 		wrd <= wrd_l when DEMW,
 				  '0' when others;

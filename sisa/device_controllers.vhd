@@ -24,10 +24,8 @@ BEGIN
 			state <= keys;
 			current_interrupt <= '0';
 		elsif (rising_edge(clk)) then
-			if (current_interrupt = '1') then
-				if(inta = '1') then
-					current_interrupt <= '0';
-				end if;
+			if (inta = '1') then
+				current_interrupt <= '0';
 			else
 				if(keys /= state) then
 					current_interrupt <= '1';
@@ -66,10 +64,8 @@ BEGIN
 			state <= switch;
 			current_interrupt <= '0';
 		elsif (rising_edge(clk)) then
-			if (current_interrupt = '1') then
-				if(inta = '1') then
-					current_interrupt <= '0';
-				end if;
+			if (inta = '1') then
+				current_interrupt <= '0';
 			else
 				if(switch /= state) then
 					current_interrupt <= '1';
@@ -106,6 +102,7 @@ BEGIN
 		if (rising_edge(CLOCK_50)) then
 			if(inta = '1' or boot = '1') then
 				current_interrupt <= '0';
+				count <= x"000000";
 			elsif (count >= max_val) then
 				current_interrupt <= '1';
 				count <= x"000000";
@@ -114,5 +111,5 @@ BEGIN
 			end if;
 		end if;
 	end process;
-	intr <= current_interrupt;
+	intr <= '0';
 END Structure_t;

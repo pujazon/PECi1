@@ -18,7 +18,7 @@ L6
 V1U8=6L][Rg@MYI6LO<c^d2
 Z9 OV;C;10.1d;51
 32
-Z10 !s108 1494698539.045000
+Z10 !s108 1494714457.338000
 Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/alu.vhd|
 Z12 !s107 C:/Users/David/PECi1/sisa/alu.vhd|
 Z13 o-work work -2002 -explicit -O0
@@ -60,7 +60,7 @@ L7
 VSMWJhFZdfH5WG1zd:dTLL1
 R9
 32
-Z19 !s108 1494698539.144000
+Z19 !s108 1494714457.419000
 Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/arith_alu.vhd|
 Z21 !s107 C:/Users/David/PECi1/sisa/arith_alu.vhd|
 R13
@@ -104,7 +104,7 @@ L22
 Vz7=:g106kSL^?zZa1_k1i2
 R9
 32
-Z27 !s108 1494698539.274000
+Z27 !s108 1494714457.525000
 Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/async_64Kx16.vhd|
 Z29 !s107 C:/Users/David/PECi1/sisa/async_64Kx16.vhd|
 R13
@@ -148,7 +148,7 @@ L7
 VRR=2K3@1F=iXWE@d;`D8M3
 R9
 32
-Z32 !s108 1494698539.388000
+Z32 !s108 1494714457.622000
 Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/cmp_alu.vhd|
 Z34 !s107 C:/Users/David/PECi1/sisa/cmp_alu.vhd|
 R13
@@ -193,7 +193,7 @@ R13
 R14
 !s100 1268Z6[kCgX0MSXTdz9Am0
 !i10b 1
-!s108 1494698539.533000
+!s108 1494714457.744000
 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/const_control.vhd|
 !s107 C:/Users/David/PECi1/sisa/const_control.vhd|
 Pconst_logic
@@ -214,7 +214,7 @@ R13
 R14
 !s100 7`L[id>S_b;:F9Sjhz1Ro1
 !i10b 1
-!s108 1494698539.647000
+!s108 1494714457.836000
 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/const_logic.vhd|
 !s107 C:/Users/David/PECi1/sisa/const_logic.vhd|
 Econtrol_l
@@ -233,7 +233,7 @@ L6
 Vbj:n3U6c@L?8QYA;fiaN]2
 R9
 32
-Z40 !s108 1494698539.801000
+Z40 !s108 1494714457.934000
 Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/control_l.vhd|
 Z42 !s107 C:/Users/David/PECi1/sisa/control_l.vhd|
 R13
@@ -261,7 +261,7 @@ R14
 !s100 cfCDn4gfjPRmJTGYfW=4O2
 !i10b 1
 Econtrolador_io
-Z43 w1494691457
+Z43 w1494713350
 R16
 R2
 R3
@@ -275,7 +275,7 @@ L6
 VT]AFnF]5=V3JIzXg9jiYN0
 R9
 32
-Z46 !s108 1494698539.962000
+Z46 !s108 1494714458.043000
 Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/controlador_IO.vhd|
 Z48 !s107 C:/Users/David/PECi1/sisa/controlador_IO.vhd|
 R13
@@ -291,7 +291,7 @@ R5
 DEx4 work 14 controlador_io 0 22 T]AFnF]5=V3JIzXg9jiYN0
 l123
 L33
-Vb9b8jFe^YkV:Z9?^YYN9=2
+VXiNkeMF8ooYOBSz?_`9:?0
 R9
 32
 R46
@@ -299,10 +299,10 @@ R47
 R48
 R13
 R14
-!s100 jz7Hm=:YE?GE1IXBF4^U12
+!s100 P_R?jV[i_?8R]`7[5ZANY2
 !i10b 1
 Edatapath
-Z49 w1494687598
+Z49 w1494714424
 R2
 R3
 R16
@@ -316,7 +316,7 @@ L7
 Vm=Jhbj`o3hFD^CEG_VC_k1
 R9
 32
-Z52 !s108 1494698540.099000
+Z52 !s108 1494714458.163000
 Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/datapath.vhd|
 Z54 !s107 C:/Users/David/PECi1/sisa/datapath.vhd|
 R13
@@ -340,7 +340,7 @@ R53
 R54
 R13
 R14
-!s100 V_=jU`07TjZ]baE^CUd;g1
+!s100 AS<lgBk1M<2jDehZBYXQB3
 !i10b 1
 Edriver7segmentos
 R15
@@ -356,7 +356,7 @@ L7
 VW8AU[;gFE6VDiYfg>ICG?1
 R9
 32
-Z57 !s108 1494698540.410000
+Z57 !s108 1494714458.443000
 Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/driver7segmentos.vhd|
 Z59 !s107 C:/Users/David/PECi1/sisa/driver7segmentos.vhd|
 R13
@@ -397,7 +397,7 @@ L7
 VDo]e@Fh08MhGhDIGmTIlL1
 R9
 32
-Z62 !s108 1494698540.539000
+Z62 !s108 1494714458.573000
 Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/excepcions_controller.vhd|
 Z64 !s107 C:/Users/David/PECi1/sisa/excepcions_controller.vhd|
 R13
@@ -425,7 +425,7 @@ R14
 !s100 HjL?<dIShzUgAWe>GR^RR3
 !i10b 1
 Einterrupt_controller
-Z65 w1494692722
+Z65 w1494714451
 R2
 R3
 R16
@@ -439,7 +439,7 @@ L6
 VmEbT<PZ>UKfF[OdmSYATF3
 R9
 32
-Z68 !s108 1494698540.670000
+Z68 !s108 1494714458.728000
 Z69 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/interrupt_controller.vhd|
 Z70 !s107 C:/Users/David/PECi1/sisa/interrupt_controller.vhd|
 R13
@@ -455,7 +455,7 @@ R5
 DEx4 work 20 interrupt_controller 0 22 mEbT<PZ>UKfF[OdmSYATF3
 l27
 L24
-VmH158]eoVXdlaQHP3cCA42
+VQ]P_d3dieTWDnNa_]9M923
 R9
 32
 R68
@@ -463,10 +463,10 @@ R69
 R70
 R13
 R14
-!s100 lVd?5oGhgDi1?k?[FZ;nc0
+!s100 ]Qc>nSNGa_?k_`=YP;^ma0
 !i10b 1
 Einterruptores
-Z71 w1494697964
+Z71 w1494709035
 R16
 R2
 R3
@@ -476,16 +476,16 @@ R6
 Z72 8C:/Users/David/PECi1/sisa/device_controllers.vhd
 Z73 FC:/Users/David/PECi1/sisa/device_controllers.vhd
 l0
-L48
+L46
 V2df@mOfMQMHCOFS>dime;1
 R9
 32
-Z74 !s108 1494698540.213000
+Z74 !s108 1494714458.277000
 Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/device_controllers.vhd|
 Z76 !s107 C:/Users/David/PECi1/sisa/device_controllers.vhd|
 R13
 R14
-!s100 lnnCM5PW<K<XkI>]Yi>Vf1
+!s100 XG_eB48o>1eLndjSakG`U2
 !i10b 1
 Astructure_i
 R16
@@ -494,9 +494,9 @@ R3
 R4
 R5
 DEx4 work 13 interruptores 0 22 2df@mOfMQMHCOFS>dime;1
-l62
-L59
-Vm5ZO[HZLaP_jo2_K5iAYo1
+l60
+L57
+VX>L9g05I15KVckeFWz<Zn3
 R9
 32
 R74
@@ -504,10 +504,10 @@ R75
 R76
 R13
 R14
-!s100 d7cBBcLjc9=;R:eTUzmPR0
+!s100 =:lX^2S914UiC6J9jUJ5Y0
 !i10b 1
 Ekeyboard_controller
-Z77 w1494690987
+Z77 w1494699999
 R2
 R3
 R16
@@ -521,7 +521,7 @@ L6
 VUinNi:i`]BOfnVnCM>V8U2
 R9
 32
-Z80 !s108 1494698540.851000
+Z80 !s108 1494714458.842000
 Z81 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/keyboard_controller.vhd|
 Z82 !s107 C:/Users/David/PECi1/sisa/keyboard_controller.vhd|
 R13
@@ -537,7 +537,7 @@ R5
 DEx4 work 19 keyboard_controller 0 22 UinNi:i`]BOfnVnCM>V8U2
 l57
 L18
-V@9>d_h@BIG7R;o5oZKibR0
+VSbaDkeGWjBX2_>PGVQFmB2
 R9
 32
 R80
@@ -545,7 +545,7 @@ R81
 R82
 R13
 R14
-!s100 0NfaJ131zVGhGW>mWF_2f3
+!s100 k3McGfcecJKH3XELCJQDg3
 !i10b 1
 Ememory_alu
 R15
@@ -562,7 +562,7 @@ L6
 V?2>1[Ac0JMA@E[e]H]S@73
 R9
 32
-Z85 !s108 1494698540.981000
+Z85 !s108 1494714458.982000
 Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/memory_alu.vhd|
 Z87 !s107 C:/Users/David/PECi1/sisa/memory_alu.vhd|
 R13
@@ -602,7 +602,7 @@ L7
 VcY`h:c<5YQ>:Iag:XPci?0
 R9
 32
-Z91 !s108 1494698541.095000
+Z91 !s108 1494714459.099000
 Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/MemoryController.vhd|
 Z93 !s107 C:/Users/David/PECi1/sisa/MemoryController.vhd|
 R13
@@ -643,7 +643,7 @@ L7
 V:M=iR>Eom_DazX>P?JYm^1
 R9
 32
-Z97 !s108 1494698541.209000
+Z97 !s108 1494714459.201000
 Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/mul_alu.vhd|
 Z99 !s107 C:/Users/David/PECi1/sisa/mul_alu.vhd|
 R13
@@ -671,23 +671,23 @@ R14
 !s100 fX6eT?2`[Vf3F:6]JzGk^3
 !i10b 1
 Emulti
-R35
+Z100 w1494714299
 R2
 R3
 R37
 R4
 R5
 R6
-Z100 8C:/Users/David/PECi1/sisa/multi.vhd
-Z101 FC:/Users/David/PECi1/sisa/multi.vhd
+Z101 8C:/Users/David/PECi1/sisa/multi.vhd
+Z102 FC:/Users/David/PECi1/sisa/multi.vhd
 l0
 L5
 Vmfj6EaX=oGb`l[@eW9Ua:0
 R9
 32
-Z102 !s108 1494698541.324000
-Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/multi.vhd|
-Z104 !s107 C:/Users/David/PECi1/sisa/multi.vhd|
+Z103 !s108 1494714459.308000
+Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/multi.vhd|
+Z105 !s107 C:/Users/David/PECi1/sisa/multi.vhd|
 R13
 R14
 !s100 _Tj8MU;6PUhhkCWUja>7V3
@@ -704,9 +704,9 @@ L41
 V1934mAal4R3UFb>0da:H13
 R9
 32
-R102
 R103
 R104
+R105
 R13
 R14
 !s100 ?7mL5RHEgDQ^EA7O=7@gI2
@@ -719,16 +719,16 @@ R4
 R5
 R15
 R6
-Z105 8C:/Users/David/PECi1/sisa/package_timing.vhd
-Z106 FC:/Users/David/PECi1/sisa/package_timing.vhd
+Z106 8C:/Users/David/PECi1/sisa/package_timing.vhd
+Z107 FC:/Users/David/PECi1/sisa/package_timing.vhd
 l0
 L17
 V]QljGNTG0EJQ?X:f3a>TX1
 R9
 32
-Z107 !s108 1494698541.455000
-Z108 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/package_timing.vhd|
-Z109 !s107 C:/Users/David/PECi1/sisa/package_timing.vhd|
+Z108 !s108 1494714459.408000
+Z109 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/package_timing.vhd|
+Z110 !s107 C:/Users/David/PECi1/sisa/package_timing.vhd|
 R13
 R14
 !s100 7[5MEfJ`HFPK=zP7G66<i1
@@ -745,9 +745,9 @@ L59
 VfeQXi[8kmeXD5NlH1A^G91
 R9
 32
-R107
 R108
 R109
+R110
 R13
 R14
 nbody
@@ -760,17 +760,17 @@ R4
 R5
 R15
 R6
-Z110 8C:/Users/David/PECi1/sisa/package_utility.vhd
-Z111 FC:/Users/David/PECi1/sisa/package_utility.vhd
+Z111 8C:/Users/David/PECi1/sisa/package_utility.vhd
+Z112 FC:/Users/David/PECi1/sisa/package_utility.vhd
 l0
 L15
 VabW^FY0na:iFW@RR:Fofg0
 R9
 32
 b1
-Z112 !s108 1494698541.572000
-Z113 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/package_utility.vhd|
-Z114 !s107 C:/Users/David/PECi1/sisa/package_utility.vhd|
+Z113 !s108 1494714459.556000
+Z114 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/package_utility.vhd|
+Z115 !s107 C:/Users/David/PECi1/sisa/package_utility.vhd|
 R13
 R14
 !s100 n9b5dM?H5oLDz7geaYPkN1
@@ -786,9 +786,9 @@ L22
 V1dAT5_E6[=Q4>0kGEF5@]3
 R9
 32
-R112
 R113
 R114
+R115
 R13
 R14
 nbody
@@ -799,16 +799,16 @@ R35
 R4
 R5
 R6
-Z115 8C:/Users/David/PECi1/sisa/proc.vhd
-Z116 FC:/Users/David/PECi1/sisa/proc.vhd
+Z116 8C:/Users/David/PECi1/sisa/proc.vhd
+Z117 FC:/Users/David/PECi1/sisa/proc.vhd
 l0
 L4
 VlGXMAOFd_mFRZ:jS9XegP0
 R9
 32
-Z117 !s108 1494698541.693000
-Z118 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/proc.vhd|
-Z119 !s107 C:/Users/David/PECi1/sisa/proc.vhd|
+Z118 !s108 1494714459.693000
+Z119 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/proc.vhd|
+Z120 !s107 C:/Users/David/PECi1/sisa/proc.vhd|
 R13
 R14
 !s100 4F`?Jl^=_0EzjCERI<NMY2
@@ -822,9 +822,9 @@ L23
 V@ng6W3>=dID]8dOAbbi3<3
 R9
 32
-R117
 R118
 R119
+R120
 R13
 R14
 !s100 Kh^R<OGI7S:4Tz_HP2Sd_0
@@ -836,16 +836,16 @@ R3
 R4
 R5
 R6
-Z120 8C:/Users/David/PECi1/sisa/ps2_keyboard.vhd
-Z121 FC:/Users/David/PECi1/sisa/ps2_keyboard.vhd
+Z121 8C:/Users/David/PECi1/sisa/ps2_keyboard.vhd
+Z122 FC:/Users/David/PECi1/sisa/ps2_keyboard.vhd
 l0
 L122
 V5^^o1WM<I<13TLR9OGm6X3
 R9
 32
-Z122 !s108 1494698541.787000
-Z123 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/ps2_keyboard.vhd|
-Z124 !s107 C:/Users/David/PECi1/sisa/ps2_keyboard.vhd|
+Z123 !s108 1494714459.823000
+Z124 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/ps2_keyboard.vhd|
+Z125 !s107 C:/Users/David/PECi1/sisa/ps2_keyboard.vhd|
 R13
 R14
 !s100 VS?01B]caEG3LaE0f;Ylo0
@@ -861,9 +861,9 @@ L154
 V0@lM>0X3`2K2;_A`g_8gZ3
 R9
 32
-R122
 R123
 R124
+R125
 R13
 R14
 !s100 j<zV5hkF?44S1l^eK2JI41
@@ -899,7 +899,7 @@ R5
 DEx4 work 10 pulsadores 0 22 CVP>;afS3mASaEC1c]nR=2
 l20
 L17
-V][a2con=FlYDjBdijPm3V3
+V0H8d^2dIT;A<a]AbXjk@S0
 R9
 32
 R74
@@ -907,7 +907,7 @@ R75
 R76
 R13
 R14
-!s100 I:T`a;jW7diDga@b3_2Gd1
+!s100 0diTCP>ZD:^<C:m9@1P5:1
 !i10b 1
 Eregfile
 R15
@@ -917,16 +917,16 @@ R3
 R4
 R5
 R6
-Z125 8C:/Users/David/PECi1/sisa/regfile.vhd
-Z126 FC:/Users/David/PECi1/sisa/regfile.vhd
+Z126 8C:/Users/David/PECi1/sisa/regfile.vhd
+Z127 FC:/Users/David/PECi1/sisa/regfile.vhd
 l0
 L6
 V37]zL7g]h0ZD9Voj^5`Oh0
 R9
 32
-Z127 !s108 1494698541.901000
-Z128 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/regfile.vhd|
-Z129 !s107 C:/Users/David/PECi1/sisa/regfile.vhd|
+Z128 !s108 1494714459.911000
+Z129 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/regfile.vhd|
+Z130 !s107 C:/Users/David/PECi1/sisa/regfile.vhd|
 R13
 R14
 !s100 _G112JZ7^[[`Y11NZF<SD0
@@ -943,31 +943,31 @@ L17
 VBQmH9]19LEH9kFkC7ch3U2
 R9
 32
-R127
 R128
 R129
+R130
 R13
 R14
 !s100 IkgdoVQCPeXihMP_W9?Ki1
 !i10b 1
 Eregfile_system
-Z130 w1494689031
+Z131 w1494714370
 R16
 R2
 R3
 R4
 R5
 R6
-Z131 8C:/Users/David/PECi1/sisa/regfile_system.vhd
-Z132 FC:/Users/David/PECi1/sisa/regfile_system.vhd
+Z132 8C:/Users/David/PECi1/sisa/regfile_system.vhd
+Z133 FC:/Users/David/PECi1/sisa/regfile_system.vhd
 l0
 L6
 VcMiT=:2131QRdROjUiSgm0
 R9
 32
-Z133 !s108 1494698542.015000
-Z134 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/regfile_system.vhd|
-Z135 !s107 C:/Users/David/PECi1/sisa/regfile_system.vhd|
+Z134 !s108 1494714459.995000
+Z135 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/regfile_system.vhd|
+Z136 !s107 C:/Users/David/PECi1/sisa/regfile_system.vhd|
 R13
 R14
 !s100 3eb4KP1R:nW6TePHAGCm33
@@ -984,12 +984,12 @@ L22
 Vm8jz]Ak<PJUmQ@I@=VmaP1
 R9
 32
-R133
 R134
 R135
+R136
 R13
 R14
-!s100 UEiVnOo;7Aj5gYY5h3<4d3
+!s100 1Cbcmj?TiC0Z`Wa_<jO5H2
 !i10b 1
 Esisa
 R35
@@ -998,16 +998,16 @@ R2
 R4
 R5
 R6
-Z136 8C:/Users/David/PECi1/sisa/sisa.vhd
-Z137 FC:/Users/David/PECi1/sisa/sisa.vhd
+Z137 8C:/Users/David/PECi1/sisa/sisa.vhd
+Z138 FC:/Users/David/PECi1/sisa/sisa.vhd
 l0
 L6
 VoC_fI0mchVZmY8_c]^A`]3
 R9
 32
-Z138 !s108 1494698542.149000
-Z139 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/sisa.vhd|
-Z140 !s107 C:/Users/David/PECi1/sisa/sisa.vhd|
+Z139 !s108 1494714460.124000
+Z140 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/sisa.vhd|
+Z141 !s107 C:/Users/David/PECi1/sisa/sisa.vhd|
 R13
 R14
 !s100 LJM>6z>OfCFW9aEIL`>CP0
@@ -1023,9 +1023,9 @@ L35
 V`XShK6S2PYo;hlX01S[kC1
 R9
 32
-R138
 R139
 R140
+R141
 R13
 R14
 !s100 SJ>D3fgE:P:QV_@e9<lKQ2
@@ -1037,16 +1037,16 @@ R2
 R4
 R5
 R6
-Z141 8C:/Users/David/PECi1/sisa/SRAMController.vhd
-Z142 FC:/Users/David/PECi1/sisa/SRAMController.vhd
+Z142 8C:/Users/David/PECi1/sisa/SRAMController.vhd
+Z143 FC:/Users/David/PECi1/sisa/SRAMController.vhd
 l0
 L6
 VC2AV?EESPOZGcn4dfcYOD3
 R9
 32
-Z143 !s108 1494698542.263000
-Z144 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/SRAMController.vhd|
-Z145 !s107 C:/Users/David/PECi1/sisa/SRAMController.vhd|
+Z144 !s108 1494714460.232000
+Z145 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/SRAMController.vhd|
+Z146 !s107 C:/Users/David/PECi1/sisa/SRAMController.vhd|
 R13
 R14
 !s100 0Ba`Q7W`UoWaZOmiCMTh70
@@ -1062,28 +1062,28 @@ L24
 VXnb`dV;nF<lH[AQZ[GhAA3
 R9
 32
-R143
 R144
 R145
+R146
 R13
 R14
 !s100 TGhAA1Jm>;G@a260fO@6I1
 !i10b 1
 Etest_sisa
-R35
+Z147 w1494706628
 R4
 R5
 R6
-Z146 8C:/Users/David/PECi1/sisa/test_sisa.vhd
-Z147 FC:/Users/David/PECi1/sisa/test_sisa.vhd
+Z148 8C:/Users/David/PECi1/sisa/test_sisa.vhd
+Z149 FC:/Users/David/PECi1/sisa/test_sisa.vhd
 l0
 L5
 VkAdhfn89W5`mY_=KPlfV]3
 R9
 32
-Z148 !s108 1494698542.393000
-Z149 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/test_sisa.vhd|
-Z150 !s107 C:/Users/David/PECi1/sisa/test_sisa.vhd|
+Z150 !s108 1494714460.332000
+Z151 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/test_sisa.vhd|
+Z152 !s107 C:/Users/David/PECi1/sisa/test_sisa.vhd|
 R13
 R14
 !s100 688X_8OZ0BkG::B3fT5kf3
@@ -1094,15 +1094,15 @@ R5
 DEx4 work 9 test_sisa 0 22 kAdhfn89W5`mY_=KPlfV]3
 l79
 L8
-VheaJodYgD5J2?`Z4D3MOQ0
+V7bR:[[b7>f_XEmXZ6i_Zh0
 R9
 32
-R148
-R149
 R150
+R151
+R152
 R13
 R14
-!s100 ^N]6IWVcQ[]OQ8>zk3nF10
+!s100 N26A9CUGCGGh2[=_VP94_3
 !i10b 1
 Etimer
 R71
@@ -1115,7 +1115,7 @@ R6
 R72
 R73
 l0
-L91
+L87
 VdR^[GIHPjMa6C3?X1`F2a2
 R9
 32
@@ -1124,7 +1124,7 @@ R75
 R76
 R13
 R14
-!s100 ci]R;2:=lL5A3NQ;^8c<z2
+!s100 cKnSDcL4czCL<JLJ;YUb12
 !i10b 1
 Astructure_t
 R16
@@ -1133,9 +1133,9 @@ R3
 R4
 R5
 DEx4 work 5 timer 0 22 dR^[GIHPjMa6C3?X1`F2a2
-l104
-L100
-VkL9LA<[O[iCg6O@J4FlCO1
+l100
+L96
+VGbnI4D?ziP6?QNabbDN2G2
 R9
 32
 R74
@@ -1143,7 +1143,7 @@ R75
 R76
 R13
 R14
-!s100 @gEI[Xo`2@7308Z_Z:5Tz3
+!s100 kkGEMEkbQEKBXzS>8jUzQ2
 !i10b 1
 Eunidad_control
 R35
@@ -1154,16 +1154,16 @@ R16
 R4
 R5
 R6
-Z151 8C:/Users/David/PECi1/sisa/unidad_control.vhd
-Z152 FC:/Users/David/PECi1/sisa/unidad_control.vhd
+Z153 8C:/Users/David/PECi1/sisa/unidad_control.vhd
+Z154 FC:/Users/David/PECi1/sisa/unidad_control.vhd
 l0
 L8
 VK<^iXTgU5fCRlH::<HJQ_1
 R9
 32
-Z153 !s108 1494698542.524000
-Z154 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/unidad_control.vhd|
-Z155 !s107 C:/Users/David/PECi1/sisa/unidad_control.vhd|
+Z155 !s108 1494714460.432000
+Z156 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/unidad_control.vhd|
+Z157 !s107 C:/Users/David/PECi1/sisa/unidad_control.vhd|
 R13
 R14
 !s100 CEzV51V:[00<HEd_QTg?;0
@@ -1181,9 +1181,9 @@ L51
 VU89FDM2leKjX4kKC@2jXY2
 R9
 32
-R153
-R154
 R155
+R156
+R157
 R13
 R14
 !s100 VI89GP@WZJ1n6Q:gFTCBE0
@@ -1196,16 +1196,16 @@ R3
 R4
 R5
 R6
-Z156 8C:/Users/David/PECi1/sisa/vga_controller.vhd
-Z157 FC:/Users/David/PECi1/sisa/vga_controller.vhd
+Z158 8C:/Users/David/PECi1/sisa/vga_controller.vhd
+Z159 FC:/Users/David/PECi1/sisa/vga_controller.vhd
 l0
 L26
 V2G3@f>mLnM6bdcKg9lHXg0
 R9
 32
-Z158 !s108 1494698542.654000
-Z159 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/vga_controller.vhd|
-Z160 !s107 C:/Users/David/PECi1/sisa/vga_controller.vhd|
+Z160 !s108 1494714460.556000
+Z161 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/vga_controller.vhd|
+Z162 !s107 C:/Users/David/PECi1/sisa/vga_controller.vhd|
 R13
 R14
 !s100 Y5<G=Ez_bmSHfQbfjOTS:0
@@ -1222,9 +1222,9 @@ L46
 VQbGXd[aIfL1e8=N29Zg[l2
 R9
 32
-R158
-R159
 R160
+R161
+R162
 R13
 R14
 !s100 i:1N?HFPUI1g^1P4_nD;72
@@ -1235,16 +1235,16 @@ R16
 R4
 R5
 R6
-Z161 8C:/Users/David/PECi1/sisa/vga_font_rom.vhd
-Z162 FC:/Users/David/PECi1/sisa/vga_font_rom.vhd
+Z163 8C:/Users/David/PECi1/sisa/vga_font_rom.vhd
+Z164 FC:/Users/David/PECi1/sisa/vga_font_rom.vhd
 l0
 L13
 VH@gRdK_>UKT8HE^oCjHX?0
 R9
 32
-Z163 !s108 1494698542.787000
-Z164 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/vga_font_rom.vhd|
-Z165 !s107 C:/Users/David/PECi1/sisa/vga_font_rom.vhd|
+Z165 !s108 1494714460.696000
+Z166 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/vga_font_rom.vhd|
+Z167 !s107 C:/Users/David/PECi1/sisa/vga_font_rom.vhd|
 R13
 R14
 !s100 _n?V8gI@YY66c>C?Z4@GH1
@@ -1259,9 +1259,9 @@ L20
 VhSHXnTOS9fkZzGd9bHg4f2
 R9
 32
-R163
-R164
 R165
+R166
+R167
 R13
 R14
 !s100 [9oeX:^c7_=Vk8B==g]?:3
@@ -1273,16 +1273,16 @@ R2
 R4
 R5
 R6
-Z166 8C:/Users/David/PECi1/sisa/vga_ram_dual.vhd
-Z167 FC:/Users/David/PECi1/sisa/vga_ram_dual.vhd
+Z168 8C:/Users/David/PECi1/sisa/vga_ram_dual.vhd
+Z169 FC:/Users/David/PECi1/sisa/vga_ram_dual.vhd
 l0
 L15
 VBi:40C3G1EJ?9Ued1<nHJ3
 R9
 32
-Z168 !s108 1494698542.969000
-Z169 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/vga_ram_dual.vhd|
-Z170 !s107 C:/Users/David/PECi1/sisa/vga_ram_dual.vhd|
+Z170 !s108 1494714460.857000
+Z171 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/vga_ram_dual.vhd|
+Z172 !s107 C:/Users/David/PECi1/sisa/vga_ram_dual.vhd|
 R13
 R14
 !s100 CDk?FQ5[GUa:z<VQlR0382
@@ -1299,9 +1299,9 @@ VkR?_RXgj4V4c1C4o5?E:B0
 !s100 lL79M65eABh0d[V2m1AAX1
 R9
 32
-R168
-R169
 R170
+R171
+R172
 R13
 R14
 !i10b 1
@@ -1312,8 +1312,8 @@ R2
 R4
 R5
 R6
-Z171 8C:/Users/David/PECi1/sisa/vga_sync.vhd
-Z172 FC:/Users/David/PECi1/sisa/vga_sync.vhd
+Z173 8C:/Users/David/PECi1/sisa/vga_sync.vhd
+Z174 FC:/Users/David/PECi1/sisa/vga_sync.vhd
 l0
 L26
 VQ>L>[fMjiPJOffij=6Sd71
@@ -1321,9 +1321,9 @@ VQ>L>[fMjiPJOffij=6Sd71
 R9
 32
 !i10b 1
-Z173 !s108 1494698543.114000
-Z174 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/vga_sync.vhd|
-Z175 !s107 C:/Users/David/PECi1/sisa/vga_sync.vhd|
+Z175 !s108 1494714460.964000
+Z176 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/David/PECi1/sisa/vga_sync.vhd|
+Z177 !s107 C:/Users/David/PECi1/sisa/vga_sync.vhd|
 R13
 R14
 Avga_sync_arch
@@ -1331,16 +1331,16 @@ R3
 R2
 R4
 R5
-Z176 DEx4 work 8 vga_sync 0 22 Q>L>[fMjiPJOffij=6Sd71
+Z178 DEx4 work 8 vga_sync 0 22 Q>L>[fMjiPJOffij=6Sd71
 l43
 L36
-Z177 V11;?@RU>XhZjfLDM@^KlY3
-Z178 !s100 i6F@<:Jc2EfSg29jElZ^50
+Z179 V11;?@RU>XhZjfLDM@^KlY3
+Z180 !s100 i6F@<:Jc2EfSg29jElZ^50
 R9
 32
 !i10b 1
-R173
-R174
 R175
+R176
+R177
 R13
 R14

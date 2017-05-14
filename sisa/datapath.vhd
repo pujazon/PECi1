@@ -173,9 +173,6 @@ BEGIN
 		addr_m <= pc when '0',
 					alu_out when others;
 					
-	--Si es RETI voldrem que el PC sigui el que surt de REGS que es REG_S_A_>
-	-- HAY CHAPUZA PQ SE tiENE QUE HACR SOLO EN ESTADO SYS, POR LO QUE ESTE MUX HACE DE DELAYER
-
 	
 	data_wr <= reg_b;
 	

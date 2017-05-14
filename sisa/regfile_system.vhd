@@ -43,11 +43,6 @@ BEGIN
 			bs(1) <= d;
 			--a <= bs(5);
 			bs(7)(1) <= '0';
-			--Si excepcion de mem_align (code = 3), guarda en S3 la @--
-			-- No se si cal el intr_sys
-			--if (code_excep = excepcio_1) then
-			--	bs(3) <= addr_m;
-			--end if;
 		elsif (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura estÃ  activa.
 			if (ei = '1') then
 				bs(7)(1) <= '1';
