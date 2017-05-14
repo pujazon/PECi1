@@ -6,7 +6,7 @@ USE ieee.numeric_std.all;        --Esta libreria sera necesaria si usais convers
 ENTITY controlador_IO IS
     PORT (boot    : IN  STD_LOGIC;
           CLOCK_50    : IN  STD_LOGIC;
-		  clk		  : IN STD_LOGIC;
+		    clk		  : IN STD_LOGIC;
           addr_io      : IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 wr_out	:	IN STD_LOGIC;
           wr_io : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);

@@ -21,6 +21,7 @@ package const_control is
 	constant f_jz : std_logic_vector := "000";
 	constant f_jnz : std_logic_vector := "001";
 	constant f_jmp : std_logic_vector := "011";
+	constant f_calls : std_logic_vector := "111";
 	
 	constant pc_inicial : std_logic_vector := x"C000";
 	

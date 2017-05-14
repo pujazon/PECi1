@@ -307,14 +307,16 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity multi
 -- Compiling architecture structure of multi
 
-} {} {}} C:/Users/David/PECi1/sisa/const_control.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/const_control.vhd
+} {} {}} C:/Users/David/PECi1/sisa/interrupt_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/interrupt_controller.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling package const_control
+-- Compiling entity interrupt_controller
+-- Compiling architecture Structure of interrupt_controller
 
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/controlador_IO.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/controlador_IO.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -707,17 +709,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity MemoryController
 -- Compiling architecture comportament of MemoryController
-
-} {} {}} C:/Users/David/PECi1/sisa/controlador_IO.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/controlador_IO.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Compiling entity controlador_IO
--- Compiling architecture Structure of controlador_IO
 
 } {} {}} C:/Users/pec05/PECi1/sisa/const_logic.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/const_logic.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
