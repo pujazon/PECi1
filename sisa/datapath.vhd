@@ -2,10 +2,13 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
 USE ieee.std_logic_unsigned.all;
+USE work.const_control.all;
+USE work.const_logic.all;
 
 
 ENTITY datapath IS
-    PORT (clk      : IN  STD_LOGIC;
+    PORT (boot   : IN  STD_LOGIC;
+			 clk      : IN  STD_LOGIC;
           op       : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		 : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd      : IN  STD_LOGIC;
@@ -63,7 +66,8 @@ ARCHITECTURE Structure OF datapath IS
 	END COMPONENT;
 	
 	COMPONENT regfile_system IS
-    PORT (clk    : IN  STD_LOGIC;
+    PORT (boot   : IN  STD_LOGIC;
+			 clk    : IN  STD_LOGIC;
           wrd    : IN  STD_LOGIC;
 			 ei 	  : IN  STD_LOGIC;
 			 di 	  : IN  STD_LOGIC;
@@ -80,7 +84,7 @@ ARCHITECTURE Structure OF datapath IS
 	
 	
 	
-	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S, addr_m_t : STD_LOGIC_VECTOR (15 downto 0);
+	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S, addr_m_t, in_addr_m : STD_LOGIC_VECTOR (15 downto 0);
 	signal reg_in, reg_in_t, immed_out, y_alu : STD_LOGIC_VECTOR (15 downto 0);
 	signal t_intr_sys : STD_LOGIC;
 	--signal t_code_excep : STD_LOGIC_VECTOR (3 downto 0);
@@ -96,8 +100,8 @@ BEGIN
 	
 	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => d_in_S, addr_a => addr_a, 
 												addr_d => addr_d, a => reg_a_sys, exc_code => exc_code,
-												ei => ei, di => di, reti => reti, addr_m => addr_m_t,
-												intr_sys => intr_sys, int_enable => int_enable
+												ei => ei, di => di, reti => reti, addr_m => in_addr_m,
+												intr_sys => intr_sys, int_enable => int_enable, boot => boot
 												); 
 												
 	-- Ahora con REG_SYS hay que elegir en reg_a que va si el de general o el de systema.
@@ -146,6 +150,9 @@ BEGIN
 	 with ins_dad select
 		addr_m_t <= pc when '0',
 					alu_out when others;
+					
+	in_addr_m <= reg_a_gen when exc_code = calls_code else
+				addr_m_t; 
 	
 	addr_m <= addr_m_t;
 	

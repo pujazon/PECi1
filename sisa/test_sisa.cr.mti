@@ -44,6 +44,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
+-- Loading package const_control
 -- Compiling entity regfile_system
 -- Compiling architecture Structure of regfile_system
 
@@ -581,6 +582,8 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
+-- Loading package const_control
+-- Loading package const_logic
 -- Compiling entity datapath
 -- Compiling architecture Structure of datapath
 
@@ -914,18 +917,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package const_logic
 -- Compiling entity control_l
 -- Compiling architecture Structure of control_l
-
-} {} {}} C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package const_control
--- Compiling entity excepcions_controller
--- Compiling architecture Structure of excepcions_controller
 
 } {} {}} C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

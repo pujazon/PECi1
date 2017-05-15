@@ -63,7 +63,8 @@ COMPONENT unidad_control IS
 END COMPONENT;
 
 COMPONENT datapath IS
-    PORT (clk      : IN  STD_LOGIC;
+    PORT (boot   : IN  STD_LOGIC;
+			 clk      : IN  STD_LOGIC;
           op       : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		 : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd      : IN  STD_LOGIC;
@@ -121,7 +122,7 @@ BEGIN
 									pc => t_pc, in_d => t_in_d, br_n => t_br_n, addr_m => addr_m, data_wr => data_wr, z => t_z,
 									wr_io => wr_io, intr_sys => intr_sys_t, exc_code => exc_code_t, div_zero => t_div_zero,
 									ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-									int_enable => int_enable_t);
+									int_enable => int_enable_t, boot => boot);
 											
 	wr_m <= t_wr_m;
 		

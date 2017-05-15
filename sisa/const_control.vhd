@@ -21,6 +21,7 @@ package const_control is
 	constant f_jz : std_logic_vector := "000";
 	constant f_jnz : std_logic_vector := "001";
 	constant f_jmp : std_logic_vector := "011";
+	constant f_calls : std_logic_vector := "111";
 	
 	constant pc_inicial : std_logic_vector := x"C000";
 	
@@ -32,6 +33,7 @@ package const_control is
 	constant excepcio_0 : std_logic_vector := "0000";
 	constant excepcio_1 : std_logic_vector := "0001";
 	constant excepcio_4 : std_logic_vector := "0100";
+	constant calls_code : std_logic_vector := "1110";
 	constant NO_HAY_EXCEPCION : std_logic_vector := "0011"; --EN REALIDAD DA IGUAL EL CODIGO DE ESSTE
 	
 end const_control;

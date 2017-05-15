@@ -36,7 +36,9 @@ ENTITY control_l IS
 			 a_sys	 : OUT STD_LOGIC;
 			 ---------------------------------------------	
 			 ---Excepcion instruccion ilegal--------------
-			 instr_il : OUT STD_LOGIC
+			 instr_il : OUT STD_LOGIC;
+			 ----------------------------
+			 sys_call_b	: OUT STD_LOGIC
 			 );
 END control_l;
 
@@ -157,6 +159,9 @@ BEGIN
 				else '0';
 
 	--------------------------------------------------------------------
+	
+	sys_call_b	<= '1' when opcode = opcode_jx and ir(2 downto 0) = f_calls else
+						'0';
 	
 	--Excepcion de instruccion ilegal: Si op no es ninguno de los conocidos, instr_il := '1'--
 	--Me da que si hacemos primero el '0' i luego el and es mas eficiente

@@ -81,7 +81,9 @@ COMPONENT control_l IS
 			 a_sys	 : OUT STD_LOGIC;
 			 ---------------------------------------------	
 			 ---Excepcion instruccion ilegal--------------
-			 instr_il : OUT STD_LOGIC
+			 instr_il : OUT STD_LOGIC;
+			 ----------------------------
+			 sys_call_b	: OUT STD_LOGIC
 			 );
 END COMPONENT;
 		
@@ -92,6 +94,7 @@ END COMPONENT;
 			mem_align :	IN STD_LOGIC;
 			div_zero : IN STD_LOGIC;
 			system_l:	IN STD_LOGIC;
+			sys_call_b : IN STD_LOGIC;
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
 	);
@@ -143,6 +146,7 @@ END COMPONENT;
 	 signal tknbr : std_logic_vector(1 downto 0);
 	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys : STD_LOGIC;
 	 signal intr_sys_t, inta_t, instr_il_t : STD_LOGIC;
+	 signal sys_call_b_t : STD_LOGIC;
 	 
 BEGIN
 
@@ -151,7 +155,7 @@ BEGIN
     -- Aqui iria la definicion del comportamiento de la unidad de control y la gestion del PC y del IR
 	 
 	 e0: excepcions_controller port map(clk => clk, instr_il => instr_il_t, mem_align => mem_align, div_zero => div_zero, system_l => t_system_l,
-													system => t_system, exc_code => exc_code);
+													system => t_system, exc_code => exc_code, sys_call_b => sys_call_b_t);
 	 
 	 c0: control_l port map (ir => ir, op => op, f => f, ldpc => ldpc_c, wrd => wrd_c, addr_a => addr_a, addr_b => addr_b,
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
@@ -159,7 +163,7 @@ BEGIN
 									 rd_in => rd_in, addr_io => addr_io, wr_out => wrout_t,
 									 system => t_system_l, intr => intr, inta => inta_t, int_enable => int_enable,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-									 instr_il => instr_il_t);
+									 instr_il => instr_il_t, sys_call_b => sys_call_b_t);
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
