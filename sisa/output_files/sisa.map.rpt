@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sisa
-Sun May 14 20:44:04 2017
+Mon May 15 12:03:18 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -66,15 +66,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 14 20:44:04 2017           ;
+; Analysis & Synthesis Status        ; Successful - Mon May 15 12:03:18 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; sisa                                            ;
 ; Top-level Entity Name              ; sisa                                            ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 6,001                                           ;
-;     Total combinational functions  ; 5,066                                           ;
-;     Dedicated logic registers      ; 1,274                                           ;
-; Total registers                    ; 1274                                            ;
+; Total logic elements               ; 6,039                                           ;
+;     Total combinational functions  ; 5,104                                           ;
+;     Dedicated logic registers      ; 1,300                                           ;
+; Total registers                    ; 1300                                            ;
 ; Total pins                         ; 114                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 65,536                                          ;
@@ -168,79 +168,85 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 8      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                            ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; regfile_system.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/regfile_system.vhd                                        ;         ;
-; driver7segmentos.vhd             ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/driver7segmentos.vhd                                      ;         ;
-; vga_sync.vhd                     ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/vga_sync.vhd                                              ;         ;
-; vga_ram_dual.vhd                 ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/vga_ram_dual.vhd                                          ;         ;
-; vga_font_rom.vhd                 ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/vga_font_rom.vhd                                          ;         ;
-; vga_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/vga_controller.vhd                                        ;         ;
-; ps2_keyboard.vhd                 ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/ps2_keyboard.vhd                                          ;         ;
-; keyboard_controller.vhd          ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/keyboard_controller.vhd                                   ;         ;
-; controlador_IO.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/controlador_IO.vhd                                        ;         ;
-; unidad_control.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/unidad_control.vhd                                        ;         ;
-; SRAMController.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/SRAMController.vhd                                        ;         ;
-; sisa.vhd                         ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/sisa.vhd                                                  ;         ;
-; regfile.vhd                      ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/regfile.vhd                                               ;         ;
-; proc.vhd                         ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/proc.vhd                                                  ;         ;
-; multi.vhd                        ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/multi.vhd                                                 ;         ;
-; MemoryController.vhd             ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/MemoryController.vhd                                      ;         ;
-; datapath.vhd                     ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/datapath.vhd                                              ;         ;
-; control_l.vhd                    ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/control_l.vhd                                             ;         ;
-; const_logic.vhd                  ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/const_logic.vhd                                           ;         ;
-; const_control.vhd                ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/const_control.vhd                                         ;         ;
-; alu.vhd                          ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/alu.vhd                                                   ;         ;
-; memory_alu.vhd                   ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/memory_alu.vhd                                            ;         ;
-; arith_alu.vhd                    ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/arith_alu.vhd                                             ;         ;
-; cmp_alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/cmp_alu.vhd                                               ;         ;
-; mul_alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/mul_alu.vhd                                               ;         ;
-; device_controllers.vhd           ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/device_controllers.vhd                                    ;         ;
-; interrupt_controller.vhd         ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/interrupt_controller.vhd                                  ;         ;
-; excepcions_controller.vhd        ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/excepcions_controller.vhd                                 ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal130.inc                   ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_qug1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/altsyncram_qug1.tdf                                    ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/multcore.inc          ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/bypassff.inc          ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altshift.inc          ;         ;
-; db/mult_l8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/mult_l8t.tdf                                           ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
-; db/lpm_divide_3gm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/lpm_divide_3gm.tdf                                     ;         ;
-; db/sign_div_unsign_dnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/sign_div_unsign_dnh.tdf                                ;         ;
-; db/alt_u_div_s5f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/alt_u_div_s5f.tdf                                      ;         ;
-; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/add_sub_lkc.tdf                                        ;         ;
-; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/add_sub_mkc.tdf                                        ;         ;
-; db/lpm_divide_rto.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/lpm_divide_rto.tdf                                     ;         ;
-; db/abs_divider_8dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/abs_divider_8dg.tdf                                    ;         ;
-; db/lpm_abs_2s9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/lpm_abs_2s9.tdf                                        ;         ;
-; db/mult_h1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/mult_h1t.tdf                                           ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; regfile_system.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/regfile_system.vhd                            ;         ;
+; driver7segmentos.vhd             ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/driver7segmentos.vhd                          ;         ;
+; vga_sync.vhd                     ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/vga_sync.vhd                                  ;         ;
+; vga_ram_dual.vhd                 ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd                              ;         ;
+; vga_font_rom.vhd                 ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/vga_font_rom.vhd                              ;         ;
+; vga_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/vga_controller.vhd                            ;         ;
+; ps2_keyboard.vhd                 ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/ps2_keyboard.vhd                              ;         ;
+; keyboard_controller.vhd          ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd                       ;         ;
+; controlador_IO.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/controlador_IO.vhd                            ;         ;
+; unidad_control.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/unidad_control.vhd                            ;         ;
+; SRAMController.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/SRAMController.vhd                            ;         ;
+; sisa.vhd                         ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/sisa.vhd                                      ;         ;
+; regfile.vhd                      ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/regfile.vhd                                   ;         ;
+; proc.vhd                         ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/proc.vhd                                      ;         ;
+; multi.vhd                        ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/multi.vhd                                     ;         ;
+; MemoryController.vhd             ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/MemoryController.vhd                          ;         ;
+; datapath.vhd                     ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/datapath.vhd                                  ;         ;
+; control_l.vhd                    ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/control_l.vhd                                 ;         ;
+; const_logic.vhd                  ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/const_logic.vhd                               ;         ;
+; const_control.vhd                ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/const_control.vhd                             ;         ;
+; alu.vhd                          ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/alu.vhd                                       ;         ;
+; memory_alu.vhd                   ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/memory_alu.vhd                                ;         ;
+; arith_alu.vhd                    ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/arith_alu.vhd                                 ;         ;
+; cmp_alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/cmp_alu.vhd                                   ;         ;
+; mul_alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/mul_alu.vhd                                   ;         ;
+; device_controllers.vhd           ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/device_controllers.vhd                        ;         ;
+; interrupt_controller.vhd         ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/interrupt_controller.vhd                      ;         ;
+; excepcions_controller.vhd        ; yes             ; User VHDL File               ; C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd                     ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_qug1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/altsyncram_qug1.tdf                        ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc          ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc          ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc          ;         ;
+; db/mult_l8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/mult_l8t.tdf                               ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_3gm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/lpm_divide_3gm.tdf                         ;         ;
+; db/sign_div_unsign_dnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/sign_div_unsign_dnh.tdf                    ;         ;
+; db/alt_u_div_s5f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/alt_u_div_s5f.tdf                          ;         ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/add_sub_lkc.tdf                            ;         ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/add_sub_mkc.tdf                            ;         ;
+; db/lpm_divide_rto.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/lpm_divide_rto.tdf                         ;         ;
+; db/abs_divider_8dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/abs_divider_8dg.tdf                        ;         ;
+; db/lpm_abs_2s9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/lpm_abs_2s9.tdf                            ;         ;
+; db/mult_h1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/PECi1/sisa/db/mult_h1t.tdf                               ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------+
@@ -248,28 +254,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 6,001    ;
+; Estimated Total logic elements              ; 6,039    ;
 ;                                             ;          ;
-; Total combinational functions               ; 5066     ;
+; Total combinational functions               ; 5104     ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 3730     ;
-;     -- 3 input functions                    ; 1011     ;
-;     -- <=2 input functions                  ; 325      ;
+;     -- 4 input functions                    ; 3749     ;
+;     -- 3 input functions                    ; 1005     ;
+;     -- <=2 input functions                  ; 350      ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 4589     ;
-;     -- arithmetic mode                      ; 477      ;
+;     -- normal mode                          ; 4604     ;
+;     -- arithmetic mode                      ; 500      ;
 ;                                             ;          ;
-; Total registers                             ; 1274     ;
-;     -- Dedicated logic registers            ; 1274     ;
+; Total registers                             ; 1300     ;
+;     -- Dedicated logic registers            ; 1300     ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
 ; I/O pins                                    ; 114      ;
 ; Total memory bits                           ; 65536    ;
 ; Embedded Multiplier 9-bit elements          ; 4        ;
 ; Maximum fan-out node                        ; CLOCK_50 ;
-; Maximum fan-out                             ; 941      ;
-; Total fan-out                               ; 23142    ;
+; Maximum fan-out                             ; 966      ;
+; Total fan-out                               ; 23326    ;
 ; Average fan-out                             ; 3.57     ;
 +---------------------------------------------+----------+
 
@@ -279,24 +285,25 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                         ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                         ; Library Name ;
 +----------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |sisa                                              ; 5066 (4)          ; 1274 (3)     ; 65536       ; 4            ; 0       ; 2         ; 114  ; 0            ; |sisa                                                                                                                                                                       ; work         ;
+; |sisa                                              ; 5104 (4)          ; 1300 (3)     ; 65536       ; 4            ; 0       ; 2         ; 114  ; 0            ; |sisa                                                                                                                                                                       ; work         ;
 ;    |MemoryController:mem0|                         ; 49 (44)           ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|MemoryController:mem0                                                                                                                                                 ; work         ;
 ;       |SRAMController:sram|                        ; 5 (5)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|MemoryController:mem0|SRAMController:sram                                                                                                                             ; work         ;
-;    |controlador_IO:io|                             ; 1135 (732)        ; 954 (865)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io                                                                                                                                                     ; work         ;
+;    |controlador_IO:io|                             ; 1172 (732)        ; 980 (865)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io                                                                                                                                                     ; work         ;
 ;       |driver7segmentos:driverHEX0|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|driver7segmentos:driverHEX0                                                                                                                         ; work         ;
 ;       |driver7segmentos:driverHEX1|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|driver7segmentos:driverHEX1                                                                                                                         ; work         ;
 ;       |driver7segmentos:driverHEX2|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|driver7segmentos:driverHEX2                                                                                                                         ; work         ;
 ;       |driver7segmentos:driverHEX3|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|driver7segmentos:driverHEX3                                                                                                                         ; work         ;
-;       |interrupt_controller:int0|                  ; 5 (5)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|interrupt_controller:int0                                                                                                                           ; work         ;
+;       |interrupt_controller:int0|                  ; 6 (6)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|interrupt_controller:int0                                                                                                                           ; work         ;
 ;       |interruptores:sw0|                          ; 35 (35)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|interruptores:sw0                                                                                                                                   ; work         ;
-;       |keyboard_controller:keyboard|               ; 292 (10)          ; 71 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|keyboard_controller:keyboard                                                                                                                        ; work         ;
-;          |ps2_keyboard_interface:k0|               ; 282 (282)         ; 61 (61)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0                                                                                              ; work         ;
+;       |keyboard_controller:keyboard|               ; 294 (10)          ; 71 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|keyboard_controller:keyboard                                                                                                                        ; work         ;
+;          |ps2_keyboard_interface:k0|               ; 284 (284)         ; 61 (61)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0                                                                                              ; work         ;
 ;       |pulsadores:key0|                            ; 15 (15)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|pulsadores:key0                                                                                                                                     ; work         ;
-;    |proc:pro0|                                     ; 1815 (0)          ; 295 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0                                                                                                                                                             ; work         ;
-;       |datapath:e0|                                ; 1691 (113)        ; 256 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0                                                                                                                                                 ; work         ;
-;          |alu:alu0|                                ; 1270 (267)        ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0                                                                                                                                        ; work         ;
-;             |arith_alu:arith_alu0|                 ; 244 (244)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|arith_alu:arith_alu0                                                                                                                   ; work         ;
-;             |cmp_alu:cmp_alu0|                     ; 77 (77)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|cmp_alu:cmp_alu0                                                                                                                       ; work         ;
+;       |timer:tmr0|                                 ; 34 (34)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|timer:tmr0                                                                                                                                          ; work         ;
+;    |proc:pro0|                                     ; 1816 (0)          ; 295 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0                                                                                                                                                             ; work         ;
+;       |datapath:e0|                                ; 1692 (113)        ; 256 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0                                                                                                                                                 ; work         ;
+;          |alu:alu0|                                ; 1271 (267)        ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0                                                                                                                                        ; work         ;
+;             |arith_alu:arith_alu0|                 ; 246 (246)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|arith_alu:arith_alu0                                                                                                                   ; work         ;
+;             |cmp_alu:cmp_alu0|                     ; 76 (76)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|cmp_alu:cmp_alu0                                                                                                                       ; work         ;
 ;             |memory_alu:memory_alu0|               ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|memory_alu:memory_alu0                                                                                                                 ; work         ;
 ;             |mul_alu:mul_alu0|                     ; 666 (23)          ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0                                                                                                                       ; work         ;
 ;                |lpm_divide:Div0|                   ; 288 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div0                                                                                                       ; work         ;
@@ -319,9 +326,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;          |regfile:reg0|                            ; 141 (141)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|regfile:reg0                                                                                                                                    ; work         ;
 ;          |regfile_system:regS|                     ; 167 (167)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|regfile_system:regS                                                                                                                             ; work         ;
 ;       |unidad_control:c0|                          ; 124 (51)          ; 39 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0                                                                                                                                           ; work         ;
-;          |control_l:c0|                            ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|control_l:c0                                                                                                                              ; work         ;
+;          |control_l:c0|                            ; 54 (54)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|control_l:c0                                                                                                                              ; work         ;
 ;          |excepcions_controller:e0|                ; 6 (6)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0                                                                                                                  ; work         ;
-;          |multi:m0|                                ; 14 (14)           ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|multi:m0                                                                                                                                  ; work         ;
+;          |multi:m0|                                ; 13 (13)           ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|multi:m0                                                                                                                                  ; work         ;
 ;    |vga_controller:vga|                            ; 2063 (2000)       ; 21 (1)       ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|vga_controller:vga                                                                                                                                                    ; work         ;
 ;       |vga_ram_dual:U_MonitorRam|                  ; 10 (10)           ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam                                                                                                                          ; work         ;
 ;          |altsyncram:mem0_rtl_0|                   ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|altsyncram:mem0_rtl_0                                                                                                    ; work         ;
@@ -397,15 +404,15 @@ Encoding Type:  One-Hot
 +--------------+------------+-------------+-------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                                                      ;
-+------------------------------------------------------------------+--------------------------------------------------------------+------------------------+
-; Latch Name                                                       ; Latch Enable Signal                                          ; Free of Timing Hazards ;
-+------------------------------------------------------------------+--------------------------------------------------------------+------------------------+
-; controlador_IO:io|keyboard_controller:keyboard|current_interrupt ; controlador_IO:io|keyboard_controller:keyboard|data_ready_we ; yes                    ;
-; controlador_IO:io|keyboard_controller:keyboard|data_available    ; controlador_IO:io|keyboard_controller:keyboard|data_ready_we ; yes                    ;
-; Number of user-specified and inferred latches = 2                ;                                                              ;                        ;
-+------------------------------------------------------------------+--------------------------------------------------------------+------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                          ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------------+
+; Latch Name                                                       ; Latch Enable Signal                                              ; Free of Timing Hazards ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------------+
+; controlador_IO:io|keyboard_controller:keyboard|current_interrupt ; controlador_IO:io|keyboard_controller:keyboard|current_interrupt ; yes                    ;
+; controlador_IO:io|keyboard_controller:keyboard|data_available    ; controlador_IO:io|keyboard_controller:keyboard|current_interrupt ; yes                    ;
+; Number of user-specified and inferred latches = 2                ;                                                                  ;                        ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -420,8 +427,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|m1_state.m1_tx_force_clk_l      ; Stuck at GND due to stuck port data_in                         ;
 ; controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|m1_state.m1_tx_first_wait_clk_h ; Stuck at GND due to stuck port data_in                         ;
 ; controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|m1_state.m1_tx_first_wait_clk_l ; Stuck at GND due to stuck port data_in                         ;
-; controlador_IO:io|interrupt_controller:int0|iid[3]                                                       ; Stuck at GND due to stuck port data_in                         ;
-; Total Number of Removed Registers = 10                                                                   ;                                                                ;
+; Total Number of Removed Registers = 9                                                                    ;                                                                ;
 +----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------+
 
 
@@ -440,12 +446,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1274  ;
-; Number of registers using Synchronous Clear  ; 50    ;
+; Total registers                              ; 1300  ;
+; Number of registers using Synchronous Clear  ; 74    ;
 ; Number of registers using Synchronous Load   ; 75    ;
 ; Number of registers using Asynchronous Clear ; 56    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1202  ;
+; Number of registers using Clock Enable       ; 1203  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -477,42 +483,43 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0|exc_code[0]                               ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[7][0]                                             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |sisa|vga_controller:vga|vga_sync:u_vga_sync|v_count_reg[0]                                          ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|q[10]                 ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sisa|controlador_IO:io|interrupt_controller:int0|iid[3]                                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|timer_60usec_count[3] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|timer_5usec_count[3]  ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|rx_ascii[0]           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|bit_count[3]          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0|exc_code[1]                               ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[7][10]                                            ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |sisa|vga_controller:vga|vga_sync:u_vga_sync|v_count_reg[4]                                          ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|q[3]                  ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|timer_60usec_count[4] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|timer_5usec_count[7]  ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|rx_ascii[7]           ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |sisa|controlador_IO:io|timer:tmr0|count[10]                                                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sisa|controlador_IO:io|interrupt_controller:int0|iid[3]                                             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|bit_count[0]          ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0|exc_code[2]                               ;
-; 5:1                ; 13 bits   ; 39 LEs        ; 26 LEs               ; 13 LEs                 ; Yes        ; |sisa|proc:pro0|unidad_control:c0|new_pc[9]                                                          ;
-; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[21][9]                                                                 ;
-; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[20][6]                                                                 ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[15][7]                                                                 ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[8][13]                                                                 ;
-; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[8][9]                                                                  ;
-; 6:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[7][5]                                                                  ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[7][1]                                                                  ;
-; 7:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[2][14]                                            ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[2][0]                                             ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 26 LEs               ; 13 LEs                 ; Yes        ; |sisa|proc:pro0|unidad_control:c0|new_pc[6]                                                          ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[21][12]                                                                ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[20][1]                                                                 ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[15][5]                                                                 ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[8][14]                                                                 ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[8][2]                                                                  ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[7][11]                                                                 ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[7][2]                                                                  ;
+; 7:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[2][4]                                             ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[2][3]                                             ;
 ; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[1][15]                                            ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[0][3]                                             ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[3][9]                                             ;
-; 53:1               ; 11 bits   ; 385 LEs       ; 374 LEs              ; 11 LEs                 ; Yes        ; |sisa|controlador_IO:io|rd_io[11]                                                                    ;
-; 53:1               ; 5 bits    ; 175 LEs       ; 170 LEs              ; 5 LEs                  ; Yes        ; |sisa|controlador_IO:io|rd_io[7]                                                                     ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[0][9]                                             ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[3][15]                                            ;
+; 53:1               ; 11 bits   ; 385 LEs       ; 374 LEs              ; 11 LEs                 ; Yes        ; |sisa|controlador_IO:io|rd_io[13]                                                                    ;
+; 53:1               ; 5 bits    ; 175 LEs       ; 170 LEs              ; 5 LEs                  ; Yes        ; |sisa|controlador_IO:io|rd_io[1]                                                                     ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |sisa|proc:pro0|unidad_control:c0|new_pc[15]                                                         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|proc:pro0|unidad_control:c0|control_l:c0|in_d[0]                                               ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|mem1                                              ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:mem0|rd_data[13]                                                              ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|y_alu[2]                                                                 ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|reg_in[14]                                                               ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:mem0|rd_data[4]                                                               ;
-; 10:1               ; 16 bits   ; 96 LEs        ; 80 LEs               ; 16 LEs                 ; No         ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|a[13]                                                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|proc:pro0|unidad_control:c0|control_l:c0|in_d[1]                                               ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|mem0                                              ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:mem0|rd_data[7]                                                               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|y_alu[6]                                                                 ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|reg_in[10]                                                               ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:mem0|rd_data[1]                                                               ;
+; 10:1               ; 16 bits   ; 96 LEs        ; 80 LEs               ; 16 LEs                 ; No         ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|a[14]                                                ;
 ; 144:1              ; 3 bits    ; 288 LEs       ; 48 LEs               ; 240 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux10                                                           ;
-; 145:1              ; 4 bits    ; 384 LEs       ; 56 LEs               ; 328 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux4                                                            ;
-; 146:1              ; 2 bits    ; 194 LEs       ; 32 LEs               ; 162 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux3                                                            ;
+; 145:1              ; 4 bits    ; 384 LEs       ; 56 LEs               ; 328 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux6                                                            ;
+; 146:1              ; 2 bits    ; 194 LEs       ; 32 LEs               ; 162 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux2                                                            ;
 ; 146:1              ; 2 bits    ; 194 LEs       ; 36 LEs               ; 158 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux13                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------+
 
@@ -901,7 +908,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:36     ;
+; Top            ; 00:00:29     ;
 +----------------+--------------+
 
 
@@ -911,9 +918,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun May 14 20:43:24 2017
+    Info: Processing started: Mon May 15 12:02:47 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sisa -c sisa
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file regfile_system.vhd
     Info (12022): Found design unit 1: regfile_system-Structure
     Info (12023): Found entity 1: regfile_system
@@ -1053,7 +1060,6 @@ Info (12128): Elaborating entity "interruptores" for hierarchy "controlador_IO:i
 Warning (10492): VHDL Process Statement warning at device_controllers.vhd(63): signal "boot" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at device_controllers.vhd(64): signal "switch" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "timer" for hierarchy "controlador_IO:io|timer:tmr0"
-Warning (10036): Verilog HDL or VHDL warning at device_controllers.vhd(97): object "current_interrupt" assigned a value but never read
 Info (12128): Elaborating entity "pulsadores" for hierarchy "controlador_IO:io|pulsadores:key0"
 Warning (10492): VHDL Process Statement warning at device_controllers.vhd(23): signal "boot" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at device_controllers.vhd(24): signal "keys" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -1182,19 +1188,19 @@ Info (13014): Ignored 30 buffer(s)
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[1]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[1]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[1]~1"
-    Warning (13310): Register "controlador_IO:io|pulsadores:key0|state[1]" is converted into an equivalent circuit using register "controlador_IO:io|pulsadores:key0|state[1]~_emulated" and latch "controlador_IO:io|pulsadores:key0|state[1]~1"
-    Warning (13310): Register "controlador_IO:io|pulsadores:key0|state[0]" is converted into an equivalent circuit using register "controlador_IO:io|pulsadores:key0|state[0]~_emulated" and latch "controlador_IO:io|pulsadores:key0|state[0]~5"
-    Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[0]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[0]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[0]~5"
-    Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[4]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[4]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[4]~9"
-    Warning (13310): Register "controlador_IO:io|pulsadores:key0|state[3]" is converted into an equivalent circuit using register "controlador_IO:io|pulsadores:key0|state[3]~_emulated" and latch "controlador_IO:io|pulsadores:key0|state[3]~9"
+    Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[0]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[0]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[0]~1"
+    Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[1]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[1]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[1]~5"
+    Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[2]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[2]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[2]~9"
     Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[3]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[3]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[3]~13"
-    Warning (13310): Register "controlador_IO:io|pulsadores:key0|state[2]" is converted into an equivalent circuit using register "controlador_IO:io|pulsadores:key0|state[2]~_emulated" and latch "controlador_IO:io|pulsadores:key0|state[2]~13"
-    Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[2]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[2]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[2]~17"
+    Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[4]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[4]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[4]~17"
     Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[5]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[5]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[5]~21"
     Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[6]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[6]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[6]~25"
     Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[7]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[7]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[7]~29"
     Warning (13310): Register "controlador_IO:io|interruptores:sw0|state[8]" is converted into an equivalent circuit using register "controlador_IO:io|interruptores:sw0|state[8]~_emulated" and latch "controlador_IO:io|interruptores:sw0|state[8]~33"
+    Warning (13310): Register "controlador_IO:io|pulsadores:key0|state[0]" is converted into an equivalent circuit using register "controlador_IO:io|pulsadores:key0|state[0]~_emulated" and latch "controlador_IO:io|pulsadores:key0|state[0]~1"
+    Warning (13310): Register "controlador_IO:io|pulsadores:key0|state[1]" is converted into an equivalent circuit using register "controlador_IO:io|pulsadores:key0|state[1]~_emulated" and latch "controlador_IO:io|pulsadores:key0|state[1]~5"
+    Warning (13310): Register "controlador_IO:io|pulsadores:key0|state[2]" is converted into an equivalent circuit using register "controlador_IO:io|pulsadores:key0|state[2]~_emulated" and latch "controlador_IO:io|pulsadores:key0|state[2]~9"
+    Warning (13310): Register "controlador_IO:io|pulsadores:key0|state[3]" is converted into an equivalent circuit using register "controlador_IO:io|pulsadores:key0|state[3]~_emulated" and latch "controlador_IO:io|pulsadores:key0|state[3]~13"
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "SRAM_ADDR[15]" is stuck at GND
     Warning (13410): Pin "SRAM_ADDR[16]" is stuck at GND
@@ -1206,17 +1212,17 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 6239 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6278 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 81 output pins
     Info (21060): Implemented 18 bidirectional pins
-    Info (21061): Implemented 6105 logic cells
+    Info (21061): Implemented 6144 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 4 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 44 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 42 warnings
     Info: Peak virtual memory: 550 megabytes
-    Info: Processing ended: Sun May 14 20:44:04 2017
-    Info: Elapsed time: 00:00:40
-    Info: Total CPU time (on all processors): 00:00:40
+    Info: Processing ended: Mon May 15 12:03:18 2017
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:31
 
 

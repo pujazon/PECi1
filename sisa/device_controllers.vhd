@@ -111,5 +111,5 @@ BEGIN
 			end if;
 		end if;
 	end process;
-	intr <= '0';
+	intr <= current_interrupt;
 END Structure_t;
