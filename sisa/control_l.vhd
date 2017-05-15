@@ -111,9 +111,9 @@ BEGIN
 					or (opcode = opcode_in_out and ir(8) = '1') --Si es IN de E/S escriura en BR. Si es out no -> '1'
 					else '1';
 					
-	 immed <= (7 downto 0 => ir(7)) & ir(7 downto 0) when opcode = opcode_mov
-					else (9 downto 0 => ir(5)) & ir(5 downto 0);
-	 
+	 immed <= (7 downto 0 => ir(7)) & ir(7 downto 0) when opcode = opcode_mov or opcode = opcode_br
+				else (9 downto 0 => ir(5)) & ir(5 downto 0);
+ 
 	 wr_m <= '1' when opcode = opcode_st or opcode = opcode_stb
 						else '0';
 						

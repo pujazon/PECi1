@@ -34,15 +34,28 @@ BEGIN
 					x"02" when switch_intr = '1' else
 					x"03" when ps2_intr = '1' else
 					x"CA";
-	
-	timer_inta <= '1' when (inta = '1' and timer_intr = '1') else '0';
-	key_inta <= '1' when (inta = '1' and key_intr = '1' and (not timer_intr = '1')) else '0';
-	switch_inta <= '1' when (inta = '1' and switch_intr = '1' and (not key_intr = '1') and (not timer_intr = '1')) else '0';
-	ps2_inta <= '1' when (inta = '1' and ps2_intr = '1' and (not switch_intr = '1') and (not key_intr = '1') and (not timer_intr = '1')) else '0';
-	
+		
 	process(clk, intr_t, curr_iid) begin
 		if (rising_edge(clk) and intr_t = '1') then
 			iid <= curr_iid;
+		end if;
+		if (rising_edge(clk)) then
+			if (inta = '1') then
+				if (timer_intr = '1') then
+					timer_inta <= '1';
+				elsif (key_intr = '1') then
+					key_inta <= '1';
+				elsif (switch_intr = '1') then
+					switch_inta <= '1';
+				elsif (ps2_intr = '1') then
+					ps2_inta <= '1';
+				end if;
+			else
+				timer_inta <= '0';
+				key_inta <= '0';
+				switch_inta <= '0';
+				ps2_inta <= '0';
+			end if;
 		end if;
 	end process;
 END Structure;
