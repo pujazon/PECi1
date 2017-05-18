@@ -15,6 +15,7 @@ PORT (
 	wrd  : IN STD_LOGIC;
 	virt : IN STD_LOGIC;
 	v    : OUT STD_LOGIC;
+	miss : OUT STD_LOGIC;
 	r    : OUT STD_LOGIC
 );
 
@@ -22,14 +23,14 @@ END tlb;
 
 ARCHITECTURE Structure OF tlb IS
 
-   type vtlb_type is array(7 downto 0) of std_logic_vector(3 downto 0);   
-	type ptlb_type is array(7 downto 0) of std_logic_vector(5 downto 0);
+   type vtlb_type is array(8 downto 0) of std_logic_vector(3 downto 0);   
+	type ptlb_type is array(8 downto 0) of std_logic_vector(5 downto 0);
 	
 	
 	signal vtlb: vtlb_type := (others => (others => '0'));
 	signal ptlb: ptlb_type := (others => (others => '0'));
 	
-	signal t_addr : integer;
+	signal t_addr : integer := 0;
 	
 BEGIN
 
@@ -41,20 +42,37 @@ BEGIN
 				 5 when vtlb(5) = vtag else
 				 6 when vtlb(6) = vtag else
 				 7 when vtlb(7) = vtag else
-				 -1;
+				 8;
 	 
-	 ptag <= ptlb(t_addr)(3 downto 0) when t_addr /= -1 else
+	 ptag <= ptlb(t_addr)(3 downto 0) when t_addr /= 8 else
 				"0000";
 				
-	 v <= ptlb(t_addr)(4) when t_addr /= -1 else
-			'0';  --Si no es cap posarem el v = 0, que es el que marca el MISS
+	 v <= ptlb(t_addr)(5) when t_addr /= 8 else
+			'0';  --Si no es cap posarem el v = 0
 			
-	r <= ptlb(t_addr)(5) when t_addr /= -1 else
+	miss <= '1' when t_addr = 8 else '0';
+			
+	r <= ptlb(t_addr)(4) when t_addr /= 8 else
 			'0';
 				
 	process(clk) begin
 		if (boot = '1') then
-			-- Inicialització.
+			ptlb(0) <= "010000";
+			ptlb(1) <= "010001";
+			ptlb(2) <= "010010";
+			ptlb(3) <= "011000";
+			ptlb(4) <= "011100";
+			ptlb(5) <= "011101";
+			ptlb(6) <= "011110";
+			ptlb(7) <= "011111";
+			vtlb(0) <= "0000";
+			vtlb(1) <= "0001";
+			vtlb(2) <= "0010";
+			vtlb(3) <= "1000";
+			vtlb(4) <= "1100";
+			vtlb(5) <= "1101";
+			vtlb(6) <= "1110";
+			vtlb(7) <= "1111";
 		elsif(rising_edge(clk) and wrd = '1') then
 			if (virt = '1') then
 				vtlb(to_integer(unsigned(addr_d))) <= d(3 downto 0);

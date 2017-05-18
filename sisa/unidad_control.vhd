@@ -183,7 +183,7 @@ BEGIN
 									 system => t_system_l, intr => intr, inta => inta_t, int_enable => int_enable,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 									 instr_il => instr_il_t, sys_call_b => sys_call_b_t,
-									 modo_sistema => modo_sistema, wrd_tlbd => wrd_tlbd_t, wrd_tlbi_t, virtual => virtual,
+									 modo_sistema => modo_sistema, wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual,
 									 exc_instr_sys => t_exc_instr_sys);
 									 
 									 

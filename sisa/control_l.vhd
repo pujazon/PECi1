@@ -97,7 +97,7 @@ BEGIN
 
 	 addr_d <= ir(11 downto 9);
 	 
-	 addr_b <= ir(11 downto 9) when opcode = opcode_st or opcode = opcode_stb or opcode = opcode_br or opcode = opcode_jx or opcode = opcode_in_out else
+	 addr_b <= ir(11 downto 9) when opcode = opcode_st or opcode = opcode_stb or opcode = opcode_br or opcode = opcode_jx or opcode = opcode_in_out or opcode = opcode_sys else
 				  ir(2 downto 0);
 				  
 	--br_n --> 1 si usan INMEDIATO 0 si no lo usan EN LA ALU 

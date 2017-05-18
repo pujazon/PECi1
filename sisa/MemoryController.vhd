@@ -10,6 +10,7 @@ entity MemoryController is    port (CLOCK_50  : in  std_logic;
           rd_data   : out std_logic_vector(15 downto 0);
           we        : in  std_logic;
           byte_m    : in  std_logic;
+			 --read_only : in  std_logic;
           -- señales para la placa de desarrollo
           SRAM_ADDR : out   std_logic_vector(17 downto 0);
           SRAM_DQ   : inout std_logic_vector(15 downto 0);
@@ -28,6 +29,7 @@ entity MemoryController is    port (CLOCK_50  : in  std_logic;
 			 mem_align :	out STD_logic;
 			 ---Excepcion acceso memoria sistema sin ser privilegiado---
 			 modo_sistema : IN STD_LOGIC;
+			 --excepcion_prot : OUT STD_LOGIC;
 			 excepcion_mem_sys : OUT STD_LOGIC
 			 );
 end MemoryController;
@@ -62,7 +64,8 @@ end COMPONENT;
 	
 begin
 
-	we_t <= '0' when addr >= x"C000" or (modo_sistema = '0' and (addr >= x"8000" and addr <= x"FFFF")) else we;
+	we_t <= '0' when addr >= x"C000" or (modo_sistema = '0' and (addr >= x"8000" and addr <= x"FFFF"))
+					else we;
 
 	rd_data <= vga_rd_data when(addr >= x"A000" and addr <= x"BFFF") else
 					 t_rd_data;
@@ -72,6 +75,8 @@ begin
 					 
    excepcion_mem_sys <= '1' when (modo_sistema = '0' and (addr >= x"8000" and addr <= x"FFFF")) else
 								'0';
+	
+	--excepcion_prot <= '1' when we_t = '1' and read_only = '1' else '0';
 
 	sram: SRAMController port map(SRAM_ADDR => SRAM_ADDR, SRAM_DQ => SRAM_DQ, SRAM_UB_N => SRAM_UB_N,
 											SRAM_LB_N => SRAM_LB_N, SRAM_CE_N => SRAM_CE_N, SRAM_OE_N => SRAM_OE_N,
