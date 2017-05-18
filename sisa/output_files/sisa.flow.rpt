@@ -1,5 +1,5 @@
 Flow report for sisa
-Thu May 11 10:43:17 2017
+Tue May 16 11:25:58 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,10 +40,10 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Flow Failed - Thu May 11 10:43:17 2017          ;
+; Flow Status                        ; Flow Failed - Tue May 16 11:25:58 2017          ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; sisa                                            ;
-; Top-level Entity Name              ; test_sisa                                       ;
+; Top-level Entity Name              ; sisa                                            ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
@@ -64,28 +64,30 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/11/2017 10:43:15 ;
+; Start date & time ; 05/16/2017 11:25:58 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; sisa                ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                       ;
-+-------------------------------------+---------------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+---------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 86162959844892.149449219401264        ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; 16764057                              ; --            ; test_sisa   ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; test_sisa   ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; test_sisa   ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --          ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                          ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY                    ; test_sisa                             ; sisa          ; --          ; --         ;
-+-------------------------------------+---------------------------------------+---------------+-------------+------------+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                        ;
++-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                                  ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 260248563941436.149492675703876                        ; --            ; --          ; --         ;
+; ENABLE_SIGNALTAP                    ; On                                                     ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                     ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                      ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; 16764057                                               ; --            ; --          ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                  ; --            ; --          ; Top        ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                 ; --            ; --          ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                    ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                  ; --            ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                           ; --            ; --          ; --         ;
+; SLD_FILE                            ; C:/Users/David/PECi1/sisa/signal_tap_auto_stripped.stp ; --            ; --          ; --         ;
+; USE_SIGNALTAP_FILE                  ; signal_tap.stp                                         ; --            ; --          ; --         ;
++-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -93,8 +95,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:04     ; 1.0                     ; 485 MB              ; 00:00:04                           ;
-; Total                ; 00:00:04     ; --                      ; --                  ; 00:00:04                           ;
+; Analysis & Synthesis ; 00:00:01     ; 1.0                     ; 489 MB              ; 00:00:01                           ;
+; Total                ; 00:00:01     ; --                      ; --                  ; 00:00:01                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -103,7 +105,7 @@ applicable agreement for further details.
 +----------------------+------------------+-----------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +----------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis ; PORTATIL         ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis ; a5s112pc09       ; Windows 7 ; 6.1        ; x86_64         ;
 +----------------------+------------------+-----------+------------+----------------+
 
 

@@ -11,6 +11,13 @@ ENTITY unidad_control IS
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
 			 aluout	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 intr		  : IN STD_LOGIC;
+			 int_enable : IN STD_LOGIC;
+			 mem_align :	IN STD_logic;
+			 div_zero  : IN STD_LOGIC;
+			 excepcion_mem_sys: in std_LOGIC;
+			 modo_sistema : IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT  STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd       : OUT STD_LOGIC;
@@ -19,16 +26,15 @@ ENTITY unidad_control IS
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 reti_pc	  : IN StD_LOGIC_VECTOR(15 downto 0);
           ins_dad   : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
 			 wr_out	  : OUT STD_LOGIC;
 			 br_n		  : OUT STD_LOGIC;
-			 in_op_mux     : OUT  STD_LOGIC;
-			 addr_io      : OUT  STD_LOGIC_VECTOR(7 DOWNTO 0);
-             rd_in : OUT  STD_LOGIC;
+			 in_op_mux : OUT  STD_LOGIC;
+			 addr_io   : OUT  STD_LOGIC_VECTOR(7 DOWNTO 0);
+          rd_in 	  : OUT  STD_LOGIC;
           word_byte : OUT STD_LOGIC;
 			 --Signals para instrucciones de sistema-----
 			 ei 	  : OUT  STD_LOGIC;
@@ -36,14 +42,11 @@ ENTITY unidad_control IS
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;  
 			 a_sys	 : OUT STD_LOGIC;
-			 rds_bit  : OUT STD_LOGIC;
-			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC;
-			 ---Excepcion instruccion ilegal--------------
-			 instr_il : OUT STD_LOGIC;
-			 ---------------------------------------------
-			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
-			dir_mem : OUT STD_LOGIC_VECTOR(15 downto 0)
+			 intr_sys : OUT STD_LOGIC;
+			 exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
+			 wrd_tlbi : OUT STD_LOGIC;
+			 wrd_tlbd : OUT STD_LOGIC;
+			 virtual  : OUT STD_LOGIC
 			 );
 END unidad_control;
 
@@ -53,6 +56,10 @@ ARCHITECTURE Structure OF unidad_control IS
 COMPONENT control_l IS
     PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
+			 intr		  : IN  STD_LOGIC;
+			 int_enable : IN STD_LOGIC;
+			 modo_sistema: IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
           ldpc      : OUT STD_LOGIC;
@@ -78,14 +85,32 @@ COMPONENT control_l IS
 			 wrd_rsys : OUT STD_LOGIC;
 			 system 	 : OUT STD_LOGIC; 
 			 a_sys	 : OUT STD_LOGIC;
-			 rds_bit  : OUT STD_LOGIC;
-			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC;
 			 ---------------------------------------------	
 			 ---Excepcion instruccion ilegal--------------
-			 instr_il : OUT STD_LOGIC
+			 instr_il : OUT STD_LOGIC;
+			 ----------------------------
+			exc_instr_sys : OUT STD_LOGIC;
+			 sys_call_b	: OUT STD_LOGIC;
+			 wrd_tlbi : OUT STD_LOGIC;
+			 wrd_tlbd : OUT STD_LOGIC;
+			 virtual  : OUT STD_LOGIC
 			 );
 END COMPONENT;
+		
+	COMPONENT excepcions_controller IS
+	PORT(
+			clk: IN STD_LOGIC;
+			instr_il : IN STD_LOGIC;
+			mem_align :	IN STD_LOGIC;
+			div_zero : IN STD_LOGIC;
+			system_l:	IN STD_LOGIC;
+			excepcion_mem_sys : IN STD_LOGIC;
+			exc_instr_sys : IN STD_LOGIC;
+			sys_call_b : IN STD_LOGIC;
+			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
+			system	: OUT STD_LOGIC
+	);
+	END COMPONENT;	
 	
 	COMPONENT multi is
     port(clk       : IN  STD_LOGIC;
@@ -102,9 +127,6 @@ END COMPONENT;
 			reti_l	  : IN  STD_LOGIC;
 			wrd_rsys_l : IN STD_LOGIC; 
 			a_sys_l	 : IN STD_LOGIC;
-			rds_bit_l : IN STD_LOGIC;
-			wrs_bit_l : IN STD_LOGIC;
-			getiid_bit_l : IN STD_LOGIC;
 			 ---------------------------------------------	
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
@@ -119,10 +141,13 @@ END COMPONENT;
 			 reti	  : OUT  STD_LOGIC;
 			 wrd_rsys : OUT STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
-			 rds_bit  : OUT STD_LOGIC;
-			 wrs_bit  : OUT STD_LOGIC;
-			 getiid_bit  : OUT STD_LOGIC;
-			 load_pc_sys : OUT STD_LOGIC
+			 intr_sys : OUT STD_LOGIC;
+			 inta : OUT STD_LOGIC;
+			 inta_l : IN STD_LOGIC;
+			 wrd_tlbi : OUT STD_LOGIC;
+			 wrd_tlbd : OUT STD_LOGIC;
+			 wrd_tlbi_l : IN STD_LOGIC;
+			 wrd_tlbd_l : IN STD_LOGIC
 			 ---------------------------------------------		
 			 );
 	end COMPONENT;
@@ -131,44 +156,51 @@ END COMPONENT;
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
     -- Aqui iria la definicion del program counter y del registro IR
 	 
-	 signal wrout_t,ldpc_c, wrd_c, wr_m_c, w_b_c,t_system : std_logic;
-	 signal load_pc, load_ir, rds_bit_t, wrs_bit_t, getiid_bit_t : std_logic;
-	 signal ir, new_pc, pc_calc, t_immed : std_logic_vector(15 downto 0);
+	 signal wrout_t,ldpc_c, wrd_c, wr_m_c, w_b_c,t_system, t_system_l : std_logic;
+	 signal load_pc, load_ir : std_logic;
+	 signal ir, new_pc, pc_calc_t, pc_calc, t_immed : std_logic_vector(15 downto 0);
 	 signal tknbr : std_logic_vector(1 downto 0);
-	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys, load_pc_sys : STD_LOGIC;
-
+	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys : STD_LOGIC;
+	 signal intr_sys_t, inta_t, instr_il_t : STD_LOGIC;
+	 signal sys_call_b_t, t_exc_instr_sys : STD_LOGIC;
+	 signal wrd_tlbd_t, wrd_tlbi_t : STD_LOGIC;
+	 
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
     -- En los esquemas de la documentacion a la instancia de la logica de control le hemos llamado c0
     -- Aqui iria la definicion del comportamiento de la unidad de control y la gestion del PC y del IR
 	 
+	 e0: excepcions_controller port map(clk => clk, instr_il => instr_il_t, mem_align => mem_align, div_zero => div_zero, system_l => t_system_l,
+													system => t_system, exc_code => exc_code, sys_call_b => sys_call_b_t,
+													excepcion_mem_sys => excepcion_mem_sys,
+													exc_instr_sys => t_exc_instr_sys);
+	 
 	 c0: control_l port map (ir => ir, op => op, f => f, ldpc => ldpc_c, wrd => wrd_c, addr_a => addr_a, addr_b => addr_b,
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
 									 br_n => br_n, word_byte => w_b_c, z => z, tknbr => tknbr, in_op_mux => in_op_mux,
 									 rd_in => rd_in, addr_io => addr_io, wr_out => wrout_t,
-									 system => t_system,
+									 system => t_system_l, intr => intr, inta => inta_t, int_enable => int_enable,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-									 rds_bit => rds_bit_t, wrs_bit => wrs_bit_t, getiid_bit => getiid_bit_t,
-									 instr_il => instr_il);
+									 instr_il => instr_il_t, sys_call_b => sys_call_b_t,
+									 modo_sistema => modo_sistema, wrd_tlbd => wrd_tlbd_t, wrd_tlbi_t, virtual => virtual,
+									 exc_instr_sys => t_exc_instr_sys);
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
-								wrout_l => wrout_t, wr_out => wr_out,
+								wrout_l => wrout_t, wr_out => wr_out, intr_sys => intr_sys_t,
 								ei_l => t_ei, di_l => t_di, reti_l => t_reti, a_sys_l => t_a_sys, wrd_rsys_l => t_wrd_rsys,
-								ldpc => load_pc, wrd => wrd, wr_m => wr_m, ldir => load_ir, 
+								ldpc => load_pc, wrd => wrd, wr_m => wr_m, ldir => load_ir, inta_l => inta_t, inta => inta,
 								system => t_system, ins_dad => ins_dad, word_byte => word_byte,
 								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys,
-								rds_bit_l => rds_bit_t, wrs_bit_l => wrs_bit_t, getiid_bit_l => getiid_bit_t,
-								rds_bit => rds_bit, wrs_bit => wrs_bit, getiid_bit => getiid_bit,
-								load_pc_sys => load_pc_sys);
+								wrd_tlbd_l => wrd_tlbd_t, wrd_tlbd => wrd_tlbd, wrd_tlbi_l => wrd_tlbi_t, wrd_tlbi => wrd_tlbi);
 	 
 	 process(clk, boot, load_pc)
 		begin
 		if(boot = '1') then
 			new_pc <= pc_inicial;
 		elsif(rising_edge(clk)) then
-			if(load_pc = '1' or load_pc_sys = '1') then
+			if(load_pc = '1') then
 				new_pc <= pc_calc;
 			end if;
 			if(load_ir = '1') then
@@ -178,20 +210,16 @@ BEGIN
 	end process;
 	
 	immed <= t_immed;
-	dir_mem <= ir;
+	intr_sys <= intr_sys_t;
 	
-	
---	--Si es RETI voldrem que el PC sigui el que surt de REGS que es REG_S_A_>
---	-- HAY CHAPUZA PQ SE tiENE QUE HACR SOLO EN ESTADO SYS, POR LO QUE ESTE MUX HACE DE DELAYER
---	with reti_multi select
---		reti_pc_final <= reti_pc when '1',
---					new_pc + x"0002" when others;
+	with intr_sys_t select
+		pc_calc <= pc_calc_t when '0',
+						aluout when others;
 	
 	with tknbr select
-		pc_calc <= new_pc + x"0002" when "00",
+		pc_calc_t <= new_pc + x"0002" when "00",
 					  new_pc + (x"0002") + (t_immed(14 downto 0) & '0') when "01",
 					  aluout when "10",
-					  reti_pc when "11",
 					  new_pc when others;
 	
 	pc <= new_pc;

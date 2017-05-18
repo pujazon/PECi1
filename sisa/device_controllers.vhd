@@ -14,7 +14,7 @@ ENTITY pulsadores IS
 	);
 END pulsadores;
 
-ARCHITECTURE Structure OF pulsadores IS
+ARCHITECTURE Structure_p OF pulsadores IS
 	signal state: STD_LOGIC_VECTOR(3 downto 0) := "0000";
 	signal current_interrupt: STD_LOGIC := '0';
 BEGIN
@@ -24,10 +24,8 @@ BEGIN
 			state <= keys;
 			current_interrupt <= '0';
 		elsif (rising_edge(clk)) then
-			if (current_interrupt = '1') then
-				if(inta = '1') then
-					current_interrupt <= '0';
-				end if;
+			if (inta = '1') then
+				current_interrupt <= '0';
 			else
 				if(keys /= state) then
 					current_interrupt <= '1';
@@ -38,21 +36,26 @@ BEGIN
 	end process;
 	rd_keys <= state;
 	intr <= current_interrupt;
-END ARCHITECTURE;
+END Structure_p;
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all; --Esta libreria sera necesaria si usais conversiones CONV_INTEGER
+USE ieee.numeric_std.all;        --Esta libreria sera necesaria si usais conversiones TO_INTEGER
 
 ENTITY interruptores IS
 	PORT(
 		boot: 	IN STD_LOGIC;
 		clk:  	IN STD_LOGIC;
 		inta:		IN STD_LOGIC;
-		switch:		IN STD_LOGIC_VECTOR(7 downto 0);
+		switch:		IN STD_LOGIC_VECTOR(9 downto 0);
 		intr:		OUT STD_LOGIC;
-		rd_switch: OUT STD_LOGIC_VECTOR(7 downto 0)
+		rd_switch: OUT STD_LOGIC_VECTOR(9 downto 0)
 	);
 END interruptores;
 
-ARCHITECTURE Structure OF interruptores IS
-	signal state: STD_LOGIC_VECTOR(7 downto 0) := x"00";
+ARCHITECTURE Structure_i OF interruptores IS
+	signal state: STD_LOGIC_VECTOR(9 downto 0) := "0000000000";
 	signal current_interrupt: STD_LOGIC := '0';
 BEGIN
 	process(clk)
@@ -61,10 +64,8 @@ BEGIN
 			state <= switch;
 			current_interrupt <= '0';
 		elsif (rising_edge(clk)) then
-			if (current_interrupt = '1') then
-				if(inta = '1') then
-					current_interrupt <= '0';
-				end if;
+			if (inta = '1') then
+				current_interrupt <= '0';
 			else
 				if(switch /= state) then
 					current_interrupt <= '1';
@@ -75,7 +76,13 @@ BEGIN
 	end process;
 	rd_switch <= state;
 	intr <= current_interrupt;
-END ARCHITECTURE;
+END Structure_i;
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all; --Esta libreria sera necesaria si usais conversiones CONV_INTEGER
+USE ieee.numeric_std.all;        --Esta libreria sera necesaria si usais conversiones TO_INTEGER
+
 
 ENTITY timer IS
 	PORT(
@@ -86,24 +93,23 @@ ENTITY timer IS
 	);
 END timer;
 
-ARCHITECTURE Structure OF timer IS
+ARCHITECTURE Structure_t OF timer IS
 	signal current_interrupt: STD_LOGIC := '0';
 	constant max_val: STD_LOGIC_VECTOR(23 downto 0) := x"2625A0";
 	signal count: STD_LOGIC_VECTOR(23 downto 0);
 BEGIN
 	process(CLOCK_50) begin
 		if (rising_edge(CLOCK_50)) then
-			if (count >= max_val) then
+			if(inta = '1' or boot = '1') then
+				current_interrupt <= '0';
+				count <= x"000000";
+			elsif (count >= max_val) then
 				current_interrupt <= '1';
 				count <= x"000000";
 			else
 				count <= count + 1;
 			end if;
-			
-			if (inta = '1') then
-				current_interrupt <= '0';
-			end if;
 		end if;
 	end process;
 	intr <= current_interrupt;
-END ARCHITECTURE;
+END Structure_t;

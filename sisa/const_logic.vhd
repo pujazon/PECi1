@@ -41,7 +41,12 @@ package const_logic is
 	constant f_rds : std_logic_vector := "01100";
 	constant f_wrs : std_logic_vector := "10000";
 	constant f_getiid: std_logic_vector := "01000";
-
+	constant f_wrpi : STD_LOGIC_VECTOR := "10100";
+	constant f_wrvi : STD_LOGIC_VECTOR := "10101";
+	constant f_wrpd : STD_LOGIC_VECTOR := "10110";
+	constant f_wrvd : STD_LOGIC_VECTOR := "10111";
+	constant f_flush : STD_LOGIC_VECTOR := "11000";
+	
 	constant invalid : std_logic_vector := x"CACA";
 	
 end const_logic;

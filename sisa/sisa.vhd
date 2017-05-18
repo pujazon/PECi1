@@ -18,7 +18,8 @@ ENTITY sisa IS
 			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); 
-          SW        : in std_logic_vector(9 downto 9);
+          SW        : in std_logic_vector(9 downto 0);
+			 KEY : IN STD_LOGIC_VECTOR(3 downto 0);
 			 --PINS de KEYBOARD
 			 PS2_CLK : inout std_logic;
 			 PS2_DAT : inout std_logic;
@@ -53,9 +54,12 @@ COMPONENT MemoryController is
 			 vga_we : out std_logic;
 			 vga_wr_data : out std_logic_vector(15 downto 0);
 			 vga_rd_data : in std_logic_vector(15 downto 0);
-          vga_byte_m : out std_logic 
+          vga_byte_m : out std_logic;
 			 --Excepcion direccion mal alineada
-			 mem_align :	out STD_logic
+			 mem_align :	out STD_logic;
+			 ---Excepcion acceso memoria sistema sin ser privilegiado---
+			 modo_sistema : IN STD_LOGIC;
+			 excepcion_mem_sys : OUT STD_LOGIC
 			 );
 end COMPONENT;
 
@@ -65,6 +69,7 @@ end COMPONENT;
 COMPONENT controlador_IO IS
     PORT (boot    : IN  STD_LOGIC;
           CLOCK_50    : IN  STD_LOGIC;
+		  clk		  : IN STD_LOGIC;
           addr_io      : IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 wr_out	:	IN STD_LOGIC;
           wr_io : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -76,11 +81,15 @@ COMPONENT controlador_IO IS
 			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+          SW        : in std_logic_vector(9 downto 0);
+			 KEY : IN STD_LOGIC_VECTOR(3 downto 0);
 			 ps2_clk : inout std_logic;
 			 ps2_data : inout std_logic;
 		 	 --Signals per al cursor, VGA
 			 vga_cursor : out std_logic_vector(15 downto 0);
-			 vga_cursor_enable : out std_logic
+			 vga_cursor_enable : out std_logic;
+			 inta : IN  STD_LOGIC;
+			 intr : OUT STD_LOGIC
 			 );
 END COMPONENT;
 
@@ -110,7 +119,11 @@ COMPONENT proc IS
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  rd_io		: IN  STD_LOGIC_vector(15 DOWNTO 0);
 		  --Excepcion direccion mal alineada
-			 mem_align :	IN STD_logic
+			 mem_align :	IN STD_logic;
+		---Excepcion memoria systema ilegal
+			excepcion_mem_sys : IN STD_LOGIC;
+			 intr		  : IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
          addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
@@ -118,20 +131,21 @@ COMPONENT proc IS
 		  wr_io	   : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  addr_io	:	OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 		  rd_in	:	OUT STD_LOGIC;
-		  wr_out	:	OUT STD_LOGIC);
+		  wr_out	:	OUT STD_LOGIC;
+		  modo_sistema : OUT STD_LOGIC);
 END COMPONENT;
 
 
 
 	signal t_rd_in, t_wr_out,t_byte_m, t_wr_m, t_vga_we,
 			 t_vga_cursor_enable,t_vga_byte_m,
-			 t_horiz_sync_out, t_vert_sync_out,t_mem_align : std_logic;
+			 t_mem_align : std_logic;
 	signal t_rd_io, t_wr_io,t_addr_m, t_data_wr, t_datard_m,
 			 t_vga_wr_data,t_vga_rd_data,t_vga_cursor : std_logic_vector(15 downto 0);
 	signal counter_div_clk : std_logic_vector(2 downto 0) := "000";
 	signal t_red, t_blue, t_green ,t_addr_io : STD_LOGIC_VECTOR(7 downto 0);
 	signal t_vga_addr :  std_logic_vector(12 downto 0);
-
+	signal t_inta, t_intr, t_modo_sistema, t_excepcion_mem_sys : STD_LOGIC;
 
 BEGIN
 
@@ -142,24 +156,26 @@ BEGIN
 								SRAM_WE_N => SRAM_WE_N, rd_data => t_datard_m, 
 								vga_addr => t_vga_addr, vga_we => t_vga_we, 
 								vga_wr_data => t_vga_wr_data, vga_rd_data =>t_vga_rd_data , vga_byte_m => t_vga_byte_m,
-								mem_align => t_mem_align);
+								mem_align => t_mem_align, modo_sistema => t_modo_sistema, 
+								excepcion_mem_sys => t_excepcion_mem_sys);
 								
-	pro0: proc port map (boot => SW(9), clk => counter_div_clk(2), datard_m => t_datard_m, 
+	pro0: proc port map (boot => SW(9), clk => counter_div_clk(2), datard_m => t_datard_m, inta => t_inta, intr => t_intr,
 						word_byte => t_byte_m, wr_m => t_wr_m, addr_m => t_addr_m, data_wr => t_data_wr,
 						rd_io => t_rd_io, addr_io => t_addr_io, rd_in => t_rd_in, wr_out => t_wr_out, wr_io => t_wr_io,
-						mem_align => t_mem_align);
+						mem_align => t_mem_align, modo_sistema => t_modo_sistema,
+						excepcion_mem_sys => t_excepcion_mem_sys);
 						
 						
-	io: controlador_IO port map(boot => SW(9), CLOCK_50 => CLOCK_50, addr_io => t_addr_io,
+	io: controlador_IO port map(boot => SW(9), CLOCK_50 => CLOCK_50, addr_io => t_addr_io, clk => counter_div_clk(2),
 											wr_out => t_wr_out, wr_io => t_wr_io, rd_in => t_rd_in, 
 											rd_io => t_rd_io, led_verdes => LEDG, led_rojos => LEDR,
-											ps2_clk => PS2_CLK, ps2_data => 	PS2_DAT,
+											ps2_clk => PS2_CLK, ps2_data => 	PS2_DAT, inta => t_inta, intr => t_intr,
 											vga_cursor => t_vga_cursor, vga_cursor_enable => t_vga_cursor_enable,
-											HEX0 => HEX0, HEX1 => HEX1, HEX2 => HEX2, HEX3 => HEX3);
+											HEX0 => HEX0, HEX1 => HEX1, HEX2 => HEX2, HEX3 => HEX3, SW => SW, KEY => KEY);
 										
 	vga: vga_controller port map(clk_50mhz => CLOCK_50, reset => SW(9),
 											red_out => t_red, green_out => t_green, blue_out => t_blue,
-											horiz_sync_out => t_horiz_sync_out, vert_sync_out => t_vert_sync_out,
+											horiz_sync_out => VGA_HS, vert_sync_out => VGA_VS,
 											addr_vga => t_vga_addr, we => t_vga_we, wr_data => t_vga_wr_data,
 											rd_data => t_vga_rd_data, byte_m => t_vga_byte_m,
 											vga_cursor => t_vga_cursor, vga_cursor_enable => t_vga_cursor_enable);	
@@ -168,8 +184,6 @@ BEGIN
 	VGA_R <= t_red(3 downto 0);
 	VGA_G <= t_green(3 downto 0);	
 	VGA_B <= t_blue(3 downto 0);
-	VGA_HS <= t_horiz_sync_out;
-	VGA_VS <= t_vert_sync_out;
 	
 
 	process(CLOCK_50, counter_div_clk)

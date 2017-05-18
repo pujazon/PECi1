@@ -4,122 +4,134 @@ K3
 cModel Technology
 dC:\altera\11.0
 Ealu
-Z0 w1493871966
+Z0 w1494841792
 Z1 DPx4 work 11 const_logic 0 22 ^5oQSi5V=Ld]fj]oYJXJh2
-Z2 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
-Z3 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
-Z4 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
-Z5 dC:\Users\Manolo\Desktop\interrupcions
-Z6 8C:/Users/Manolo/Desktop/interrupcions/alu.vhd
-Z7 FC:/Users/Manolo/Desktop/interrupcions/alu.vhd
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\Users\pec05\PECi1\sisa
+Z7 8C:/Users/pec05/PECi1/sisa/alu.vhd
+Z8 FC:/Users/pec05/PECi1/sisa/alu.vhd
 l0
 L6
-V?3IVkhEY=eO2b9SS>HEBM2
-Z8 OV;C;6.6d;45
+V1U8=6L][Rg@MYI6LO<c^d2
+Z9 OV;C;10.1d;51
 32
-Z9 o-work work -2002 -explicit -O0
-Z10 tExplicit 1
-!s100 @l`HM8k9;e9He1[D?@ULW1
+Z10 !s108 1494857959.473000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/alu.vhd|
+Z12 !s107 C:/Users/pec05/PECi1/sisa/alu.vhd|
+Z13 o-work work -2002 -explicit -O0
+Z14 tExplicit 1
+!s100 mA9]iLh80Z`?Ma:Ob:U:62
+!i10b 1
 Astructure
 R1
 R2
 R3
 R4
-DEx4 work 3 alu 0 22 ?3IVkhEY=eO2b9SS>HEBM2
-l48
-L16
-VMNMdzAfQ@ZbzeS1jL;8=70
-R8
-32
-Z11 Mx4 4 ieee 14 std_logic_1164
-Z12 Mx3 4 ieee 18 std_logic_unsigned
-Z13 Mx2 4 ieee 15 std_logic_arith
-Z14 Mx1 4 work 11 const_logic
+R5
+DEx4 work 3 alu 0 22 1U8=6L][Rg@MYI6LO<c^d2
+l51
+L17
+V;@T`:6N;iVGGN_B]A254D0
 R9
+32
 R10
-!s100 @H?5ZGDCM<Y15BhSe1eDc2
+R11
+R12
+R13
+R14
+!s100 U2JKZ;T;m=ioJI>[jTQRo2
+!i10b 1
 Earith_alu
-Z15 w1493871966
+Z15 w1494841792
 R1
-Z16 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z16 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 R2
 R3
 R4
 R5
-Z17 8C:/Users/Manolo/Desktop/interrupcions/arith_alu.vhd
-Z18 FC:/Users/Manolo/Desktop/interrupcions/arith_alu.vhd
+R6
+Z17 8C:/Users/pec05/PECi1/sisa/arith_alu.vhd
+Z18 FC:/Users/pec05/PECi1/sisa/arith_alu.vhd
 l0
 L7
-VUdDfc`4eB_0XFiZIRm:E=3
-R8
-32
+VSMWJhFZdfH5WG1zd:dTLL1
 R9
-R10
-!s100 44Zd9Hl1?6:L4_02NRMSU0
+32
+Z19 !s108 1494857959.644000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/arith_alu.vhd|
+Z21 !s107 C:/Users/pec05/PECi1/sisa/arith_alu.vhd|
+R13
+R14
+!s100 R=WEnWha`LHO_Uh5Tj4nh3
+!i10b 1
 Astructure
 R1
 R16
 R2
 R3
 R4
-DEx4 work 9 arith_alu 0 22 UdDfc`4eB_0XFiZIRm:E=3
+R5
+DEx4 work 9 arith_alu 0 22 SMWJhFZdfH5WG1zd:dTLL1
 l20
 L14
-VDSQK[X;ckELIQeVLMnb@o1
-R8
-32
-Z19 Mx5 4 ieee 14 std_logic_1164
-Z20 Mx4 4 ieee 18 std_logic_unsigned
-Z21 Mx3 4 ieee 15 std_logic_arith
-Z22 Mx2 4 ieee 11 numeric_std
-R14
+Vhk>X1gZ]I6BZC:3C:623T0
 R9
-R10
-!s100 bEFjSDL>P488mzXdP55dV1
+32
+R19
+R20
+R21
+R13
+R14
+!s100 ^PcfkS9KX0lefo7_IYlSP0
+!i10b 1
 Easync_64kx16
-Z23 w1392063819
-Z24 DPx4 work 15 package_utility 0 22 aPFHoTKzA1MgNT:6c[NK62
-Z25 DPx4 work 14 package_timing 0 22 U:iPozaN550LRVH_2^G=i2
-Z26 DPx3 std 6 textio 0 22 m2KQDRRhmF833<<DjYdL70
-Z27 DPx4 ieee 16 std_logic_textio 0 22 8ONYdGiICLK<GeVc1o<IF0
+R15
+Z22 DPx4 work 15 package_utility 0 22 abW^FY0na:iFW@RR:Fofg0
+Z23 DPx4 work 14 package_timing 0 22 ]QljGNTG0EJQ?X:f3a>TX1
+Z24 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
 R2
 R3
 R4
 R5
-Z28 8C:/Users/Manolo/Desktop/interrupcions/async_64Kx16.vhd
-Z29 FC:/Users/Manolo/Desktop/interrupcions/async_64Kx16.vhd
+R6
+Z25 8C:/Users/pec05/PECi1/sisa/async_64Kx16.vhd
+Z26 FC:/Users/pec05/PECi1/sisa/async_64Kx16.vhd
 l0
 L22
-V9dDJ53Y@nNm6iMhFcmB8U3
-R8
-32
+Vz7=:g106kSL^?zZa1_k1i2
 R9
-R10
-!s100 [F4dfhUL`gOW75l6<<K>83
+32
+Z27 !s108 1494857959.910000
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/async_64Kx16.vhd|
+Z29 !s107 C:/Users/pec05/PECi1/sisa/async_64Kx16.vhd|
+R13
+R14
+!s100 >mUGlnEO[;>2_SQSo6jO>0
+!i10b 1
 Abehave_arch
+R22
+R23
 R24
-R25
-R26
-R27
 R2
 R3
 R4
-DEx4 work 12 async_64kx16 0 22 9dDJ53Y@nNm6iMhFcmB8U3
+R5
+DEx4 work 12 async_64kx16 0 22 z7=:g106kSL^?zZa1_k1i2
 l86
 L50
-Va@O?Fg1SIB:3B`m:4N]Tf3
-R8
-32
-Mx7 4 ieee 14 std_logic_1164
-Mx6 4 ieee 18 std_logic_unsigned
-Mx5 4 ieee 15 std_logic_arith
-Mx4 4 ieee 16 std_logic_textio
-Mx3 3 std 6 textio
-Mx2 4 work 14 package_timing
-Mx1 4 work 15 package_utility
+VAJ7N2U7Oz?8b=Rk:ei_Pn2
 R9
-R10
-!s100 UVQMOM:B:LU0bc9Mf_20^0
+32
+R27
+R28
+R29
+R13
+R14
+!s100 ;PMTN0Wle:CWX6W[Y:e7_2
+!i10b 1
 Ecmp_alu
 R15
 R1
@@ -128,855 +140,1213 @@ R2
 R3
 R4
 R5
-Z30 8C:/Users/Manolo/Desktop/interrupcions/cmp_alu.vhd
-Z31 FC:/Users/Manolo/Desktop/interrupcions/cmp_alu.vhd
+R6
+Z30 8C:/Users/pec05/PECi1/sisa/cmp_alu.vhd
+Z31 FC:/Users/pec05/PECi1/sisa/cmp_alu.vhd
 l0
 L7
-VZL`D<Z542]bnR3AnlMjS52
-R8
-32
+VRR=2K3@1F=iXWE@d;`D8M3
 R9
-R10
-!s100 f[EDN65=TZdN_Eb3khkCP0
+32
+Z32 !s108 1494857960.222000
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/cmp_alu.vhd|
+Z34 !s107 C:/Users/pec05/PECi1/sisa/cmp_alu.vhd|
+R13
+R14
+!s100 Ge93eYZJCj?S]Pmhz6>9z3
+!i10b 1
 Astructure
 R1
 R16
 R2
 R3
 R4
-DEx4 work 7 cmp_alu 0 22 ZL`D<Z542]bnR3AnlMjS52
+R5
+DEx4 work 7 cmp_alu 0 22 RR=2K3@1F=iXWE@d;`D8M3
 l20
 L14
-VOJmn5hOOkbRZT_MQ?gA@61
-R8
-32
-R19
-R20
-R21
-R22
-R14
+VRF6>:eeO_X`@EV0e:=P9M2
 R9
-R10
-!s100 NP?CngdjfjYS9aTz=3hSQ1
+32
+R32
+R33
+R34
+R13
+R14
+!s100 ;ka=Gn_Xjm2R7MOHjzDeN3
+!i10b 1
 Pconst_control
 R2
 R3
 R4
-R15
 R5
-8C:/Users/Manolo/Desktop/interrupcions/const_control.vhd
-FC:/Users/Manolo/Desktop/interrupcions/const_control.vhd
+w1494855296
+R6
+8C:/Users/pec05/PECi1/sisa/const_control.vhd
+FC:/Users/pec05/PECi1/sisa/const_control.vhd
 l0
 L5
-V4a0ni;<2?GC5=bz;C=mOB1
-R8
-32
-Z32 Mx3 4 ieee 14 std_logic_1164
-Z33 Mx2 4 ieee 18 std_logic_unsigned
-Z34 Mx1 4 ieee 15 std_logic_arith
+VF9=84eTX0gNH0;YToWFO<0
 R9
-R10
-!s100 f5aO?LKY:Do0BHc_;V^:a1
+32
+R13
+R14
+!s100 eM1kkfn;JGBRDP9BgaN@60
+!i10b 1
+!s108 1494857960.456000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/const_control.vhd|
+!s107 C:/Users/pec05/PECi1/sisa/const_control.vhd|
 Pconst_logic
 R2
 R3
 R4
-w1494202396
 R5
-8C:/Users/Manolo/Desktop/interrupcions/const_logic.vhd
-FC:/Users/Manolo/Desktop/interrupcions/const_logic.vhd
+Z35 w1494841793
+R6
+8C:/Users/pec05/PECi1/sisa/const_logic.vhd
+FC:/Users/pec05/PECi1/sisa/const_logic.vhd
 l0
 L5
 V^5oQSi5V=Ld]fj]oYJXJh2
-R8
-32
-R32
-R33
-R34
 R9
-R10
-!s100 7`L[id>S_b;:F9Sjhz1Ro1
-Econtrol_l
-Z35 w1494203954
-R1
-R2
-R3
-Z36 DPx4 work 13 const_control 0 22 4a0ni;<2?GC5=bz;C=mOB1
-R4
-R5
-Z37 8C:/Users/Manolo/Desktop/interrupcions/control_l.vhd
-Z38 FC:/Users/Manolo/Desktop/interrupcions/control_l.vhd
-l0
-L6
-VUnjXHC]gZkTO<k@>_02?83
-R8
 32
-R9
-R10
-!s100 bGI]AmN2^c_4>[Lo2>Pko3
-Astructure
-R1
-R2
-R3
-R36
-R4
-DEx4 work 9 control_l 0 22 UnjXHC]gZkTO<k@>_02?83
-l48
-L42
-VWX@a`:OQ]DP?X_[N<nNX70
-R8
-32
-R19
-Mx4 4 work 13 const_control
-R12
 R13
 R14
-R9
-R10
-!s100 [_4hQD2bz8YM;1d5M5?[`0
-Econtrolador_io
-R15
-R16
+!s100 7`L[id>S_b;:F9Sjhz1Ro1
+!i10b 1
+!s108 1494857963.388000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/const_logic.vhd|
+!s107 C:/Users/pec05/PECi1/sisa/const_logic.vhd|
+Econtrol_l
+Z36 w1494856909
+R1
 R2
 R3
+Z37 DPx4 work 13 const_control 0 22 F9=84eTX0gNH0;YToWFO<0
 R4
 R5
-Z39 8C:/Users/Manolo/Desktop/interrupcions/controlador_IO.vhd
-Z40 FC:/Users/Manolo/Desktop/interrupcions/controlador_IO.vhd
+R6
+Z38 8C:/Users/pec05/PECi1/sisa/control_l.vhd
+Z39 FC:/Users/pec05/PECi1/sisa/control_l.vhd
 l0
 L6
-V^j_9dA4e80KK=:C`528Z<2
-R8
-32
+V>R?3A<bA=mgYTH^V::`HT1
 R9
-R10
-!s100 hgFFEIS=m8h>D[G_F4Tn`2
-Astructure
-R16
-R2
-R3
-R4
-DEx4 work 14 controlador_io 0 22 ^j_9dA4e80KK=:C`528Z<2
-l60
-L28
-VVVc<>zWAJWJ0kU07`YLZd2
-R8
 32
-R11
-R12
+Z40 !s108 1494857975.405000
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/control_l.vhd|
+Z42 !s107 C:/Users/pec05/PECi1/sisa/control_l.vhd|
 R13
-Z41 Mx1 4 ieee 11 numeric_std
-R9
-R10
-!s100 `YmcnSo=i7QNdbQzA<36W0
-Edatapath
-Z42 w1494203976
+R14
+!s100 BY^R_WTYi=7Jd8C@lnSSg3
+!i10b 1
+Astructure
+R1
 R2
 R3
-R16
+R37
 R4
 R5
-Z43 8C:/Users/Manolo/Desktop/interrupcions/datapath.vhd
-Z44 FC:/Users/Manolo/Desktop/interrupcions/datapath.vhd
+DEx4 work 9 control_l 0 22 >R?3A<bA=mgYTH^V::`HT1
+l52
+L46
+V4[EQN=l]L:Rm59l>Ai]gA0
+R9
+32
+R40
+R41
+R42
+R13
+R14
+!s100 OYPH=z_>iaAB`^XoZQ_822
+!i10b 1
+Econtrolador_io
+Z43 w1494852356
+R16
+R2
+R3
+R4
+R5
+R6
+Z44 8C:/Users/pec05/PECi1/sisa/controlador_IO.vhd
+Z45 FC:/Users/pec05/PECi1/sisa/controlador_IO.vhd
 l0
 L6
-VI=k]9fb`iANjBUTNG9?M62
-R8
-32
+VT]AFnF]5=V3JIzXg9jiYN0
 R9
-R10
-!s100 Ii?0faX3L^E<jcgCj[Yl12
+32
+Z46 !s108 1494857977.273000
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/controlador_IO.vhd|
+Z48 !s107 C:/Users/pec05/PECi1/sisa/controlador_IO.vhd|
+R13
+R14
+!s100 NSUMQ2UAmQEIhbImCG6@V0
+!i10b 1
 Astructure
+R16
+R2
+R3
+R4
+R5
+DEx4 work 14 controlador_io 0 22 T]AFnF]5=V3JIzXg9jiYN0
+l123
+L33
+VXiNkeMF8ooYOBSz?_`9:?0
+R9
+32
+R46
+R47
+R48
+R13
+R14
+!s100 P_R?jV[i_?8R]`7[5ZANY2
+!i10b 1
+Edatapath
+Z49 w1494857211
+R1
+R37
 R2
 R3
 R16
 R4
-DEx4 work 8 datapath 0 22 I=k]9fb`iANjBUTNG9?M62
-l80
-L41
-VbP1afk8gOMaXjR0R<A1mH0
-R8
-32
-R11
-Z45 Mx3 4 ieee 11 numeric_std
-R33
-R34
+R5
+R6
+Z50 8C:/Users/pec05/PECi1/sisa/datapath.vhd
+Z51 FC:/Users/pec05/PECi1/sisa/datapath.vhd
+l0
+L9
+VeL1V6Y?dWaf3H]z]m2PHS3
 R9
-R10
-!s100 7cHfloB6k^7i87=:1>MzT0
+32
+Z52 !s108 1494857977.509000
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/datapath.vhd|
+Z54 !s107 C:/Users/pec05/PECi1/sisa/datapath.vhd|
+R13
+R14
+!s100 UG^3HT^V[XEkiO7@5SPnK0
+!i10b 1
+Astructure
+R1
+R37
+R2
+R3
+R16
+R4
+R5
+DEx4 work 8 datapath 0 22 eL1V6Y?dWaf3H]z]m2PHS3
+l92
+L45
+VdKU5Jg:@iDdN0zcW4h2]31
+R9
+32
+R52
+R53
+R54
+R13
+R14
+!s100 _^J]QLOA5d;F0[GVGF_ej2
+!i10b 1
 Edriver7segmentos
-Z46 w1493871972
+R35
 R3
 R2
 R4
 R5
-Z47 8C:/Users/Manolo/Desktop/interrupcions/driver7segmentos.vhd
-Z48 FC:/Users/Manolo/Desktop/interrupcions/driver7segmentos.vhd
+R6
+Z55 8C:/Users/pec05/PECi1/sisa/driver7segmentos.vhd
+Z56 FC:/Users/pec05/PECi1/sisa/driver7segmentos.vhd
 l0
 L7
-VDaDHz@3Y`3d5a4hV@W[RO1
-R8
-32
+VW8AU[;gFE6VDiYfg>ICG?1
 R9
-R10
-!s100 o9bH9_gH[h4?U5O6ID1;21
+32
+Z57 !s108 1494857978.382000
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/driver7segmentos.vhd|
+Z59 !s107 C:/Users/pec05/PECi1/sisa/driver7segmentos.vhd|
+R13
+R14
+!s100 :k1GIO8SH^<CLLzimSK9A1
+!i10b 1
 Astructure
 R3
 R2
 R4
-DEx4 work 16 driver7segmentos 0 22 DaDHz@3Y`3d5a4hV@W[RO1
+R5
+DEx4 work 16 driver7segmentos 0 22 W8AU[;gFE6VDiYfg>ICG?1
 l14
 L13
-V1dHc<d@P5HP@h=6jZ=Y;R0
-R8
-32
-R32
-R13
-Z49 Mx1 4 ieee 18 std_logic_unsigned
+V]SaMicLO6P1iIEG[fe@c<3
 R9
-R10
-!s100 lMY2X<^iY3JBoz3SiW4[Z1
-Ekeyboard_controller
-R46
+32
+R57
+R58
+R59
+R13
+R14
+!s100 >c`Pn>o13YcMdf93HGX[c1
+!i10b 1
+Eexcepcions_controller
+Z60 w1494856901
+R37
 R2
 R3
 R16
 R4
 R5
-Z50 8C:/Users/Manolo/Desktop/interrupcions/keyboard_controller.vhd
-Z51 FC:/Users/Manolo/Desktop/interrupcions/keyboard_controller.vhd
+R6
+Z61 8C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd
+Z62 FC:/Users/pec05/PECi1/sisa/excepcions_controller.vhd
 l0
 L7
-VR1XikYcSI;=;<DCT762gn3
-R8
-32
+Vo:X[aiCM]fMn_DCcdoPNO3
 R9
-R10
-!s100 WT_N`b]fl4bWN;nY9PZ3m0
+32
+Z63 !s108 1494857978.585000
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd|
+Z65 !s107 C:/Users/pec05/PECi1/sisa/excepcions_controller.vhd|
+R13
+R14
+!s100 Y^ZdoWlYF2?CHDb19`zg]0
+!i10b 1
+Astructure
+R37
+R2
+R3
+R16
+R4
+R5
+DEx4 work 21 excepcions_controller 0 22 o:X[aiCM]fMn_DCcdoPNO3
+l25
+L20
+V<L=]c<OjV2DfEU9hc<XNC1
+R9
+32
+R63
+R64
+R65
+R13
+R14
+!s100 IhUMzDXRbe85G]PP9VZ4P2
+!i10b 1
+Einterrupt_controller
+Z66 w1494852393
+R2
+R3
+R16
+R4
+R5
+R6
+Z67 8C:/Users/pec05/PECi1/sisa/interrupt_controller.vhd
+Z68 FC:/Users/pec05/PECi1/sisa/interrupt_controller.vhd
+l0
+L6
+VmEbT<PZ>UKfF[OdmSYATF3
+R9
+32
+Z69 !s108 1494857978.819000
+Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/interrupt_controller.vhd|
+Z71 !s107 C:/Users/pec05/PECi1/sisa/interrupt_controller.vhd|
+R13
+R14
+!s100 M0a?oVH`iXZ6Gl:O2lBVG0
+!i10b 1
+Astructure
+R2
+R3
+R16
+R4
+R5
+DEx4 work 20 interrupt_controller 0 22 mEbT<PZ>UKfF[OdmSYATF3
+l27
+L24
+V34UgoCoh;DQVQzogIi0cL1
+R9
+32
+R69
+R70
+R71
+R13
+R14
+!s100 S<WQBBB^QHk4W6YZSnf1z2
+!i10b 1
+Einterruptores
+R43
+R16
+R2
+R3
+R4
+R5
+R6
+Z72 8C:/Users/pec05/PECi1/sisa/device_controllers.vhd
+Z73 FC:/Users/pec05/PECi1/sisa/device_controllers.vhd
+l0
+L46
+V2df@mOfMQMHCOFS>dime;1
+R9
+32
+Z74 !s108 1494857977.743000
+Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/device_controllers.vhd|
+Z76 !s107 C:/Users/pec05/PECi1/sisa/device_controllers.vhd|
+R13
+R14
+!s100 XG_eB48o>1eLndjSakG`U2
+!i10b 1
+Astructure_i
+R16
+R2
+R3
+R4
+R5
+DEx4 work 13 interruptores 0 22 2df@mOfMQMHCOFS>dime;1
+l60
+L57
+VX>L9g05I15KVckeFWz<Zn3
+R9
+32
+R74
+R75
+R76
+R13
+R14
+!s100 =:lX^2S914UiC6J9jUJ5Y0
+!i10b 1
+Ekeyboard_controller
+Z77 w1494842240
+R2
+R3
+R16
+R4
+R5
+R6
+Z78 8C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd
+Z79 FC:/Users/pec05/PECi1/sisa/keyboard_controller.vhd
+l0
+L6
+VUinNi:i`]BOfnVnCM>V8U2
+R9
+32
+Z80 !s108 1494857979.006000
+Z81 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd|
+Z82 !s107 C:/Users/pec05/PECi1/sisa/keyboard_controller.vhd|
+R13
+R14
+!s100 mX;zToi>hAXk]Sb;Ei:6`3
+!i10b 1
 Abehavioral
 R2
 R3
 R16
 R4
-DEx4 work 19 keyboard_controller 0 22 R1XikYcSI;=;<DCT762gn3
-l55
-L17
-V2^CCa_]:F<Z:Xjj565:7h3
-R8
-32
-R11
-R45
-R33
-R34
+R5
+DEx4 work 19 keyboard_controller 0 22 UinNi:i`]BOfnVnCM>V8U2
+l57
+L18
+VSbaDkeGWjBX2_>PGVQFmB2
 R9
-R10
-!s100 2H7TC]L66b?0gU<XhQHYC1
+32
+R80
+R81
+R82
+R13
+R14
+!s100 k3McGfcecJKH3XELCJQDg3
+!i10b 1
 Ememory_alu
-R46
+R35
 R1
 R2
 R3
 R4
 R5
-Z52 8C:/Users/Manolo/Desktop/interrupcions/memory_alu.vhd
-Z53 FC:/Users/Manolo/Desktop/interrupcions/memory_alu.vhd
+R6
+Z83 8C:/Users/pec05/PECi1/sisa/memory_alu.vhd
+Z84 FC:/Users/pec05/PECi1/sisa/memory_alu.vhd
 l0
 L6
-VQFaZCF0]c];=mf<ZcgiQ51
-R8
-32
+V?2>1[Ac0JMA@E[e]H]S@73
 R9
-R10
-!s100 NAk^]CjFM;?8U1JDhVQY30
+32
+Z85 !s108 1494857979.225000
+Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/memory_alu.vhd|
+Z87 !s107 C:/Users/pec05/PECi1/sisa/memory_alu.vhd|
+R13
+R14
+!s100 WAkYMYllf0V_mMN<=5[[[2
+!i10b 1
 Astructure
 R1
 R2
 R3
 R4
-DEx4 work 10 memory_alu 0 22 QFaZCF0]c];=mf<ZcgiQ51
+R5
+DEx4 work 10 memory_alu 0 22 ?2>1[Ac0JMA@E[e]H]S@73
 l15
 L13
-V24<34<dSgO1znOYST^TNk0
-R8
+V^@P@fD6RgY^zC4?AWH_4`1
+R9
 32
-R11
-R12
+R85
+R86
+R87
 R13
 R14
-R9
-R10
-!s100 SI:U=1oTM:aWXi_4_=IRY0
+!s100 7mBCH@jmbNkn0kQP:m4;i0
+!i10b 1
 Ememorycontroller
-R46
+R77
 R3
 R2
 R4
 R5
-Z54 8C:/Users/Manolo/Desktop/interrupcions/MemoryController.vhd
-Z55 FC:/Users/Manolo/Desktop/interrupcions/MemoryController.vhd
+R6
+Z88 8C:/Users/pec05/PECi1/sisa/MemoryController.vhd
+Z89 FC:/Users/pec05/PECi1/sisa/MemoryController.vhd
 l0
 L7
-VQfdH]V[eZf`eAOnn>Z1><1
-R8
-32
+VcY`h:c<5YQ>:Iag:XPci?0
 R9
-R10
-!s100 6j7zAKf8MaC;KSjS[=`kd3
+32
+Z90 !s108 1494857979.428000
+Z91 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/MemoryController.vhd|
+Z92 !s107 C:/Users/pec05/PECi1/sisa/MemoryController.vhd|
+R13
+R14
+!s100 OP1zB4ISTA^l:HTWQn_901
+!i10b 1
 Acomportament
 R3
 R2
 R4
-DEx4 work 16 memorycontroller 0 22 QfdH]V[eZf`eAOnn>Z1><1
-l59
-L35
-V`Y^3^iVnUPaR3h2l;maJe1
-R8
-32
-R32
-R13
-R49
+R5
+DEx4 work 16 memorycontroller 0 22 cY`h:c<5YQ>:Iag:XPci?0
+l61
+L37
+V;bmZ>d]mb<Q?W[39Ol8IY3
 R9
-R10
-!s100 AU[<3OCZ0>zLbdmFzn2@z2
+32
+R90
+R91
+R92
+R13
+R14
+!s100 XWW:<cRhFe;k0GeLjIMz51
+!i10b 1
 Emul_alu
-R46
+R77
 R1
 R16
 R2
 R3
 R4
 R5
-Z56 8C:/Users/Manolo/Desktop/interrupcions/mul_alu.vhd
-Z57 FC:/Users/Manolo/Desktop/interrupcions/mul_alu.vhd
+R6
+Z93 8C:/Users/pec05/PECi1/sisa/mul_alu.vhd
+Z94 FC:/Users/pec05/PECi1/sisa/mul_alu.vhd
 l0
 L7
-VB^IRZlCMmc67>l2:f@=Tl2
-R8
-32
+V:M=iR>Eom_DazX>P?JYm^1
 R9
-R10
-!s100 =bHa?n28EDVb^U=ASHdln2
+32
+Z95 !s108 1494857979.630000
+Z96 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/mul_alu.vhd|
+Z97 !s107 C:/Users/pec05/PECi1/sisa/mul_alu.vhd|
+R13
+R14
+!s100 aPO^YfJgEaUY2`F60DR`N3
+!i10b 1
 Astructure
 R1
 R16
 R2
 R3
 R4
-DEx4 work 7 mul_alu 0 22 B^IRZlCMmc67>l2:f@=Tl2
-l30
-L14
-VXRdSIIQGcC4]A8ih;hYid1
-R8
-32
-R19
-R20
-R21
-R22
-R14
+R5
+DEx4 work 7 mul_alu 0 22 :M=iR>Eom_DazX>P?JYm^1
+l31
+L15
+V2X=`QaAB>h9[OL@Db51O32
 R9
-R10
-!s100 HLNmjNeM`GnzCCJRhZ[@n0
+32
+R95
+R96
+R97
+R13
+R14
+!s100 fX6eT?2`[Vf3F:6]JzGk^3
+!i10b 1
 Emulti
-Z58 w1494204006
+R43
 R2
 R3
-R36
+R37
 R4
 R5
-Z59 8C:/Users/Manolo/Desktop/interrupcions/multi.vhd
-Z60 FC:/Users/Manolo/Desktop/interrupcions/multi.vhd
+R6
+Z98 8C:/Users/pec05/PECi1/sisa/multi.vhd
+Z99 FC:/Users/pec05/PECi1/sisa/multi.vhd
 l0
 L5
-V3]<H;Yk:;]bKSdTGab;9z2
-R8
-32
+Vmfj6EaX=oGb`l[@eW9Ua:0
 R9
-R10
-!s100 mCS@:[^GRnVhSCOnO9z[@1
+32
+Z100 !s108 1494857979.989000
+Z101 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/multi.vhd|
+Z102 !s107 C:/Users/pec05/PECi1/sisa/multi.vhd|
+R13
+R14
+!s100 _Tj8MU;6PUhhkCWUja>7V3
+!i10b 1
 Astructure
 R2
 R3
-R36
+R37
 R4
-DEx4 work 5 multi 0 22 3]<H;Yk:;]bKSdTGab;9z2
-l48
-L44
-VcRnHCVQ1k6iBSf6AI7<aR3
-R8
-32
-R11
-Mx3 4 work 13 const_control
-R33
-R34
+R5
+DEx4 work 5 multi 0 22 mfj6EaX=oGb`l[@eW9Ua:0
+l45
+L41
+V1934mAal4R3UFb>0da:H13
 R9
-R10
-!s100 <D1[?PHHF71heUn34XR]i3
+32
+R100
+R101
+R102
+R13
+R14
+!s100 ?7mL5RHEgDQ^EA7O=7@gI2
+!i10b 1
 Ppackage_timing
-R26
-R27
+R24
 R3
 R2
 R4
-Z61 w1360281600
 R5
-Z62 8C:/Users/Manolo/Desktop/interrupcions/package_timing.vhd
-Z63 FC:/Users/Manolo/Desktop/interrupcions/package_timing.vhd
+R35
+R6
+Z103 8C:/Users/pec05/PECi1/sisa/package_timing.vhd
+Z104 FC:/Users/pec05/PECi1/sisa/package_timing.vhd
 l0
 L17
-VU:iPozaN550LRVH_2^G=i2
-R8
-32
-R19
-Z64 Mx4 4 ieee 15 std_logic_arith
-R12
-Z65 Mx2 4 ieee 16 std_logic_textio
-Z66 Mx1 3 std 6 textio
+V]QljGNTG0EJQ?X:f3a>TX1
 R9
-R10
-!s100 dYdQ2m6fb:7;AOP40L9[E1
+32
+Z105 !s108 1494857980.301000
+Z106 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/package_timing.vhd|
+Z107 !s107 C:/Users/pec05/PECi1/sisa/package_timing.vhd|
+R13
+R14
+!s100 7[5MEfJ`HFPK=zP7G66<i1
+!i10b 1
 Bbody
-DBx4 work 14 package_timing 0 22 U:iPozaN550LRVH_2^G=i2
-R26
-R27
+R23
+R24
 R3
 R2
 R4
+R5
 l0
 L59
 VfeQXi[8kmeXD5NlH1A^G91
-R8
-32
-R19
-R64
-R12
-R65
-R66
 R9
-R10
+32
+R105
+R106
+R107
+R13
+R14
 nbody
 !s100 [;aAVGm330N:B:ZYX350a1
+!i10b 1
 Ppackage_utility
-R26
-R27
+R24
 R2
 R4
-R61
 R5
-Z67 8C:/Users/Manolo/Desktop/interrupcions/package_utility.vhd
-Z68 FC:/Users/Manolo/Desktop/interrupcions/package_utility.vhd
+R35
+R6
+Z108 8C:/Users/pec05/PECi1/sisa/package_utility.vhd
+Z109 FC:/Users/pec05/PECi1/sisa/package_utility.vhd
 l0
 L15
-VaPFHoTKzA1MgNT:6c[NK62
-R8
+VabW^FY0na:iFW@RR:Fofg0
+R9
 32
 b1
-R11
-R21
-R65
-R66
-R9
-R10
-!s100 O6fH5G@Gm4F9_=06<f>P=2
+Z110 !s108 1494857980.520000
+Z111 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/package_utility.vhd|
+Z112 !s107 C:/Users/pec05/PECi1/sisa/package_utility.vhd|
+R13
+R14
+!s100 n9b5dM?H5oLDz7geaYPkN1
+!i10b 1
 Bbody
-DBx4 work 15 package_utility 0 22 aPFHoTKzA1MgNT:6c[NK62
-R26
-R27
+R22
+R24
 R2
 R4
+R5
 l0
 L22
-VCC_]zePAUFCO]ODgFd:RZ2
-R8
-32
-R11
-R21
-R65
-R66
+V1dAT5_E6[=Q4>0kGEF5@]3
 R9
-R10
+32
+R110
+R111
+R112
+R13
+R14
 nbody
-!s100 6DAfEX@EUgOY4Uf`Hd`WX3
+!s100 =i4<XdWXU:J]Ih;Vo<NgP3
+!i10b 1
 Eproc
-Z69 w1494203045
+Z113 w1494855816
 R4
 R5
-Z70 8C:/Users/Manolo/Desktop/interrupcions/proc.vhd
-Z71 FC:/Users/Manolo/Desktop/interrupcions/proc.vhd
+R6
+Z114 8C:/Users/pec05/PECi1/sisa/proc.vhd
+Z115 FC:/Users/pec05/PECi1/sisa/proc.vhd
 l0
 L4
-VCQTnQg>>QKfOT_aR<2V9P2
-R8
-32
+VlGXMAOFd_mFRZ:jS9XegP0
 R9
-R10
-!s100 16J_=e2n4KoR^8Xk6H:UW0
+32
+Z116 !s108 1494857980.800000
+Z117 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/proc.vhd|
+Z118 !s107 C:/Users/pec05/PECi1/sisa/proc.vhd|
+R13
+R14
+!s100 4F`?Jl^=_0EzjCERI<NMY2
+!i10b 1
 Astructure
 R4
-DEx4 work 4 proc 0 22 CQTnQg>>QKfOT_aR<2V9P2
-l103
-L19
-VS_mO_oLDGdUSic=hAcA3<1
-R8
-32
-Z72 Mx1 4 ieee 14 std_logic_1164
+R5
+DEx4 work 4 proc 0 22 lGXMAOFd_mFRZ:jS9XegP0
+l109
+L23
+VkTF2=H1;]5iF[hgSGP<KP1
 R9
-R10
-!s100 Y]=k[8Y:^mE0JznEE7IIY0
+32
+R116
+R117
+R118
+R13
+R14
+!s100 Tne8H9T6B;d2b0DPogHCK1
+!i10b 1
 Eps2_keyboard_interface
-Z73 w1493871974
+R35
 R2
 R3
 R4
 R5
-Z74 8C:/Users/Manolo/Desktop/interrupcions/ps2_keyboard.vhd
-Z75 FC:/Users/Manolo/Desktop/interrupcions/ps2_keyboard.vhd
+R6
+Z119 8C:/Users/pec05/PECi1/sisa/ps2_keyboard.vhd
+Z120 FC:/Users/pec05/PECi1/sisa/ps2_keyboard.vhd
 l0
 L122
-ViHXNI1@TO@F`i7K[mLB<O0
-R8
-32
+V5^^o1WM<I<13TLR9OGm6X3
 R9
-R10
-!s100 SnBN493iG>B:VQS<8<nMG3
+32
+Z121 !s108 1494857981.268000
+Z122 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/ps2_keyboard.vhd|
+Z123 !s107 C:/Users/pec05/PECi1/sisa/ps2_keyboard.vhd|
+R13
+R14
+!s100 VS?01B]caEG3LaE0f;Ylo0
+!i10b 1
 Atrans
 R2
 R3
 R4
-DEx4 work 22 ps2_keyboard_interface 0 22 iHXNI1@TO@F`i7K[mLB<O0
+R5
+DEx4 work 22 ps2_keyboard_interface 0 22 5^^o1WM<I<13TLR9OGm6X3
 l233
 L154
-VPbfFgeSQ6WKd0:C9;>EH32
-R8
-32
-R32
-R33
-R34
+V0@lM>0X3`2K2;_A`g_8gZ3
 R9
-R10
-!s100 6>CWcZam7[@:1_HeIH17j3
-Eregfile
-R73
+32
+R121
+R122
+R123
+R13
+R14
+!s100 j<zV5hkF?44S1l^eK2JI41
+!i10b 1
+Epulsadores
+R43
 R16
 R2
 R3
 R4
 R5
-Z76 8C:/Users/Manolo/Desktop/interrupcions/regfile.vhd
-Z77 FC:/Users/Manolo/Desktop/interrupcions/regfile.vhd
+R6
+R72
+R73
 l0
 L6
-V_]R@U8cI]LJkl@Q6_dFTm3
-R8
-32
+VCVP>;afS3mASaEC1c]nR=2
 R9
-R10
-!s100 c9Z2BnGAi_8j[cnK[U:oc3
+32
+R74
+R75
+R76
+R13
+R14
+!s100 9dZJ6zX5UX;z>Ti@@[AoJ0
+!i10b 1
+Astructure_p
+R16
+R2
+R3
+R4
+R5
+DEx4 work 10 pulsadores 0 22 CVP>;afS3mASaEC1c]nR=2
+l20
+L17
+V0H8d^2dIT;A<a]AbXjk@S0
+R9
+32
+R74
+R75
+R76
+R13
+R14
+!s100 0diTCP>ZD:^<C:m9@1P5:1
+!i10b 1
+Eregfile
+R35
+R16
+R2
+R3
+R4
+R5
+R6
+Z124 8C:/Users/pec05/PECi1/sisa/regfile.vhd
+Z125 FC:/Users/pec05/PECi1/sisa/regfile.vhd
+l0
+L6
+V37]zL7g]h0ZD9Voj^5`Oh0
+R9
+32
+Z126 !s108 1494857981.598000
+Z127 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/regfile.vhd|
+Z128 !s107 C:/Users/pec05/PECi1/sisa/regfile.vhd|
+R13
+R14
+!s100 _G112JZ7^[[`Y11NZF<SD0
+!i10b 1
 Astructure
 R16
 R2
 R3
 R4
-DEx4 work 7 regfile 0 22 _]R@U8cI]LJkl@Q6_dFTm3
+R5
+DEx4 work 7 regfile 0 22 37]zL7g]h0ZD9Voj^5`Oh0
 l22
 L17
-V9>TAY0Gm0@`[OPL<0B2LQ2
-R8
-32
-R11
-R12
-R13
-R41
+VBQmH9]19LEH9kFkC7ch3U2
 R9
-R10
-!s100 [>UG>DW;ICFJ59nMbe_P<0
+32
+R126
+R127
+R128
+R13
+R14
+!s100 IkgdoVQCPeXihMP_W9?Ki1
+!i10b 1
 Eregfile_system
-Z78 w1494200235
+Z129 w1494857334
+R37
 R16
 R2
 R3
 R4
 R5
-Z79 8C:/Users/Manolo/Desktop/interrupcions/regfile_system.vhd
-Z80 FC:/Users/Manolo/Desktop/interrupcions/regfile_system.vhd
+R6
+Z130 8C:/Users/pec05/PECi1/sisa/regfile_system.vhd
+Z131 FC:/Users/pec05/PECi1/sisa/regfile_system.vhd
 l0
-L6
-VAY1jQLWI_W;zK5`D@<O;:2
-R8
-32
+L9
+VSSKTBX;7=oDhH8oM>53ij1
 R9
-R10
-!s100 knj4kR7@nHIW:FV^ljjBb2
+32
+Z132 !s108 1494857981.863000
+Z133 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/regfile_system.vhd|
+Z134 !s107 C:/Users/pec05/PECi1/sisa/regfile_system.vhd|
+R13
+R14
+!s100 [Rk1P_zZDXNoZ^KoBK9L30
+!i10b 1
 Astructure
+R37
 R16
 R2
 R3
 R4
-DEx4 work 14 regfile_system 0 22 AY1jQLWI_W;zK5`D@<O;:2
-l23
-L18
-V_W5@zSOkZz8h;RFKe2KRc2
-R8
-32
-R11
-R12
-R13
-R41
+R5
+DEx4 work 14 regfile_system 0 22 SSKTBX;7=oDhH8oM>53ij1
+l31
+L26
+VlIimllRbN:_60<4^<l=V>0
 R9
-R10
-!s100 8F`GALD<Dmb8R6jSl4<PV3
+32
+R132
+R133
+R134
+R13
+R14
+!s100 bk1LAA>CM4lNZ6=mlh:X92
+!i10b 1
 Esisa
-R73
+R77
 R3
 R2
 R4
 R5
-Z81 8C:/Users/Manolo/Desktop/interrupcions/sisa.vhd
-Z82 FC:/Users/Manolo/Desktop/interrupcions/sisa.vhd
+R6
+Z135 8C:/Users/pec05/PECi1/sisa/sisa.vhd
+Z136 FC:/Users/pec05/PECi1/sisa/sisa.vhd
 l0
 L6
-VL0Xfz>QcKh>`CjFADmFWJ0
-R8
-32
+VoC_fI0mchVZmY8_c]^A`]3
 R9
-R10
-!s100 cQLa6a0CC34KebcnQBK6K3
+32
+Z137 !s108 1494857982.269000
+Z138 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/sisa.vhd|
+Z139 !s107 C:/Users/pec05/PECi1/sisa/sisa.vhd|
+R13
+R14
+!s100 LJM>6z>OfCFW9aEIL`>CP0
+!i10b 1
 Astructure
 R3
 R2
 R4
-DEx4 work 4 sisa 0 22 L0Xfz>QcKh>`CjFADmFWJ0
-l132
-L34
-Vn`O=a=?QIKFE74^^K@9?61
-R8
-32
-R32
-R13
-R49
+R5
+DEx4 work 4 sisa 0 22 oC_fI0mchVZmY8_c]^A`]3
+l144
+L35
+V`XShK6S2PYo;hlX01S[kC1
 R9
-R10
-!s100 19?A_`Ca1DQR<ONW9i2]N3
+32
+R137
+R138
+R139
+R13
+R14
+!s100 SJ>D3fgE:P:QV_@e9<lKQ2
+!i10b 1
 Esramcontroller
-R73
+R15
 R3
 R2
 R4
 R5
-Z83 8C:/Users/Manolo/Desktop/interrupcions/SRAMController.vhd
-Z84 FC:/Users/Manolo/Desktop/interrupcions/SRAMController.vhd
+R6
+Z140 8C:/Users/pec05/PECi1/sisa/SRAMController.vhd
+Z141 FC:/Users/pec05/PECi1/sisa/SRAMController.vhd
 l0
 L6
-VJcl2d>gUefiIgdZna6S1B3
-R8
-32
+VC2AV?EESPOZGcn4dfcYOD3
 R9
-R10
-!s100 d0dC?al_ICA_O3WDcMChK1
+32
+Z142 !s108 1494857982.613000
+Z143 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/SRAMController.vhd|
+Z144 !s107 C:/Users/pec05/PECi1/sisa/SRAMController.vhd|
+R13
+R14
+!s100 0Ba`Q7W`UoWaZOmiCMTh70
+!i10b 1
 Acomportament
 R3
 R2
 R4
-DEx4 work 14 sramcontroller 0 22 Jcl2d>gUefiIgdZna6S1B3
+R5
+DEx4 work 14 sramcontroller 0 22 C2AV?EESPOZGcn4dfcYOD3
 l28
 L24
-VH<N;kC`OXULlRU=W6OkhJ2
-R8
-32
-R32
-R13
-R49
+VXnb`dV;nF<lH[AQZ[GhAA3
 R9
-R10
-!s100 VozlEe15Mj37dSBPTzS=z1
+32
+R142
+R143
+R144
+R13
+R14
+!s100 TGhAA1Jm>;G@a260fO@6I1
+!i10b 1
 Etest_sisa
-Z85 w1392063794
+R77
 R4
 R5
-Z86 8C:/Users/Manolo/Desktop/interrupcions/test_sisa.vhd
-Z87 FC:/Users/Manolo/Desktop/interrupcions/test_sisa.vhd
+R6
+Z145 8C:/Users/pec05/PECi1/sisa/test_sisa.vhd
+Z146 FC:/Users/pec05/PECi1/sisa/test_sisa.vhd
 l0
 L5
 VkAdhfn89W5`mY_=KPlfV]3
-R8
-32
 R9
-R10
+32
+Z147 !s108 1494857983.143000
+Z148 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/test_sisa.vhd|
+Z149 !s107 C:/Users/pec05/PECi1/sisa/test_sisa.vhd|
+R13
+R14
 !s100 688X_8OZ0BkG::B3fT5kf3
+!i10b 1
 Acomportament
 R4
+R5
 DEx4 work 9 test_sisa 0 22 kAdhfn89W5`mY_=KPlfV]3
-l64
+l79
 L8
-VO;@hmIJ`U48Nz]^?aTNPz3
-R8
-32
-R72
+VheaJodYgD5J2?`Z4D3MOQ0
 R9
-R10
-!s100 ACGe4>07]QBzVlV2h3a^]1
+32
+R147
+R148
+R149
+R13
+R14
+!s100 ^N]6IWVcQ[]OQ8>zk3nF10
+!i10b 1
+Etimer
+R43
+R16
+R2
+R3
+R4
+R5
+R6
+R72
+R73
+l0
+L87
+VdR^[GIHPjMa6C3?X1`F2a2
+R9
+32
+R74
+R75
+R76
+R13
+R14
+!s100 cKnSDcL4czCL<JLJ;YUb12
+!i10b 1
+Astructure_t
+R16
+R2
+R3
+R4
+R5
+DEx4 work 5 timer 0 22 dR^[GIHPjMa6C3?X1`F2a2
+l100
+L96
+V^<EW578mo_m;aN7<EjhAG3
+R9
+32
+R74
+R75
+R76
+R13
+R14
+!s100 e7TE0n4jn6fJk;?DQ6]451
+!i10b 1
 Eunidad_control
-Z88 w1494203031
-R36
+Z150 w1494856938
+R37
 R2
 R3
 R16
 R4
 R5
-Z89 8C:/Users/Manolo/Desktop/interrupcions/unidad_control.vhd
-Z90 FC:/Users/Manolo/Desktop/interrupcions/unidad_control.vhd
+R6
+Z151 8C:/Users/pec05/PECi1/sisa/unidad_control.vhd
+Z152 FC:/Users/pec05/PECi1/sisa/unidad_control.vhd
 l0
 L8
-V?ioG]A:Ud1e_6^b?;B_0V1
-R8
-32
+V3PQb5FDS:Y<jlk`Gab^LU0
 R9
-R10
-!s100 k;ED]NDn:OHGa8S^1UEQ]2
+32
+Z153 !s108 1494857983.424000
+Z154 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/unidad_control.vhd|
+Z155 !s107 C:/Users/pec05/PECi1/sisa/unidad_control.vhd|
+R13
+R14
+!s100 DcX4Yca;O7OB4S1QG0NRd0
+!i10b 1
 Astructure
-R36
+R37
 R2
 R3
 R16
 R4
-DEx4 work 14 unidad_control 0 22 ?ioG]A:Ud1e_6^b?;B_0V1
-l132
-L46
-VQKO@ba<548;^;dzAMHf_=2
-R8
-32
-R19
-Mx4 4 ieee 11 numeric_std
-R12
-R13
-Mx1 4 work 13 const_control
+R5
+DEx4 work 14 unidad_control 0 22 3PQb5FDS:Y<jlk`Gab^LU0
+l151
+L49
+Va?G]@cihRBRd=KESW8?A42
 R9
-R10
-!s100 OGR3nXhc4Sc^]hSe=O72a0
+32
+R153
+R154
+R155
+R13
+R14
+!s100 Ha?e>mj:HcW^eX5P>Z7>L2
+!i10b 1
 Evga_controller
-Z91 w1494152028
+R35
 R16
 R2
 R3
 R4
 R5
-Z92 8C:/Users/Manolo/Desktop/interrupcions/vga_controller.vhd
-Z93 FC:/Users/Manolo/Desktop/interrupcions/vga_controller.vhd
+R6
+Z156 8C:/Users/pec05/PECi1/sisa/vga_controller.vhd
+Z157 FC:/Users/pec05/PECi1/sisa/vga_controller.vhd
 l0
 L26
-VBfQ0_7;cAWB4S`SE3idW_0
-R8
-32
+V2G3@f>mLnM6bdcKg9lHXg0
 R9
-R10
-!s100 Nb``N28LdAGko@VmeC;e53
+32
+Z158 !s108 1494857983.736000
+Z159 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/vga_controller.vhd|
+Z160 !s107 C:/Users/pec05/PECi1/sisa/vga_controller.vhd|
+R13
+R14
+!s100 Y5<G=Ez_bmSHfQbfjOTS:0
+!i10b 1
 Avga_controller_rtl
 R16
 R2
 R3
 R4
-DEx4 work 14 vga_controller 0 22 BfQ0_7;cAWB4S`SE3idW_0
+R5
+DEx4 work 14 vga_controller 0 22 2G3@f>mLnM6bdcKg9lHXg0
 l113
 L46
-Vo6H:Mn_nk0QidBGIo8e<]3
-R8
-32
-R11
-R12
-R13
-R41
+VQbGXd[aIfL1e8=N29Zg[l2
 R9
-R10
-!s100 7d:X?[Hng3Loa<C5J<Uon3
+32
+R158
+R159
+R160
+R13
+R14
+!s100 i:1N?HFPUI1g^1P4_nD;72
+!i10b 1
 Evga_font_rom
-Z94 w1493871976
+R35
 R16
 R4
 R5
-Z95 8C:/Users/Manolo/Desktop/interrupcions/vga_font_rom.vhd
-Z96 FC:/Users/Manolo/Desktop/interrupcions/vga_font_rom.vhd
+R6
+Z161 8C:/Users/pec05/PECi1/sisa/vga_font_rom.vhd
+Z162 FC:/Users/pec05/PECi1/sisa/vga_font_rom.vhd
 l0
 L13
 VH@gRdK_>UKT8HE^oCjHX?0
-R8
-32
 R9
-R10
+32
+Z163 !s108 1494857984.079000
+Z164 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/vga_font_rom.vhd|
+Z165 !s107 C:/Users/pec05/PECi1/sisa/vga_font_rom.vhd|
+R13
+R14
 !s100 _n?V8gI@YY66c>C?Z4@GH1
+!i10b 1
 Avga_font_rom_arch
 R16
 R4
+R5
 DEx4 work 12 vga_font_rom 0 22 H@gRdK_>UKT8HE^oCjHX?0
 l4384
 L20
-Vnf_f^3jjhbE>TSg9<VzXc3
-R8
-32
-Z97 Mx2 4 ieee 14 std_logic_1164
-R41
+VhSHXnTOS9fkZzGd9bHg4f2
 R9
-R10
-!s100 zQ[>n]3`d<M1AOAcz0j1=3
+32
+R163
+R164
+R165
+R13
+R14
+!s100 [9oeX:^c7_=Vk8B==g]?:3
+!i10b 1
 Evga_ram_dual
-Z98 w1494152138
+R35
 R3
 R2
 R4
 R5
-Z99 8C:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd
-Z100 FC:/Users/Manolo/Desktop/interrupcions/vga_ram_dual.vhd
+R6
+Z166 8C:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd
+Z167 FC:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd
 l0
 L15
-VcPJ=E?LTM4JkO8O9POVi^0
-R8
-32
+VBi:40C3G1EJ?9Ued1<nHJ3
 R9
-R10
-!s100 N6UGV;L=FS2R[Q1F<HkQ83
+32
+Z168 !s108 1494857984.501000
+Z169 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd|
+Z170 !s107 C:/Users/pec05/PECi1/sisa/vga_ram_dual.vhd|
+R13
+R14
+!s100 CDk?FQ5[GUa:z<VQlR0382
+!i10b 1
 Avga_ram_dual_arch
 R3
 R2
 R4
-DEx4 work 12 vga_ram_dual 0 22 cPJ=E?LTM4JkO8O9POVi^0
+R5
+DEx4 work 12 vga_ram_dual 0 22 Bi:40C3G1EJ?9Ued1<nHJ3
 l38
 L28
-VhHb7ADHO]AhCgSVLb=E]U1
-!s100 FjTbbNZGWo84dh0]5Ki`L2
-R8
-32
-R32
-R13
-R49
+VkR?_RXgj4V4c1C4o5?E:B0
+!s100 lL79M65eABh0d[V2m1AAX1
 R9
-R10
+32
+R168
+R169
+R170
+R13
+R14
+!i10b 1
 Evga_sync
-R94
+R35
 R3
 R2
 R4
 R5
-Z101 8C:/Users/Manolo/Desktop/interrupcions/vga_sync.vhd
-Z102 FC:/Users/Manolo/Desktop/interrupcions/vga_sync.vhd
+R6
+Z171 8C:/Users/pec05/PECi1/sisa/vga_sync.vhd
+Z172 FC:/Users/pec05/PECi1/sisa/vga_sync.vhd
 l0
 L26
 VQ>L>[fMjiPJOffij=6Sd71
 !s100 dSLg1gz4;bLFXh]H[>DdD1
-R8
-32
 R9
-R10
+32
+!i10b 1
+Z173 !s108 1494857984.766000
+Z174 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec05/PECi1/sisa/vga_sync.vhd|
+Z175 !s107 C:/Users/pec05/PECi1/sisa/vga_sync.vhd|
+R13
+R14
 Avga_sync_arch
 R3
 R2
 R4
-Z103 DEx4 work 8 vga_sync 0 22 Q>L>[fMjiPJOffij=6Sd71
+R5
+Z176 DEx4 work 8 vga_sync 0 22 Q>L>[fMjiPJOffij=6Sd71
 l43
 L36
-Z104 V11;?@RU>XhZjfLDM@^KlY3
-Z105 !s100 i6F@<:Jc2EfSg29jElZ^50
-R8
-32
-R32
-R13
-R49
+Z177 V11;?@RU>XhZjfLDM@^KlY3
+Z178 !s100 i6F@<:Jc2EfSg29jElZ^50
 R9
-R10
+32
+!i10b 1
+R173
+R174
+R175
+R13
+R14

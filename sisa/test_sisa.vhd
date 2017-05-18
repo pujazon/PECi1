@@ -27,18 +27,33 @@ architecture comportament of test_sisa is
 			); 
    end component;
    
-   component sisa IS 
-	PORT (	CLOCK_50		: IN	STD_LOGIC;
-				SRAM_ADDR 	: out std_logic_vector(17 downto 0);
-				SRAM_DQ 		: inout std_logic_vector(15 downto 0);
-				SRAM_UB_N 	: out std_logic;
-				SRAM_LB_N 	: out std_logic;
-				SRAM_CE_N 	: out std_logic := '1';
-				SRAM_OE_N 	: out std_logic := '1';
-				SRAM_WE_N 	: out std_logic := '1';
-								
-				SW : in std_logic_vector(9 downto 9)
-				);
+   component sisa IS
+    PORT (CLOCK_50  : IN    STD_LOGIC;
+          SRAM_ADDR : out   std_logic_vector(17 downto 0);
+          SRAM_DQ   : inout std_logic_vector(15 downto 0);
+          SRAM_UB_N : out   std_logic;
+          SRAM_LB_N : out   std_logic;
+          SRAM_CE_N : out   std_logic := '1';
+          SRAM_OE_N : out   std_logic := '1';
+          SRAM_WE_N : out   std_logic := '1';
+			 LEDG		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		    LEDR		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); 
+          SW        : in std_logic_vector(9 downto 0);
+			 KEY : IN STD_LOGIC_VECTOR(3 downto 0);
+			 --PINS de KEYBOARD
+			 PS2_CLK : inout std_logic;
+			 PS2_DAT : inout std_logic;
+			 -- PINS de VGA
+			 VGA_R : OUT STD_LOGIC_VECTOR (3 downto 0);
+			 VGA_G : OUT STD_LOGIC_VECTOR (3 downto 0);			 
+			 VGA_B : OUT STD_LOGIC_VECTOR (3 downto 0);
+			 VGA_HS : OUT STD_LOGIC;
+			 VGA_VS : OUT STD_LOGIC
+			 );
    end component;
 
    
@@ -58,8 +73,8 @@ architecture comportament of test_sisa is
    signal we_m           : std_logic;
    signal ce_m2           : std_logic;
 
-   signal botones      : std_logic_vector(9 downto 9);
-
+   signal botones      : std_logic_vector(9 downto 0);
+	signal keys : STD_LOGIC_VECTOR(3 downto 0) := (others => '0');
 	
 begin
    
@@ -69,7 +84,7 @@ begin
       port map (
          CLOCK_50   => clk,
          SW        => botones,
-
+			KEY => keys,
          SRAM_ADDR  => addr_SoC,
          SRAM_DQ    => data_mem,
 			SRAM_UB_N 	=> ub_m,
@@ -102,7 +117,7 @@ begin
 	clk <= not clk after 10 ns;
 	reset_ram <= '1' after 15 ns, '0' after 50 ns;    -- reseteamos la RAm en el primer ciclo
 	reset_proc <= '1' after 25 ns, '0' after 320 ns;  -- reseteamos el procesador en el segundo ciclo
-
+	keys <= "0101" after 10000 ns;
 	
 end comportament;
 

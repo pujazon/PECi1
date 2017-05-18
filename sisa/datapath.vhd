@@ -2,10 +2,13 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
 USE ieee.std_logic_unsigned.all;
+USE work.const_control.all;
+USE work.const_logic.all;
 
 
 ENTITY datapath IS
-    PORT (clk      : IN  STD_LOGIC;
+    PORT (boot   : IN  STD_LOGIC;
+			 clk      : IN  STD_LOGIC;
           op       : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		 : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd      : IN  STD_LOGIC;
@@ -15,15 +18,7 @@ ENTITY datapath IS
 			 reti	  : IN  STD_LOGIC;
 			 wrd_rsys : IN STD_LOGIC; 
 			 a_sys	 : IN STD_LOGIC;
-			 rds_bit : IN STD_LOGIC;
-			 wrs_bit : IN STD_LOGIC;
-			 getiid_bit : IN STD_LOGIC;
-			 reti_pc	  : OUT StD_LOGIC_VECTOR(15 downto 0);
-			 ---------------------------------------------
-			--Excepcion direccion mal alineada
-			 mem_align :	IN STD_logic;
-			 ---Excepcion instruccion ilegal--------------
-			 instr_il : IN STD_LOGIC;
+			 intr_sys : IN STD_LOGIC;
 			 in_op_mux  : IN  STD_LOGIC;
           addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -36,13 +31,18 @@ ENTITY datapath IS
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
 			 br_n		 : IN  STD_LOGIC;
+			 exc_code : IN STD_LOGIC_VECTOR(3 downto 0);
+			 wrd_tlbi : IN STD_LOGIC;
+			 wrd_tlbd : IN STD_LOGIC;
+			 virtual  : IN STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			 : OUT STD_LOGIC;
 			 aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-	         wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			--- addr mem, solo quando datard_m lleva addr (por eso pillo el ir generado en el proces)
-			dir_mem : OUT STD_LOGIC_VECTOR(15 downto 0));
+	       wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 div_zero : OUT STD_LOGIC;
+			 int_enable : OUT STD_LOGIC;
+			 modo_sistema : OUT STD_LOGIC);
 END datapath;
 
 
@@ -69,20 +69,9 @@ ARCHITECTURE Structure OF datapath IS
           b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 	END COMPONENT;
 	
-	COMPONENT excepcions_controller IS
-	PORT(
-			instr_il : IN STD_LOGIC;
-			mem_align :	IN STD_LOGIC;
-			div_zero : IN STD_LOGIC;
-			intr:	IN STD_LOGIC;
-			code_excep : OUT STD_LOGIC_VECTOR(3 downto 0);
-			intr_sys	: OUT STD_LOGIC
-	);
-	END COMPONENT;	
-	
-	
 	COMPONENT regfile_system IS
-    PORT (clk    : IN  STD_LOGIC;
+    PORT (boot   : IN  STD_LOGIC;
+			 clk    : IN  STD_LOGIC;
           wrd    : IN  STD_LOGIC;
 			 ei 	  : IN  STD_LOGIC;
 			 di 	  : IN  STD_LOGIC;
@@ -90,42 +79,63 @@ ARCHITECTURE Structure OF datapath IS
           d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);			
-			 code_excep : IN STD_LOGIC_VECTOR(3 downto 0);
+			 exc_code : IN STD_LOGIC_VECTOR(3 downto 0);
 			 intr_sys	: IN STD_LOGIC;
+			 int_enable : OUT STD_LOGIC;
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 dir_mem : IN STD_LOGIC_VECTOR(15 downto 0));
+			 addr_m : IN STD_LOGIC_VECTOR(15 downto 0);
+			 modo_sistema: OUT STD_LOGIC);
 	END COMPONENT;
 	
 	
+	COMPONENT tlb IS
+	PORT (
+		clk  : IN STD_LOGIC;
+		boot : IN STD_LOGIC;
+		vtag : IN STD_logic_vector(3 downto 0);
+		ptag : OUT STD_logic_vector(3 downto 0);
+		d    : IN STD_LOGIC_vector (5 downto 0);
+		addr_d : IN STD_LOGIC_VECTOR(2 downto 0);
+		wrd  : IN STD_LOGIC;
+		virt : IN STD_LOGIC;
+		v    : OUT STD_LOGIC;
+		r    : OUT STD_LOGIC
+	);
+
+	END COMPONENT;
 	
-	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S : STD_LOGIC_VECTOR (15 downto 0);
+	
+	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S, addr_m_t, in_addr_m : STD_LOGIC_VECTOR (15 downto 0);
 	signal reg_in, reg_in_t, immed_out, y_alu : STD_LOGIC_VECTOR (15 downto 0);
-	signal bit_d_in_S, t_div_zero, t_intr_sys : STD_LOGIC;
-	signal t_code_excep : STD_LOGIC_VECTOR (3 downto 0);
+	signal t_intr_sys, t_modo_sistema : STD_LOGIC;
+	signal v_t_i, v_t_d, r_t_i, r_t_d : STD_LOGIC;
+	--signal t_code_excep : STD_LOGIC_VECTOR (3 downto 0);
 	 
 BEGIN
 
-
-	----CONTROLADOR EXCEPCIONES: SACA SI HAY UNA EXCEP/INTERR para que regS actue si hay o si no I CODE EXCEP---
+	-- lAS TLB: 1 INSTR 1 DADES--
+	-- FALTA IMPLEMENTAR LOS INPUTS DE LA TLB --
 	
-	excepciones: excepcions_controller port map(instr_il => instr_il, mem_align => mem_align
-															  div_zero => t_div_zero, intr => intr --Que vendra de interr_controller
-																code_excep => t_code_excep, intr_sys => t_intr_sys);	
-																
-
+	 tlb_i: tlb port map(clk => clk, boot => boot, vtag => pc(15 downto 11), d => reg_b(5 downto 0),
+								addr_d => reg_a(2 downto 0), v => v_t_i, r => r_t_i, wrd => wrd_tlbi, virt => virtual);
+								
+	 tlb_d: tlb port map(clk => clk, boot => boot, vtag => addr_m(15 downto 11), d <= reg_b(5 downto 0),
+								addr_d <= reg_a(2 downto 0), v => v_t_d, r => r_t_d, wrd => wrd_tlbd, virt => virtual);
+	 
+	 
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
     -- En los esquemas de la documentacion a la instancia del banco de registros le hemos llamado reg0 y a la de la alu le hemos llamado alu0
 
 	 reg0: regfile port map (clk => clk, wrd => wrd, d => reg_in, addr_a => addr_a, addr_b => addr_b, 
-									 addr_d => addr_d, a => reg_a_gen, b => reg_b,
-									 code_excep => t_code_excep, intr_sys => t_intr_sys);
+									 addr_d => addr_d, a => reg_a_gen, b => reg_b);
 	
 	
 	 regS: regfile_system port map (clk => clk, wrd => wrd_rsys, d => d_in_S, addr_a => addr_a, 
-												addr_d => addr_d, a => reg_a_sys,
-												ei => ei, di => di, reti => reti, dir_mem => dir_mem
-												--!!! CODE EXCEP
+												addr_d => addr_d, a => reg_a_sys, exc_code => exc_code,
+												ei => ei, di => di, reti => reti, addr_m => in_addr_m,
+												intr_sys => intr_sys, int_enable => int_enable, boot => boot,
+												modo_sistema => modo_sistema
 												); 
 												
 	-- Ahora con REG_SYS hay que elegir en reg_a que va si el de general o el de systema.
@@ -134,7 +144,7 @@ BEGIN
 		reg_a <= reg_a_sys when '1',
 					reg_a_gen when others;
 	
-	 alu0: alu port map (x => reg_a, y => y_alu, op => op, w => alu_out, f => f, z => z, div_zero => t_div_zero);
+	 alu0: alu port map (x => reg_a, y => y_alu, op => op, w => alu_out, f => f, z => z, div_zero => div_zero);
 
 	 
 	 -- Seleccionem que entra pel port D del banc de registres (alu/memoria) TODO
@@ -146,19 +156,18 @@ BEGIN
 					 
 	--Mirem si la intruccio de sistema es WRS per tant la dada input REGS ha de ser registre de REG0 o no
 	
-	bit_d_in_S <= '1' when (ei = '0' and di = '0' and reti = '0' and wrd_rsys = '1') else
-				  '0';
-	
-	with bit_d_in_S select
-		d_in_S <= reg_a_gen when '1',
-				   datard_m when others;
-					 
+	with intr_sys select
+		d_in_S <= reg_a_gen when '0',
+					pc when others;
+						 
 	--Entrara a REGFILE PARA ESCRIBIR O lo controlado antes o rd_io si es IN
 	with in_op_mux select
 		reg_in <= 	rd_io when '1',
 					reg_in_t when others;
-					 
-	 aluout <= alu_out;
+	
+	
+		aluout <= alu_out when intr_sys = '0' and reti = '0' else
+					reg_a_sys;
 					 
 	 -- Decidim multiplicar o no en funcio de immed_x2
 	 with immed_x2 select
@@ -173,13 +182,13 @@ BEGIN
 	
 	-- Seleccionem entrada de adreces memoria en funcio de ins_dad (1 ALU/ 0 PC)
 	 with ins_dad select
-		addr_m <= pc when '0',
+		addr_m_t <= pc when '0',
 					alu_out when others;
 					
-	--Si es RETI voldrem que el PC sigui el que surt de REGS que es REG_S_A_>
-	-- HAY CHAPUZA PQ SE tiENE QUE HACR SOLO EN ESTADO SYS, POR LO QUE ESTE MUX HACE DE DELAYER
-
-	reti_pc <= reg_a_sys;
+	in_addr_m <= reg_a_gen when exc_code = calls_code else
+				addr_m_t; 
+	
+	addr_m <= addr_m_t;
 	
 	data_wr <= reg_b;
 	

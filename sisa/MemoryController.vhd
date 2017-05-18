@@ -4,8 +4,7 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 
-entity MemoryController is
-    port (CLOCK_50  : in  std_logic;
+entity MemoryController is    port (CLOCK_50  : in  std_logic;
 	      addr      : in  std_logic_vector(15 downto 0);
           wr_data   : in  std_logic_vector(15 downto 0);
           rd_data   : out std_logic_vector(15 downto 0);
@@ -24,9 +23,12 @@ entity MemoryController is
 			 vga_we : out std_logic;
 			 vga_wr_data : out std_logic_vector(15 downto 0);
 			 vga_rd_data : in std_logic_vector(15 downto 0);
-          vga_byte_m : out std_logic:
+          vga_byte_m : out std_logic;
 			 --Excepcion direccion mal alineada
-			 mem_align :	out STD_logic
+			 mem_align :	out STD_logic;
+			 ---Excepcion acceso memoria sistema sin ser privilegiado---
+			 modo_sistema : IN STD_LOGIC;
+			 excepcion_mem_sys : OUT STD_LOGIC
 			 );
 end MemoryController;
 
@@ -55,18 +57,21 @@ COMPONENT SRAMController is
           byte_m      : in    std_logic := '0');
 end COMPONENT;
 
-	signal we_t: std_logic;
+	signal we_t, ld_st_i: std_logic;
 	signal t_rd_data: std_logic_vector(15 downto 0);
 	
 begin
 
-	we_t <= '0' when addr >= x"C000" else we;
+	we_t <= '0' when addr >= x"C000" or (modo_sistema = '0' and (addr >= x"8000" and addr <= x"FFFF")) else we;
 
 	rd_data <= vga_rd_data when(addr >= x"A000" and addr <= x"BFFF") else
 					 t_rd_data;
 					 
-   mem_align <= '1' when (byte_m = '0' and byte_m(0) = '1') else
+   mem_align <= '1' when (byte_m = '0' and addr(0) = '1') else
 					 '0';
+					 
+   excepcion_mem_sys <= '1' when (modo_sistema = '0' and (addr >= x"8000" and addr <= x"FFFF")) else
+								'0';
 
 	sram: SRAMController port map(SRAM_ADDR => SRAM_ADDR, SRAM_DQ => SRAM_DQ, SRAM_UB_N => SRAM_UB_N,
 											SRAM_LB_N => SRAM_LB_N, SRAM_CE_N => SRAM_CE_N, SRAM_OE_N => SRAM_OE_N,
