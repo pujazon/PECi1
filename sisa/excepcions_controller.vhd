@@ -11,13 +11,15 @@ ENTITY excepcions_controller IS
 			mem_align :	IN STD_LOGIC;
 			div_zero : IN STD_LOGIC;
 			system_l:	IN STD_LOGIC;
-			excepcion_mem_sys : IN STD_LOGIC;
 			exc_instr_sys : IN STD_LOGIC;
 			sys_call_b : IN STD_LOGIC;
 			miss_tlbd : IN STD_LOGIC;
-			miss_tlbi ; IN STD_LOGIC;
+			miss_tlbi : IN STD_LOGIC;
 			v_i : IN STD_LOGIC;
-			v_d : IN STD_LOGIC;		
+			v_d : IN STD_LOGIC;	
+			store_tlbd : IN STD_LOGIC;
+			tlbI_sys_user : IN STD_LOGIC;
+			tlbD_sys_user : IN STD_LOGIC;	
 			--Intuyo que r_i i r_d tmb son para excepciones pero no se quales--
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
@@ -41,7 +43,9 @@ BEGIN
 					  excepcio_7 when miss_tlbi = '1' else
 					  excepcio_8 when v_d = '0' else
 					  excepcio_9 when v_i = '0' else
-					  excepcio_11 when excepcion_mem_sys = '1' else
+					  excepcio_10 when tlbI_sys_user = '1' else
+					  excepcio_11 when tlbD_sys_user = '1' else
+					  excepcio_12 when store_tlbd = '1' else
 					  excepcio_13 when exc_instr_sys = '1' else
 					  calls_code when sys_call_b = '1' else
 					  interrupcio_code when system_l = '1' else

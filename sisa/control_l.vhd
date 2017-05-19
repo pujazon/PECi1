@@ -4,11 +4,12 @@ USE work.const_control.all;
 USE work.const_logic.all;
 
 ENTITY control_l IS
-     PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+    PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
 			 intr		  : IN  STD_LOGIC;
 			 int_enable : IN STD_LOGIC;
 			 modo_sistema: IN STD_LOGIC;
+ 			 r_d 			: IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -39,12 +40,14 @@ ENTITY control_l IS
 			 ---Excepcion instruccion ilegal--------------
 			 instr_il : OUT STD_LOGIC;
 			 ----------------------------
-			 --Excepcio instr systema en usuario--
-			 exc_instr_sys : OUT STD_LOGIC;
+			exc_instr_sys : OUT STD_LOGIC;
 			 sys_call_b	: OUT STD_LOGIC;
+			 --TLB------------
 			 wrd_tlbi : OUT STD_LOGIC;
 			 wrd_tlbd : OUT STD_LOGIC;
-			 virtual  : OUT STD_LOGIC
+			 virtual  : OUT STD_LOGIC;
+			 --Excepcio TLB----------
+			 store_tlbd : OUT STD_LOGIC
 			 );
 END control_l;
 
@@ -195,9 +198,18 @@ BEGIN
 	 opcode = opcode_sys or 
 	 opcode = opcode_in_out) else '1';
 	 
-	 ---Exceopcio sys instr quando user--
+	 ---Excepcio sys instr quando user--
 	 
 	 exc_instr_sys <= '1' when (opcode = opcode_sys and modo_sistema = '0') else
 							'0';
+							
+							
+    ---Excepcio store en tlbd i pagina es de ro
+	 
+	 store_tlbd <= '1' when (r_d = '1' and (opcode = opcode_st or opcode = opcode_stb)) else
+						'0';
+					
+	 
+
 
 END Structure;

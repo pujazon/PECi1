@@ -9,7 +9,6 @@ ENTITY proc IS
 		  --Excepcion direccion mal alineada
 			 mem_align :	IN STD_logic;
 		---Excepcion memoria systema ilegal
-			excepcion_mem_sys : IN STD_LOGIC;
 			 intr		  : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
          addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -20,8 +19,8 @@ ENTITY proc IS
 		  addr_io	:	OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 		  rd_in	:	OUT STD_LOGIC;
 		  wr_out	:	OUT STD_LOGIC;
-		  modo_sistema : OUT STD_LOGIC
-		  );
+		  modo_sistema : OUT STD_LOGIC;
+		  tlb_sys_user : IN STD_LOGIC);
 END ENTITY;
 
 
@@ -37,7 +36,6 @@ COMPONENT unidad_control IS
 			 int_enable : IN STD_LOGIC;
 			 mem_align :	IN STD_logic;
 			 div_zero  : IN STD_LOGIC;
-			 excepcion_mem_sys: in std_LOGIC;
 			 modo_sistema : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -71,11 +69,12 @@ COMPONENT unidad_control IS
 			 wrd_tlbd : OUT STD_LOGIC;
 			 virtual  : OUT STD_LOGIC;
 			 miss_tlbd : IN STD_LOGIC;
-			 miss_tlbi ; IN STD_LOGIC;
+			 miss_tlbi : IN STD_LOGIC;
 			 v_i : IN STD_LOGIC;
 			 v_d : IN STD_LOGIC;
 			 r_i: IN STD_LOGIC;
-			 r_d: IN STD_LOGIC
+			 r_d: IN STD_LOGIC;
+			 tlb_sys_user : IN STD_LOGIC
 			 );
 END COMPONENT;
 
@@ -117,7 +116,7 @@ COMPONENT datapath IS
 			 int_enable : OUT STD_LOGIC;
 			 modo_sistema : OUT STD_LOGIC;
 			 miss_tlbd : OUT STD_LOGIC;
-			 miss_tlbi ; OUT STD_LOGIC;
+			 miss_tlbi : OUT STD_LOGIC;
 			 v_i : OUT STD_LOGIC;
 			 v_d : OUT STD_LOGIC;
 			 r_i: OUT STD_LOGIC;
@@ -146,10 +145,10 @@ BEGIN
 											wr_m => t_wr_m, br_n => t_br_n, word_byte => t_word_byte, intr_sys => intr_sys_t,
 											rd_in => rd_in, wr_out => wr_out, in_op_mux => t_in_op_mux, addr_io => addr_io, mem_align => mem_align,
 											ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
-											excepcion_mem_sys => excepcion_mem_sys, modo_sistema => t_modo_sistema,
+											modo_sistema => t_modo_sistema,
 											wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual_t,
 											miss_tlbd => miss_tlbd_t, miss_tlbi => miss_tlbi_t, v_i => v_t_i, v_d => v_t_d,
-											r_i => r_t_i, r_d => r_t_d
+											r_i => r_t_i, r_d => r_t_d, tlb_sys_user => tlb_sys_user
 											);
 
 	e0: datapath port map(	clk => clk, op => t_op, f => t_f, wrd => t_wrd, in_op_mux => t_in_op_mux, addr_a => t_addr_a, 

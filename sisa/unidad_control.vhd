@@ -6,7 +6,7 @@ USE work.const_control.all;
 
 
 ENTITY unidad_control IS
-      PORT (boot      : IN  STD_LOGIC;
+ PORT (boot      : IN  STD_LOGIC;
           clk       : IN  STD_LOGIC;
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
@@ -15,7 +15,6 @@ ENTITY unidad_control IS
 			 int_enable : IN STD_LOGIC;
 			 mem_align :	IN STD_logic;
 			 div_zero  : IN STD_LOGIC;
-			 excepcion_mem_sys: in std_LOGIC;
 			 modo_sistema : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -49,11 +48,12 @@ ENTITY unidad_control IS
 			 wrd_tlbd : OUT STD_LOGIC;
 			 virtual  : OUT STD_LOGIC;
 			 miss_tlbd : IN STD_LOGIC;
-			 miss_tlbi ; IN STD_LOGIC;
+			 miss_tlbi : IN STD_LOGIC;
 			 v_i : IN STD_LOGIC;
 			 v_d : IN STD_LOGIC;
 			 r_i: IN STD_LOGIC;
-			 r_d: IN STD_LOGIC
+			 r_d: IN STD_LOGIC;
+			 tlb_sys_user : IN STD_LOGIC
 			 );
 END unidad_control;
 
@@ -66,6 +66,7 @@ COMPONENT control_l IS
 			 intr		  : IN  STD_LOGIC;
 			 int_enable : IN STD_LOGIC;
 			 modo_sistema: IN STD_LOGIC;
+ 			 r_d 			: IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -98,9 +99,13 @@ COMPONENT control_l IS
 			 ----------------------------
 			exc_instr_sys : OUT STD_LOGIC;
 			 sys_call_b	: OUT STD_LOGIC;
+			 --TLB------------
 			 wrd_tlbi : OUT STD_LOGIC;
 			 wrd_tlbd : OUT STD_LOGIC;
-			 virtual  : OUT STD_LOGIC
+			 virtual  : OUT STD_LOGIC;
+			 --Excepcio TLB----------
+			 store_tlbd : OUT STD_LOGIC
+
 			 );
 END COMPONENT;
 		
@@ -111,13 +116,15 @@ END COMPONENT;
 			mem_align :	IN STD_LOGIC;
 			div_zero : IN STD_LOGIC;
 			system_l:	IN STD_LOGIC;
-			excepcion_mem_sys : IN STD_LOGIC;
 			exc_instr_sys : IN STD_LOGIC;
 			sys_call_b : IN STD_LOGIC;
 			miss_tlbd : IN STD_LOGIC;
-			miss_tlbi ; IN STD_LOGIC;
+			miss_tlbi : IN STD_LOGIC;
 			v_i : IN STD_LOGIC;
-			v_d : IN STD_LOGIC;		
+			v_d : IN STD_LOGIC;	
+			store_tlbd : IN STD_LOGIC;
+			tlbI_sys_user : IN STD_LOGIC;
+			tlbD_sys_user : IN STD_LOGIC;	
 			--Intuyo que r_i i r_d tmb son para excepciones pero no se quales--
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
@@ -175,8 +182,8 @@ END COMPONENT;
 	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys : STD_LOGIC;
 	 signal intr_sys_t, inta_t, instr_il_t : STD_LOGIC;
 	 signal sys_call_b_t, t_exc_instr_sys : STD_LOGIC;
-	 signal wrd_tlbd_t, wrd_tlbi_t : STD_LOGIC;
-	 
+	 signal wrd_tlbd_t, wrd_tlbi_t, store_tlbd_t : STD_LOGIC;
+	 signal tlbI_sys_user_t, tlbD_sys_user_t, ins_dad_t : STD_LOGIC;
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -185,9 +192,10 @@ BEGIN
 	 
 	 e0: excepcions_controller port map(clk => clk, instr_il => instr_il_t, mem_align => mem_align, div_zero => div_zero, system_l => t_system_l,
 													system => t_system, exc_code => exc_code, sys_call_b => sys_call_b_t,
-													excepcion_mem_sys => excepcion_mem_sys,
 													exc_instr_sys => t_exc_instr_sys,
-													miss_tlbd => miss_tlbd, miss_tlbi => miss_tlbi, v_i => v_i, v_d => v_d);
+													miss_tlbd => miss_tlbd, miss_tlbi => miss_tlbi, v_i => v_i, v_d => v_d,
+													store_tlbd => store_tlbd_t,
+													tlbI_sys_user => tlbI_sys_user_t, tlbD_sys_user => tlbD_sys_user_t);
 	 
 	 c0: control_l port map (ir => ir, op => op, f => f, ldpc => ldpc_c, wrd => wrd_c, addr_a => addr_a, addr_b => addr_b,
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
@@ -197,17 +205,26 @@ BEGIN
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 									 instr_il => instr_il_t, sys_call_b => sys_call_b_t,
 									 modo_sistema => modo_sistema, wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual,
-									 exc_instr_sys => t_exc_instr_sys);
+									 exc_instr_sys => t_exc_instr_sys, r_d => r_d, store_tlbd => store_tlbd_t);
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
 								wrout_l => wrout_t, wr_out => wr_out, intr_sys => intr_sys_t,
 								ei_l => t_ei, di_l => t_di, reti_l => t_reti, a_sys_l => t_a_sys, wrd_rsys_l => t_wrd_rsys,
 								ldpc => load_pc, wrd => wrd, wr_m => wr_m, ldir => load_ir, inta_l => inta_t, inta => inta,
-								system => t_system, ins_dad => ins_dad, word_byte => word_byte,
+								system => t_system, ins_dad => ins_dad_t, word_byte => word_byte,
 								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys,
 								wrd_tlbd_l => wrd_tlbd_t, wrd_tlbd => wrd_tlbd, wrd_tlbi_l => wrd_tlbi_t, wrd_tlbi => wrd_tlbi);
-	 
+
+						
+   --(1 ALU/ 0 PC) -> 0 := FETCH := TLB I; 1 TLB D			 			
+	tlbD_sys_user_t <= '1' when (tlb_sys_user = '1' and ins_dad_t = '1') else '0';
+	tlbI_sys_user_t <= '1' when (tlb_sys_user = '1' and ins_dad_t = '0') else '0';	
+
+
+	
+	ins_dad <= ins_dad_t;	
+	
 	 process(clk, boot, load_pc)
 		begin
 		if(boot = '1') then

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sisa
-Fri May 19 00:56:33 2017
+Fri May 19 12:17:48 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,9 +40,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  32. Port Connectivity Checks: "vga_controller:vga"
  33. Port Connectivity Checks: "controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0"
  34. Port Connectivity Checks: "proc:pro0|datapath:e0|tlb:tlb_d"
- 35. Port Connectivity Checks: "proc:pro0|datapath:e0|tlb:tlb_i"
- 36. Elapsed Time Per Partition
- 37. Analysis & Synthesis Messages
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
 
 
 
@@ -68,13 +67,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 19 00:56:33 2017           ;
+; Analysis & Synthesis Status        ; Successful - Fri May 19 12:17:48 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; sisa                                            ;
 ; Top-level Entity Name              ; sisa                                            ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 6,319                                           ;
-;     Total combinational functions  ; 5,317                                           ;
+; Total logic elements               ; 6,320                                           ;
+;     Total combinational functions  ; 5,334                                           ;
 ;     Dedicated logic registers      ; 1,432                                           ;
 ; Total registers                    ; 1432                                            ;
 ; Total pins                         ; 114                                             ;
@@ -170,80 +169,86 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 8      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                            ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; regfile_system.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/regfile_system.vhd                                        ;         ;
-; driver7segmentos.vhd             ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/driver7segmentos.vhd                                      ;         ;
-; vga_sync.vhd                     ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/vga_sync.vhd                                              ;         ;
-; vga_ram_dual.vhd                 ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/vga_ram_dual.vhd                                          ;         ;
-; vga_font_rom.vhd                 ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/vga_font_rom.vhd                                          ;         ;
-; vga_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/vga_controller.vhd                                        ;         ;
-; ps2_keyboard.vhd                 ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/ps2_keyboard.vhd                                          ;         ;
-; keyboard_controller.vhd          ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/keyboard_controller.vhd                                   ;         ;
-; controlador_IO.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/controlador_IO.vhd                                        ;         ;
-; unidad_control.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/unidad_control.vhd                                        ;         ;
-; SRAMController.vhd               ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/SRAMController.vhd                                        ;         ;
-; sisa.vhd                         ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/sisa.vhd                                                  ;         ;
-; regfile.vhd                      ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/regfile.vhd                                               ;         ;
-; proc.vhd                         ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/proc.vhd                                                  ;         ;
-; multi.vhd                        ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/multi.vhd                                                 ;         ;
-; MemoryController.vhd             ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/MemoryController.vhd                                      ;         ;
-; datapath.vhd                     ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/datapath.vhd                                              ;         ;
-; control_l.vhd                    ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/control_l.vhd                                             ;         ;
-; const_logic.vhd                  ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/const_logic.vhd                                           ;         ;
-; const_control.vhd                ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/const_control.vhd                                         ;         ;
-; alu.vhd                          ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/alu.vhd                                                   ;         ;
-; memory_alu.vhd                   ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/memory_alu.vhd                                            ;         ;
-; arith_alu.vhd                    ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/arith_alu.vhd                                             ;         ;
-; cmp_alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/cmp_alu.vhd                                               ;         ;
-; mul_alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/mul_alu.vhd                                               ;         ;
-; device_controllers.vhd           ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/device_controllers.vhd                                    ;         ;
-; interrupt_controller.vhd         ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/interrupt_controller.vhd                                  ;         ;
-; excepcions_controller.vhd        ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/excepcions_controller.vhd                                 ;         ;
-; tlb.vhd                          ; yes             ; User VHDL File               ; C:/Users/David/PECi1/sisa/tlb.vhd                                                   ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal130.inc                   ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_qug1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/altsyncram_qug1.tdf                                    ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/multcore.inc          ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/bypassff.inc          ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/altshift.inc          ;         ;
-; db/mult_l8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/mult_l8t.tdf                                           ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; a:/program files (x86)/altera/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
-; db/lpm_divide_3gm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/lpm_divide_3gm.tdf                                     ;         ;
-; db/sign_div_unsign_dnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/sign_div_unsign_dnh.tdf                                ;         ;
-; db/alt_u_div_s5f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/alt_u_div_s5f.tdf                                      ;         ;
-; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/add_sub_lkc.tdf                                        ;         ;
-; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/add_sub_mkc.tdf                                        ;         ;
-; db/lpm_divide_rto.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/lpm_divide_rto.tdf                                     ;         ;
-; db/abs_divider_8dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/abs_divider_8dg.tdf                                    ;         ;
-; db/lpm_abs_2s9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/lpm_abs_2s9.tdf                                        ;         ;
-; db/mult_h1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/David/PECi1/sisa/db/mult_h1t.tdf                                           ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; regfile_system.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/regfile_system.vhd         ;         ;
+; driver7segmentos.vhd             ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/driver7segmentos.vhd       ;         ;
+; vga_sync.vhd                     ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/vga_sync.vhd               ;         ;
+; vga_ram_dual.vhd                 ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/vga_ram_dual.vhd           ;         ;
+; vga_font_rom.vhd                 ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/vga_font_rom.vhd           ;         ;
+; vga_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/vga_controller.vhd         ;         ;
+; ps2_keyboard.vhd                 ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/ps2_keyboard.vhd           ;         ;
+; keyboard_controller.vhd          ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/keyboard_controller.vhd    ;         ;
+; controlador_IO.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/controlador_IO.vhd         ;         ;
+; unidad_control.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/unidad_control.vhd         ;         ;
+; SRAMController.vhd               ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/SRAMController.vhd         ;         ;
+; sisa.vhd                         ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/sisa.vhd                   ;         ;
+; regfile.vhd                      ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/regfile.vhd                ;         ;
+; proc.vhd                         ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/proc.vhd                   ;         ;
+; multi.vhd                        ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/multi.vhd                  ;         ;
+; MemoryController.vhd             ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/MemoryController.vhd       ;         ;
+; datapath.vhd                     ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/datapath.vhd               ;         ;
+; control_l.vhd                    ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/control_l.vhd              ;         ;
+; const_logic.vhd                  ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/const_logic.vhd            ;         ;
+; const_control.vhd                ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/const_control.vhd          ;         ;
+; alu.vhd                          ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/alu.vhd                    ;         ;
+; memory_alu.vhd                   ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/memory_alu.vhd             ;         ;
+; arith_alu.vhd                    ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/arith_alu.vhd              ;         ;
+; cmp_alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/cmp_alu.vhd                ;         ;
+; mul_alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/mul_alu.vhd                ;         ;
+; device_controllers.vhd           ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/device_controllers.vhd     ;         ;
+; interrupt_controller.vhd         ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/interrupt_controller.vhd   ;         ;
+; excepcions_controller.vhd        ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/excepcions_controller.vhd  ;         ;
+; tlb.vhd                          ; yes             ; User VHDL File               ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/tlb.vhd                    ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf                ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc         ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                   ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc                ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc                 ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc                    ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc                    ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc                  ;         ;
+; db/altsyncram_qug1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/altsyncram_qug1.tdf     ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf                  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc               ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc                  ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc                  ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc                  ;         ;
+; db/mult_l8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/mult_l8t.tdf            ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf                ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc               ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc           ;         ;
+; db/lpm_divide_3gm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/lpm_divide_3gm.tdf      ;         ;
+; db/sign_div_unsign_dnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/sign_div_unsign_dnh.tdf ;         ;
+; db/alt_u_div_s5f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/alt_u_div_s5f.tdf       ;         ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/add_sub_lkc.tdf         ;         ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/add_sub_mkc.tdf         ;         ;
+; db/lpm_divide_rto.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/lpm_divide_rto.tdf      ;         ;
+; db/abs_divider_8dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/abs_divider_8dg.tdf     ;         ;
+; db/lpm_abs_2s9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/lpm_abs_2s9.tdf         ;         ;
+; db/mult_h1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/pec05/Desktop/cambios_ini/PECi1-master/sisa/db/mult_h1t.tdf            ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------+
@@ -251,17 +256,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 6,319    ;
+; Estimated Total logic elements              ; 6,320    ;
 ;                                             ;          ;
-; Total combinational functions               ; 5317     ;
+; Total combinational functions               ; 5334     ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 3887     ;
-;     -- 3 input functions                    ; 1015     ;
-;     -- <=2 input functions                  ; 415      ;
+;     -- 4 input functions                    ; 3892     ;
+;     -- 3 input functions                    ; 1021     ;
+;     -- <=2 input functions                  ; 421      ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 4817     ;
-;     -- arithmetic mode                      ; 500      ;
+;     -- normal mode                          ; 4820     ;
+;     -- arithmetic mode                      ; 514      ;
 ;                                             ;          ;
 ; Total registers                             ; 1432     ;
 ;     -- Dedicated logic registers            ; 1432     ;
@@ -272,7 +277,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 4        ;
 ; Maximum fan-out node                        ; CLOCK_50 ;
 ; Maximum fan-out                             ; 966      ;
-; Total fan-out                               ; 24503    ;
+; Total fan-out                               ; 24555    ;
 ; Average fan-out                             ; 3.56     ;
 +---------------------------------------------+----------+
 
@@ -282,52 +287,52 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                         ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                         ; Library Name ;
 +----------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |sisa                                              ; 5317 (4)          ; 1432 (3)     ; 65536       ; 4            ; 0       ; 2         ; 114  ; 0            ; |sisa                                                                                                                                                                       ; work         ;
+; |sisa                                              ; 5334 (4)          ; 1432 (3)     ; 65536       ; 4            ; 0       ; 2         ; 114  ; 0            ; |sisa                                                                                                                                                                       ; work         ;
 ;    |MemoryController:mem0|                         ; 42 (37)           ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|MemoryController:mem0                                                                                                                                                 ; work         ;
 ;       |SRAMController:sram|                        ; 5 (5)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|MemoryController:mem0|SRAMController:sram                                                                                                                             ; work         ;
-;    |controlador_IO:io|                             ; 1175 (732)        ; 984 (865)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io                                                                                                                                                     ; work         ;
+;    |controlador_IO:io|                             ; 1174 (732)        ; 984 (865)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io                                                                                                                                                     ; work         ;
 ;       |driver7segmentos:driverHEX0|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|driver7segmentos:driverHEX0                                                                                                                         ; work         ;
 ;       |driver7segmentos:driverHEX1|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|driver7segmentos:driverHEX1                                                                                                                         ; work         ;
 ;       |driver7segmentos:driverHEX2|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|driver7segmentos:driverHEX2                                                                                                                         ; work         ;
 ;       |driver7segmentos:driverHEX3|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|driver7segmentos:driverHEX3                                                                                                                         ; work         ;
 ;       |interrupt_controller:int0|                  ; 9 (9)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|interrupt_controller:int0                                                                                                                           ; work         ;
 ;       |interruptores:sw0|                          ; 35 (35)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|interruptores:sw0                                                                                                                                   ; work         ;
-;       |keyboard_controller:keyboard|               ; 294 (9)           ; 71 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|keyboard_controller:keyboard                                                                                                                        ; work         ;
-;          |ps2_keyboard_interface:k0|               ; 285 (285)         ; 61 (61)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0                                                                                              ; work         ;
+;       |keyboard_controller:keyboard|               ; 293 (9)           ; 71 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|keyboard_controller:keyboard                                                                                                                        ; work         ;
+;          |ps2_keyboard_interface:k0|               ; 284 (284)         ; 61 (61)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0                                                                                              ; work         ;
 ;       |pulsadores:key0|                            ; 15 (15)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|pulsadores:key0                                                                                                                                     ; work         ;
 ;       |timer:tmr0|                                 ; 34 (34)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controlador_IO:io|timer:tmr0                                                                                                                                          ; work         ;
-;    |proc:pro0|                                     ; 2032 (0)          ; 423 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0                                                                                                                                                             ; work         ;
-;       |datapath:e0|                                ; 1899 (168)        ; 384 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0                                                                                                                                                 ; work         ;
-;          |alu:alu0|                                ; 1263 (253)        ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0                                                                                                                                        ; work         ;
-;             |arith_alu:arith_alu0|                 ; 244 (244)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|arith_alu:arith_alu0                                                                                                                   ; work         ;
+;    |proc:pro0|                                     ; 2050 (0)          ; 423 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0                                                                                                                                                             ; work         ;
+;       |datapath:e0|                                ; 1920 (167)        ; 384 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0                                                                                                                                                 ; work         ;
+;          |alu:alu0|                                ; 1258 (253)        ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0                                                                                                                                        ; work         ;
+;             |arith_alu:arith_alu0|                 ; 245 (245)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|arith_alu:arith_alu0                                                                                                                   ; work         ;
 ;             |cmp_alu:cmp_alu0|                     ; 77 (77)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|cmp_alu:cmp_alu0                                                                                                                       ; work         ;
 ;             |memory_alu:memory_alu0|               ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|memory_alu:memory_alu0                                                                                                                 ; work         ;
-;             |mul_alu:mul_alu0|                     ; 673 (18)          ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0                                                                                                                       ; work         ;
+;             |mul_alu:mul_alu0|                     ; 667 (14)          ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0                                                                                                                       ; work         ;
 ;                |lpm_divide:Div0|                   ; 287 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div0                                                                                                       ; work         ;
 ;                   |lpm_divide_3gm:auto_generated|  ; 287 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div0|lpm_divide_3gm:auto_generated                                                                         ; work         ;
 ;                      |sign_div_unsign_dnh:divider| ; 287 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div0|lpm_divide_3gm:auto_generated|sign_div_unsign_dnh:divider                                             ; work         ;
 ;                         |alt_u_div_s5f:divider|    ; 287 (286)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div0|lpm_divide_3gm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_s5f:divider                       ; work         ;
 ;                            |add_sub_mkc:add_sub_1| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div0|lpm_divide_3gm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_s5f:divider|add_sub_mkc:add_sub_1 ; work         ;
-;                |lpm_divide:Div1|                   ; 368 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1                                                                                                       ; work         ;
-;                   |lpm_divide_rto:auto_generated|  ; 368 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated                                                                         ; work         ;
-;                      |abs_divider_8dg:divider|     ; 368 (29)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider                                                 ; work         ;
-;                         |alt_u_div_s5f:divider|    ; 285 (282)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|alt_u_div_s5f:divider                           ; work         ;
+;                |lpm_divide:Div1|                   ; 366 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1                                                                                                       ; work         ;
+;                   |lpm_divide_rto:auto_generated|  ; 366 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated                                                                         ; work         ;
+;                      |abs_divider_8dg:divider|     ; 366 (29)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider                                                 ; work         ;
+;                         |alt_u_div_s5f:divider|    ; 284 (281)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|alt_u_div_s5f:divider                           ; work         ;
 ;                            |add_sub_lkc:add_sub_0| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|alt_u_div_s5f:divider|add_sub_lkc:add_sub_0     ; work         ;
 ;                            |add_sub_mkc:add_sub_1| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|alt_u_div_s5f:divider|add_sub_mkc:add_sub_1     ; work         ;
 ;                         |lpm_abs_2s9:my_abs_den|   ; 28 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|lpm_abs_2s9:my_abs_den                          ; work         ;
-;                         |lpm_abs_2s9:my_abs_num|   ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|lpm_abs_2s9:my_abs_num                          ; work         ;
+;                         |lpm_abs_2s9:my_abs_num|   ; 25 (25)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|lpm_abs_2s9:my_abs_num                          ; work         ;
 ;                |lpm_mult:Mult0|                    ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult0                                                                                                        ; work         ;
 ;                   |mult_l8t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult0|mult_l8t:auto_generated                                                                                ; work         ;
 ;                |lpm_mult:Mult1|                    ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult1                                                                                                        ; work         ;
 ;                   |mult_h1t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult1|mult_h1t:auto_generated                                                                                ; work         ;
-;          |regfile:reg0|                            ; 141 (141)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|regfile:reg0                                                                                                                                    ; work         ;
-;          |regfile_system:regS|                     ; 170 (170)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|regfile_system:regS                                                                                                                             ; work         ;
-;          |tlb:tlb_d|                               ; 79 (79)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|tlb:tlb_d                                                                                                                                       ; work         ;
-;          |tlb:tlb_i|                               ; 78 (78)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|tlb:tlb_i                                                                                                                                       ; work         ;
-;       |unidad_control:c0|                          ; 133 (51)          ; 39 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0                                                                                                                                           ; work         ;
-;          |control_l:c0|                            ; 55 (55)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|control_l:c0                                                                                                                              ; work         ;
-;          |excepcions_controller:e0|                ; 12 (12)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0                                                                                                                  ; work         ;
-;          |multi:m0|                                ; 15 (15)           ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|multi:m0                                                                                                                                  ; work         ;
+;          |regfile:reg0|                            ; 140 (140)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|regfile:reg0                                                                                                                                    ; work         ;
+;          |regfile_system:regS|                     ; 189 (189)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|regfile_system:regS                                                                                                                             ; work         ;
+;          |tlb:tlb_d|                               ; 84 (84)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|tlb:tlb_d                                                                                                                                       ; work         ;
+;          |tlb:tlb_i|                               ; 82 (82)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|datapath:e0|tlb:tlb_i                                                                                                                                       ; work         ;
+;       |unidad_control:c0|                          ; 130 (51)          ; 39 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0                                                                                                                                           ; work         ;
+;          |control_l:c0|                            ; 54 (54)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|control_l:c0                                                                                                                              ; work         ;
+;          |excepcions_controller:e0|                ; 9 (9)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0                                                                                                                  ; work         ;
+;          |multi:m0|                                ; 16 (16)           ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|proc:pro0|unidad_control:c0|multi:m0                                                                                                                                  ; work         ;
 ;    |vga_controller:vga|                            ; 2064 (2001)       ; 21 (1)       ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|vga_controller:vga                                                                                                                                                    ; work         ;
 ;       |vga_ram_dual:U_MonitorRam|                  ; 10 (10)           ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam                                                                                                                          ; work         ;
 ;          |altsyncram:mem0_rtl_0|                   ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|altsyncram:mem0_rtl_0                                                                                                    ; work         ;
@@ -422,11 +427,19 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------+
 ; controlador_IO:io|interrupt_controller:int0|iid[2,4,5]                                                   ; Stuck at GND due to stuck port data_in                         ;
 ; controlador_IO:io|interrupt_controller:int0|iid[6,7]                                                     ; Merged with controlador_IO:io|interrupt_controller:int0|iid[3] ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][5]                                                               ; Lost fanout                                                    ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[6][5]                                                               ; Lost fanout                                                    ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][5]                                                               ; Lost fanout                                                    ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[4][5]                                                               ; Lost fanout                                                    ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[3][5]                                                               ; Lost fanout                                                    ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[2][5]                                                               ; Lost fanout                                                    ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[1][5]                                                               ; Lost fanout                                                    ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[0][5]                                                               ; Lost fanout                                                    ;
 ; controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|m1_state.m1_tx_reset_timer      ; Lost fanout                                                    ;
 ; controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|m1_state.m1_tx_force_clk_l      ; Stuck at GND due to stuck port data_in                         ;
 ; controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|m1_state.m1_tx_first_wait_clk_h ; Stuck at GND due to stuck port data_in                         ;
 ; controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|m1_state.m1_tx_first_wait_clk_l ; Stuck at GND due to stuck port data_in                         ;
-; Total Number of Removed Registers = 9                                                                    ;                                                                ;
+; Total Number of Removed Registers = 17                                                                   ;                                                                ;
 +----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------+
 
 
@@ -447,7 +460,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Total registers                              ; 1432  ;
 ; Number of registers using Synchronous Clear  ; 74    ;
-; Number of registers using Synchronous Load   ; 70    ;
+; Number of registers using Synchronous Load   ; 71    ;
 ; Number of registers using Asynchronous Clear ; 200   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 1330  ;
@@ -460,69 +473,69 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------------+---------+
 ; Inverted Register                                  ; Fan out ;
 +----------------------------------------------------+---------+
-; proc:pro0|datapath:e0|regfile_system:regS|bs[7][0] ; 9       ;
+; proc:pro0|datapath:e0|regfile_system:regS|bs[7][0] ; 5       ;
 ; proc:pro0|unidad_control:c0|new_pc[14]             ; 10      ;
 ; proc:pro0|unidad_control:c0|new_pc[15]             ; 10      ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[1][0]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][0]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][1]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][1]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][2]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][0]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][3]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][2]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[4][3]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[4][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[3][3]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[2][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[1][0]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[2][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[3][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[1][0]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][0]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][0]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[4][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[4][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][0]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[3][3]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][0]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][0]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[1][0]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[1][0]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[2][1]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[3][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[4][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[4][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][0]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][2]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][0]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][0]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[2][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][1]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][1]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[1][0]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[1][0]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][0]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][0]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[6][1]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][1]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[2][1]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[4][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[2][1]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][1]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][1]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[6][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][2]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[4][2]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][2]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[3][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[4][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][3]         ; 1       ;
-; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[4][2]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][2]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[6][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][3]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[4][3]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][3]         ; 1       ;
 ; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[3][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_i|ptlb[3][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[4][3]         ; 1       ;
+; proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][3]         ; 1       ;
 ; controlador_IO:io|interruptores:sw0|state[9]       ; 2       ;
 ; Total number of inverted registers = 64            ;         ;
 +----------------------------------------------------+---------+
@@ -543,41 +556,45 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------+
-; 3:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[7][8]                                             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |sisa|vga_controller:vga|vga_sync:u_vga_sync|v_count_reg[7]                                          ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|q[1]                  ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|timer_60usec_count[2] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|timer_5usec_count[1]  ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|rx_released           ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |sisa|controlador_IO:io|timer:tmr0|count[23]                                                         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sisa|controlador_IO:io|interrupt_controller:int0|iid[3]                                             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|bit_count[3]          ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; Yes        ; |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0|exc_code[1]                               ;
-; 5:1                ; 13 bits   ; 39 LEs        ; 26 LEs               ; 13 LEs                 ; Yes        ; |sisa|proc:pro0|unidad_control:c0|new_pc[4]                                                          ;
-; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[21][14]                                                                ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[7][5]                                             ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |sisa|vga_controller:vga|vga_sync:u_vga_sync|v_count_reg[3]                                          ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|q[6]                  ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|timer_60usec_count[3] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|timer_5usec_count[2]  ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|rx_ascii[6]           ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |sisa|controlador_IO:io|timer:tmr0|count[4]                                                          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sisa|controlador_IO:io|interrupt_controller:int0|iid[0]                                             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controlador_IO:io|keyboard_controller:keyboard|ps2_keyboard_interface:k0|bit_count[2]          ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 26 LEs               ; 13 LEs                 ; Yes        ; |sisa|proc:pro0|unidad_control:c0|new_pc[5]                                                          ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[21][6]                                                                 ;
 ; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[20][14]                                                                ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[15][0]                                                                 ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[8][13]                                                                 ;
-; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[8][5]                                                                  ;
-; 6:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[7][14]                                                                 ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[7][0]                                                                  ;
-; 7:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[2][14]                                            ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[2][0]                                             ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[1][10]                                            ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[0][12]                                            ;
-; 53:1               ; 11 bits   ; 385 LEs       ; 374 LEs              ; 11 LEs                 ; Yes        ; |sisa|controlador_IO:io|rd_io[2]                                                                     ;
-; 53:1               ; 5 bits    ; 175 LEs       ; 170 LEs              ; 5 LEs                  ; Yes        ; |sisa|controlador_IO:io|rd_io[3]                                                                     ;
-; 9:1                ; 16 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[3][4]                                             ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[15][7]                                                                 ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[8][15]                                                                 ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[8][3]                                                                  ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[7][10]                                                                 ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sisa|controlador_IO:io|br_io[7][1]                                                                  ;
+; 7:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[2][13]                                            ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[2][3]                                             ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[0][4]                                             ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; Yes        ; |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0|exc_code[1]                               ;
+; 53:1               ; 11 bits   ; 385 LEs       ; 374 LEs              ; 11 LEs                 ; Yes        ; |sisa|controlador_IO:io|rd_io[8]                                                                     ;
+; 53:1               ; 5 bits    ; 175 LEs       ; 170 LEs              ; 5 LEs                  ; Yes        ; |sisa|controlador_IO:io|rd_io[1]                                                                     ;
+; 9:1                ; 16 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[3][0]                                             ;
+; 9:1                ; 15 bits   ; 90 LEs        ; 15 LEs               ; 75 LEs                 ; Yes        ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|bs[1][10]                                            ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |sisa|proc:pro0|unidad_control:c0|new_pc[15]                                                         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|proc:pro0|unidad_control:c0|control_l:c0|in_d[1]                                               ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|mem0                                              ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:mem0|rd_data[9]                                                               ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|y_alu[4]                                                                 ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|reg_in[5]                                                                ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:mem0|rd_data[2]                                                               ;
-; 10:1               ; 16 bits   ; 96 LEs        ; 80 LEs               ; 16 LEs                 ; No         ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|a[15]                                                ;
-; 18:1               ; 4 bits    ; 48 LEs        ; 44 LEs               ; 4 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|addr_m[13]                                                               ;
-; 144:1              ; 3 bits    ; 288 LEs       ; 48 LEs               ; 240 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux9                                                            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|proc:pro0|unidad_control:c0|control_l:c0|in_d[0]                                               ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|mem1                                              ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:mem0|rd_data[10]                                                              ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|y_alu[6]                                                                 ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|reg_in[10]                                                               ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:mem0|rd_data[5]                                                               ;
+; 10:1               ; 16 bits   ; 96 LEs        ; 80 LEs               ; 16 LEs                 ; No         ; |sisa|proc:pro0|datapath:e0|regfile_system:regS|a[0]                                                 ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|tlb:tlb_d|t_addr[1]                                                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|tlb:tlb_i|t_addr[2]                                                      ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|tlb:tlb_d|t_addr[0]                                                      ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|tlb:tlb_i|t_addr[0]                                                      ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 44 LEs               ; 8 LEs                  ; No         ; |sisa|proc:pro0|datapath:e0|addr_m[15]                                                               ;
+; 144:1              ; 3 bits    ; 288 LEs       ; 48 LEs               ; 240 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux10                                                           ;
 ; 145:1              ; 4 bits    ; 384 LEs       ; 56 LEs               ; 328 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux7                                                            ;
 ; 146:1              ; 2 bits    ; 194 LEs       ; 32 LEs               ; 162 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux3                                                            ;
 ; 146:1              ; 2 bits    ; 194 LEs       ; 36 LEs               ; 158 LEs                ; No         ; |sisa|proc:pro0|datapath:e0|alu:alu0|Mux12                                                           ;
@@ -969,18 +986,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; v    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; miss ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; r    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "proc:pro0|datapath:e0|tlb:tlb_i"                                                    ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; v    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; miss ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; r    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -990,7 +995,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:36     ;
+; Top            ; 00:00:29     ;
 +----------------+--------------+
 
 
@@ -1000,9 +1005,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri May 19 00:55:52 2017
+    Info: Processing started: Fri May 19 12:17:16 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sisa -c sisa
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file regfile_system.vhd
     Info (12022): Found design unit 1: regfile_system-Structure
     Info (12023): Found entity 1: regfile_system
@@ -1113,21 +1118,21 @@ Info (12128): Elaborating entity "excepcions_controller" for hierarchy "proc:pro
 Info (12128): Elaborating entity "control_l" for hierarchy "proc:pro0|unidad_control:c0|control_l:c0"
 Info (12128): Elaborating entity "multi" for hierarchy "proc:pro0|unidad_control:c0|multi:m0"
 Info (12128): Elaborating entity "datapath" for hierarchy "proc:pro0|datapath:e0"
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(112): object "v_t_i" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(112): object "v_t_d" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(112): object "r_t_i" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(112): object "r_t_d" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(112): object "miss_tlbi" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(112): object "miss_tlbd" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(49): used implicit default value for signal "v_d" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(51): used implicit default value for signal "r_d" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(118): object "v_t_d" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(118): object "r_t_d" assigned a value but never read
 Info (12128): Elaborating entity "tlb" for hierarchy "proc:pro0|datapath:e0|tlb:tlb_i"
 Warning (10492): VHDL Process Statement warning at tlb.vhd(59): signal "boot" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at tlb.vhd(76): signal "wrd" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10027): Verilog HDL or VHDL warning at the tlb.vhd(78): index expression is not wide enough to address all of the elements in the array
+Warning (10027): Verilog HDL or VHDL warning at the tlb.vhd(80): index expression is not wide enough to address all of the elements in the array
 Info (12128): Elaborating entity "regfile" for hierarchy "proc:pro0|datapath:e0|regfile:reg0"
 Warning (10492): VHDL Process Statement warning at regfile.vhd(29): signal "wrd" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "regfile_system" for hierarchy "proc:pro0|datapath:e0|regfile_system:regS"
 Warning (10492): VHDL Process Statement warning at regfile_system.vhd(44): signal "boot" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at regfile_system.vhd(48): signal "intr_sys" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at regfile_system.vhd(60): signal "wrd" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at regfile_system.vhd(64): signal "wrd" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "alu" for hierarchy "proc:pro0|datapath:e0|alu:alu0"
 Info (12128): Elaborating entity "memory_alu" for hierarchy "proc:pro0|datapath:e0|alu:alu0|memory_alu:memory_alu0"
 Info (12128): Elaborating entity "arith_alu" for hierarchy "proc:pro0|datapath:e0|alu:alu0|arith_alu:arith_alu0"
@@ -1304,81 +1309,81 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "SRAM_OE_N" is stuck at GND
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
     Critical Warning (18010): Register proc:pro0|datapath:e0|regfile_system:regS|bs[7][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[4][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[4][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[3][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[2][1] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[1][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[1][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][1] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[2][1] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[3][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[1][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][1] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[4][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[4][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[1][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][0] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][1] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][3] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][0] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][1] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][2] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[7][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[2][1] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][1] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][1] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][1] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[6][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[2][1] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[3][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[1][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[4][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[4][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|vtlb[5][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[1][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[2][1] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[3][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[4][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[4][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[5][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][1] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[7][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][1] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|vtlb[6][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[1][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[1][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][0] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][0] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[6][1] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][1] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[2][1] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[4][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[2][1] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][1] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][1] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[6][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][2] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[4][2] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][2] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[3][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[4][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][3] will power up to High
-    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[4][2] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][2] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[6][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[5][3] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[4][3] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[7][3] will power up to High
     Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[3][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_i|ptlb[3][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[6][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[5][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[4][3] will power up to High
+    Critical Warning (18010): Register proc:pro0|datapath:e0|tlb:tlb_d|ptlb[7][3] will power up to High
     Critical Warning (18010): Register controlador_IO:io|interruptores:sw0|state[9] will power up to High
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 6553 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6554 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 81 output pins
     Info (21060): Implemented 18 bidirectional pins
-    Info (21061): Implemented 6419 logic cells
+    Info (21061): Implemented 6420 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 4 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 113 warnings
-    Info: Peak virtual memory: 549 megabytes
-    Info: Processing ended: Fri May 19 00:56:33 2017
-    Info: Elapsed time: 00:00:41
-    Info: Total CPU time (on all processors): 00:00:39
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 112 warnings
+    Info: Peak virtual memory: 561 megabytes
+    Info: Processing ended: Fri May 19 12:17:48 2017
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:00:32
 
 
