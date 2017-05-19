@@ -115,7 +115,11 @@ ARCHITECTURE Structure OF datapath IS
 	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S, addr_m_t, in_addr_m : STD_LOGIC_VECTOR (15 downto 0);
 	signal reg_in, reg_in_t, immed_out, y_alu : STD_LOGIC_VECTOR (15 downto 0);
 	signal t_intr_sys, t_modo_sistema : STD_LOGIC;
+<<<<<<< HEAD
 	--signal v_t_i, v_t_d, r_t_i, r_t_d, miss_tlbi, miss_tlbd : STD_LOGIC;
+=======
+	signal v_t_i, v_t_d, r_t_i, r_t_d, miss_tlbi, miss_tlbd : STD_LOGIC;
+>>>>>>> 96ff68c8a8dc8e37cde5a883bb8f40863d9aa80c
 	signal trans_tlbd, trans_tlbi : STD_LOGIC_VECTOR(3 downto 0);
 	--signal t_code_excep : STD_LOGIC_VECTOR (3 downto 0);
 	 
@@ -125,11 +129,19 @@ BEGIN
 	-- FALTA IMPLEMENTAR LOS INPUTS DE LA TLB --
 	
 	 tlb_i: tlb port map(clk => clk, boot => boot, vtag => pc(15 downto 12), d => reg_b(5 downto 0), ptag => trans_tlbi,
+<<<<<<< HEAD
 								addr_d => reg_a(2 downto 0), v => v_i, r => r_i, wrd => wrd_tlbi, virt => virtual,
 								miss => miss_tlbi);
 								
 	 tlb_d: tlb port map(clk => clk, boot => boot, vtag => alu_out(15 downto 12), d => reg_b(5 downto 0), ptag => trans_tlbd,
 								addr_d => reg_a(2 downto 0), v => v_d, r => r_d, wrd => wrd_tlbd, virt => virtual,
+=======
+								addr_d => reg_a(2 downto 0), v => v_t_i, r => r_t_i, wrd => wrd_tlbi, virt => virtual,
+								miss => miss_tlbi);
+								
+	 tlb_d: tlb port map(clk => clk, boot => boot, vtag => alu_out(15 downto 12), d => reg_b(5 downto 0), ptag => trans_tlbd,
+								addr_d => reg_a(2 downto 0), v => v_t_d, r => r_t_d, wrd => wrd_tlbd, virt => virtual,
+>>>>>>> 96ff68c8a8dc8e37cde5a883bb8f40863d9aa80c
 								miss => miss_tlbd);
 	 
 
