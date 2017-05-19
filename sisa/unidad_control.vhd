@@ -6,7 +6,7 @@ USE work.const_control.all;
 
 
 ENTITY unidad_control IS
-    PORT (boot      : IN  STD_LOGIC;
+      PORT (boot      : IN  STD_LOGIC;
           clk       : IN  STD_LOGIC;
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
@@ -44,9 +44,16 @@ ENTITY unidad_control IS
 			 a_sys	 : OUT STD_LOGIC;
 			 intr_sys : OUT STD_LOGIC;
 			 exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
+			 --Signals TLB: OUT -> Usar TLB, IN -> Excepc TLB ---
 			 wrd_tlbi : OUT STD_LOGIC;
 			 wrd_tlbd : OUT STD_LOGIC;
-			 virtual  : OUT STD_LOGIC
+			 virtual  : OUT STD_LOGIC;
+			 miss_tlbd : IN STD_LOGIC;
+			 miss_tlbi ; IN STD_LOGIC;
+			 v_i : IN STD_LOGIC;
+			 v_d : IN STD_LOGIC;
+			 r_i: IN STD_LOGIC;
+			 r_d: IN STD_LOGIC
 			 );
 END unidad_control;
 
@@ -107,6 +114,11 @@ END COMPONENT;
 			excepcion_mem_sys : IN STD_LOGIC;
 			exc_instr_sys : IN STD_LOGIC;
 			sys_call_b : IN STD_LOGIC;
+			miss_tlbd : IN STD_LOGIC;
+			miss_tlbi ; IN STD_LOGIC;
+			v_i : IN STD_LOGIC;
+			v_d : IN STD_LOGIC;		
+			--Intuyo que r_i i r_d tmb son para excepciones pero no se quales--
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
 	);
@@ -174,7 +186,8 @@ BEGIN
 	 e0: excepcions_controller port map(clk => clk, instr_il => instr_il_t, mem_align => mem_align, div_zero => div_zero, system_l => t_system_l,
 													system => t_system, exc_code => exc_code, sys_call_b => sys_call_b_t,
 													excepcion_mem_sys => excepcion_mem_sys,
-													exc_instr_sys => t_exc_instr_sys);
+													exc_instr_sys => t_exc_instr_sys,
+													miss_tlbd => miss_tlbd, miss_tlbi => miss_tlbi, v_i => v_i, v_d => v_d);
 	 
 	 c0: control_l port map (ir => ir, op => op, f => f, ldpc => ldpc_c, wrd => wrd_c, addr_a => addr_a, addr_b => addr_b,
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
@@ -183,7 +196,7 @@ BEGIN
 									 system => t_system_l, intr => intr, inta => inta_t, int_enable => int_enable,
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 									 instr_il => instr_il_t, sys_call_b => sys_call_b_t,
-									 modo_sistema => modo_sistema, wrd_tlbd => wrd_tlbd_t, wrd_tlbi_t, virtual => virtual,
+									 modo_sistema => modo_sistema, wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual,
 									 exc_instr_sys => t_exc_instr_sys);
 									 
 									 

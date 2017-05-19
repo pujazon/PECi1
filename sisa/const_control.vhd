@@ -33,6 +33,10 @@ package const_control is
 	constant excepcio_0 : std_logic_vector := "0000";
 	constant excepcio_1 : std_logic_vector := "0001";
 	constant excepcio_4 : std_logic_vector := "0100";
+	constant excepcio_6 : std_logic_vector := "0110";
+	constant excepcio_7 : std_logic_vector := "0111";
+	constant excepcio_8 : std_logic_vector := "1000";
+	constant excepcio_9 : std_logic_vector := "1001";
 	constant excepcio_11 : STD_logic_vector := "1011";
 	constant excepcio_13 : STD_logic_vector := "1101";
 	constant calls_code : std_logic_vector := "1110";

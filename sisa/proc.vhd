@@ -66,9 +66,16 @@ COMPONENT unidad_control IS
 			 a_sys	 : OUT STD_LOGIC;
 			 intr_sys : OUT STD_LOGIC;
 			 exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
+			 --Signals TLB: OUT -> Usar TLB, IN -> Excepc TLB ---
 			 wrd_tlbi : OUT STD_LOGIC;
 			 wrd_tlbd : OUT STD_LOGIC;
-			 virtual  : OUT STD_LOGIC
+			 virtual  : OUT STD_LOGIC;
+			 miss_tlbd : IN STD_LOGIC;
+			 miss_tlbi ; IN STD_LOGIC;
+			 v_i : IN STD_LOGIC;
+			 v_d : IN STD_LOGIC;
+			 r_i: IN STD_LOGIC;
+			 r_d: IN STD_LOGIC
 			 );
 END COMPONENT;
 
@@ -108,8 +115,16 @@ COMPONENT datapath IS
 	       wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 div_zero : OUT STD_LOGIC;
 			 int_enable : OUT STD_LOGIC;
-			 modo_sistema : OUT STD_LOGIC);
+			 modo_sistema : OUT STD_LOGIC;
+			 miss_tlbd : OUT STD_LOGIC;
+			 miss_tlbi ; OUT STD_LOGIC;
+			 v_i : OUT STD_LOGIC;
+			 v_d : OUT STD_LOGIC;
+			 r_i: OUT STD_LOGIC;
+			 r_d: OUT STD_LOGIC);
 END COMPONENT;
+
+		
 		signal t_rd_in, t_in_op_mux, t_wrd, t_ins_dad, t_immed_x2, t_wr_m, t_word_byte, t_br_n, t_z : STD_LOGIC;
 		signal t_addr_a,  t_addr_b, t_addr_d, t_op: STD_LOGIC_VECTOR(2 DOWNTO 0);
 		signal t_immed, t_pc, t_aluout : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -118,7 +133,9 @@ END COMPONENT;
 		signal t_addr_io : STD_LOGIC_VECTOR(7 downto 0);
 		signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys, t_instr_il, t_div_zero : STD_LOGIC;
 		signal intr_sys_t, int_enable_t, t_modo_sistema, wrd_tlbi_t, wrd_tlbd_t, virtual_t : STD_LOGIC;
-		signal exc_code_t: STD_LOGIC_VECTOR(3 downto 0);
+		signal exc_code_t: STD_LOGIC_VECTOR(3 downto 0);	
+	   signal v_t_i, v_t_d, r_t_i, r_t_d, miss_tlbi_t, miss_tlbd_t : STD_LOGIC;
+		
 	 
 BEGIN
 
@@ -130,7 +147,10 @@ BEGIN
 											rd_in => rd_in, wr_out => wr_out, in_op_mux => t_in_op_mux, addr_io => addr_io, mem_align => mem_align,
 											ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 											excepcion_mem_sys => excepcion_mem_sys, modo_sistema => t_modo_sistema,
-											wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual_t);
+											wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual_t,
+											miss_tlbd => miss_tlbd_t, miss_tlbi => miss_tlbi_t, v_i => v_t_i, v_d => v_t_d,
+											r_i => r_t_i, r_d => r_t_d
+											);
 
 	e0: datapath port map(	clk => clk, op => t_op, f => t_f, wrd => t_wrd, in_op_mux => t_in_op_mux, addr_a => t_addr_a, 
 									addr_b => t_addr_b, addr_d => t_addr_d, immed => t_immed, aluout => t_aluout, rd_io => rd_io,
@@ -139,7 +159,9 @@ BEGIN
 									wr_io => wr_io, intr_sys => intr_sys_t, exc_code => exc_code_t, div_zero => t_div_zero,
 									ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 									int_enable => int_enable_t, boot => boot, modo_sistema => t_modo_sistema,
-									wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual_t);
+									wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual_t,
+									miss_tlbd => miss_tlbd_t, miss_tlbi => miss_tlbi_t, v_i => v_t_i, v_d => v_t_d,
+									r_i => r_t_i, r_d => r_t_d);
 											
 	wr_m <= t_wr_m;
 	modo_sistema <= t_modo_sistema;

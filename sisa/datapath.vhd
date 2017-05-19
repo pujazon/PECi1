@@ -42,7 +42,13 @@ ENTITY datapath IS
 	       wr_io	 : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 div_zero : OUT STD_LOGIC;
 			 int_enable : OUT STD_LOGIC;
-			 modo_sistema : OUT STD_LOGIC);
+			 modo_sistema : OUT STD_LOGIC;
+			 miss_tlbd : OUT STD_LOGIC;
+			 miss_tlbi ; OUT STD_LOGIC;
+			 v_i : OUT STD_LOGIC;
+			 v_d : OUT STD_LOGIC;
+			 r_i: OUT STD_LOGIC;
+			 r_d: OUT STD_LOGIC);
 END datapath;
 
 
@@ -99,6 +105,7 @@ ARCHITECTURE Structure OF datapath IS
 		wrd  : IN STD_LOGIC;
 		virt : IN STD_LOGIC;
 		v    : OUT STD_LOGIC;
+		miss : OUT STD_LOGIC;
 		r    : OUT STD_LOGIC
 	);
 
@@ -108,7 +115,8 @@ ARCHITECTURE Structure OF datapath IS
 	signal alu_out, reg_a_gen, reg_a, reg_a_sys, reg_b, d_in_S, addr_m_t, in_addr_m : STD_LOGIC_VECTOR (15 downto 0);
 	signal reg_in, reg_in_t, immed_out, y_alu : STD_LOGIC_VECTOR (15 downto 0);
 	signal t_intr_sys, t_modo_sistema : STD_LOGIC;
-	signal v_t_i, v_t_d, r_t_i, r_t_d : STD_LOGIC;
+	--signal v_t_i, v_t_d, r_t_i, r_t_d, miss_tlbi, miss_tlbd : STD_LOGIC;
+	signal trans_tlbd, trans_tlbi : STD_LOGIC_VECTOR(3 downto 0);
 	--signal t_code_excep : STD_LOGIC_VECTOR (3 downto 0);
 	 
 BEGIN
@@ -116,12 +124,13 @@ BEGIN
 	-- lAS TLB: 1 INSTR 1 DADES--
 	-- FALTA IMPLEMENTAR LOS INPUTS DE LA TLB --
 	
-	 tlb_i: tlb port map(clk => clk, boot => boot, vtag => pc(15 downto 11), d => reg_b(5 downto 0),
-								addr_d => reg_a(2 downto 0), v => v_t_i, r => r_t_i, wrd => wrd_tlbi, virt => virtual);
+	 tlb_i: tlb port map(clk => clk, boot => boot, vtag => pc(15 downto 12), d => reg_b(5 downto 0), ptag => trans_tlbi,
+								addr_d => reg_a(2 downto 0), v => v_i, r => r_i, wrd => wrd_tlbi, virt => virtual,
+								miss => miss_tlbi);
 								
-	 tlb_d: tlb port map(clk => clk, boot => boot, vtag => addr_m(15 downto 11), d <= reg_b(5 downto 0),
-								addr_d <= reg_a(2 downto 0), v => v_t_d, r => r_t_d, wrd => wrd_tlbd, virt => virtual);
-	 
+	 tlb_d: tlb port map(clk => clk, boot => boot, vtag => alu_out(15 downto 12), d => reg_b(5 downto 0), ptag => trans_tlbd,
+								addr_d => reg_a(2 downto 0), v => v_d, r => r_d, wrd => wrd_tlbd, virt => virtual,
+								miss => miss_tlbd);
 	 
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -182,8 +191,8 @@ BEGIN
 	
 	-- Seleccionem entrada de adreces memoria en funcio de ins_dad (1 ALU/ 0 PC)
 	 with ins_dad select
-		addr_m_t <= pc when '0',
-					alu_out when others;
+		addr_m_t <= trans_tlbi & pc(11 downto 0) when '0',
+					trans_tlbd & alu_out(11 downto 0) when others;
 					
 	in_addr_m <= reg_a_gen when exc_code = calls_code else
 				addr_m_t; 
@@ -195,5 +204,12 @@ BEGIN
 	wr_io <= reg_b; --El wr_io valdra lo que sale del registro port B, 
 					--pero habra que controlar si hace algo en en funcion si OUT o no en controlador IO
 	
+	---Enviar los signals de control tlb para que excepciones---
+--	miss_tlbd <= miss_tlbd;
+--	miss_tlbi <= miss_tlbi;
+--	v_i <= v_t_i;
+--	v_d <= v_t_d;
+--	r_i <= r_t_i;
+--	r_d <= r_t_d;
 
 END Structure;

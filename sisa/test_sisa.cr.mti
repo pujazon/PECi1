@@ -152,6 +152,8 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
+-- Loading package const_control
+-- Loading package const_logic
 -- Compiling entity datapath
 -- Compiling architecture Structure of datapath
 
@@ -316,6 +318,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling package const_control
+
+} {} {}} C:/Users/David/PECi1/sisa/interrupt_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/David/PECi1/sisa/interrupt_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity interrupt_controller
+-- Compiling architecture Structure of interrupt_controller
 
 } {} {}} C:/Users/Manolo/Desktop/interrupcions/controlador_IO.vhd {1 {vcom -work work -2002 -explicit C:/Users/Manolo/Desktop/interrupcions/controlador_IO.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -763,6 +776,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
+-- Loading package const_control
 -- Compiling entity regfile_system
 -- Compiling architecture Structure of regfile_system
 
