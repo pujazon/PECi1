@@ -46,8 +46,12 @@ ENTITY control_l IS
 			 virtual  : OUT STD_LOGIC;
 			 miss_tlbd : IN STD_LOGIC;
 			 miss_tlbi : IN STD_LOGIC;
+			 v_i : IN STD_LOGIC;
+			 v_d : IN STD_LOGIC;
 			 excp_miss_tlbi : OUT STD_LOGIC;
-			 excp_miss_tlbd : OUT STD_LOGIC
+			 excp_miss_tlbd : OUT STD_LOGIC;
+			 excp_v_tlbi : OUT STD_LOGIC;
+			 excp_v_tlbd : OUT STD_LOGIC
 			 );
 END control_l;
 
@@ -209,5 +213,10 @@ BEGIN
 							
 	excp_miss_tlbd <= '1' when miss_tlbd = '1' and (opcode = opcode_st or opcode = opcode_stb or opcode = opcode_ld or opcode = opcode_ldb) else
 							'0';
+							
+	excp_v_tlbi <= '1' when v_i = '1' else '0';
+	
+	excp_v_tlbd <= '1' when v_d = '1' and (opcode = opcode_st or opcode = opcode_stb or opcode = opcode_ld or opcode = opcode_ldb) else
+							'0'; 
 
 END Structure;

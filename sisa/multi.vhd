@@ -16,6 +16,10 @@ port(clk       : IN  STD_LOGIC;
 			excp_miss_tlbi_l : IN STD_LOGIC;
 			excp_miss_tlbd : OUT STD_LOGIC;
 			excp_miss_tlbi : OUT STD_LOGIC;
+			excp_v_tlbd_l : IN STD_LOGIC;
+			excp_v_tlbi_l : IN STD_LOGIC;
+			excp_v_tlbi : OUT STD_LOGIC;
+			excp_v_tlbd : OUT STD_LOGIC;
 			--Signals para instrucciones de sistema-----
 			ei_l 	  : IN  STD_LOGIC;
 			di_l 	  : IN  STD_LOGIC;
@@ -54,6 +58,13 @@ architecture Structure of multi is
 begin
 
 
+
+	with estado select
+		excp_v_tlbd <= excp_v_tlbd_l when DEMW,
+				  '0' when others;
+	with estado select
+		excp_v_tlbi <= excp_v_tlbi_l when DEMW,
+				  '0' when others;
 	with estado select
 		ei <= ei_l when DEMW,
 				  '0' when others;

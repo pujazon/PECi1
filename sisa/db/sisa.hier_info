@@ -878,6 +878,8 @@ wrd_tlbd <= multi:m0.wrd_tlbd
 virtual <= control_l:c0.virtual
 miss_tlbd => control_l:c0.miss_tlbd
 miss_tlbi => control_l:c0.miss_tlbi
+v_i => control_l:c0.v_i
+v_d => control_l:c0.v_d
 
 
 |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0
@@ -922,6 +924,16 @@ excp_miss_tlbi => code_excep[2].OUTPUTSELECT
 excp_miss_tlbi => code_excep[1].OUTPUTSELECT
 excp_miss_tlbi => code_excep[0].OUTPUTSELECT
 excp_miss_tlbi => system_t.IN1
+excp_v_tlbi => code_excep.OUTPUTSELECT
+excp_v_tlbi => code_excep.OUTPUTSELECT
+excp_v_tlbi => code_excep.OUTPUTSELECT
+excp_v_tlbi => code_excep.OUTPUTSELECT
+excp_v_tlbi => code_excep.OUTPUTSELECT
+excp_v_tlbi => code_excep.OUTPUTSELECT
+excp_v_tlbi => code_excep.OUTPUTSELECT
+excp_v_tlbi => code_excep.OUTPUTSELECT
+excp_v_tlbi => system_t.IN1
+excp_v_tlbd => system_t.IN1
 exc_code[0] <= exc_code[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 exc_code[1] <= exc_code[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 exc_code[2] <= exc_code[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -1250,8 +1262,12 @@ wrd_tlbd <= wrd_tlbd.DB_MAX_OUTPUT_PORT_TYPE
 virtual <= virtual.DB_MAX_OUTPUT_PORT_TYPE
 miss_tlbd => excp_miss_tlbd.IN1
 miss_tlbi => excp_miss_tlbi.DATAIN
+v_i => excp_v_tlbi.DATAIN
+v_d => excp_v_tlbd.IN1
 excp_miss_tlbi <= miss_tlbi.DB_MAX_OUTPUT_PORT_TYPE
 excp_miss_tlbd <= excp_miss_tlbd.DB_MAX_OUTPUT_PORT_TYPE
+excp_v_tlbi <= v_i.DB_MAX_OUTPUT_PORT_TYPE
+excp_v_tlbd <= excp_v_tlbd.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |sisa|proc:pro0|unidad_control:c0|multi:m0
@@ -1268,6 +1284,10 @@ excp_miss_tlbd_l => excp_miss_tlbd.DATAB
 excp_miss_tlbi_l => excp_miss_tlbi.DATAB
 excp_miss_tlbd <= excp_miss_tlbd.DB_MAX_OUTPUT_PORT_TYPE
 excp_miss_tlbi <= excp_miss_tlbi.DB_MAX_OUTPUT_PORT_TYPE
+excp_v_tlbd_l => excp_v_tlbd.DATAB
+excp_v_tlbi_l => excp_v_tlbi.DATAB
+excp_v_tlbi <= excp_v_tlbi.DB_MAX_OUTPUT_PORT_TYPE
+excp_v_tlbd <= excp_v_tlbd.DB_MAX_OUTPUT_PORT_TYPE
 ei_l => ei.DATAB
 di_l => di.DATAB
 reti_l => reti.DATAB
@@ -1654,6 +1674,8 @@ int_enable <= regfile_system:regS.int_enable
 modo_sistema <= regfile_system:regS.modo_sistema
 miss_tlbd <= tlb:tlb_d.miss
 miss_tlbi <= tlb:tlb_i.miss
+v_i <= tlb:tlb_i.v
+v_d <= tlb:tlb_d.v
 
 
 |sisa|proc:pro0|datapath:e0|tlb:tlb_i

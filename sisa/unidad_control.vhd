@@ -6,7 +6,7 @@ USE work.const_control.all;
 
 
 ENTITY unidad_control IS
-    PORT (boot      : IN  STD_LOGIC;
+PORT (boot      : IN  STD_LOGIC;
           clk       : IN  STD_LOGIC;
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
@@ -47,9 +47,11 @@ ENTITY unidad_control IS
 			 wrd_tlbi : OUT STD_LOGIC;
 			 wrd_tlbd : OUT STD_LOGIC;
 			 virtual  : OUT STD_LOGIC;
-			-----------TLB------------
+			 -----------TLB------------
 			 miss_tlbd : IN STD_LOGIC;
-			 miss_tlbi : IN STD_LOGIC
+			 miss_tlbi : IN STD_LOGIC;
+			 v_i : IN STD_LOGIC;
+			 v_d : IN STD_LOGIC
 			 );
 END unidad_control;
 
@@ -99,8 +101,12 @@ COMPONENT control_l IS
 			 virtual  : OUT STD_LOGIC;
 			 miss_tlbd : IN STD_LOGIC;
 			 miss_tlbi : IN STD_LOGIC;
+			 v_i : IN STD_LOGIC;
+			 v_d : IN STD_LOGIC;
 			 excp_miss_tlbi : OUT STD_LOGIC;
-			 excp_miss_tlbd : OUT STD_LOGIC
+			 excp_miss_tlbd : OUT STD_LOGIC;
+			 excp_v_tlbi : OUT STD_LOGIC;
+			 excp_v_tlbd : OUT STD_LOGIC
 			 );
 END COMPONENT;
 		
@@ -116,6 +122,8 @@ END COMPONENT;
 			sys_call_b : IN STD_LOGIC;
 			excp_miss_tlbd : IN STD_LOGIC;
 			excp_miss_tlbi : IN STD_LOGIC;
+			excp_v_tlbi : IN STD_LOGIC;
+			excp_v_tlbd : IN STD_LOGIC;
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
 	);
@@ -135,6 +143,10 @@ port(clk       : IN  STD_LOGIC;
 			excp_miss_tlbi_l : IN STD_LOGIC;
 			excp_miss_tlbd : OUT STD_LOGIC;
 			excp_miss_tlbi : OUT STD_LOGIC;
+			excp_v_tlbd_l : IN STD_LOGIC;
+			excp_v_tlbi_l : IN STD_LOGIC;
+			excp_v_tlbi : OUT STD_LOGIC;
+			excp_v_tlbd : OUT STD_LOGIC;
 			--Signals para instrucciones de sistema-----
 			ei_l 	  : IN  STD_LOGIC;
 			di_l 	  : IN  STD_LOGIC;
@@ -178,6 +190,7 @@ port(clk       : IN  STD_LOGIC;
 	 signal intr_sys_t, inta_t, instr_il_t : STD_LOGIC;
 	 signal sys_call_b_t, t_exc_instr_sys : STD_LOGIC;
 	 signal wrd_tlbd_t, wrd_tlbi_t : STD_LOGIC;
+	 signal excp_v_tlbd_t, excp_v_tlbi_t, excp_v_tlbi_tt, excp_v_tlbd_tt : STD_LOGIC;
 	 signal excp_miss_tlbd_t, excp_miss_tlbi_t, excp_miss_tlbd_tt, excp_miss_tlbi_tt,excp_miss_tlbd_l,excp_miss_tlbi_l : STD_LOGIC;
 	 
 BEGIN
@@ -190,7 +203,8 @@ BEGIN
 													system => t_system, exc_code => exc_code, sys_call_b => sys_call_b_t,
 													excepcion_mem_sys => excepcion_mem_sys,
 													exc_instr_sys => t_exc_instr_sys,
-													excp_miss_tlbd => excp_miss_tlbd_tt, excp_miss_tlbi => excp_miss_tlbi_tt);
+													excp_miss_tlbd => excp_miss_tlbd_tt, excp_miss_tlbi => excp_miss_tlbi_tt,
+													excp_v_tlbd => excp_v_tlbd_tt,excp_v_tlbi => excp_v_tlbi_tt);
 	 
 	 c0: control_l port map (ir => ir, op => op, f => f, ldpc => ldpc_c, wrd => wrd_c, addr_a => addr_a, addr_b => addr_b,
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
@@ -201,7 +215,8 @@ BEGIN
 									 instr_il => instr_il_t, sys_call_b => sys_call_b_t,
 									 modo_sistema => modo_sistema, wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual,
 									 exc_instr_sys => t_exc_instr_sys, miss_tlbd => miss_tlbd, miss_tlbi => miss_tlbi,
-									 excp_miss_tlbd => excp_miss_tlbd_t, excp_miss_tlbi => excp_miss_tlbi_t);
+									 excp_miss_tlbd => excp_miss_tlbd_t, excp_miss_tlbi => excp_miss_tlbi_t,
+									 v_i => v_i, v_d => v_d, excp_v_tlbd => excp_v_tlbd_t, excp_v_tlbi => excp_v_tlbi_t);
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
@@ -212,7 +227,9 @@ BEGIN
 								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys,
 								wrd_tlbd_l => wrd_tlbd_t, wrd_tlbd => wrd_tlbd, wrd_tlbi_l => wrd_tlbi_t, wrd_tlbi => wrd_tlbi,
 								excp_miss_tlbd_l => excp_miss_tlbd_t, excp_miss_tlbi_l => excp_miss_tlbi_t,
-								excp_miss_tlbd => excp_miss_tlbd_tt, excp_miss_tlbi=> excp_miss_tlbi_tt);
+								excp_miss_tlbd => excp_miss_tlbd_tt, excp_miss_tlbi=> excp_miss_tlbi_tt,
+								excp_v_tlbd_l => excp_v_tlbd_t, excp_v_tlbd => excp_v_tlbd_tt,
+								excp_v_tlbi_l => excp_v_tlbi_t, excp_v_tlbi => excp_v_tlbi_tt);
 	 
 	 process(clk, boot, load_pc)
 		begin

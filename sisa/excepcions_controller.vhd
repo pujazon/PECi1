@@ -16,6 +16,8 @@ ENTITY excepcions_controller IS
 			sys_call_b : IN STD_LOGIC;
 			excp_miss_tlbd : IN STD_LOGIC;
 			excp_miss_tlbi : IN STD_LOGIC;
+			excp_v_tlbi : IN STD_LOGIC;
+			excp_v_tlbd : IN STD_LOGIC;
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
 	);
@@ -36,6 +38,8 @@ BEGIN
 					  excepcio_0 when instr_il = '1' else
 					  excepcio_1 when mem_align = '1' else
 					  excepcio_4 when div_zero = '1' else
+					  excepcio_9 when excp_v_tlbi = '1' else
+					  excepcio_10 when excp_v_tlbi = '1' else					  
 					  excepcio_11 when excepcion_mem_sys = '1' else
 					  excepcio_13 when exc_instr_sys = '1' else
 					  calls_code when sys_call_b = '1' else
@@ -45,7 +49,7 @@ BEGIN
 	--intr_sys sera el signal que le dira al regS si hay interr/excep o no. Lo ponemos aqui i no en interr_controller
 	--PQ este es el que mria si hay excep pero tmb interr
 	
-	system_t <= '1' when (system_l = '1' or instr_il = '1' or mem_align = '1' or div_zero = '1' or sys_call_b ='1' or excp_miss_tlbi = '1' or excp_miss_tlbd = '1') else
+	system_t <= '1' when (system_l = '1' or instr_il = '1' or mem_align = '1' or div_zero = '1' or sys_call_b ='1' or excp_miss_tlbi = '1' or excp_miss_tlbd = '1' or excp_v_tlbd = '1' or excp_v_tlbi = '1') else
 					'0';
 					
 	system <= system_t;
