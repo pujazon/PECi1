@@ -214,9 +214,9 @@ BEGIN
 	excp_miss_tlbd <= '1' when miss_tlbd = '1' and (opcode = opcode_st or opcode = opcode_stb or opcode = opcode_ld or opcode = opcode_ldb) else
 							'0';
 							
-	excp_v_tlbi <= '1' when v_i = '1' else '0';
+	excp_v_tlbi <= '1' when v_i = '0' else '0';
 	
-	excp_v_tlbd <= '1' when v_d = '1' and (opcode = opcode_st or opcode = opcode_stb or opcode = opcode_ld or opcode = opcode_ldb) else
+	excp_v_tlbd <= '1' when v_d = '0' and (opcode = opcode_st or opcode = opcode_stb or opcode = opcode_ld or opcode = opcode_ldb) else
 							'0'; 
 
 END Structure;

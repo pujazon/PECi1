@@ -47,24 +47,22 @@ BEGIN
 	 ptag <= ptlb(t_addr)(3 downto 0) when t_addr /= 8 else
 				"0000";
 				
-	 v <= ptlb(t_addr)(5) when t_addr /= 8 else
-			'0';  --Si no es cap posarem el v = 0
+	 v <= ptlb(t_addr)(5);  --Si no es cap, saltará miss tlb
 			
 	miss <= '1' when t_addr = 8 else '0';
 			
-	r <= ptlb(t_addr)(4) when t_addr /= 8 else
-			'0';
+	r <= ptlb(t_addr)(4);
 				
 	process(clk) begin
 		if (boot = '1') then
-			ptlb(0) <= "010000";
-			ptlb(1) <= "010001";
-			ptlb(2) <= "010010";
-			ptlb(3) <= "011000";
-			ptlb(4) <= "011100";
-			ptlb(5) <= "011101";
-			ptlb(6) <= "011110";
-			ptlb(7) <= "011111";
+			ptlb(0) <= "100000";
+			ptlb(1) <= "100001";
+			ptlb(2) <= "100010";
+			ptlb(3) <= "101000";
+			ptlb(4) <= "101100";
+			ptlb(5) <= "101101";
+			ptlb(6) <= "101110";
+			ptlb(7) <= "101111";
 			vtlb(0) <= "0000";
 			vtlb(1) <= "0001";
 			vtlb(2) <= "0010";

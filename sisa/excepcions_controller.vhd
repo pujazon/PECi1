@@ -38,8 +38,8 @@ BEGIN
 					  excepcio_0 when instr_il = '1' else
 					  excepcio_1 when mem_align = '1' else
 					  excepcio_4 when div_zero = '1' else
-					  excepcio_9 when excp_v_tlbi = '1' else
-					  excepcio_10 when excp_v_tlbi = '1' else					  
+					  excepcio_8 when excp_v_tlbi = '1' else
+					  excepcio_9 when excp_v_tlbd = '1' else					  
 					  excepcio_11 when excepcion_mem_sys = '1' else
 					  excepcio_13 when exc_instr_sys = '1' else
 					  calls_code when sys_call_b = '1' else

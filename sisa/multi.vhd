@@ -20,6 +20,10 @@ port(clk       : IN  STD_LOGIC;
 			excp_v_tlbi_l : IN STD_LOGIC;
 			excp_v_tlbi : OUT STD_LOGIC;
 			excp_v_tlbd : OUT STD_LOGIC;
+			wrd_tlbi : OUT STD_LOGIC;
+			wrd_tlbd : OUT STD_LOGIC;
+			wrd_tlbi_l : IN STD_LOGIC;
+			wrd_tlbd_l : IN STD_LOGIC;
 			--Signals para instrucciones de sistema-----
 			ei_l 	  : IN  STD_LOGIC;
 			di_l 	  : IN  STD_LOGIC;
@@ -42,11 +46,7 @@ port(clk       : IN  STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
 			 intr_sys : OUT STD_LOGIC;
 			 inta : OUT STD_LOGIC;
-			 inta_l : IN STD_LOGIC;
-			 wrd_tlbi : OUT STD_LOGIC;
-			 wrd_tlbd : OUT STD_LOGIC;
-			 wrd_tlbi_l : IN STD_LOGIC;
-			 wrd_tlbd_l : IN STD_LOGIC
+			 inta_l : IN STD_LOGIC
 			 ---------------------------------------------		
 			 );
 end entity;
@@ -56,8 +56,6 @@ architecture Structure of multi is
     signal estado : ESTADO;
 
 begin
-
-
 
 	with estado select
 		excp_v_tlbd <= excp_v_tlbd_l when DEMW,
