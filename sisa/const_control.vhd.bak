@@ -17,14 +17,25 @@ package const_control is
 	constant opcode_sys : std_logic_vector := "1111";	
 	constant opcode_in_out : std_logic_vector := "0111";
 	
-	constant f_jal : std_logic_vector := "00100";
-	constant f_jz : std_logic_vector := "00000";
-	constant f_jnz : std_logic_vector := "00001";
-	constant f_jmp : std_logic_vector := "00011";
+	constant f_jal : std_logic_vector := "100";
+	constant f_jz : std_logic_vector := "000";
+	constant f_jnz : std_logic_vector := "001";
+	constant f_jmp : std_logic_vector := "011";
+	constant f_calls : std_logic_vector := "111";
 	
 	constant pc_inicial : std_logic_vector := x"C000";
 	
 	type ESTADO is (FETCH, DEMW, SYS);
 	
 	constant halt : std_logic_vector := x"FFFF";	
+	
+	constant interrupcio_code : std_logic_vector := "1111";
+	constant excepcio_0 : std_logic_vector := "0000";
+	constant excepcio_1 : std_logic_vector := "0001";
+	constant excepcio_4 : std_logic_vector := "0100";
+	constant excepcio_11 : STD_logic_vector := "1011";
+	constant excepcio_13 : STD_logic_vector := "1101";
+	constant calls_code : std_logic_vector := "1110";
+	constant NO_HAY_EXCEPCION : std_logic_vector := "0011"; --EN REALIDAD DA IGUAL EL CODIGO DE ESSTE
+	
 end const_control;

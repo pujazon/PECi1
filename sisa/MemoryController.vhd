@@ -4,9 +4,8 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 
-entity MemoryController is    
-port (CLOCK_50  : in  std_logic;
-	       addr      : in  std_logic_vector(15 downto 0);
+entity MemoryController is    port (CLOCK_50  : in  std_logic;
+	      addr      : in  std_logic_vector(15 downto 0);
           wr_data   : in  std_logic_vector(15 downto 0);
           rd_data   : out std_logic_vector(15 downto 0);
           we        : in  std_logic;
@@ -31,9 +30,7 @@ port (CLOCK_50  : in  std_logic;
 			 ---Excepcion acceso memoria sistema sin ser privilegiado---
 			 modo_sistema : IN STD_LOGIC;
 			 --excepcion_prot : OUT STD_LOGIC;
---			 excepcion_mem_sys : OUT STD_LOGIC;
-				--Aqui mira si la dir era de sys i tu siendo modo usuario 
-			 tlb_sys_user	: OUT STD_LOGIC
+			 excepcion_mem_sys : OUT STD_LOGIC
 			 );
 end MemoryController;
 
@@ -75,10 +72,9 @@ begin
 					 
    mem_align <= '1' when (byte_m = '0' and addr(0) = '1') else
 					 '0';
-			--Esto lo haciamos antes, pero ahora es la 12 con la TLB de Instrucciones. 
-			--Al fin i al cabo esto no era mas que mirar que el ultimo bit de addr fuese '1'
---   excepcion_mem_sys <= '1' when (modo_sistema = '0' and (addr >= x"8000" and addr <= x"FFFF")) else
---								'0';
+					 
+   excepcion_mem_sys <= '1' when (modo_sistema = '0' and (addr >= x"8000" and addr <= x"FFFF")) else
+								'0';
 	
 	--excepcion_prot <= '1' when we_t = '1' and read_only = '1' else '0';
 
@@ -96,10 +92,5 @@ begin
 						  
 			 vga_byte_m <= byte_m;
 			 vga_wr_data <= wr_data;
-			 
-	-- tlb
-	
-	tlb_sys_user <= '1' when (addr(15) = '1' and modo_sistema = '0') else
-						 '0';
 			 
 end comportament;

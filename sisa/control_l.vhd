@@ -9,7 +9,6 @@ ENTITY control_l IS
 			 intr		  : IN  STD_LOGIC;
 			 int_enable : IN STD_LOGIC;
 			 modo_sistema: IN STD_LOGIC;
- 			 r_d 			: IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
           op        : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 f  		  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -42,12 +41,13 @@ ENTITY control_l IS
 			 ----------------------------
 			exc_instr_sys : OUT STD_LOGIC;
 			 sys_call_b	: OUT STD_LOGIC;
-			 --TLB------------
 			 wrd_tlbi : OUT STD_LOGIC;
 			 wrd_tlbd : OUT STD_LOGIC;
 			 virtual  : OUT STD_LOGIC;
-			 --Excepcio TLB----------
-			 store_tlbd : OUT STD_LOGIC
+			 miss_tlbd : IN STD_LOGIC;
+			 miss_tlbi : IN STD_LOGIC;
+			 excp_miss_tlbi : OUT STD_LOGIC;
+			 excp_miss_tlbd : OUT STD_LOGIC
 			 );
 END control_l;
 
@@ -198,18 +198,16 @@ BEGIN
 	 opcode = opcode_sys or 
 	 opcode = opcode_in_out) else '1';
 	 
-	 ---Excepcio sys instr quando user--
+	 ---Exceopcio sys instr quando user--
 	 
 	 exc_instr_sys <= '1' when (opcode = opcode_sys and modo_sistema = '0') else
 							'0';
 							
+	-----TLB Excepcions --------
+	excp_miss_tlbi <= '1' when miss_tlbi = '1' else 
+							'0';
 							
-    ---Excepcio store en tlbd i pagina es de ro
-	 
-	 store_tlbd <= '1' when (r_d = '1' and (opcode = opcode_st or opcode = opcode_stb)) else
-						'0';
-					
-	 
-
+	excp_miss_tlbd <= '1' when miss_tlbd = '1' and (opcode = opcode_st or opcode = opcode_stb or opcode = opcode_ld or opcode = opcode_ldb) else
+							'0';
 
 END Structure;

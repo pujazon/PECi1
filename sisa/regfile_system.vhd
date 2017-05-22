@@ -61,7 +61,7 @@ BEGIN
 					bs(1) <= d-2; --Aqui hace el decremento del PC si es un miss de tlb
 				end if;
 			end if;
-			elsif (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura esta  activa.
+			elsif (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura esta  activa.
 			if (ei = '1') then
 				bs(7)(1) <= '1';
 			elsif (di = '1') then

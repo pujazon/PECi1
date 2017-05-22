@@ -35,13 +35,12 @@ END sisa;
 ARCHITECTURE Structure OF sisa IS
 
 COMPONENT MemoryController is
-port (CLOCK_50  : in  std_logic;
-	       addr      : in  std_logic_vector(15 downto 0);
+    port (CLOCK_50  : in  std_logic;
+	      addr      : in  std_logic_vector(15 downto 0);
           wr_data   : in  std_logic_vector(15 downto 0);
           rd_data   : out std_logic_vector(15 downto 0);
           we        : in  std_logic;
           byte_m    : in  std_logic;
-			 --read_only : in  std_logic;
           -- señales para la placa de desarrollo
           SRAM_ADDR : out   std_logic_vector(17 downto 0);
           SRAM_DQ   : inout std_logic_vector(15 downto 0);
@@ -60,10 +59,7 @@ port (CLOCK_50  : in  std_logic;
 			 mem_align :	out STD_logic;
 			 ---Excepcion acceso memoria sistema sin ser privilegiado---
 			 modo_sistema : IN STD_LOGIC;
-			 --excepcion_prot : OUT STD_LOGIC;
-			 --excepcion_mem_sys : OUT STD_LOGIC;
-				--Aqui mira si la dir era de sys i tu siendo modo usuario 
-			 tlb_sys_user	: OUT STD_LOGIC
+			 excepcion_mem_sys : OUT STD_LOGIC
 			 );
 end COMPONENT;
 
@@ -125,6 +121,7 @@ COMPONENT proc IS
 		  --Excepcion direccion mal alineada
 			 mem_align :	IN STD_logic;
 		---Excepcion memoria systema ilegal
+			excepcion_mem_sys : IN STD_LOGIC;
 			 intr		  : IN STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
          addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -135,8 +132,7 @@ COMPONENT proc IS
 		  addr_io	:	OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 		  rd_in	:	OUT STD_LOGIC;
 		  wr_out	:	OUT STD_LOGIC;
-		  modo_sistema : OUT STD_LOGIC;
-		  tlb_sys_user : IN STD_LOGIC);
+		  modo_sistema : OUT STD_LOGIC);
 END COMPONENT;
 
 
@@ -149,7 +145,7 @@ END COMPONENT;
 	signal counter_div_clk : std_logic_vector(2 downto 0) := "000";
 	signal t_red, t_blue, t_green ,t_addr_io : STD_LOGIC_VECTOR(7 downto 0);
 	signal t_vga_addr :  std_logic_vector(12 downto 0);
-	signal t_inta, t_intr, t_modo_sistema, t_excepcion_mem_sys, tlb_sys_user_t : STD_LOGIC;
+	signal t_inta, t_intr, t_modo_sistema, t_excepcion_mem_sys : STD_LOGIC;
 
 BEGIN
 
@@ -161,13 +157,13 @@ BEGIN
 								vga_addr => t_vga_addr, vga_we => t_vga_we, 
 								vga_wr_data => t_vga_wr_data, vga_rd_data =>t_vga_rd_data , vga_byte_m => t_vga_byte_m,
 								mem_align => t_mem_align, modo_sistema => t_modo_sistema, 
-								tlb_sys_user => tlb_sys_user_t);
+								excepcion_mem_sys => t_excepcion_mem_sys);
 								
 	pro0: proc port map (boot => SW(9), clk => counter_div_clk(2), datard_m => t_datard_m, inta => t_inta, intr => t_intr,
 						word_byte => t_byte_m, wr_m => t_wr_m, addr_m => t_addr_m, data_wr => t_data_wr,
 						rd_io => t_rd_io, addr_io => t_addr_io, rd_in => t_rd_in, wr_out => t_wr_out, wr_io => t_wr_io,
 						mem_align => t_mem_align, modo_sistema => t_modo_sistema,
-						tlb_sys_user => tlb_sys_user_t);
+						excepcion_mem_sys => t_excepcion_mem_sys);
 						
 						
 	io: controlador_IO port map(boot => SW(9), CLOCK_50 => CLOCK_50, addr_io => t_addr_io, clk => counter_div_clk(2),

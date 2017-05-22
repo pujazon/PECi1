@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri May 19 12:17:48 2017
+Analysis & Synthesis Status : Successful - Mon May 22 15:17:55 2017
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : sisa
 Top-level Entity Name : sisa
 Family : Cyclone II
-Total logic elements : 6,320
-    Total combinational functions : 5,334
+Total logic elements : 6,330
+    Total combinational functions : 5,344
     Dedicated logic registers : 1,432
 Total registers : 1432
 Total pins : 114
