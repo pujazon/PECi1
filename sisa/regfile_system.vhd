@@ -49,7 +49,11 @@ BEGIN
 			--Si hay exce/interr se guarda en S2 el code
 			bs(2) <= x"000" & exc_code;
 			bs(0) <= bs(7);
-			bs(1) <= d;
+			if (exc_code = excepcio_6 or exc_code = excepcio_8 or exc_code = excepcio_10) then
+				bs(1) <= d+2;
+			else
+				bs(1) <= d;
+			end if;
 			--a <= bs(5);
 			bs(7)(1) <= '0';
 			bs(7)(0) <= '1'; --BIT INDICA MODO SISTEMA. 
@@ -57,9 +61,6 @@ BEGIN
 			--Guarda en S3 ahora tmb la dir virtual si miss de tlb
 			if (exc_code = excepcio_1 or exc_code = calls_code or exc_code = excepcio_6 or exc_code = excepcio_7) then -- evitamos señal extra para alineamiento incorrecto
 				bs(3) <= addr_m;
-				if (exc_code = excepcio_6 or exc_code = excepcio_7) then
-					bs(1) <= d-2; --Aqui hace el decremento del PC si es un miss de tlb
-				end if;
 			end if;
 			elsif (wrd = '1' and rising_edge(clk)) then -- Si la senyal d'escriptura esta  activa.
 			if (ei = '1') then

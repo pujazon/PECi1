@@ -47,7 +47,8 @@ ENTITY datapath IS
 			 miss_tlbd : OUT STD_LOGIC;
 			 miss_tlbi : OUT STD_LOGIC;
 			 v_i : OUT STD_LOGIC;
-			 v_d : OUT STD_LOGIC
+			 v_d : OUT STD_LOGIC;
+			 r_d : OUT STD_LOGIC
 			 );
 END datapath;
 
@@ -129,7 +130,7 @@ BEGIN
 								miss => miss_tlbi);
 								
 	 tlb_d: tlb port map(clk => clk, boot => boot, vtag => alu_out(15 downto 12), d => reg_b(5 downto 0), ptag => trans_tlbd,
-								addr_d => reg_a(2 downto 0), v => v_d, r => r_t_d, wrd => wrd_tlbd, virt => virtual,
+								addr_d => reg_a(2 downto 0), v => v_d, r => r_d, wrd => wrd_tlbd, virt => virtual,
 								miss => miss_tlbd);
 	 
 

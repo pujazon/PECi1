@@ -48,10 +48,12 @@ ENTITY control_l IS
 			 miss_tlbi : IN STD_LOGIC;
 			 v_i : IN STD_LOGIC;
 			 v_d : IN STD_LOGIC;
+			 r_d : IN STD_LOGIC;
 			 excp_miss_tlbi : OUT STD_LOGIC;
 			 excp_miss_tlbd : OUT STD_LOGIC;
 			 excp_v_tlbi : OUT STD_LOGIC;
-			 excp_v_tlbd : OUT STD_LOGIC
+			 excp_v_tlbd : OUT STD_LOGIC;
+			 excp_r_tlbd : OUT STD_LOGIC
 			 );
 END control_l;
 
@@ -129,7 +131,7 @@ BEGIN
 	 immed <= (7 downto 0 => ir(7)) & ir(7 downto 0) when opcode = opcode_mov or opcode = opcode_br
 				else (9 downto 0 => ir(5)) & ir(5 downto 0);
  
-	 wr_m <= '1' when opcode = opcode_st or opcode = opcode_stb
+	 wr_m <= '1' when (opcode = opcode_st or opcode = opcode_stb) and r_d = '0' and v_d = '1'
 						else '0';
 						
 	 in_d <= "01" when opcode = opcode_ld or opcode = opcode_ldb else
@@ -171,10 +173,10 @@ BEGIN
 	a_sys <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_rds or ir(4 downto 0) = f_reti)
 				else '0';
 
-	wrd_tlbd <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_wrpd or ir(4 downto 0) = f_wrvd)
+	wrd_tlbd <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_wrpd or ir(4 downto 0) = f_wrvd) and modo_sistema = '1'
 					else '0';
 					
-	wrd_tlbi <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_wrpi or ir(4 downto 0) = f_wrvi)
+	wrd_tlbi <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_wrpi or ir(4 downto 0) = f_wrvi) and modo_sistema = '1'
 					else '0';
 	
 	virtual <= '1' when opcode = opcode_sys and (ir(4 downto 0) = f_wrvd or ir(4 downto 0) = f_wrvi)
@@ -219,4 +221,7 @@ BEGIN
 	excp_v_tlbd <= '1' when v_d = '0' and (opcode = opcode_st or opcode = opcode_stb or opcode = opcode_ld or opcode = opcode_ldb) else
 							'0'; 
 
+							
+	excp_r_tlbd <= '1' when r_d = '1' and (opcode = opcode_st or opcode = opcode_stb) else
+						'0';
 END Structure;

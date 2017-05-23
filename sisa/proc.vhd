@@ -73,7 +73,8 @@ COMPONENT unidad_control IS
 			 miss_tlbd : IN STD_LOGIC;
 			 miss_tlbi : IN STD_LOGIC;
 			 v_i : IN STD_LOGIC;
-			 v_d : IN STD_LOGIC
+			 v_d : IN STD_LOGIC;
+			 r_d : IN STD_LOGIC
 			 );
 END COMPONENT;
 
@@ -118,7 +119,8 @@ COMPONENT datapath IS
 			 miss_tlbd : OUT STD_LOGIC;
 			 miss_tlbi : OUT STD_LOGIC;
 			 v_i : OUT STD_LOGIC;
-			 v_d : OUT STD_LOGIC
+			 v_d : OUT STD_LOGIC;
+			 r_d : OUT STD_LOGIC
 			 );
 END COMPONENT;
 		signal t_rd_in, t_in_op_mux, t_wrd, t_ins_dad, t_immed_x2, t_wr_m, t_word_byte, t_br_n, t_z : STD_LOGIC;
@@ -130,7 +132,7 @@ END COMPONENT;
 		signal t_ei, t_di,t_reti, t_a_sys, t_wrd_rsys, t_instr_il, t_div_zero,miss_tlbd_t, miss_tlbi_t : STD_LOGIC;
 		signal intr_sys_t, int_enable_t, t_modo_sistema, wrd_tlbi_t, wrd_tlbd_t, virtual_t : STD_LOGIC;
 		signal exc_code_t: STD_LOGIC_VECTOR(3 downto 0);
-		signal v_i_t, v_d_t : STD_LOGIC;
+		signal v_i_t, v_d_t, r_d_t : STD_LOGIC;
 	 
 BEGIN
 
@@ -144,7 +146,7 @@ BEGIN
 											excepcion_mem_sys => excepcion_mem_sys, modo_sistema => t_modo_sistema,
 											wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual_t,
 											miss_tlbd => miss_tlbd_t, miss_tlbi => miss_tlbi_t,
-											v_i => v_i_t, v_d => v_d_t);
+											v_i => v_i_t, v_d => v_d_t, r_d => r_d_t);
 
 	e0: datapath port map(	clk => clk, op => t_op, f => t_f, wrd => t_wrd, in_op_mux => t_in_op_mux, addr_a => t_addr_a, 
 									addr_b => t_addr_b, addr_d => t_addr_d, immed => t_immed, aluout => t_aluout, rd_io => rd_io,
@@ -155,7 +157,7 @@ BEGIN
 									int_enable => int_enable_t, boot => boot, modo_sistema => t_modo_sistema,
 									wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual_t,
 									miss_tlbd => miss_tlbd_t, miss_tlbi => miss_tlbi_t,
-									v_i => v_i_t, v_d => v_d_t);
+									v_i => v_i_t, v_d => v_d_t, r_d => r_d_t);
 											
 	wr_m <= t_wr_m;
 	modo_sistema <= t_modo_sistema;

@@ -37,7 +37,9 @@ package const_control is
 	constant excepcio_7 : STD_logic_vector := "0111";	
 	constant excepcio_9 : STD_logic_vector := "1001";
 	constant excepcio_8 : STD_logic_vector := "1000";	
+	constant excepcio_10 : STD_LOGIC_VECTOR := "1100";
 	constant excepcio_11 : STD_logic_vector := "1011";
+	constant excepcio_12 : STD_logic_vector := "1100";
 	constant excepcio_13 : STD_logic_vector := "1101";
 	constant calls_code : std_logic_vector := "1110";
 	constant NO_HAY_EXCEPCION : std_logic_vector := "0011"; --EN REALIDAD DA IGUAL EL CODIGO DE ESSTE

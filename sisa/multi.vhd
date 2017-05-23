@@ -12,18 +12,10 @@ port(clk       : IN  STD_LOGIC;
          wr_m_l    : IN  STD_LOGIC;
          w_b       : IN  STD_LOGIC;
 			--------TLB------------------
-			excp_miss_tlbd_l : IN STD_LOGIC;
 			excp_miss_tlbi_l : IN STD_LOGIC;
-			excp_miss_tlbd : OUT STD_LOGIC;
-			excp_miss_tlbi : OUT STD_LOGIC;
-			excp_v_tlbd_l : IN STD_LOGIC;
 			excp_v_tlbi_l : IN STD_LOGIC;
-			excp_v_tlbi : OUT STD_LOGIC;
-			excp_v_tlbd : OUT STD_LOGIC;
-			wrd_tlbi : OUT STD_LOGIC;
-			wrd_tlbd : OUT STD_LOGIC;
-			wrd_tlbi_l : IN STD_LOGIC;
-			wrd_tlbd_l : IN STD_LOGIC;
+			---FALTA EL DE MEMORIA---
+			
 			--Signals para instrucciones de sistema-----
 			ei_l 	  : IN  STD_LOGIC;
 			di_l 	  : IN  STD_LOGIC;
@@ -46,7 +38,11 @@ port(clk       : IN  STD_LOGIC;
 			 a_sys	 : OUT STD_LOGIC;
 			 intr_sys : OUT STD_LOGIC;
 			 inta : OUT STD_LOGIC;
-			 inta_l : IN STD_LOGIC
+			 inta_l : IN STD_LOGIC;
+			 wrd_tlbi : OUT STD_LOGIC;
+			 wrd_tlbd : OUT STD_LOGIC;
+			 wrd_tlbi_l : IN STD_LOGIC;
+			 wrd_tlbd_l : IN STD_LOGIC
 			 ---------------------------------------------		
 			 );
 end entity;
@@ -54,26 +50,16 @@ end entity;
 architecture Structure of multi is
 
     signal estado : ESTADO;
+	 signal fetch_sys : std_LOGIC := '0';
 
 begin
 
-	with estado select
-		excp_v_tlbd <= excp_v_tlbd_l when DEMW,
-				  '0' when others;
-	with estado select
-		excp_v_tlbi <= excp_v_tlbi_l when DEMW,
-				  '0' when others;
+
+
+
 	with estado select
 		ei <= ei_l when DEMW,
-				  '0' when others;
-				  
-	with estado select
-		excp_miss_tlbd <= excp_miss_tlbd_l when DEMW,
-				  '0' when others;		
-	
-	with estado select
-		excp_miss_tlbi <= excp_miss_tlbi_l when DEMW,
-				  '0' when others;				  
+				  '0' when others;			  
 				  
 				  
 	with estado select
@@ -135,6 +121,8 @@ begin
 		wrd_tlbi <= wrd_tlbi_l when DEMW,
 						'0' when others;
 						
+	fetch_sys <= '1' when (excp_miss_tlbi_l = '1' or excp_v_tlbi_l = '1') else '0';
+						
 	-- Graf d'estats
    process(clk, boot)
 	begin
@@ -144,8 +132,11 @@ begin
 		elsif (rising_edge(clk)) then
 			case estado is
 				when FETCH =>
-					estado <= DEMW;
-					
+					if (fetch_sys = '0') then
+						estado <= DEMW;
+					else
+						estado <= SYS;
+					end if;					
 				when DEMW =>
 					if (system = '0') then 
 						estado <= FETCH;
