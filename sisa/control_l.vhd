@@ -4,7 +4,7 @@ USE work.const_control.all;
 USE work.const_logic.all;
 
 ENTITY control_l IS
-   PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+    PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 z			  : IN  STD_LOGIC;
 			 intr		  : IN  STD_LOGIC;
 			 int_enable : IN STD_LOGIC;
@@ -53,11 +53,7 @@ ENTITY control_l IS
 			 excp_miss_tlbd : OUT STD_LOGIC;
 			 excp_v_tlbi : OUT STD_LOGIC;
 			 excp_v_tlbd : OUT STD_LOGIC;
-			 excp_r_tlbd : OUT STD_LOGIC;
-			 pag_sys_i : IN STD_LOGIC;
-			 pag_sys_d : IN STD_LOGIC;
-			 excp_psys_i : OUT STD_LOGIC;
-			 excp_psys_d : OUT STD_LOGIC
+			 excp_r_tlbd : OUT STD_LOGIC
 			 );
 END control_l;
 
@@ -228,10 +224,4 @@ BEGIN
 							
 	excp_r_tlbd <= '1' when r_d = '1' and (opcode = opcode_st or opcode = opcode_stb) else
 						'0';
-						
-	excp_psys_i <= '1' when (pag_sys_i = '1' and modo_sistema = '0') else '0';
-	
-	excp_psys_d <= '1' when ((pag_sys_d = '1' and modo_sistema = '0'and (opcode = opcode_st or opcode = opcode_stb or opcode = opcode_ld or opcode = opcode_ldb))) else '0';
-	
-	
 END Structure;

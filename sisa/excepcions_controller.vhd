@@ -11,7 +11,6 @@ ENTITY excepcions_controller IS
 			mem_align :	IN STD_LOGIC;
 			div_zero : IN STD_LOGIC;
 			system_l:	IN STD_LOGIC;
-			excepcion_mem_sys : IN STD_LOGIC;
 			exc_instr_sys : IN STD_LOGIC;
 			sys_call_b : IN STD_LOGIC;
 			excp_miss_tlbd : IN STD_LOGIC;
@@ -19,8 +18,8 @@ ENTITY excepcions_controller IS
 			excp_v_tlbi : IN STD_LOGIC;
 			excp_v_tlbd : IN STD_LOGIC;
 			excp_r_tlbd : IN STD_LOGIC;
-			excp_psys_i : IN STD_LOGIC;
-			excp_psys_d : IN STD_LOGIC;
+			excp_sys_tlbi : IN STD_LOGIC;
+			excp_sys_tlbd : IN STD_LOGIC;
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
 	);
@@ -38,15 +37,14 @@ BEGIN
 	
 	code_excep <= excepcio_6 when excp_miss_tlbi = '1' else
 					  excepcio_7 when excp_miss_tlbd = '1' else
-					  excepcio_10 when excp_psys_i = '1' else
-					  excepcio_11 when excp_psys_d = '1' else
 					  excepcio_12 when excp_r_tlbd = '1' else
 					  excepcio_0 when instr_il = '1' else
 					  excepcio_1 when mem_align = '1' else
 					  excepcio_4 when div_zero = '1' else
 					  excepcio_8 when excp_v_tlbi = '1' else
 					  excepcio_9 when excp_v_tlbd = '1' else					  
-					  excepcio_11 when excepcion_mem_sys = '1' else
+					  excepcio_11 when excp_sys_tlbi = '1' else
+					  excepcio_10 when excp_sys_tlbd = '1' else
 					  excepcio_13 when exc_instr_sys = '1' else
 					  calls_code when sys_call_b = '1' else
 					  interrupcio_code when system_l = '1' else
@@ -55,7 +53,7 @@ BEGIN
 	--intr_sys sera el signal que le dira al regS si hay interr/excep o no. Lo ponemos aqui i no en interr_controller
 	--PQ este es el que mria si hay excep pero tmb interr
 	
-	system_t <= '1' when (excp_psys_i = '1' or excp_psys_d = '1' or system_l = '1' or instr_il = '1' or mem_align = '1' or div_zero = '1' or sys_call_b ='1' or excp_miss_tlbi = '1' or excp_miss_tlbd = '1' or excp_v_tlbd = '1' or excp_v_tlbi = '1' or excp_r_tlbd = '1') else
+	system_t <= '1' when (excp_sys_tlbi = '1' or excp_sys_tlbd = '1' or system_l = '1' or instr_il = '1' or mem_align = '1' or div_zero = '1' or sys_call_b ='1' or excp_miss_tlbi = '1' or excp_miss_tlbd = '1' or excp_v_tlbd = '1' or excp_v_tlbi = '1' or excp_r_tlbd = '1') else
 					'0';
 					
 	system <= system_t;

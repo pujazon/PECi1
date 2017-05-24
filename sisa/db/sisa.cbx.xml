@@ -1,15 +1,11 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="sisa">
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult0|mult_1ht:auto_generated|alt_mac_out:mac_out2" CBX_FILE_NAME="mac_out_kv82.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult1|mult_t9t:auto_generated|alt_mac_mult:mac_mult1" CBX_FILE_NAME="mac_mult_fdh1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|altsyncram:mem0_rtl_0" CBX_FILE_NAME="altsyncram_67h1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_fom.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult0" CBX_FILE_NAME="mult_1ht.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult0|mult_1ht:auto_generated|alt_mac_mult:mac_mult1" CBX_FILE_NAME="mac_mult_r2h1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult1|mult_t9t:auto_generated|alt_mac_out:mac_out2" CBX_FILE_NAME="mac_out_kv82.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|altsyncram:mem1_rtl_0" CBX_FILE_NAME="altsyncram_67h1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_76p.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult1" CBX_FILE_NAME="mult_t9t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_rto.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult1" CBX_FILE_NAME="mult_h1t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|altsyncram:mem0_rtl_0" CBX_FILE_NAME="altsyncram_qug1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_3gm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|proc:pro0|datapath:e0|alu:alu0|mul_alu:mul_alu0|lpm_mult:Mult0" CBX_FILE_NAME="mult_l8t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|vga_controller:vga|vga_ram_dual:U_MonitorRam|altsyncram:mem1_rtl_0" CBX_FILE_NAME="altsyncram_qug1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

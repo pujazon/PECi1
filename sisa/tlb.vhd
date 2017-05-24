@@ -16,8 +16,7 @@ PORT (
 	virt : IN STD_LOGIC;
 	v    : OUT STD_LOGIC;
 	miss : OUT STD_LOGIC;
-	r    : OUT STD_LOGIC;
-	pagina_sys: OUT STD_LOGIC
+	r    : OUT STD_LOGIC
 );
 
 END tlb;
@@ -44,8 +43,6 @@ BEGIN
 				 6 when vtlb(6) = vtag else
 				 7 when vtlb(7) = vtag else
 				 8;
-			
-	pagina_sys <= '1' when (vtag(3) = '1') else '0';
 	 
 	 ptag <= ptlb(t_addr)(3 downto 0) when t_addr /= 8 else
 				"0000";
