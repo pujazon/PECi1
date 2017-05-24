@@ -52,7 +52,9 @@ ENTITY unidad_control IS
 			 miss_tlbi : IN STD_LOGIC;
 			 v_i : IN STD_LOGIC;
 			 v_d : IN STD_LOGIC;
-			 r_d : IN STD_LOGIC
+			 r_d : IN STD_LOGIC;
+			 pag_sys_i : IN STD_LOGIC;
+			 pag_sys_d : IN STD_LOGIC
 			 );
 END unidad_control;
 
@@ -109,7 +111,11 @@ COMPONENT control_l IS
 			 excp_miss_tlbd : OUT STD_LOGIC;
 			 excp_v_tlbi : OUT STD_LOGIC;
 			 excp_v_tlbd : OUT STD_LOGIC;
-			 excp_r_tlbd : OUT STD_LOGIC
+			 excp_r_tlbd : OUT STD_LOGIC;
+			 pag_sys_i : IN STD_LOGIC;
+			 pag_sys_d : IN STD_LOGIC;
+			 excp_psys_i : OUT STD_LOGIC;
+			 excp_psys_d : OUT STD_LOGIC
 			 );
 END COMPONENT;
 		
@@ -128,52 +134,55 @@ END COMPONENT;
 			excp_v_tlbi : IN STD_LOGIC;
 			excp_v_tlbd : IN STD_LOGIC;
 			excp_r_tlbd : IN STD_LOGIC;
+			excp_psys_i : IN STD_LOGIC;
+			excp_psys_d : IN STD_LOGIC;
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
 	);
 	END COMPONENT;	
 	
 	COMPONENT multi is
-port(clk       : IN  STD_LOGIC;
-	 	   system 	 : in STD_LOGIC; 
-         boot      : IN  STD_LOGIC;
-			wrout_l  : IN STD_LOGIC;
-         ldpc_l    : IN  STD_LOGIC;
-         wrd_l     : IN  STD_LOGIC;
-         wr_m_l    : IN  STD_LOGIC;
-         w_b       : IN  STD_LOGIC;
-			--------TLB------------------
-			excp_miss_tlbi_l : IN STD_LOGIC;
-			excp_v_tlbi_l : IN STD_LOGIC;
-			--Signals para instrucciones de sistema-----
-			ei_l 	  : IN  STD_LOGIC;
-			di_l 	  : IN  STD_LOGIC;
-			reti_l	  : IN  STD_LOGIC;
-			wrd_rsys_l : IN STD_LOGIC; 
-			a_sys_l	 : IN STD_LOGIC;
-			 ---------------------------------------------	
-         ldpc      : OUT STD_LOGIC;
-         wrd       : OUT STD_LOGIC;
-         wr_m      : OUT STD_LOGIC;
-         ldir      : OUT STD_LOGIC;
-         ins_dad   : OUT STD_LOGIC;
-			wr_out	 : OUT STD_LOGIC;
-         word_byte : OUT STD_LOGIC;
-			 --Signals para instrucciones de sistema-----
-			 ei 	  : OUT  STD_LOGIC;
-			 di 	  : OUT  STD_LOGIC;
-			 reti	  : OUT  STD_LOGIC;
-			 wrd_rsys : OUT STD_LOGIC;
-			 a_sys	 : OUT STD_LOGIC;
-			 intr_sys : OUT STD_LOGIC;
-			 inta : OUT STD_LOGIC;
-			 inta_l : IN STD_LOGIC;
-			 wrd_tlbi : OUT STD_LOGIC;
-			 wrd_tlbd : OUT STD_LOGIC;
-			 wrd_tlbi_l : IN STD_LOGIC;
-			 wrd_tlbd_l : IN STD_LOGIC
-			 ---------------------------------------------		
-			 );
+	port(clk       : IN  STD_LOGIC;
+				system 	 : in STD_LOGIC; 
+				boot      : IN  STD_LOGIC;
+				wrout_l  : IN STD_LOGIC;
+				ldpc_l    : IN  STD_LOGIC;
+				wrd_l     : IN  STD_LOGIC;
+				wr_m_l    : IN  STD_LOGIC;
+				w_b       : IN  STD_LOGIC;
+				--------TLB------------------
+				excp_miss_tlbi_l : IN STD_LOGIC;
+				excp_v_tlbi_l : IN STD_LOGIC;
+				excp_psys_i_l : IN STD_LOGIC;
+				--Signals para instrucciones de sistema-----
+				ei_l 	  : IN  STD_LOGIC;
+				di_l 	  : IN  STD_LOGIC;
+				reti_l	  : IN  STD_LOGIC;
+				wrd_rsys_l : IN STD_LOGIC; 
+				a_sys_l	 : IN STD_LOGIC;
+				 ---------------------------------------------	
+				ldpc      : OUT STD_LOGIC;
+				wrd       : OUT STD_LOGIC;
+				wr_m      : OUT STD_LOGIC;
+				ldir      : OUT STD_LOGIC;
+				ins_dad   : OUT STD_LOGIC;
+				wr_out	 : OUT STD_LOGIC;
+				word_byte : OUT STD_LOGIC;
+				 --Signals para instrucciones de sistema-----
+				 ei 	  : OUT  STD_LOGIC;
+				 di 	  : OUT  STD_LOGIC;
+				 reti	  : OUT  STD_LOGIC;
+				 wrd_rsys : OUT STD_LOGIC;
+				 a_sys	 : OUT STD_LOGIC;
+				 intr_sys : OUT STD_LOGIC;
+				 inta : OUT STD_LOGIC;
+				 inta_l : IN STD_LOGIC;
+				 wrd_tlbi : OUT STD_LOGIC;
+				 wrd_tlbd : OUT STD_LOGIC;
+				 wrd_tlbi_l : IN STD_LOGIC;
+				 wrd_tlbd_l : IN STD_LOGIC
+				 ---------------------------------------------		
+				 );
 	end COMPONENT;
 
     -- Aqui iria la declaracion de las entidades que vamos a usar
@@ -185,7 +194,7 @@ port(clk       : IN  STD_LOGIC;
 	 signal ir, new_pc, pc_calc_t, pc_calc, t_immed : std_logic_vector(15 downto 0);
 	 signal tknbr : std_logic_vector(1 downto 0);
 	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys : STD_LOGIC;
-	 signal intr_sys_t, inta_t, instr_il_t : STD_LOGIC;
+	 signal intr_sys_t, inta_t, instr_il_t,excp_psys_i_t,excp_psys_d_t : STD_LOGIC;
 	 signal sys_call_b_t, t_exc_instr_sys, excp_r_tlbd_tt : STD_LOGIC;
 	 signal wrd_tlbd_t, wrd_tlbi_t, excp_r_tlbd_t : STD_LOGIC;
 	 signal excp_v_tlbd_t, excp_v_tlbi_t, excp_v_tlbi_tt, excp_v_tlbd_tt : STD_LOGIC;
@@ -203,7 +212,8 @@ BEGIN
 													exc_instr_sys => t_exc_instr_sys,
 													excp_miss_tlbd => excp_miss_tlbd_t, excp_miss_tlbi => excp_miss_tlbi_t,
 													excp_v_tlbd => excp_v_tlbd_t,excp_v_tlbi => excp_v_tlbi_t,
-													excp_r_tlbd => excp_r_tlbd_t);
+													excp_r_tlbd => excp_r_tlbd_t, excp_psys_d => excp_psys_d_t,
+													excp_psys_i => excp_psys_i_t);
 	 
 	 c0: control_l port map (ir => ir, op => op, f => f, ldpc => ldpc_c, wrd => wrd_c, addr_a => addr_a, addr_b => addr_b,
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
@@ -216,7 +226,8 @@ BEGIN
 									 exc_instr_sys => t_exc_instr_sys, miss_tlbd => miss_tlbd, miss_tlbi => miss_tlbi,
 									 excp_miss_tlbd => excp_miss_tlbd_t, excp_miss_tlbi => excp_miss_tlbi_t,
 									 v_i => v_i, v_d => v_d, excp_v_tlbd => excp_v_tlbd_t, excp_v_tlbi => excp_v_tlbi_t,
-									 r_d => r_d, excp_r_tlbd => excp_r_tlbd_t);
+									 r_d => r_d, excp_r_tlbd => excp_r_tlbd_t, pag_sys_i => pag_sys_i, pag_sys_d => pag_sys_d,
+									 excp_psys_i => excp_psys_i_t, excp_psys_d => excp_psys_d_t);
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
@@ -226,7 +237,8 @@ BEGIN
 								system => t_system, ins_dad => ins_dad, word_byte => word_byte,
 								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys,
 								wrd_tlbd_l => wrd_tlbd_t, wrd_tlbd => wrd_tlbd, wrd_tlbi_l => wrd_tlbi_t, wrd_tlbi => wrd_tlbi,
-								excp_v_tlbi_l => excp_v_tlbi_t, excp_miss_tlbi_l => excp_miss_tlbi_t);
+								excp_v_tlbi_l => excp_v_tlbi_t, excp_miss_tlbi_l => excp_miss_tlbi_t,
+								excp_psys_i_l => excp_psys_i_t);
 	 
 	 process(clk, boot, load_pc)
 		begin

@@ -48,7 +48,9 @@ ENTITY datapath IS
 			 miss_tlbi : OUT STD_LOGIC;
 			 v_i : OUT STD_LOGIC;
 			 v_d : OUT STD_LOGIC;
-			 r_d : OUT STD_LOGIC
+			 r_d : OUT STD_LOGIC;
+			 pag_sys_i : OUT STD_LOGIC;
+			 pag_sys_d : OUT STD_LOGIC
 			 );
 END datapath;
 
@@ -107,8 +109,10 @@ ARCHITECTURE Structure OF datapath IS
 		virt : IN STD_LOGIC;
 		v    : OUT STD_LOGIC;
 		miss : OUT STD_LOGIC;
-		r    : OUT STD_LOGIC
+		r    : OUT STD_LOGIC;
+		pagina_sys: OUT STD_LOGIC
 	);
+
 
 	END COMPONENT;
 	
@@ -127,11 +131,11 @@ BEGIN
 	
 	 tlb_i: tlb port map(clk => clk, boot => boot, vtag => pc(15 downto 12), d => reg_b(5 downto 0), ptag => trans_tlbi,
 								addr_d => reg_a(2 downto 0), v => v_i, r => r_t_i, wrd => wrd_tlbi, virt => virtual,
-								miss => miss_tlbi);
+								miss => miss_tlbi, pagina_sys => pag_sys_i);
 								
 	 tlb_d: tlb port map(clk => clk, boot => boot, vtag => alu_out(15 downto 12), d => reg_b(5 downto 0), ptag => trans_tlbd,
 								addr_d => reg_a(2 downto 0), v => v_d, r => r_d, wrd => wrd_tlbd, virt => virtual,
-								miss => miss_tlbd);
+								miss => miss_tlbd, pagina_sys => pag_sys_d);
 	 
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes

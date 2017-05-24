@@ -17,9 +17,9 @@
 --  applicable agreement for further details.
 
 
-FUNCTION alt_u_div_s5f (denominator[15..0], numerator[15..0])
+FUNCTION alt_u_div_8ef (denominator[15..0], numerator[15..0])
 RETURNS ( quotient[15..0], remainder[15..0]);
-FUNCTION lpm_abs_2s9 (data[15..0])
+FUNCTION lpm_abs_e4a (data[15..0])
 RETURNS ( overflow, result[15..0]);
 
 --synthesis_resources = lut 64 
@@ -31,9 +31,9 @@ SUBDESIGN abs_divider_8dg
 	remainder[15..0]	:	output;
 ) 
 VARIABLE 
-	divider : alt_u_div_s5f;
-	my_abs_den : lpm_abs_2s9;
-	my_abs_num : lpm_abs_2s9;
+	divider : alt_u_div_8ef;
+	my_abs_den : lpm_abs_e4a;
+	my_abs_num : lpm_abs_e4a;
 	compl_add_quot_result_int[16..0]	:	WIRE;
 	compl_add_quot_cin	:	WIRE;
 	compl_add_quot_dataa[15..0]	:	WIRE;

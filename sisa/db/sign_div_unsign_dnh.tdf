@@ -17,7 +17,7 @@
 --  applicable agreement for further details.
 
 
-FUNCTION alt_u_div_s5f (denominator[15..0], numerator[15..0])
+FUNCTION alt_u_div_8ef (denominator[15..0], numerator[15..0])
 RETURNS ( quotient[15..0], remainder[15..0]);
 
 --synthesis_resources = lut 147 
@@ -29,7 +29,7 @@ SUBDESIGN sign_div_unsign_dnh
 	remainder[15..0]	:	output;
 ) 
 VARIABLE 
-	divider : alt_u_div_s5f;
+	divider : alt_u_div_8ef;
 	norm_num[15..0]	: WIRE;
 	protect_quotient[15..0]	: WIRE;
 	protect_remainder[15..0]	: WIRE;

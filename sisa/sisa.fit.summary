@@ -1,0 +1,20 @@
+Fitter Status : Successful - Wed May 24 17:18:03 2017
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : sisa
+Top-level Entity Name : sisa
+Family : Cyclone IV GX
+Device : EP4CGX22CF19C6
+Timing Models : Final
+Total logic elements : 6,462 / 21,280 ( 30 % )
+    Total combinational functions : 6,003 / 21,280 ( 28 % )
+    Dedicated logic registers : 1,456 / 21,280 ( 7 % )
+Total registers : 1456
+Total pins : 114 / 167 ( 68 % )
+Total virtual pins : 0
+Total memory bits : 65,536 / 774,144 ( 8 % )
+Embedded Multiplier 9-bit elements : 0 / 80 ( 0 % )
+Total GXB Receiver Channel PCS : 0 / 4 ( 0 % )
+Total GXB Receiver Channel PMA : 0 / 4 ( 0 % )
+Total GXB Transmitter Channel PCS : 0 / 4 ( 0 % )
+Total GXB Transmitter Channel PMA : 0 / 4 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

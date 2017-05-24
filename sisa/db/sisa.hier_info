@@ -881,6 +881,8 @@ miss_tlbi => control_l:c0.miss_tlbi
 v_i => control_l:c0.v_i
 v_d => control_l:c0.v_d
 r_d => control_l:c0.r_d
+pag_sys_i => control_l:c0.pag_sys_i
+pag_sys_d => control_l:c0.pag_sys_d
 
 
 |sisa|proc:pro0|unidad_control:c0|excepcions_controller:e0
@@ -892,7 +894,7 @@ instr_il => code_excep.OUTPUTSELECT
 instr_il => code_excep.OUTPUTSELECT
 instr_il => code_excep.OUTPUTSELECT
 instr_il => code_excep.OUTPUTSELECT
-instr_il => system_t.IN0
+instr_il => system_t.IN1
 mem_align => code_excep.OUTPUTSELECT
 mem_align => code_excep.OUTPUTSELECT
 mem_align => code_excep.OUTPUTSELECT
@@ -940,6 +942,16 @@ excp_r_tlbd => code_excep.OUTPUTSELECT
 excp_r_tlbd => code_excep.OUTPUTSELECT
 excp_r_tlbd => code_excep.OUTPUTSELECT
 excp_r_tlbd => system_t.IN1
+excp_psys_i => code_excep.OUTPUTSELECT
+excp_psys_i => code_excep.OUTPUTSELECT
+excp_psys_i => code_excep.OUTPUTSELECT
+excp_psys_i => code_excep.OUTPUTSELECT
+excp_psys_i => system_t.IN0
+excp_psys_d => code_excep.OUTPUTSELECT
+excp_psys_d => code_excep.OUTPUTSELECT
+excp_psys_d => code_excep.OUTPUTSELECT
+excp_psys_d => code_excep.OUTPUTSELECT
+excp_psys_d => system_t.IN1
 exc_code[0] <= exc_code[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 exc_code[1] <= exc_code[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 exc_code[2] <= exc_code[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -1201,6 +1213,8 @@ modo_sistema => wrd_rsys.IN1
 modo_sistema => wrd_tlbd.IN1
 modo_sistema => wrd_tlbi.IN1
 modo_sistema => exc_instr_sys.IN1
+modo_sistema => excp_psys_i.IN0
+modo_sistema => excp_psys_d.IN0
 inta <= inta.DB_MAX_OUTPUT_PORT_TYPE
 op[0] <= op.DB_MAX_OUTPUT_PORT_TYPE
 op[1] <= op.DB_MAX_OUTPUT_PORT_TYPE
@@ -1280,6 +1294,10 @@ excp_miss_tlbd <= excp_miss_tlbd.DB_MAX_OUTPUT_PORT_TYPE
 excp_v_tlbi <= v_i.DB_MAX_OUTPUT_PORT_TYPE
 excp_v_tlbd <= excp_v_tlbd.DB_MAX_OUTPUT_PORT_TYPE
 excp_r_tlbd <= excp_r_tlbd.DB_MAX_OUTPUT_PORT_TYPE
+pag_sys_i => excp_psys_i.IN1
+pag_sys_d => excp_psys_d.IN1
+excp_psys_i <= excp_psys_i.DB_MAX_OUTPUT_PORT_TYPE
+excp_psys_d <= excp_psys_d.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |sisa|proc:pro0|unidad_control:c0|multi:m0
@@ -1294,6 +1312,7 @@ wr_m_l => wr_m.DATAB
 w_b => word_byte.DATAB
 excp_miss_tlbi_l => fetch_sys.IN0
 excp_v_tlbi_l => fetch_sys.IN1
+excp_psys_i_l => fetch_sys.IN1
 ei_l => ei.DATAB
 di_l => di.DATAB
 reti_l => reti.DATAB
@@ -1683,6 +1702,8 @@ miss_tlbi <= tlb:tlb_i.miss
 v_i <= tlb:tlb_i.v
 v_d <= tlb:tlb_d.v
 r_d <= tlb:tlb_d.r
+pag_sys_i <= tlb:tlb_i.pagina_sys
+pag_sys_d <= tlb:tlb_d.pagina_sys
 
 
 |sisa|proc:pro0|datapath:e0|tlb:tlb_i
@@ -1878,6 +1899,7 @@ vtag[3] => Equal4.IN0
 vtag[3] => Equal5.IN0
 vtag[3] => Equal6.IN0
 vtag[3] => Equal7.IN0
+vtag[3] => pagina_sys.DATAIN
 ptag[0] <= ptag.DB_MAX_OUTPUT_PORT_TYPE
 ptag[1] <= ptag.DB_MAX_OUTPUT_PORT_TYPE
 ptag[2] <= ptag.DB_MAX_OUTPUT_PORT_TYPE
@@ -2128,6 +2150,7 @@ virt => ptlb.OUTPUTSELECT
 v <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
 miss <= Equal8.DB_MAX_OUTPUT_PORT_TYPE
 r <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+pagina_sys <= vtag[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |sisa|proc:pro0|datapath:e0|tlb:tlb_d
@@ -2323,6 +2346,7 @@ vtag[3] => Equal4.IN0
 vtag[3] => Equal5.IN0
 vtag[3] => Equal6.IN0
 vtag[3] => Equal7.IN0
+vtag[3] => pagina_sys.DATAIN
 ptag[0] <= ptag.DB_MAX_OUTPUT_PORT_TYPE
 ptag[1] <= ptag.DB_MAX_OUTPUT_PORT_TYPE
 ptag[2] <= ptag.DB_MAX_OUTPUT_PORT_TYPE
@@ -2573,6 +2597,7 @@ virt => ptlb.OUTPUTSELECT
 v <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
 miss <= Equal8.DB_MAX_OUTPUT_PORT_TYPE
 r <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+pagina_sys <= vtag[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |sisa|proc:pro0|datapath:e0|regfile:reg0

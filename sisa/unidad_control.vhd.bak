@@ -46,7 +46,15 @@ ENTITY unidad_control IS
 			 exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			 wrd_tlbi : OUT STD_LOGIC;
 			 wrd_tlbd : OUT STD_LOGIC;
-			 virtual  : OUT STD_LOGIC
+			 virtual  : OUT STD_LOGIC;
+			-----------TLB------------
+			 miss_tlbd : IN STD_LOGIC;
+			 miss_tlbi : IN STD_LOGIC;
+			 v_i : IN STD_LOGIC;
+			 v_d : IN STD_LOGIC;
+			 r_d : IN STD_LOGIC;
+			 pag_sys_i : IN STD_LOGIC;
+			 pag_sys_d : IN STD_LOGIC
 			 );
 END unidad_control;
 
@@ -93,7 +101,21 @@ COMPONENT control_l IS
 			 sys_call_b	: OUT STD_LOGIC;
 			 wrd_tlbi : OUT STD_LOGIC;
 			 wrd_tlbd : OUT STD_LOGIC;
-			 virtual  : OUT STD_LOGIC
+			 virtual  : OUT STD_LOGIC;
+			 miss_tlbd : IN STD_LOGIC;
+			 miss_tlbi : IN STD_LOGIC;
+			 v_i : IN STD_LOGIC;
+			 v_d : IN STD_LOGIC;
+			 r_d : IN STD_LOGIC;
+			 excp_miss_tlbi : OUT STD_LOGIC;
+			 excp_miss_tlbd : OUT STD_LOGIC;
+			 excp_v_tlbi : OUT STD_LOGIC;
+			 excp_v_tlbd : OUT STD_LOGIC;
+			 excp_r_tlbd : OUT STD_LOGIC;
+			 pag_sys_i : IN STD_LOGIC;
+			 pag_sys_d : IN STD_LOGIC;
+			 excp_psys_i : OUT STD_LOGIC;
+			 excp_psys_d : OUT STD_LOGIC
 			 );
 END COMPONENT;
 		
@@ -107,13 +129,19 @@ END COMPONENT;
 			excepcion_mem_sys : IN STD_LOGIC;
 			exc_instr_sys : IN STD_LOGIC;
 			sys_call_b : IN STD_LOGIC;
+			excp_miss_tlbd : IN STD_LOGIC;
+			excp_miss_tlbi : IN STD_LOGIC;
+			excp_v_tlbi : IN STD_LOGIC;
+			excp_v_tlbd : IN STD_LOGIC;
+			excp_r_tlbd : IN STD_LOGIC;
+			excp_psys_d : IN STD_LOGIC;
 			exc_code : OUT STD_LOGIC_VECTOR(3 downto 0);
 			system	: OUT STD_LOGIC
 	);
 	END COMPONENT;	
 	
 	COMPONENT multi is
-    port(clk       : IN  STD_LOGIC;
+port(clk       : IN  STD_LOGIC;
 	 	   system 	 : in STD_LOGIC; 
          boot      : IN  STD_LOGIC;
 			wrout_l  : IN STD_LOGIC;
@@ -121,6 +149,9 @@ END COMPONENT;
          wrd_l     : IN  STD_LOGIC;
          wr_m_l    : IN  STD_LOGIC;
          w_b       : IN  STD_LOGIC;
+			--------TLB------------------
+			excp_miss_tlbi_l : IN STD_LOGIC;
+			excp_v_tlbi_l : IN STD_LOGIC;
 			--Signals para instrucciones de sistema-----
 			ei_l 	  : IN  STD_LOGIC;
 			di_l 	  : IN  STD_LOGIC;
@@ -161,9 +192,11 @@ END COMPONENT;
 	 signal ir, new_pc, pc_calc_t, pc_calc, t_immed : std_logic_vector(15 downto 0);
 	 signal tknbr : std_logic_vector(1 downto 0);
 	 signal t_ei, t_di,t_reti, reti_multi, t_a_sys, t_wrd_rsys : STD_LOGIC;
-	 signal intr_sys_t, inta_t, instr_il_t : STD_LOGIC;
-	 signal sys_call_b_t, t_exc_instr_sys : STD_LOGIC;
-	 signal wrd_tlbd_t, wrd_tlbi_t : STD_LOGIC;
+	 signal intr_sys_t, inta_t, instr_il_t,excp_psys_i_t,excp_psys_d_t : STD_LOGIC;
+	 signal sys_call_b_t, t_exc_instr_sys, excp_r_tlbd_tt : STD_LOGIC;
+	 signal wrd_tlbd_t, wrd_tlbi_t, excp_r_tlbd_t : STD_LOGIC;
+	 signal excp_v_tlbd_t, excp_v_tlbi_t, excp_v_tlbi_tt, excp_v_tlbd_tt : STD_LOGIC;
+	 signal excp_miss_tlbd_t, excp_miss_tlbi_t, excp_miss_tlbd_tt, excp_miss_tlbi_tt,excp_miss_tlbd_l,excp_miss_tlbi_l : STD_LOGIC;
 	 
 BEGIN
 
@@ -174,7 +207,10 @@ BEGIN
 	 e0: excepcions_controller port map(clk => clk, instr_il => instr_il_t, mem_align => mem_align, div_zero => div_zero, system_l => t_system_l,
 													system => t_system, exc_code => exc_code, sys_call_b => sys_call_b_t,
 													excepcion_mem_sys => excepcion_mem_sys,
-													exc_instr_sys => t_exc_instr_sys);
+													exc_instr_sys => t_exc_instr_sys,
+													excp_miss_tlbd => excp_miss_tlbd_t, excp_miss_tlbi => excp_miss_tlbi_t,
+													excp_v_tlbd => excp_v_tlbd_t,excp_v_tlbi => excp_v_tlbi_t,
+													excp_r_tlbd => excp_r_tlbd_t, excp_psys_d => excp_psys_d_t);
 	 
 	 c0: control_l port map (ir => ir, op => op, f => f, ldpc => ldpc_c, wrd => wrd_c, addr_a => addr_a, addr_b => addr_b,
 									 addr_d => addr_d, immed => t_immed, wr_m => wr_m_c, in_d => in_d, immed_x2 => immed_x2,
@@ -184,7 +220,11 @@ BEGIN
 									 ei => t_ei, di => t_di, reti => t_reti, a_sys => t_a_sys, wrd_rsys => t_wrd_rsys,
 									 instr_il => instr_il_t, sys_call_b => sys_call_b_t,
 									 modo_sistema => modo_sistema, wrd_tlbd => wrd_tlbd_t, wrd_tlbi => wrd_tlbi_t, virtual => virtual,
-									 exc_instr_sys => t_exc_instr_sys);
+									 exc_instr_sys => t_exc_instr_sys, miss_tlbd => miss_tlbd, miss_tlbi => miss_tlbi,
+									 excp_miss_tlbd => excp_miss_tlbd_t, excp_miss_tlbi => excp_miss_tlbi_t,
+									 v_i => v_i, v_d => v_d, excp_v_tlbd => excp_v_tlbd_t, excp_v_tlbi => excp_v_tlbi_t,
+									 r_d => r_d, excp_r_tlbd => excp_r_tlbd_t, pag_sys_i => pag_sys_i, pag_sys_d => pag_sys_d,
+									 excp_psys_i => excp_psys_i_t, excp_psys_d => excp_psys_d_t);
 									 
 									 
 	 m0: multi port map (clk => clk, boot => boot, ldpc_l => ldpc_c, wrd_l => wrd_c, wr_m_l => wr_m_c, w_b => w_b_c,
@@ -193,7 +233,8 @@ BEGIN
 								ldpc => load_pc, wrd => wrd, wr_m => wr_m, ldir => load_ir, inta_l => inta_t, inta => inta,
 								system => t_system, ins_dad => ins_dad, word_byte => word_byte,
 								ei => ei, di => di, reti => reti, a_sys => a_sys, wrd_rsys => wrd_rsys,
-								wrd_tlbd_l => wrd_tlbd_t, wrd_tlbd => wrd_tlbd, wrd_tlbi_l => wrd_tlbi_t, wrd_tlbi => wrd_tlbi);
+								wrd_tlbd_l => wrd_tlbd_t, wrd_tlbd => wrd_tlbd, wrd_tlbi_l => wrd_tlbi_t, wrd_tlbi => wrd_tlbi,
+								excp_v_tlbi_l => excp_v_tlbi_t, excp_miss_tlbi_l => excp_miss_tlbi_t);
 	 
 	 process(clk, boot, load_pc)
 		begin
@@ -208,6 +249,7 @@ BEGIN
 			end if;
 		end if;
 	end process;
+	
 	
 	immed <= t_immed;
 	intr_sys <= intr_sys_t;
